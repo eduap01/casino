@@ -1,255 +1,746 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Carta Casino</title>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      font-family: 'Raleway', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #f3f4f6, #ffffff);
-      color: #333;
-      animation: fadeIn 1s ease-in;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    header {
-      background-color: #1e1e2f;
-      color: white;
-      padding: 2rem 1rem;
-      text-align: center;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      animation: slideDown 0.7s ease-out;
-    }
-    @keyframes slideDown {
-      from { transform: translateY(-50px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-    header p {
-      font-size: 1rem;
-      margin-top: 0.5rem;
-    }
-    section {
-      padding: 2rem 1.5rem;
-      border-bottom: 1px solid #ddd;
-      max-width: 800px;
-      margin: 0 auto;
-      opacity: 0;
-      animation: fadeUp 0.8s ease forwards;
-    }
-    section:nth-of-type(n) { animation-delay: calc(0.2s * var(--i)); }
-    @keyframes fadeUp {
-      from { transform: translateY(40px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-    h2 {
-      border-left: 5px solid #FF6F61;
-      padding-left: 0.75rem;
-      margin-top: 2rem;
-      color: #222;
-    }
-    .item {
-      display: flex;
-      justify-content: space-between;
-      padding: 0.75rem 0;
-      border-bottom: 1px dashed #ccc;
-      transition: background-color 0.3s ease;
-    }
-    .item:hover {
-      background-color: #fff1ee;
-    }
-    .item span {
-      font-size: 1.05rem;
-    }
-    .price {
-      font-weight: bold;
-      color: #FF6F61;
-    }
-    footer {
-      background-color: #1e1e2f;
-      color: white;
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.95rem;
-      animation: fadeIn 1s ease-in 1.3s forwards;
-    }
-    .highlight {
-      background: #ff6f6133;
-      padding: 0.25rem 0.5rem;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-    .cta {
-      text-align: center;
-      margin: 2rem 0;
-      animation: fadeIn 1s ease-in 1.1s forwards;
-    }
-    .cta a {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      background-color: #FF6F61;
-      color: white;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-    .cta a:hover {
-      background-color: #e55c50;
-      transform: scale(1.05);
-    }
-    .logo {
-      max-width: 250px;
-      margin: 0 auto;
-    }
-  </style>
-</head>
-<body>
-  <header class="mb-4">
-    <div class="container text-center">
-      <img src="img/logoCasino.jpeg" alt="Logo Casino" class="img-fluid mb-3 logo">
-      <p>Pedidos al <a href="tel:+34666666369" class="btn btn-success btn-lg shadow">📞666 666 369</a></p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carta Casino</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Raleway", sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #f3f4f6, #ffffff);
+        color: #333;
+        animation: fadeIn 1s ease-in;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      header {
+        background-color: #1e1e2f;
+        color: white;
+        padding: 2rem 1rem;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        animation: slideDown 0.7s ease-out;
+      }
+      @keyframes slideDown {
+        from {
+          transform: translateY(-50px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      header h1 {
+        margin: 0;
+        font-size: 2.5rem;
+      }
+      header p {
+        font-size: 1rem;
+        margin-top: 0.5rem;
+      }
+      section {
+        padding: 2rem 1.5rem;
+        border-bottom: 1px solid #ddd;
+        max-width: 800px;
+        margin: 0 auto;
+        opacity: 0;
+        animation: fadeUp 0.8s ease forwards;
+      }
+      section:nth-of-type(n) {
+        animation-delay: calc(0.2s * var(--i));
+      }
+      @keyframes fadeUp {
+        from {
+          transform: translateY(40px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      h2 {
+        border-left: 5px solid #ff6f61;
+        padding-left: 0.75rem;
+        margin-top: 2rem;
+        color: #222;
+      }
+      .item {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.75rem 0;
+        border-bottom: 1px dashed #ccc;
+        transition: background-color 0.3s ease;
+      }
+      .item:hover {
+        background-color: #fff1ee;
+      }
+      .item span {
+        font-size: 1.05rem;
+      }
+      .price {
+        font-weight: bold;
+        color: #ff6f61;
+      }
+      footer {
+        background-color: #1e1e2f;
+        color: white;
+        text-align: center;
+        padding: 2rem 1rem;
+        font-size: 0.95rem;
+        animation: fadeIn 1s ease-in 1.3s forwards;
+      }
+      .highlight {
+        background: #ff6f6133;
+        padding: 0.25rem 0.5rem;
+        border-radius: 5px;
+        font-weight: bold;
+      }
+      .cta {
+        text-align: center;
+        margin: 2rem 0;
+        animation: fadeIn 1s ease-in 1.1s forwards;
+      }
+      .cta a {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        background-color: #ff6f61;
+        color: white;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+      }
+      .cta a:hover {
+        background-color: #e55c50;
+        transform: scale(1.05);
+      }
+      .logo {
+        max-width: 250px;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#compartir">🤝 Compartir</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#ensaladas">🥗 Ensaladas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#zipotes">🌮 Zipotes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#molletes">🥖 Molletes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#sandwich">🥪 Sándwiches</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#hamburguesas">🍔 Hamburguesas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#pizzas">🍕 Pizzas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#cafes">☕ Cafés</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#postres">🍰 Postres</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#helados">🍦 Helados y Batidos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#arroces">🍚 Arroces por Encargo</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <header class="mb-4">
+      <div class="container text-center">
+        <img
+          src="img/logoCasino.jpeg"
+          alt="Logo Casino"
+          class="img-fluid mb-3 logo"
+        />
+        <p>
+          Pedidos al
+          <a href="tel:+34666666369" class="btn btn-success btn-lg shadow"
+            >📞666 666 369</a
+          >
+        </p>
+      </div>
+    </header>
+
+    <h3 class="text-center mb-4">¡Bienvenidos a la carta de Casino!</h3>
+    <section id="compartir" class="mb-5">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">🤝 Compartir es Vivir</h2>
+          <p>
+            <strong>Perfectos para picar entre amigos o en familia.</strong>
+          </p>
+          <div class="item">
+            <span
+              ><strong>Nachos <img src="img/sinGluten.png" /></strong> — Quesos
+              fundidos,guacamole,beicon crispy y salsa ranchera.</span
+            ><span class="price">10,90€</span>
+          </div>
+          <div class="item">
+            <span
+              ><strong
+                >Flores de alcachofa <img src="img/sinGluten.png"
+              /></strong>
+              — Con virutas de jamón ibérico y foie-grass.</span
+            ><span class="price">12,90€</span>
+          </div>
+          <div class="item">
+            <span
+              ><strong>Verduritas en tempura</strong> — Con salsa de
+              sojamiel.</span
+            ><span class="price">9,90€</span>
+          </div>
+          <div class="item">
+            <span
+              ><strong>Alitas barbacoa</strong> — Alitas de pollo fritas con
+              salsa barbacoa casera y patatas.</span
+            ><span class="price">9,90€</span>
+          </div>
+          <div class="item">
+            <span
+              ><strong
+                >Patatas rancheras <img src="img/sinGluten.png"
+              /></strong>
+              — Patatas molonas con trío de quesos fundidos,beicon crunchy y
+              salsa ranchera.</span
+            ><span class="price">10,90€</span>
+          </div>
+          <div class="item">
+            <span
+              ><strong>Patatas bravioli <img src="img/sinGluten.png" /></strong>
+              — Con salsa brava casera y alioli.</span
+            ><span class="price">7,90€</span>
+          </div>
+          <div class="item">
+            <span><strong>Queso frito</strong> — Con dulce de piquillos.</span
+            ><span class="price">9,90€</span>
+          </div>
+          <div class="item">
+            <span
+              ><strong
+                >Croquetas caseras de jamón ibérico
+                <img src="img/sinGluten.png"
+              /></strong>
+              — Con huevo frito y especias.</span
+            ><span class="price">9,90€</span>
+          </div>
+          <div class="item">
+            <span
+              ><strong
+                >Mollejas ibéricas al ajillo
+                <img src="img/sinGluten.png" /></strong></span
+            ><span class="price">12,90€</span>
+          </div>
+          <div class="item">
+            <span
+              ><strong
+                >Huevos estrellados con jamón ibérico
+                <img src="img/sinGluten.png" /></strong></span
+            ><span class="price">10,90€</span>
+          </div>
+          <div class="item">
+            <span
+              ><strong
+                >Huevos estrellados con torreznos
+                <img src="img/sinGluten.png" /></strong></span
+            ><span class="price">10,90€</span>
+          </div>
+          <div class="item">
+            <span
+              ><strong
+                >Huevos estrellados con secreto iberico
+                <img src="img/sinGluten.png" /></strong></span
+            ><span class="price">10,90€</span>
+          </div>
+          <div class="item">
+            <span><strong>Calamares</strong> — A la andaluza.</span
+            ><span class="price">12,90€</span>
+          </div>
+          <div class="item">
+            <span><strong>Cazón</strong> — En adobo con alioli.</span
+            ><span class="price">9,90€</span>
+          </div>
+          <div class="item">
+            <span
+              ><strong>Costijack´s <img src="img/sinGluten.png" /></strong> —
+              Costillas glaseadas con Jack Daniel´s y miel.</span
+            ><span class="price">12,90€</span>
+          </div>
+          <div class="item">
+            <span
+              ><strong
+                >Carcamusas de la juana <img src="img/sinGluten.png"
+              /></strong>
+              — Con mucho lover.</span
+            ><span class="price">10,90€</span>
+          </div>
+          <div class="item">
+            <span
+              ><strong
+                >Brochetas de pollo teriyaki <img src="img/sinGluten.png"
+              /></strong>
+              — Tacos de pollo marinado con adobo japonés y sésamo. </span
+            ><span class="price">10,90€</span>
+          </div>
+          <div class="item">
+            <span
+              ><strong>Pollo popeye</strong> — Tiras de pollo crujiente con
+              patatas y, si quieres alguna salsa.</span
+            ><span class="price">9,90€</span>
+          </div>
+          <div class="item">
+            <span
+              ><strong>Nuggets <img src="img/sinGluten.png" /></strong> — Con
+              patatas.</span
+            ><span class="price">9,90€</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ensaladas" class="mb-5">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">🥗 Ensaladas</h2>
+          <p class="card-text">
+            <strong>Frescas, completas y llenas de sabor.</strong>
+          </p>
+          <div class="item">
+            <span
+              ><strong>Ensalada Augusto <img src="img/sinGluten.png" /></strong>
+              – Lechugas, pollo crujiente, parmesano, nueces, picatostes y salsa
+              estilo César </span
+            ><span class="price">11,90€</span>
+          </div>
+          <div class="item">
+            <span
+              ><strong>Cabruna</strong> – Lechugas, queso de cabra a la plancha,
+              cherrys y mermelada de beicon</span
+            ><span class="price">11,90€</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="zipotes" class="mb-5">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">🌮 Zipotes</h2>
+          <p><strong>Todos acompañados de patatas.</strong></p>
+          <div class="item">
+            <span class="mb-8"
+              ><strong>Pollo crunchy</strong> — Pollo crujiente,beicon,lechuga y
+              salsa Cesar.</span
+            ><span class="price">9,90€</span>
+          </div>
+          <div class="item">
+            <span
+              ><strong>Jamón y queso</strong> — Jamon cocido,cheddar y
+              tierno.</span
+            ><span class="price">6,90€</span>
+          </div>
+          <div class="item">
+            <span
+              ><strong>Mejicano</strong> — Con trío de pimientos, cebolla,tiras
+              de pollo y especies aztecas.</span
+            ><span class="price">8,90€</span>
+          </div>
+          <div class="item">
+            <span
+              ><strong>Zipoburguer</strong> — Doble de carne smash,doble de
+              queso,doble de beicon,lechuga,tomste,cebolla crispy y salsa
+              especial.</span
+            ><span class="price">12,90€</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="molletes" class="mb-5">
+      <div class="card">
+        <div class="card-body">
+      <h2 class="card-title">🥖 Molletes</h2>
+      <div class="text-center mb-4">
+        <img src="img/sinGluten.png" /> Opcion sin gluten<br />
+      </div>
+      <div class="item">
+        <span><strong>Beicon</strong> — Con queso cheddar y tomate.</span
+        ><span class="price">7,50€</span>
+      </div>
+      <div class="item">
+        <span
+          ><strong>Pollo a la plancha</strong> — Con lechuga y guacamole.</span
+        ><span class="price">7,50€</span>
+      </div>
+      <div class="item">
+        <span
+          ><strong>Secreto ibérico</strong> — Con queso cabrales y pimientos del
+          piquillo. </span
+        ><span class="price">8,90€</span>
+      </div>
+      <div class="item">
+        <span
+          ><strong>Philly steak</strong> — Ternera glaseada queso fundido y
+          cebolla caramelizada. </span
+        ><span class="price">8,90€</span>
+      </div>
+      <div class="item">
+        <span><strong>Jamón ibérico</strong> — Con salmorejo. </span
+        ><span class="price">7,90€</span>
+      </div>
+      <div class="item">
+        <span
+          ><strong>Pulled pork</strong> — Carne de cerdo deshilachada con
+          cebolla roja encurtida y salsa barbacoa "By Dudu". </span
+        ><span class="price">8,90€</span>
+      </div>
+      <div class="item">
+        <span><strong>Calamares</strong> — Con alioli. </span
+        ><span class="price">7,90€</span>
+      </div>
+      <div class="item">
+        <span
+          ><strong>Pastrami</strong> — Con mayonesa de parmesano y pepinillos. </span
+        ><span class="price">9,90€</span>
+      </div>
     </div>
-  </header>
-  
-  <h3 class="text-center mb-4">¡Bienvenidos a la carta de Casino!</h3>
-  <section>
-    <h2>🤝 Compartir es Vivir</h2>
-    <p><strong>Perfectos para picar entre amigos o en familia.</strong></p>
-    <div class="item"><span><strong>Nachos <img src="img/sinGluten.png"></strong> — Quesos fundidos,guacamole,beicon crispy y salsa ranchera.</span><span class="price">10,90€</span></div>
-    <div class="item"><span><strong>Flores de alcachofa <img src="img/sinGluten.png"></strong> — Con virutas de jamón ibérico y foie-grass.</span><span class="price">12,90€</span></div>
-    <div class="item"><span><strong>Verduritas en tempura</strong> — Con salsa de sojamiel.</span><span class="price">9,90€</span></div>
-    <div class="item"><span><strong>Alitas barbacoa</strong> — Alitas de pollo fritas con salsa barbacoa casera y patatas.</span><span class="price">9,90€</span></div>
-    <div class="item"><span><strong>Patatas rancheras <img src="img/sinGluten.png"></strong> — Patatas molonas con trío de quesos fundidos,beicon crunchy y salsa ranchera.</span><span class="price">10,90€</span></div>
-    <div class="item"><span><strong>Patatas bravioli <img src="img/sinGluten.png"></strong> — Con salsa brava casera y alioli.</span><span class="price">7,90€</span></div>
-    <div class="item"><span><strong>Queso frito</strong> — Con dulce de piquillos.</span><span class="price">9,90€</span></div>
-    <div class="item"><span><strong>Croquetas caseras de jamón ibérico <img src="img/sinGluten.png"></strong> — Con huevo frito y especias.</span><span class="price">9,90€</span></div>
-    <div class="item"><span><strong>Mollejas ibéricas al ajillo <img src="img/sinGluten.png"></strong></span><span class="price">12,90€</span></div>
-    <div class="item"><span><strong>Huevos estrellados con jamón ibérico <img src="img/sinGluten.png"></strong></span><span class="price">10,90€</span></div>
-    <div class="item"><span><strong>Huevos estrellados con torreznos <img src="img/sinGluten.png"></strong></span><span class="price">10,90€</span></div>
-    <div class="item"><span><strong>Huevos estrellados con secreto iberico <img src="img/sinGluten.png"></strong></span><span class="price">10,90€</span></div>
-    <div class="item"><span><strong>Calamares</strong> — A la andaluza.</span><span class="price">12,90€</span></div>
-    <div class="item"><span><strong>Cazón</strong> — En adobo con alioli.</span><span class="price">9,90€</span></div>
-    <div class="item"><span><strong>Costijack´s <img src="img/sinGluten.png"></strong> — Costillas glaseadas con Jack Daniel´s y miel.</span><span class="price">12,90€</span></div>
-    <div class="item"><span><strong>Carcamusas de la juana <img src="img/sinGluten.png"></strong> — Con mucho lover.</span><span class="price">10,90€</span></div>
-    <div class="item"><span><strong>Brochetas de pollo teriyaki <img src="img/sinGluten.png"></strong> — Tacos de pollo marinado con adobo japonés y sésamo. </span><span class="price">10,90€</span></div>
-    <div class="item"><span><strong>Pollo popeye</strong> — Tiras de pollo crujiente con patatas y, si quieres alguna salsa.</span><span class="price">9,90€</span></div>
-    <div class="item"><span><strong>Nuggets <img src="img/sinGluten.png"></strong> — Con patatas.</span><span class="price">9,90€</span></div>
-  </section>
-
-  <section>
-    <h2>🥗 Ensaladas</h2>
-    <p><strong>Frescas, completas y llenas de sabor.</strong></p>
-    <div class="item"><span><strong>Ensalada Augusto <img src="img/sinGluten.png"></strong> – Lechugas, pollo crujiente, parmesano, nueces, picatostes y salsa estilo César </span><span class="price">11,90€</span></div>
-    <div class="item"><span><strong>Cabruna</strong> – Lechugas, queso de cabra a la plancha, cherrys y mermelada de beicon</span><span class="price">11,90€</span></div>
-  </section>
-
-  <section>
-    <h2>🌮 Zipotes</h2>
-    <p><strong>Todos acompañados de patatas.</strong></p>
-    <div class="item"><span class="mb-8"><strong>Pollo crunchy</strong> — Pollo crujiente,beicon,lechuga y salsa Cesar.</span><span class="price">9,90€</span></div>
-    <div class="item"><span><strong>Jamón y queso</strong> — Jamon cocido,cheddar y tierno.</span><span class="price">6,90€</span></div>
-    <div class="item"><span><strong>Mejicano</strong> — Con trío de pimientos, cebolla,tiras de pollo y especies aztecas.</span><span class="price">8,90€</span></div>
-    <div class="item"><span><strong>Zipoburguer</strong> — Doble de carne smash,doble de queso,doble de beicon,lechuga,tomste,cebolla crispy y salsa especial.</span><span class="price">12,90€</span></div>
-  </section>
-
-  <section>
-    <h2>🥖 Molletes</h2>
-    <div class="text-center mb-4"><img src="img/sinGluten.png"> Opcion sin gluten<br></div>
-    <div class="item"><span><strong>Beicon</strong> — Con queso cheddar y tomate.</span><span class="price">7,50€</span></div>
-    <div class="item"><span><strong>Pollo a la plancha</strong> — Con lechuga y guacamole.</span><span class="price">7,50€</span></div>
-    <div class="item"><span><strong>Secreto ibérico</strong> — Con queso cabrales y pimientos del piquillo. </span><span class="price">8,90€</span></div>
-    <div class="item"><span><strong>Philly steak</strong> — Ternera glaseada queso fundido y cebolla caramelizada. </span><span class="price">8,90€</span></div>
-    <div class="item"><span><strong>Jamón ibérico</strong> — Con salmorejo. </span><span class="price">7,90€</span></div>
-    <div class="item"><span><strong>Pulled pork</strong> — Carne de cerdo deshilachada con cebolla roja encurtida y salsa barbacoa "By Dudu". </span><span class="price">8,90€</span></div>
-    <div class="item"><span><strong>Calamares</strong> — Con alioli. </span><span class="price">7,90€</span></div>
-    <div class="item"><span><strong>Pastrami</strong> — Con mayonesa de parmesano y pepinillos. </span><span class="price">9,90€</span></div>
-  </section>
-
-  <section>
-    <h2>🥪 Sándwiches</h2>
-    <div class="text-center mb-4"><img src="img/sinGluten.png"> Opcion sin gluten<br></div>
-    <p><strong>Todos acompañados de patatas.</strong></p>
-    <div class="item"><span><strong>Club</strong> — Pollo a la plancha, beicon, huevo frito, lechuga, tomate, jamón cocido, queso y mayonesa.</span><span class="price">10,90€</span></div>
-    <div class="item"><span><strong>Salmón</strong> — Salmón ahumado, lechuga, tomate, cebolla roja y mayo de pepinillos.</span><span class="price">10,90€</span></div>
-    <div class="item"><span><strong>Mixto</strong> — Jamón cocido y queso tierno en tres pisos. <em>(Contiene gluten, lácteos)</em></span><span class="price">6,50€</span></div>
-    <div class="item"><span><strong>Vegetal</strong> — Lechuga, tomate, espárragos, pepinillos y aguacate.</span><span class="price">6,50€</span></div>
-  </section>
-
-<section>
-  <h2>🍔 Hamburguesas</h2>
-  <p><strong>Elaboradas en nuestra cocina 80% ternera, 20% tocino ibérico, acompañadas de patatas fritas y en pan brioche.</strong></p>
-  <div class="item"><span><strong>Tradicional <img src="img/sinGluten.png"></strong> — Carne, queso, beicon, lechuga y tomate.</span><span class="price">11,90€</span></div>
-  <div class="item"><span><strong>Casino <img src="img/sinGluten.png"></strong> — Carne, queso de cabra, beicon, cebolla caramelizada, lechuga y tomate.</span><span class="price">12,90€</span></div>
-  <div class="item"><span><strong>Pollo a la plancha <img src="img/sinGluten.png"></strong> — Pechuga de pollo,beicon,queso,lechuga y tomate.</span><span class="price">10,90€</span></div>
-  <div class="item"><span><strong>Big crispy chicken</strong> — Pollo crujiente con cereales, lechuga, tomate,beicon y queso. </span><span class="price">9,90€</span></div>
-  <div class="item"><span><strong>Crispy Chicken Kid</strong> — Pollo crujiente con cereales, lechuga, tomate, beicon y queso. </span><span class="price">7,90€</span></div>
-  <div class="item"><span><strong>Vegana <img src="img/sinGluten.png"></strong> — A base de guisantes, espárragos blancos, lechuga,tomate y cebolla.</span><span class="price">12,90€</span></div>
-  <div class="item"><span><strong>Doble burguer <img src="img/sinGluten.png"></strong> — Doble de carne, doble de queso, doble de beicon,lechuga y tomate.</span><span class="price">16,90€</span></div>
-  <div class="item"><span><strong>Smash Burguer Ali-Up <img src="img/sinGluten.png"></strong> — 200g de carne en dos medallones crujientes y jugosos, doble de beicon, doble de cheddar y salsa especial ALI-UP.</span><span class="price">12,90€</span></div>
+  </div>
 </section>
 
-
-
-<section>
-  <h2>🍕 Pizzas</h2>
-  <div class="item"><span><strong>York Chuky</strong> — AOVE, tomate natural, mozzarella y jamón cocido. <em>(Contiene gluten, lácteos)</em></span><span class="price">11,90€</span></div>
-  <div class="item"><span><strong>Barbacoa</strong> — AOVE, salsa barbacoa, mozzarella, carne picada de ternera y beicon crispy. <em>(Contiene gluten, lácteos)</em></span><span class="price">11,90€</span></div>
-  <div class="item"><span><strong>Casino</strong> — AOVE, tomate natural, mozzarella, beicon y rodajas de tomate. <em>(Contiene gluten, lácteos)</em></span><span class="price">11,90€</span></div>
-  <div class="item"><span><strong>Pulled Pork</strong> — AOVE, tomate natural, mozzarella, carne asada de cerdo, salsa barbacoa casera y cebolla roja encurtida. <em>(Contiene gluten, lácteos)</em></span><span class="price">11,90€</span></div>
-  <div class="item"><span><strong>5 Quesos</strong> — AOVE, tomate natural, mozzarella, queso manchego, de cabra, cheddar y roquefort. <em>(Contiene gluten, lácteos)</em></span><span class="price">11,90€</span></div>
-  <div class="item"><span><strong>La Tijuana</strong> — AOVE, tomate natural, mozzarella, pollo, trío de pimientos y un toque picante. <em>(Contiene gluten, lácteos)</em></span><span class="price">11,90€</span></div>
-  <div class="item"><span><strong>Hortelana</strong> — AOVE, tomate natural, mozzarella, calabacín, pimientos, espárragos, champiñón y berenjena. <em>(Contiene gluten, lácteos)</em></span><span class="price">11,90€</span></div>
-  <div class="item"><span><strong>Atuntún</strong> — AOVE, tomate natural, mozzarella y atún. <em>(Contiene gluten, lácteos, pescado)</em></span><span class="price">11,90€</span></div>
+<section id="sandwich" class="mb-5">
+  <div class="card">
+    <div class="card-body">
+      <h2 class="card-title">🥪 Sándwiches</h2>
+      <div class="text-center mb-4">
+        <img src="img/sinGluten.png" /> Opcion sin gluten<br />
+      </div>
+      <p><strong>Todos acompañados de patatas.</strong></p>
+      <div class="item">
+        <span
+          ><strong>Club</strong> — Pollo a la plancha, beicon, huevo frito,
+          lechuga, tomate, jamón cocido, queso y mayonesa.</span
+        ><span class="price">10,90€</span>
+      </div>
+      <div class="item">
+        <span
+          ><strong>Salmón</strong> — Salmón ahumado, lechuga, tomate, cebolla
+          roja y mayo de pepinillos.</span
+        ><span class="price">10,90€</span>
+      </div>
+      <div class="item">
+        <span
+          ><strong>Mixto</strong> — Jamón cocido y queso tierno en tres pisos.
+          <em>(Contiene gluten, lácteos)</em></span
+        ><span class="price">6,50€</span>
+      </div>
+      <div class="item">
+        <span
+          ><strong>Vegetal</strong> — Lechuga, tomate, espárragos, pepinillos y
+          aguacate.</span
+        ><span class="price">6,50€</span>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section>
-  <h2>☕ Bar - Cafés Especiales</h2>
-  <div class="item"><span>Frappé</span><span class="price">3,50€</span></div>
-  <div class="item"><span>Irlandés</span><span class="price">6,50€</span></div>
-  <div class="item"><span>Blanco y Negro</span><span class="price">5,00€</span></div>
-  <div class="item"><span>Baileys Caramelo</span><span class="price">5,90€</span></div>
-  <div class="item"><span>Té Matcha Frappé</span><span class="price">4,50€</span></div>
+<section id="hamburguesas" class="mb-5">
+  <div class="card">
+    <div class="card-body">
+      <h2 class="card-title">🍔 Hamburguesas</h2>
+      <p>
+        <strong
+          >Elaboradas en nuestra cocina 80% ternera, 20% tocino ibérico,
+          acompañadas de patatas fritas y en pan brioche.</strong
+        >
+      </p>
+      <div class="item">
+        <span
+          ><strong>Tradicional <img src="img/sinGluten.png" /></strong> — Carne,
+          queso, beicon, lechuga y tomate.</span
+        ><span class="price">11,90€</span>
+      </div>
+      <div class="item">
+        <span
+          ><strong>Casino <img src="img/sinGluten.png" /></strong> — Carne,
+          queso de cabra, beicon, cebolla caramelizada, lechuga y tomate.</span
+        ><span class="price">12,90€</span>
+      </div>
+      <div class="item">
+        <span
+          ><strong>Pollo a la plancha <img src="img/sinGluten.png" /></strong> —
+          Pechuga de pollo,beicon,queso,lechuga y tomate.</span
+        ><span class="price">10,90€</span>
+      </div>
+      <div class="item">
+        <span
+          ><strong>Big crispy chicken</strong> — Pollo crujiente con cereales,
+          lechuga, tomate,beicon y queso. </span
+        ><span class="price">9,90€</span>
+      </div>
+      <div class="item">
+        <span
+          ><strong>Crispy Chicken Kid</strong> — Pollo crujiente con cereales,
+          lechuga, tomate, beicon y queso. </span
+        ><span class="price">7,90€</span>
+      </div>
+      <div class="item">
+        <span
+          ><strong>Vegana <img src="img/sinGluten.png" /></strong> — A base de
+          guisantes, espárragos blancos, lechuga,tomate y cebolla.</span
+        ><span class="price">12,90€</span>
+      </div>
+      <div class="item">
+        <span
+          ><strong>Doble burguer <img src="img/sinGluten.png" /></strong> —
+          Doble de carne, doble de queso, doble de beicon,lechuga y
+          tomate.</span
+        ><span class="price">16,90€</span>
+      </div>
+      <div class="item">
+        <span
+          ><strong>Smash Burguer Ali-Up <img src="img/sinGluten.png" /></strong>
+          — 200g de carne en dos medallones crujientes y jugosos, doble de
+          beicon, doble de cheddar y salsa especial ALI-UP.</span
+        ><span class="price">12,90€</span>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section>
-  <h2>🍰 Postres</h2>
-  <div class="item"><span><strong>Tarta de queso</strong> — Cremosa y suave. <em>(Contiene lácteos, gluten)</em></span><span class="price">5,50€</span></div>
-  <div class="item"><span><strong>Brownie con helado de vainilla</strong> — De chocolate intenso. <em>(Contiene lácteos, gluten, huevo)</em></span><span class="price">5,50€</span></div>
-  <div class="item"><span><strong>Hojaldre de manzana y arándanos con helado de vainilla</strong> — Crujiente y afrutado. <em>(Contiene gluten, lácteos)</em></span><span class="price">6,50€</span></div>
-  <div class="item"><span><strong>Tortitas</strong> — Esponjosas. <em>(Contiene gluten, huevo)</em></span><span class="price">3,90€</span></div>
-  <div class="item"><span><strong>Tortitas con helado</strong> — Acompañadas de bola de helado. <em>(Contiene gluten, huevo, lácteos)</em></span><span class="price">6,50€</span></div>
-  <div class="item"><span><strong>Gofres</strong> — Dulces y crujientes. <em>(Contiene gluten, huevo)</em></span><span class="price">3,90€</span></div>
-  <div class="item"><span><strong>Gofres con helado</strong> — Con bola de helado al gusto. <em>(Contiene gluten, huevo, lácteos)</em></span><span class="price">6,50€</span></div>
+<section id="pizzas" class="mb-5">
+  <div class="card">
+    <div class="card-body">
+      <h2 class="card-title">🍕 Pizzas</h2>
+      <div class="text-center mb-4">
+        <img src="img/sinGluten.png" /> Opcion sin gluten<br />
+      </div>
+      <div class="item">
+        <span
+          ><strong>York Chuky</strong> — AOVE, tomate natural, mozzarella y
+          jamón cocido. </span
+        ><span class="price">11,90€</span>
+      </div>
+      <div class="item">
+        <span
+          ><strong>Barbacoa</strong> — AOVE, salsa barbacoa, mozzarella, carne
+          picada de ternera y beicon crispy. </span
+        ><span class="price">11,90€</span>
+      </div>
+      <div class="item">
+        <span
+          ><strong>Casino</strong> — AOVE, tomate natural, mozzarella, beicon y
+          rodajas de tomate. </span
+        ><span class="price">11,90€</span>
+      </div>
+      <div class="item">
+        <span
+          ><strong>5 Quesos</strong> — AOVE, tomate natural, mozzarella, queso
+          manchego, de cabra, cheddar y roquefort. </span
+        ><span class="price">11,90€</span>
+      </div>
+      <div class="item">
+        <span
+          ><strong>Hortelana</strong> — AOVE, tomate natural, mozzarella,
+          calabacín, pimientos, espárragos, champiñón y berenjena. </span
+        ><span class="price">11,90€</span>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section>
-  <h2>🍦 Helados y Batidos</h2>
-  <div class="item"><span><strong>Helado 1 bola</strong> — Con tu sabor favorito. <em>(Contiene lácteos)</em></span><span class="price">3,50€</span></div>
-  <div class="item"><span><strong>Helado 2 bolas</strong> — Doble sabor. <em>(Contiene lácteos)</em></span><span class="price">5,90€</span></div>
-  <div class="item"><span><strong>Batidos naturales</strong> — <em>(Contiene lácteos)</em></span><span class="price">5,50€</span></div>
-  <div class="item"><span><strong>Sabores disponibles:</strong> Fresa, Vainilla, Chocolate, Limón, Unicornio, Galletas Oreo</span><span class="price"></span></div>
+<section id="cafes" class="mb-5">
+  <div class="card">
+    <div class="card-body">
+      <h2 class="card-title">☕ Bar - Cafés Especiales</h2>
+      <div class="item">
+        <span>Frappé</span><span class="price">3,50€</span>
+      </div>
+      <div class="item">
+        <span>Irlandés</span><span class="price">6,50€</span>
+      </div>
+      <div class="item">
+        <span>Blanco y Negro</span><span class="price">5,00€</span>
+      </div>
+      <div class="item">
+        <span>Baileys Caramelo</span><span class="price">5,90€</span>
+      </div>
+      <div class="item">
+        <span>Té Matcha Frappé</span><span class="price">4,50€</span>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="postres" class="mb-5">
+  <div class="card">
+    <div class="card-body">
+      <h2 class="card-title">🍰 Postres</h2>
+      <div class="item">
+        <span
+          ><strong>Tarta de queso</strong> — Cremosa y suave.
+          <em>(Contiene lácteos, gluten)</em></span
+        ><span class="price">5,50€</span>
+      </div>
+      <div class="item">
+        <span
+          ><strong>Brownie con helado de vainilla</strong> — De chocolate
+          intenso. <em>(Contiene lácteos, gluten, huevo)</em></span
+        ><span class="price">5,50€</span>
+      </div>
+      <div class="item">
+        <span
+          ><strong
+            >Hojaldre de manzana y arándanos con helado de vainilla</strong
+          >
+          — Crujiente y afrutado. <em>(Contiene gluten, lácteos)</em></span
+        ><span class="price">6,50€</span>
+      </div>
+      <div class="item">
+        <span
+          ><strong>Tortitas</strong> — Esponjosas.
+          <em>(Contiene gluten, huevo)</em></span
+        ><span class="price">3,90€</span>
+      </div>
+      <div class="item">
+        <span
+          ><strong>Tortitas con helado</strong> — Acompañadas de bola de helado.
+          <em>(Contiene gluten, huevo, lácteos)</em></span
+        ><span class="price">6,50€</span>
+      </div>
+      <div class="item">
+        <span
+          ><strong>Gofres</strong> — Dulces y crujientes.
+          <em>(Contiene gluten, huevo)</em></span
+        ><span class="price">3,90€</span>
+      </div>
+      <div class="item">
+        <span
+          ><strong>Gofres con helado</strong> — Con bola de helado al gusto.
+          <em>(Contiene gluten, huevo, lácteos)</em></span
+        ><span class="price">6,50€</span>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section>
-  <h2>🍚 Arroces por Encargo</h2>
-  <div class="item"><span>Arroz Senyoret</span><span class="price">16,00€ / persona</span></div>
-  <div class="item"><span>Arroz Negro de calamar, gambón y alioli</span><span class="price">14,00€ / persona</span></div>
-  <div class="item"><span>Paella Valenciana auténtica</span><span class="price">14,00€ / persona</span></div>
-  <div class="item"><span>Paella de Verduras</span><span class="price">13,00€ / persona</span></div>
-  <div class="item"><span>Arroz Caldoso Marinero</span><span class="price">16,00€ / persona</span></div>
+<section id="helados" class="mb-5">
+  <div class="card">
+    <div class="card-body">
+      <h2 class="card-title">🍦 Helados y Batidos</h2>
+      <div class="item">
+        <span
+          ><strong>Helado 1 bola</strong> — Con tu sabor favorito.
+          <em>(Contiene lácteos)</em></span
+        ><span class="price">3,50€</span>
+      </div>
+      <div class="item">
+        <span
+          ><strong>Helado 2 bolas</strong> — Doble sabor.
+          <em>(Contiene lácteos)</em></span
+        ><span class="price">5,90€</span>
+      </div>
+      <div class="item">
+        <span
+          ><strong>Batidos naturales</strong> —
+          <em>(Contiene lácteos)</em></span
+        ><span class="price">5,50€</span>
+      </div>
+      <div class="item">
+        <span
+          ><strong>Sabores disponibles:</strong> Fresa, Vainilla, Chocolate,
+          Limón, Unicornio, Galletas Oreo</span
+        ><span class="price"></span>
+      </div>
+    </div>
+  </div>
 </section>
 
-</body>
+<section id="arroces" class="mb-5">
+  <div class="card">
+    <div class="card-body">
+      <h2 class="card-title">🍚 Arroces por Encargo</h2>
+      <div class="item">
+        <span><strong>Arroz Senyoret</strong></span
+        ><span class="price">16,00€ / persona</span>
+      </div>
+      <div class="item">
+        <span><strong>Arroz Negro de calamar, gambón y alioli</strong></span
+        ><span class="price">14,00€ / persona</span>
+      </div>
+      <div class="item">
+        <span><strong>Paella Valenciana auténtica</strong></span
+        ><span class="price">14,00€ / persona</span>
+      </div>
+      <div class="item">
+        <span><strong>Paella de Verduras</strong></span
+        ><span class="price">13,00€ / persona</span>
+      </div>
+      <div class="item">
+        <span><strong>Arroz Caldoso Marinero</strong></span
+        ><span class="price">16,00€ / persona</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+        const navbarCollapse = document.querySelector(".navbar-collapse");
+
+        navLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            if (navbarCollapse.classList.contains("show")) {
+              new bootstrap.Collapse(navbarCollapse).toggle();
+            }
+          });
+        });
+      });
+    </script>
+  </body>
 </html>
