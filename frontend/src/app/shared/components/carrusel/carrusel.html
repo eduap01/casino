@@ -1,0 +1,22 @@
+<div id="casinoCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
+  <div class="carousel-inner rounded shadow overflow-hidden">
+    <div *ngFor="let img of images; let i = index"
+         class="carousel-item"
+         [class.active]="i === 0">
+      <img [src]="img.src"
+           class="d-block w-100 img-fluid"
+           [alt]="img.alt"
+           style="aspect-ratio: 16/7; object-fit: scale-down;">
+    </div>
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#casinoCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Anterior</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#casinoCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Siguiente</span>
+  </button>
+</div>
+
