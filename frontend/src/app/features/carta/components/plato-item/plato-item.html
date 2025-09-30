@@ -1,0 +1,9 @@
+<div class="item">
+  <span>
+    <strong>{{ nombre }}</strong>
+    <img *ngFor="let icono of iconos" [src]="icono" alt="icono" class="ms-1" />
+    <span *ngIf="descripcion"> — {{ descripcion }}</span>
+  </span>
+  <span class="price">{{ precio }}</span>
+</div>
+

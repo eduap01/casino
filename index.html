@@ -145,6 +145,7 @@
     </style>
   </head>
   <body>
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
       <div class="container-fluid">
         <button
@@ -182,16 +183,10 @@
               <a class="nav-link" href="#postres">🍰 Postres</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#batidos">🥤 Batidos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#bebidas">🍹 Bebidas</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="#cervezas">🍺 Cervezas Especiales</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#helados">🍦 Helados</a>
+              <a class="nav-link" href="#pizzas">🍕 Pizzas</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#arroces">🍚 Arroces por Encargo</a>
@@ -214,6 +209,25 @@
           >
         </p>
       </div>
+          <!-- Carrusel de imágenes -->
+<div id="casinoCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
+  <div class="carousel-inner rounded shadow overflow-hidden">
+    <div class="carousel-item active">
+      <img src="img/Burguer.jpeg" class="d-block w-100 img-fluid" alt="Burguer" style="aspect-ratio: 16/7; object-fit: scale-down;">
+    </div>
+    <div class="carousel-item">
+      <img src="img/Concierto.jpeg" class="d-block w-100 img-fluid" alt="Concierto" style="aspect-ratio: 16/7; object-fit: scale-down;">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#casinoCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Anterior</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#casinoCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Siguiente</span>
+  </button>
+</div>
     </header>
 
     <h3 class="text-center mb-4">¡Bienvenidos a la carta de Casino!</h3>
@@ -631,92 +645,10 @@
               ><strong>Coulant</strong></span
             ><span class="price">6€</span>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="batidos" class="mb-5">
-      <div class="card">
-        <div class="card-body">
-          <h2 class="card-title">🥤 Batidos</h2>
           <div class="item">
             <span
-              ><strong>Batidos naturales</strong></span
+              ><strong>Tarta de queso</strong></span
             ><span class="price">5,50€</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-            <!-- Bebidas -->
-    <section id="bebidas" class="mb-5">
-      <div class="card">
-        <div class="card-body">
-          <h2 class="card-title">🍹 Bebidas</h2>
-          <div class="item">
-            <span><strong>Tinto de verano especial con amor líquido</strong></span>
-            <span class="price">4,00€</span>
-          </div>
-          <div class="item">
-            <span><strong>Mojito</strong></span>
-            <span class="price">7€</span>
-          </div>
-          <div class="item">
-            <span><strong>Piña colada</strong></span>
-            <span class="price">7€</span>
-          </div>
-          <div class="item">
-            <span><strong>Granizado de limón</strong></span>
-            <span class="price">3,50€</span>
-          </div>
-          <div class="item">
-            <span><strong>Caipiriña</strong></span>
-            <span class="price">7€</span>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Cervezas especiales -->
-    <section id="cervezas" class="mb-5">
-      <div class="card">
-        <div class="card-body">
-          <h2 class="card-title">🍺 Cervezas Especiales</h2>
-          <div class="item">
-            <span><strong>Alhambra verde</strong></span>
-            <span class="price">4€</span>
-          </div>
-          <div class="item">
-            <span><strong>Alhambra roja</strong></span>
-            <span class="price">4€</span>
-          </div>
-          <div class="item">
-            <span><strong>Mahou reserva</strong></span>
-            <span class="price">4€</span>
-          </div>
-          <div class="item">
-            <span><strong>Coronita</strong></span>
-            <span class="price">4€</span>
-          </div>
-          <div class="item">
-            <span><strong>Alhambra especial</strong></span>
-            <span class="price">4€</span>
-          </div>
-          <div class="item">
-            <span><strong>Budweiser</strong></span>
-            <span class="price">4€</span>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Helados -->
-    <section id="helados" class="mb-5">
-      <div class="card">
-        <div class="card-body">
-          <h2 class="card-title">🍦 Helados</h2>
-          <div class="item">
-            <span><strong>Fantasmikos</strong></span>
-            <span class="price">2,50€</span>
           </div>
           <div class="item">
             <span><strong>Pirulo</strong></span>
@@ -727,16 +659,100 @@
             <span class="price">3,90€</span>
           </div>
           <div class="item">
-            <span><strong>Cono Kit-Kat</strong></span>
+            <span><strong>Maxibon cookies</strong></span>
             <span class="price">3,90€</span>
           </div>
+        </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Cervezas especiales -->
+    <section id="cervezas" class="mb-5">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">🍺 Cervezas Especiales</h2>
           <div class="item">
-            <span><strong>Bombón almendrado</strong></span>
-            <span class="price">3,90€</span>
+            <span><strong>Franziskaner</strong></span>
+            <span class="price">4,50€</span>
           </div>
           <div class="item">
-            <span><strong>Maxibon cheesecake</strong></span>
-            <span class="price">3,90€</span>
+            <span><strong>Hoegaarden</strong></span>
+            <span class="price">3,80€</span>
+          </div>
+          <div class="item">
+            <span><strong>San Miguel Selecta</strong></span>
+            <span class="price">3,80€</span>
+          </div>
+          <div class="item">
+            <span><strong>Alhambra roja</strong></span>
+            <span class="price">4€</span>
+          </div>
+          <div class="item">
+            <span><strong>Alhambra verde</strong></span>
+            <span class="price">4€</span>
+          </div>
+          <div class="item">
+            <span><strong>Stella Artois</strong></span>
+            <span class="price">3,80€</span>
+          </div>
+          <div class="item">
+            <span><strong>Pacifico</strong></span>
+            <span class="price">3,80€</span>
+          </div>
+          <div class="item">
+            <span><strong>Brutus</strong></span>
+            <span class="price">3,80€</span>
+          </div>
+          <div class="item">
+            <span><strong>Leffe Brune</strong></span>
+            <span class="price">4€</span>
+          </div>
+          <div class="item">
+            <span><strong>Magna</strong></span>
+            <span class="price">3,80€</span>
+          </div>
+          <div class="item">
+            <span><strong>Alhambra IPA</strong></span>
+            <span class="price">4,30€</span>
+          </div>
+          <div class="item">
+            <span><strong>Budweiser</strong></span>
+            <span class="price">3,80€</span>
+          </div>
+          <div class="item">
+            <span><strong>Corona</strong></span>
+            <span class="price">3,80€</span>
+          </div>
+          <div class="item">
+            <span><strong>Mahou reserva</strong></span>
+            <span class="price">4€</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pizzas" class="mb-5">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">🍕 Pizzas</h2>
+          <div class="item">
+            <span><strong>York chuky</strong> – AOVE, tomate natural, mozzarella y jamón cocido</span>
+          </div>
+          <div class="item">
+            <span><strong>Casino</strong> – AOVE, tomate natural, mozzarella, bacon y rodajas de tomate</span>
+          </div>
+          <div class="item">
+            <span><strong>5 quesos</strong> – AOVE, tomate natural, mozzarella, queso manchego, de cabra, cheddar y roquefort</span>
+          </div>
+          <div class="item">
+            <span><strong>Barbacoa</strong> – AOVE, tomate natural, mozzarella, picada de ternera, y bacon crispy</span>
+          </div>
+          <div class="item">
+            <span><strong>Atuntún</strong> – AOVE, tomate natural, mozzarella, atún, cebolla caramelizada y bacon</span>
+          </div>
+          <div class="item">
+            <span><strong>Hortelana</strong> – AOVE, tomate natural, mozzarella, calabacín, pimientos, espárragos, champiñón y berenjena</span>
           </div>
         </div>
       </div>
@@ -773,6 +789,7 @@
         </div>
       </div>
     </section>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
