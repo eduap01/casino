@@ -1,19 +1,31 @@
 // src/app/app.ts
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, NavigationEnd,RouterOutlet } from '@angular/router';
 import { Navbar } from './shared/components/navbar/navbar';
 import { Footer } from './shared/components/footer/footer';
+import { filter } from 'rxjs/operators';
 
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, Navbar, Footer],
+  imports: [RouterOutlet, NgIf, Navbar, Footer],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('frontend');
+  showNavbar = true;
+  showFooter = true;
+
+  constructor(private router: Router) {
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe((event: any) => {
+        const isWelcome = event.urlAfterRedirects === '/welcome';
+        this.showNavbar = !isWelcome;
+        this.showFooter = !isWelcome;
+      });
+  }
 }

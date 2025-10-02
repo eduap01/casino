@@ -1,32 +1,86 @@
 <header class="mb-4">
-  <div class="container text-center">
-    <img src="assets/logoCasino.jpeg" alt="Logo Casino" class="img-fluid mb-3 logo" />
-    <p>
-      Pedidos al
-      <a href="tel:+34666666369" class="btn btn-success btn-lg shadow">📞666 666 369</a>
-    </p>
-  </div>
+  <app-header-mini></app-header-mini>
 </header>
 
 <h3 class="text-center mb-4">¡Bienvenidos a la carta de Casino!</h3>
 
-<app-compartir></app-compartir>
-<app-ensaladas></app-ensaladas>
-<app-zipotes></app-zipotes>
-<app-molletes></app-molletes>
-<app-sandwiches></app-sandwiches>
-<app-hamburguesas></app-hamburguesas>
-<app-cafes></app-cafes>
-<app-pizzas></app-pizzas>
-<app-postres></app-postres>
-<app-cervezas></app-cervezas>
-<app-arroces></app-arroces>
 
-<!--DE MOMENTO NO SE UTILIZARÁN-->
+<!-- Submenú con botones -->
+<div class="subnav text-center mb-4">
+  <button class="btn btn-outline-secondary m-1" (click)="scrollTo('compartir')">🤝 Compartir</button>
+  <button class="btn btn-outline-success m-1" (click)="scrollTo('ensaladas')">🥗 Ensaladas</button>
+  <button class="btn btn-outline-primary m-1" (click)="scrollTo('zipotes')">🥙 Zipotes</button>
+  <button class="btn btn-outline-dark m-1" (click)="scrollTo('molletes')">🥪 Molletes</button>
+  <button class="btn btn-outline-info m-1" (click)="scrollTo('sandwiches')">🥪 Sándwiches</button>
+  <button class="btn btn-outline-danger m-1" (click)="scrollTo('hamburguesas')">🍔 Hamburguesas</button>
+  <button class="btn btn-outline-warning m-1" (click)="scrollTo('cafes')">☕ Cafés</button>
+  <button class="btn btn-outline-danger m-1" (click)="scrollTo('pizzas')">🍕 Pizzas</button>
+  <button class="btn btn-outline-info m-1" (click)="scrollTo('postres')">🍰 Postres</button>
+  <button class="btn btn-outline-warning m-1" (click)="scrollTo('cervezas')">🍺 Cervezas</button>
+  <button class="btn btn-outline-success m-1" (click)="scrollTo('arroces')">🍚 Arroces</button>
+</div>
+
+
+
+<section id="compartir">
+  <app-compartir></app-compartir>
+</section>
+
+<section id="ensaladas">
+  <app-ensaladas></app-ensaladas>
+</section>
+
+<section id="zipotes">
+  <app-zipotes></app-zipotes>
+</section>
+
+<section id="molletes">
+  <app-molletes></app-molletes>
+</section>
+
+<section id="sandwiches">
+  <app-sandwiches></app-sandwiches>
+</section>
+
+<section id="hamburguesas">
+  <app-hamburguesas></app-hamburguesas>
+</section>
+
+<section id="cafes">
+  <app-cafes></app-cafes>
+</section>
+
+<section id="pizzas">
+  <app-pizzas></app-pizzas>
+</section>
+
+<section id="postres">
+  <app-postres></app-postres>
+</section>
+
+<section id="cervezas">
+  <app-cervezas></app-cervezas>
+</section>
+
+<section id="arroces">
+  <app-arroces></app-arroces>
+</section>
+
+<!-- DE MOMENTO NO SE UTILIZARÁN -->
 <!--
-<app-helados></app-helados>
-<app-batidos></app-batidos>
-<app-bebidas></app-bebidas>
+<section id="helados">
+  <app-helados></app-helados>
+</section>
+
+<section id="batidos">
+  <app-batidos></app-batidos>
+</section>
+
+<section id="bebidas">
+  <app-bebidas></app-bebidas>
+</section>
 -->
+
+<app-back-to-top></app-back-to-top>
 
 
