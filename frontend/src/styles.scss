@@ -205,11 +205,15 @@ section {
   border-bottom: 1px solid #ddd;
   max-width: 800px;
   margin: 0 auto;
+}
+
+/* Solo aplica animación si añado la clase */
+.animate {
   opacity: 0;
   animation: fadeUp 0.8s ease forwards;
 }
 
-section:nth-of-type(n) {
+.animate:nth-of-type(n) {
   animation-delay: calc(0.2s * var(--i));
 }
 
@@ -253,7 +257,7 @@ footer {
   text-align: center;
   padding: 2rem 1rem;
   font-size: 0.95rem;
-  animation: fadeIn 1s ease-in 1.3s forwards;
+  animation: fadeIn 1s ease-in 0s forwards;
 }
 
 .highlight {
@@ -313,5 +317,8 @@ footer {
   background: #e64a19;   // más oscuro al pasar ratón
   transform: scale(1.15); // animación de agrandar
 }
+
+
+
 
 
