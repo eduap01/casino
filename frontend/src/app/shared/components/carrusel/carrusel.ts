@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './carrusel.html',
   styleUrls: ['./carrusel.scss']
 })
-export class CarruselComponent {
+export class Carrusel {
   @Input() images: { src: string; alt: string }[] = [];
+  @Input() variant: 'hero' | 'small' = 'hero';
 }

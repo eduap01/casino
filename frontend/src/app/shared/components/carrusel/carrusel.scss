@@ -1,4 +1,12 @@
 .carousel-inner img {
-  aspect-ratio: 16/7;
-  object-fit: scale-down;
+  width: 100%;
+  object-fit: cover;
+}
+
+.hero img {
+  height: 100vh;
+}
+
+.small img {
+  height: 200px;
 }
