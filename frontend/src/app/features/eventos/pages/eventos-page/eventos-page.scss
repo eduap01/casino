@@ -1,0 +1,6 @@
+.eventos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem; // separa los eventos
+  align-items: start; // que no se estiren raro
+}

@@ -1,1 +1,15 @@
-<p>eventos-page works!</p>
+<section class="eventos animate">
+  <h1 class="text-center mb-4">Próximos Eventos</h1>
+
+  <div class="eventos-grid">
+    <app-evento-item
+      *ngFor="let ev of eventos"
+      [titulo]="ev.titulo"
+      [descripcion]="ev.descripcion"
+      [fecha]="ev.fecha"
+      [imagen]="ev.imagen"
+      [enlace]="ev.enlace">
+    </app-evento-item>
+  </div>
+</section>
+
