@@ -1,0 +1,99 @@
+/* welcome.component.scss */
+
+:host {
+  /* valores por defecto (se sobreescriben desde TS) */
+  --app-header-h: 0px;
+  --app-footer-h: 0px;
+}
+
+.welcome-page {
+  position: relative;
+  width: 100%;
+
+
+  height: calc(100dvh - var(--app-header-h) - var(--app-footer-h)) !important;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  .carousel-container {
+    position: relative;
+    width: 100%;
+    flex: 1;             /* ocupa lo que queda */
+    min-height: 0;
+
+    app-carrusel {
+      height: 100%;
+
+      .carousel-inner,
+      .carousel-item,
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+        background-color: #000;
+      }
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(2px);
+    }
+
+    .welcome-buttons a {
+      min-width: 200px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+/* Footer fijo solo en welcome */
+:host ::ng-deep app-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+.welcome-footer {
+  background-color: #1e1e2f;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.95rem;
+
+  p {
+    margin: 0.5rem 0;
+  }
+}
+
+
+/* Ajustes solo para el carrusel dentro de welcome */
+:host ::ng-deep app-carrusel .carousel,
+:host ::ng-deep app-carrusel .carousel-inner,
+:host ::ng-deep app-carrusel .carousel-item {
+  height: 100%;
+}
+:host ::ng-deep app-carrusel .carousel-item img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;    /* ajusta la imagen sin recortar */
+  object-position: center;
+}
+
+
+
