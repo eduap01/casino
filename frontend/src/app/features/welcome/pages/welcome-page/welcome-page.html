@@ -5,10 +5,16 @@
 
     <!-- Overlay con botones centrados -->
     <div class="overlay">
-      <div class="welcome-buttons text-center">
-        <a routerLink="/menus" class="btn btn-primary btn-lg m-2">📋 Menús</a>
-        <a routerLink="/carta" class="btn btn-success btn-lg m-2">🍽 Carta</a>
-        <a routerLink="/eventos" class="btn btn-warning btn-lg m-2">🎶 Eventos</a>
+      <!-- Botones -->
+      <div class="welcome-buttons">
+        <a  routerLink="/menus" class="btn btn-primary welcome-btn">Menús</a>
+        <a routerLink="/carta" class="btn btn-success welcome-btn">Carta</a>
+        <a routerLink="/eventos" class="btn btn-warning welcome-btn">Eventos</a>
+      </div>
+      <!-- Carteles -->
+      <div class="fila fila-carteles">
+        <img src="assets/pagos.jpeg" alt="Pago mínimo tarjeta" class="cartel-img cartel-welcome">
+        <img src="assets/servicioAgil.jpeg" alt="Una mesa una cuenta" class="cartel-img cartel-welcome">
       </div>
     </div>
   </div>
