@@ -1,6 +1,13 @@
 <section class="eventos animate">
-  <h1 class="text-center mb-4">Próximos Eventos</h1>
+  <div class="div-logo">
+  <img routerLink="/welcome"
+      src="assets/logoCasino.png"
+      alt="Logo Casino"
+      class="img-fluid mb-3 logo"
+    />
 
+</div>
+  <h1 class="text-center mb-4">Próximos Eventos</h1>
   <div class="eventos-grid">
     <app-evento-item
       *ngFor="let ev of eventos"

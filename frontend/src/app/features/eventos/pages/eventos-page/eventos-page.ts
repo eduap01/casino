@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EventoItem } from '../../components/evento-item/evento-item';
+import { RouterModule } from '@angular/router';
+
 
 @Component({
   selector: 'app-eventos-page',
   standalone: true,
-  imports: [CommonModule, EventoItem],
+  imports: [CommonModule, EventoItem, RouterModule],
   templateUrl: './eventos-page.html',
   styleUrls: ['./eventos-page.scss']
 })
