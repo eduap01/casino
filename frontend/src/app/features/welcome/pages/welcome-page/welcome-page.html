@@ -3,25 +3,20 @@
   <div class="carousel-container">
     <app-carrusel [images]="images"></app-carrusel>
 
-    <!-- Overlay con botones centrados -->
+    <!-- Overlay con botones y carteles -->
     <div class="overlay">
-      <!-- Botones -->
-      <div class="welcome-buttons">
-        <a  routerLink="/menus" class="btn btn-primary welcome-btn">Menús</a>
+      <!-- Fila de botones -->
+      <div class="fila fila-botones">
+        <a routerLink="/menus" class="btn btn-primary welcome-btn">Menús</a>
         <a routerLink="/carta" class="btn btn-success welcome-btn">Carta</a>
         <a routerLink="/eventos" class="btn btn-warning welcome-btn">Eventos</a>
       </div>
-      <!-- Carteles -->
+
+      <!-- Fila de carteles -->
       <div class="fila fila-carteles">
         <img src="assets/pagos.jpeg" alt="Pago mínimo tarjeta" class="cartel-img cartel-welcome">
         <img src="assets/servicioAgil.jpeg" alt="Una mesa una cuenta" class="cartel-img cartel-welcome">
       </div>
     </div>
-  </div>
-
-  <!-- Footer local como div -->
-  <div class="welcome-footer">
-    <p>&copy; 2025 Casino Rock Bar · Todos los derechos reservados</p>
-    <p>📍 Pl. España, 14, 45221 Esquivias, Toledo · ☎ Tel: 666 666 369</p>
   </div>
 </div>
