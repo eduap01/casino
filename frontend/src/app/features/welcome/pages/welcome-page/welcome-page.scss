@@ -1,7 +1,4 @@
-/* welcome.component.scss */
-
 :host {
-  /* valores por defecto (se sobreescriben desde TS) */
   --app-header-h: 0px;
   --app-footer-h: 0px;
 }
@@ -9,16 +6,13 @@
 .welcome-page {
   position: relative;
   width: 100%;
-  height: calc(100dvh - var(--app-header-h) - var(--app-footer-h)) !important;
+  height: 100dvh;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
 
   .carousel-container {
     position: relative;
     width: 100%;
-    flex: 1;             /* ocupa lo que queda */
-    min-height: 0;
+    height: 100%;
 
     app-carrusel {
       height: 100%;
@@ -28,7 +22,7 @@
       img {
         width: 100%;
         height: 100%;
-        object-fit: contain;
+        object-fit: cover;
         object-position: center;
         background-color: #000;
       }
@@ -36,353 +30,81 @@
 
     .overlay {
       position: absolute;
-      flex-direction: column;
       inset: 0;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      background: rgba(0, 0, 0, 0.4);
-      backdrop-filter: blur(2px);
-    }
+      gap: 5rem;
+      z-index: 3;
+      text-align: center;
 
-    .fila {
-      display: flex;
-      width: 360px;
-      height: auto;
-      justify-content: center;
-      gap: 3rem;
-      margin-bottom: 3rem;
-    }
+      /* ==== CAPA DEe1 SOMBREADO Y DIFUMINADO ==== */
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(5px);
+        z-index: 2;
+        pointer-events: none;
+      }
 
-    .fila-carteles {
-      margin-top: 22rem; // separación desde botones
-    }
-
-    @media (max-width: 768px) {
-      .fila-carteles {
-        flex-direction: column;
+      .fila {
+        display: flex;
+        justify-content: center;
         align-items: center;
-        margin-top: 12rem; // ajustamos en móviles
-      }
-    }
-
-    /* =========================
-       BOTONES DE LA WELCOME PAGE
-    ========================== */
-    .welcome-buttons {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-
-
-      /* variables bootstrap re-definidas solo aquí */
-      --bs-btn-padding-x: 3rem;
-      --bs-btn-padding-y: 2rem;
-      --bs-btn-font-size: 2rem;
-      --bs-btn-border-radius: 20px;
-      --bs-btn-font-weight: 700;
-      --bs-btn-box-shadow: 0 8px 22px rgba(0, 0, 0, 0.5);
-    }
-
-  /* Vista de escritorio (≥ 1025px) */
-@media (min-width: 1025px) {
-  .welcome-buttons {
-    justify-content: space-around;
-    gap: 4rem;
-
-    --bs-btn-padding-x: 3.5rem;
-    --bs-btn-padding-y: 2.2rem;
-    --bs-btn-font-size: 2.2rem;
-    --bs-btn-border-radius: 22px;
-  }
-
-  .welcome-buttons .welcome-btn {
-    min-width: 180px;
-    min-height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-
-  .fila-carteles,
-  .carteles-info {
-    display: flex;
-    justify-content: center; /* reparte los carteles */
-    gap: 3rem;
-  }
-
-  .cartel-welcome {
-    width: 280px;
-    height: auto;
-  }
-}
-
-/* Tablets en vertical (≤ 1024px) */
-@media (max-width: 1024px) {
-  .welcome-buttons {
-    justify-content: space-around;
-    gap: 3rem;
-
-    --bs-btn-padding-x: 2.5rem;
-    --bs-btn-padding-y: 1.8rem;
-    --bs-btn-font-size: 1.8rem;
-    --bs-btn-border-radius: 18px;
-  }
-
-  .fila-carteles,
-  .carteles-info {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-  }
-
-  .cartel-welcome {
-    width: 220px;
-  }
-}
-
-/* Móviles grandes (≤ 768px) */
-@media (max-width: 768px) {
-  .welcome-buttons {
-    flex-direction: row;
-    justify-content: center;
-    gap: 2rem;
-
-    --bs-btn-padding-x: 2rem;
-    --bs-btn-padding-y: 1.5rem;
-    --bs-btn-font-size: 1.6rem;
-    --bs-btn-border-radius: 16px;
-  }
-
-  .fila-carteles,
-  .carteles-info {
-    justify-content: center;
-    gap: 1.5rem;
-  }
-
-  .cartel-welcome {
-    width: 180px;
-    max-width: 40%;
-  }
-}
-
-/* Móviles pequeños (≤ 480px, iPhone SE y similares) */
-@media (max-width: 480px) {
-  .welcome-buttons {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 4rem;
-
-    --bs-btn-padding-x: 0.8rem;
-    --bs-btn-padding-y: 1rem;
-    --bs-btn-font-size: 1.2rem;
-    --bs-btn-border-radius: 12px;
-  }
-
-  .welcome-buttons .welcome-btn {
-    min-width: 100px;
-    flex: 1;
-    max-width: 33%;
-  }
-
-  .fila-carteles,
-  .carteles-info {
-    flex-direction: row !important;
-    flex-wrap: nowrap;
-    justify-content: center;
-    gap: 1rem;
-  }
-
-  .cartel-welcome {
-    width: 120px;
-    max-width: 30%;
-  }
-}
-
-
-    /* Móviles pequeños  */
-    @media (max-width: 480px) {
-      .welcome-buttons {
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: center;
-        gap: 1rem;
-        margin-top: 4rem;
-
-        --bs-btn-padding-x: 0.8rem;
-        --bs-btn-padding-y: 1rem;
-        --bs-btn-font-size: 1.2rem;
-        --bs-btn-border-radius: 12px;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        position: relative;
+        z-index: 3;
       }
 
-      .welcome-buttons .welcome-btn {
-        min-width: 100px;
-        flex: 1;
-        max-width: 33%;
-      }
-    }
-
-
-
-    /* =========================
-       CARTELES DE LA WELCOME PAGE
-    ========================== */
-    .cartel-welcome {
-      width: 280px;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Tablets */
-    @media (max-width: 1024px) {
-      .cartel-welcome {
-        width: 240px;
-      }
-    }
-
-    /* Móviles grandes */
-    @media (max-width: 768px) {
-      .cartel-welcome {
-        width: 200px;
-        max-width: 70%;
-      }
-    }
-
-    /* Móviles pequeños */
-    @media (max-width: 480px) {
-      .fila-carteles,
-      .carteles-info {
-        flex-direction: row !important;
-        flex-wrap: nowrap;
-        justify-content: center;
-        gap:  2rem;
+      /* Botones */
+      .fila-botones {
+        margin-top: 2rem;
       }
 
-      .cartel-welcome {
-        width: 140px;
-        max-width: 50%;
+      .welcome-btn {
+        font-size: 1.7rem;
+        padding: 0.8rem 2rem;
+        border-radius: 2rem;
+        font-weight: bold;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+          transform: scale(1.05);
+          box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+        }
+      }
+
+      /* Carteles */
+      .fila-carteles {
+        margin-top: 1.5rem;
+
+        .cartel-img {
+          height: 120px;
+          border-radius: 0.5rem;
+          object-fit: contain;
+          background: rgba(255, 255, 255, 0.15);
+          backdrop-filter: blur(4px);
+          padding: 0.3rem;
+          box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+        }
       }
     }
   }
 }
 
-/* Footer fijo solo en welcome */
-:host ::ng-deep app-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
+/* === Ocultar flechas e indicadores del carrusel solo en este componente === */
+:host ::ng-deep .carousel-control-prev,
+:host ::ng-deep .carousel-control-next,
+:host ::ng-deep .carousel-indicators {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
-.welcome-footer {
-  background-color: #1e1e2f;
-  color: white;
-  text-align: center;
-  padding: 2rem 1rem;
-  font-size: 0.95rem;
-  line-height: 1.4;
 
-  p {
-    margin: 0.5rem 0;
-  }
-}
-
-/* ✅ Pantallas grandes (≥ 1200px) */
-@media (min-width: 1200px) {
-  .welcome-footer {
-    font-size: 1.1rem;     /* texto más grande */
-    padding: 2.5rem 3rem;  /* más aire */
-  }
-}
-
-/* ✅ Tablets (≤ 1024px) */
-@media (max-width: 1024px) {
-  .welcome-footer {
-    font-size: 0.9rem;
-    padding: 1.5rem 1rem;
-  }
-}
-
-/* ✅ Móviles grandes (≤ 768px) */
-@media (max-width: 768px) {
-  .welcome-footer {
-    font-size: 0.8rem;
-    padding: 1.2rem 0.8rem;
-  }
-}
-
-/* ✅ Móviles pequeños (≤ 480px, iPhone SE) */
-@media (max-width: 480px) {
-  .welcome-footer {
-    font-size: 0.75rem;
-    padding: 1rem 0.5rem;
-    line-height: 1.3;
-
-    p {
-      margin: 0.3rem 0;
-    }
-  }
-}
-
-.carteles-info {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-}
-
-/* Ajustes solo para el carrusel dentro de welcome */
-:host ::ng-deep app-carrusel .carousel,
-:host ::ng-deep app-carrusel .carousel-inner,
-:host ::ng-deep app-carrusel .carousel-item {
-  height: 100%;
-}
-
-:host ::ng-deep app-carrusel .carousel-item img {
-  display: block;
-  margin: 0 auto;
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  object-position: center;
-}
-
-/* Para pantallas en modo landscape (apaisado) */
-@media screen and (orientation: landscape) {
-  .welcome-page {
-    flex-direction: column;   /* ajusta disposición */
-    align-items: center;
-    justify-content: flex-start;
-    padding-top: 1rem;
-  }
-
-  .welcome-buttons {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-top: 2rem;
-  }
-
-  .fila-carteles,
-  .carteles-info {
-    flex-direction: row;
-    justify-content: center;
-    gap: 1rem;
-  }
-
-  .cartel-welcome {
-    width: 160px;    /* más pequeños en apaisado */
-  }
-
-  .welcome-footer {
-    font-size: 0.8rem;
-    padding: 1rem;
-  }
-}
