@@ -48,3 +48,20 @@
     margin-top: auto;
   }
 }
+
+/* Centrar el logo en la sección de eventos */
+.eventos .div-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Anula el margen global y centra el <img> */
+.eventos .div-logo img {
+  display: block;
+  margin: 0 auto !important; /* centra */
+  max-width: 250px;           /* opcional: tamaño tope */
+  height: auto;
+}
+

@@ -163,6 +163,13 @@ header {
   overflow: hidden;
   height: 220px;
 
+  .casino-logo {
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 0 8px var(--color-accent));
+    transition: filter 0.3s ease, transform 0.3s ease;
+  }
+
   .casino-logotipo {
     position: relative;
     z-index: 2;
