@@ -14,6 +14,7 @@ import { Carrusel } from '../../../../shared/components/carrusel/carrusel';
 export class Welcome implements AfterViewInit, OnDestroy {
   images = [
     { src: 'assets/logoCasinoMuchoAmor.jpeg', alt: 'Logo Casino' },
+    { src: 'assets/eventos/octoberfest2025.jpg', alt: 'Octoberfest' },
     { src: 'assets/eventos/Concierto.jpeg', alt: 'Concierto' },
     { src: 'assets/eventos/Burguer.jpeg', alt: 'Burguer' }
   ];
@@ -37,7 +38,6 @@ export class Welcome implements AfterViewInit, OnDestroy {
       .subscribe((e: NavigationEnd) => {
         const url = e.urlAfterRedirects || e.url || '';
         if (url.includes('/welcome')) {
-          // ✅ Cambiamos la referencia del array para disparar @Input()
           const cloned = this.images.slice();
           this.showCarousel = false;
           setTimeout(() => {

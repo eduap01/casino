@@ -13,6 +13,9 @@ import { CommonModule } from '@angular/common';
 export class HeaderMini {
   eventos: string[] = [
     'Burguer.jpeg',
+    'JimmyHendrix.jpg',
+    'MichaelJackson.jpg',
+    'octoberfest2025.jpg',
     'acdc.jpg',
     'Concierto.jpeg',
     'Fredy.webp',
