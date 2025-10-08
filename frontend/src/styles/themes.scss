@@ -1,0 +1,61 @@
+/* ===========================================================
+   SYSTEM THEMES
+   Paletas de color para distintos estilos estacionales
+   =========================================================== */
+
+/* ---------- Tema por defecto ---------- */
+:root,
+.theme-standard {
+  --color-bg: #121212;
+  --color-bg-alt: #1e1e2f;
+  --color-bg-gradient: linear-gradient(135deg, #1e1e2f, #343a40);
+  --color-bg-hover: rgba(255, 255, 255, 0.05);
+
+  --color-primary: #0d6efd;
+  --color-secondary: #6c757d;
+  --color-accent: #f8f9fa;
+  --color-accent-transparent: rgba(13, 110, 253, 0.15);
+
+  --color-text: #ffffff;
+}
+
+/* ---------- Tema Halloween ---------- */
+/* ---------- Tema Halloween ---------- */
+/* ---------- Tema Halloween ---------- */
+.theme-halloween {
+  --color-transparent: rgba(255, 123, 0, 0.4);
+  --color-bg: #1a0d00;        /* Marrón oscuro casi negro — fondo principal (oscuro, cálido, terroso) */
+  --color-bg-alt: #2b0033;    /* Morado muy oscuro — fondo alternativo o secciones (tono nocturno, misterioso) */
+  --color-bg-gradient: linear-gradient(135deg, #0b0014 0%, #1a0d00 100%);
+  /* Gradiente entre negro azulado (#0b0014) y marrón oscuro (#1a0d00) — da profundidad tipo “noche de Halloween” */
+
+  --color-bg-hover: rgba(255, 117, 24, 0.1);
+  /* Naranja translúcido — sutil reflejo al pasar el ratón, simula luz cálida o fuego de calabaza */
+
+  --color-primary: #ff7518;   /* Naranja calabaza brillante — color principal del tema (energía, Halloween clásico) */
+  --color-secondary: #160006; /* Marrón-negruzco profundo — tono de apoyo más apagado, equilibra el naranja */
+  --color-accent: #ffe066;    /* Amarillo cálido y luminoso — detalles, brillos y efectos de luz */
+  --color-accent-transparent: rgba(255, 224, 102, 0.25);
+  /* Amarillo translúcido — usado para sombras o resplandores suaves */
+
+  --color-text: #f8f8ff;      /* Blanco sucio ligeramente azulado — texto claro que no cansa la vista sobre fondo oscuro */
+}
+
+/* Personalización de botones para Halloween */
+.theme-halloween {
+  .btn-thematic {
+    border-color: var(--color-accent);  /* borde amarillo cálido */
+    color: var(--color-accent);         /* texto amarillo brillante */
+
+    &:hover {
+      background-color: var(--color-accent); /* fondo amarillo al pasar el ratón */
+      color: var(--color-bg);                /* texto pasa a marrón oscuro para contraste */
+      box-shadow: 0 0 15px var(--color-primary); /* resplandor naranja alrededor */
+    }
+  }
+}
+/* ---------- Tema Halloween ---------- */
+/* ---------- Tema Halloween ---------- */
+/* ---------- Tema Halloween ---------- */
+
+

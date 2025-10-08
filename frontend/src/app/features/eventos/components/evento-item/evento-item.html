@@ -4,14 +4,21 @@
     <time *ngIf="fecha" [attr.datetime]="fecha">{{ fecha | date:'longDate' }}</time>
   </header>
 
-  <img [src]="imagen" [alt]="titulo" class="img-fluid rounded" (click)="openModal()" />
+  <!-- 🔹 Añadimos un contenedor para controlar el tamaño -->
+  <div class="evento-imagen" (click)="openModal()">
+    <img [src]="imagen" [alt]="titulo" class="img-fluid rounded" />
+  </div>
 
   <p *ngIf="descripcion">{{ descripcion }}</p>
 
   <footer *ngIf="enlace" class="evento-footer">
-    <a [href]="enlace" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-leer-mas">
-      Leer más
-    </a>
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn-thematic btn-leer-mas"
+      href="https://www.instagram.com/casinorockbar/?hl=es"
+      >Leer más</a
+    >
   </footer>
 </article>
 
@@ -19,6 +26,5 @@
 <div #overlay class="app-modal-overlay" *ngIf="showModal" (click)="closeModal()">
   <div class="app-modal-content" (click)="$event.stopPropagation()">
     <img [src]="imagen" [alt]="titulo" />
-    <!--<button class="app-modal-close" (click)="closeModal()">✕</button> -->
   </div>
 </div>
