@@ -1,3 +1,5 @@
+@use './styles/themes' as *;
+
 * {
   box-sizing: border-box;
 }
@@ -10,8 +12,8 @@ body {
   font-family: "Raleway", sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #f3f4f6, #ffffff);
-  color: #333;
+  background: var(--color-bg-gradient, linear-gradient(135deg, var(--color-bg), var(--color-accent)));
+  color: var(--color-text);
   animation: fadeIn 1s ease-in;
 }
 
@@ -28,6 +30,9 @@ img {
 /* ========== NAVBAR ========== */
 .navbar {
   font-family: 'Raleway', sans-serif;
+  background-color: var(--color-bg) !important;
+  border-bottom: 1px solid var(--color-bg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 
   .nav-link {
     font-size: 1.2rem;
@@ -35,14 +40,15 @@ img {
     padding: 0.5rem 1rem;
     position: relative;
     transition: color 0.3s ease;
+    color: var(--color-text);
 
     &:hover {
-      color: #ffdd57 !important;
+      color: var(--color-accent) !important;
     }
 
     &.active {
       font-weight: bold;
-      color: #ffc107 !important;
+      color: var(--color-primary) !important;
     }
 
     &::after {
@@ -52,7 +58,7 @@ img {
       left: 0;
       width: 0%;
       height: 2px;
-      background: #ffc107;
+      background: var(--color-primary);
       transition: width 0.3s ease;
     }
 
@@ -60,6 +66,41 @@ img {
       width: 100%;
     }
   }
+ .navbar-toggler {
+  border: 2px solid var(--color-primary);
+  background-color: var(--color-bg);
+  border-radius: 8px;
+  padding: 0.4rem 0.6rem;
+  transition: all 0.3s ease-in-out;
+
+  /* Estado normal y al volver a estar colapsado */
+  &.collapsed,
+  &:not(:focus):not(:hover) {
+    background-color: var(--color-transparent);
+    border-color: var(--color-transparent);
+  }
+
+  /* Hover o focus */
+  &:hover,
+  &:focus {
+    background-color: var(--color-transparent);
+    border-color: var(--color-primary);
+    outline: none;
+  }
+
+  /* Estado activo (menú abierto) */
+  &.show,
+  &:not(.collapsed) {
+    background-color: var(--color-trasnparent); /* mantiene color base */
+    border-color: var(--color-primary);
+  }
+
+  .navbar-toggler-icon {
+    filter: invert(100%);
+  }
+}
+
+
 }
 
 /* Submenú */
@@ -74,23 +115,27 @@ img {
     font-weight: 500;
     padding: 0.6rem 1.2rem;
     border-radius: 6px;
+    background-color: var(--color-secondary);
+    color: var(--color-text);
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
     transition: all 0.2s ease-in-out;
 
     &:hover {
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      background-color: var(--color-primary);
+      color: var(--color-bg);
     }
   }
 }
 
 /* ========== HEADER ========== */
 header {
-  background-color: #1e1e2f;
-  color: white;
+  background-color: var(--color-bg);
+  color: var(--color-text);
   padding: 2rem 1rem;
   text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   animation: slideDown 0.7s ease-out;
 
   h1 {
@@ -112,7 +157,7 @@ header {
 /* ========== HEADER MINI (Logo + Carruseles) ========== */
 .header-mini {
   position: relative;
-  background: #141428;
+  background: var(--color-bg-alt, #141428);
   padding: 20px;
   text-align: center;
   overflow: hidden;
@@ -121,13 +166,26 @@ header {
   .casino-logo {
     position: relative;
     z-index: 2;
+    filter: drop-shadow(0 0 8px var(--color-accent));
+    transition: filter 0.3s ease, transform 0.3s ease;
+  }
+
+  .casino-logotipo {
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 0 8px var(--color-accent));
+    transition: filter 0.3s ease, transform 0.3s ease;
+  }
+  .casino-logotipo:hover {
+    filter: drop-shadow(0 0 12px var(--color-primary));
+    transform: scale(1.05); /* 🔹 efecto de leve aumento */
   }
 
   .slider {
     position: absolute;
     top: 0;
     left: 0;
-    width: 200%;       /* el doble para duplicado */
+    width: 200%;
     height: 100%;
     overflow: hidden;
     z-index: 1;
@@ -136,7 +194,7 @@ header {
 
   .slide-track {
     display: flex;
-    width: 200%;       /* mismo tamaño que slider */
+    width: 200%;
     height: 100%;
     animation: scroll 40s linear infinite;
   }
@@ -156,16 +214,13 @@ header {
 
 @keyframes scroll {
   0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); } /* se mueve solo la mitad → loop perfecto */
+  100% { transform: translateX(-50%); }
 }
-
-
-
 
 /* Animación carrusel */
 @keyframes scroll-vertical {
   0%   { transform: translateY(0); }
-  100% { transform: translateY(-50%); } /* se usa duplicación de imágenes */
+  100% { transform: translateY(-50%); }
 }
 
 /* Responsive móvil */
@@ -180,7 +235,7 @@ header {
     .eventos-slide {
       display: flex;
       flex-direction: row;
-      min-width: 200%; /* 👉 como duplicamos, ocupa el doble */
+      min-width: 200%;
       animation: scroll-horizontal 30s linear infinite;
     }
 
@@ -198,11 +253,10 @@ header {
   100% { transform: translateX(-50%); }
 }
 
-
 /* ========== SECCIONES ========= */
 section {
   padding: 2rem 1.5rem;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--color-secondary);
   max-width: 800px;
   margin: 0 auto;
 }
@@ -223,21 +277,21 @@ section {
 }
 
 h2 {
-  border-left: 5px solid #ff6f61;
+  border-left: 5px solid var(--color-primary);
   padding-left: 0.75rem;
   margin-top: 2rem;
-  color: #222;
+  color: var(--color-text);
 }
 
 .item {
   display: flex;
   justify-content: space-between;
   padding: 0.75rem 0;
-  border-bottom: 1px dashed #ccc;
+  border-bottom: 1px dashed var(--color-accent);
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #fff1ee;
+    background-color: var(--color-bg-hover, rgba(255, 255, 255, 0.1));
   }
 
   span {
@@ -247,13 +301,13 @@ h2 {
 
 .price {
   font-weight: bold;
-  color: #ff6f61;
+  color: var(--color-primary);
 }
 
 /* ========== FOOTER ========== */
 footer {
-  background-color: #1e1e2f;
-  color: white;
+  background-color: var(--color-secondary);
+  color: var(--color-text);
   text-align: center;
   padding: 2rem 1rem;
   font-size: 0.95rem;
@@ -261,7 +315,7 @@ footer {
 }
 
 .highlight {
-  background: #ff6f6133;
+  background: var(--color-accent-transparent, rgba(255, 111, 97, 0.2));
   padding: 0.25rem 0.5rem;
   border-radius: 5px;
   font-weight: bold;
@@ -275,15 +329,15 @@ footer {
   a {
     display: inline-block;
     padding: 0.75rem 1.5rem;
-    background-color: #ff6f61;
-    color: white;
+    background-color: var(--color-primary);
+    color: var(--color-text);
     border-radius: 8px;
     text-decoration: none;
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.2s ease;
 
     &:hover {
-      background-color: #e55c50;
+      background-color: var(--color-secondary);
       transform: scale(1.05);
     }
   }
@@ -298,12 +352,12 @@ footer {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  background: #ff5722;
+  background: var(--color-primary);
   border: none;
   border-radius: 50%;
-  width: 64px;   // más grande
+  width: 64px;
   height: 64px;
-  font-size: 28px;   // emoji más grande
+  font-size: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -314,11 +368,75 @@ footer {
 }
 
 .back-to-top:hover {
-  background: #e64a19;   // más oscuro al pasar ratón
-  transform: scale(1.15); // animación de agrandar
+  background: var(--color-secondary);
+  transform: scale(1.15);
 }
 
+.btn-thematic {
+  font-weight: 600;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  background-color: transparent;
+  transition: all 0.25s ease-in-out;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+ text-decoration: none;
 
+  &:hover {
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+    box-shadow: 0 0 10px var(--color-accent);
+    transform: translateY(-2px);
+  }
 
+  &:active {
+    transform: scale(0.98);
+  }
+}
 
+.welcome-page .carousel-container app-carrusel .carousel-item img {
+  display: block;
+  max-width: none;   /* importante para permitir crecer */
+  width: 100%;       /* un pelín más grande para que no se vea borde vacío */
+  transform: translateX(-0.7%); /* desplaza a la izquierda */
+}
 
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* el contenido ocupa todo el espacio disponible */
+.main-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* el footer queda al final */
+app-footer {
+  flex-shrink: 0;
+  box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.25);
+}
+
+.casino-logo .btn-phone {
+  position: relative;
+  z-index: 5;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+/* Si tienes capas/overlays en el header, que no capturen clics */
+.header-mini .slider,
+.header-mini::before,
+.header-mini::after {
+  pointer-events: none;
+}
