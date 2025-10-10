@@ -15,7 +15,7 @@ import { CommonModule, NgIf } from '@angular/common';
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
-export class App {
+export  class App {
   showNavbar = true;
   showFooter = true;
 
