@@ -91,7 +91,7 @@ img {
   /* Estado activo (menú abierto) */
   &.show,
   &:not(.collapsed) {
-    background-color: var(--color-trasnparent); /* mantiene color base */
+    background-color: var(--color-trasnparent);
     border-color: var(--color-primary);
   }
 
@@ -178,7 +178,7 @@ header {
   }
   .casino-logotipo:hover {
     filter: drop-shadow(0 0 12px var(--color-primary));
-    transform: scale(1.05); /* 🔹 efecto de leve aumento */
+    transform: scale(1.05);
   }
 
   .slider {

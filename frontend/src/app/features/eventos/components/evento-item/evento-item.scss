@@ -1,10 +1,10 @@
 
-/* Asegura que el componente ocupa su celda del grid */
+
 :host {
   display: block;
 }
 
-/* Footer del evento: centrado y con padding */
+
 .evento-footer {
   display: flex;
   justify-content: center;
@@ -12,19 +12,19 @@
   margin-top: auto;
 }
 
-/* Botón con anchura mínima y centrado del texto */
+
 .btn-leer-mas {
   min-width: 120px;
   text-align: center;
 }
 
-/* Overlay a pantalla completa */
+
 .app-modal-overlay {
   position: fixed;
   inset: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.85); /* mantiene transparencia pero adapta a tema */
+  background: rgba(0, 0, 0, 0.85);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,20 +32,20 @@
   overscroll-behavior: contain;
 }
 
-/* Contenido centrado */
+
 .app-modal-content {
   position: relative;
   max-width: 95vw;
   max-height: 95vh;
   overflow: auto;
-  background: var(--color-bg); /* antes #111 */
+  background: var(--color-bg);
   border-radius: 12px;
   padding: 0.75rem;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
   color: var(--color-text);
 }
 
-/* Imagen adaptada al viewport sin desbordar */
+
 .app-modal-content img {
   display: block;
   max-width: 92vw;
@@ -82,7 +82,7 @@
 }
 
 header {
-  background: var(--color-secondary); /* antes #1e1e2f */
+  background: var(--color-secondary);
   padding: 0.5rem 1rem;
   border-radius: 8px;
 
@@ -95,7 +95,7 @@ header {
 
   time {
     font-size: 0.85rem;
-    color: var(--color-accent); /* antes #ccc */
+    color: var(--color-accent);
   }
 }
 
@@ -126,24 +126,24 @@ header {
   overflow: hidden;
   background: #fff;
 
-  /* Imagen uniforme */
+
   .evento-imagen {
     width: 100%;
-    aspect-ratio: 3 / 4; /* asegura misma proporción en todas */
+    aspect-ratio: 3 / 4;
     max-height: 320px;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #fff; /* fondo neutro para imágenes con transparencia */
+    background: #fff;
 
     img {
       width: 100%;
       height: 100%;
-      object-fit: contain; /* muestra completa la imagen sin recortar */
+      object-fit: contain;
       object-position: center;
       display: block;
-      background-color: #fff; /* evita huecos visuales si la imagen no llena */
+      background-color: #fff;
     }
   }
 
@@ -155,37 +155,36 @@ header {
     justify-content: space-between;
   }
 
-  /* Footer con el botón */
+
   .evento-footer {
     margin-top: auto;
   }
 }
 
-/* 🔹 Fuerza que todas las tarjetas tengan la misma altura */
 .evento-card {
-  min-height: 550px; /* ajusta según diseño (500–600px suele ir bien) */
+  min-height: 550px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-/* 🔹 Asegura que el contenido se distribuya aunque falte texto */
+
 .evento-contenido {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  /* El párrafo de descripción no debe colapsar */
+
   p {
     flex-grow: 1;
-    min-height: 2rem; /* espacio reservado para cuando no hay descripción */
+    min-height: 2rem;
   }
 }
 
-/* 🔹 Si falta la fecha, el header mantiene su estructura */
+
 header {
-  min-height: 70px; /* reserva espacio para título + fecha */
+  min-height: 70px;
   display: flex;
   flex-direction: column;
   justify-content: center;
