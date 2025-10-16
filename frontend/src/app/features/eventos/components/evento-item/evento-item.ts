@@ -1,15 +1,17 @@
 import { Component, Input, ElementRef, Renderer2, ViewChild, HostListener } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-evento-item',
   standalone: true,
-  imports: [CommonModule, DatePipe],
+  imports: [CommonModule, DatePipe, RouterModule],
   templateUrl: './evento-item.html',
   styleUrls: ['./evento-item.scss']
 })
 export class EventoItem {
   @Input() titulo!: string;
+  @Input() id!: number;
   @Input() descripcion?: string;
   @Input() fecha?: string;
   @Input() imagen!: string;

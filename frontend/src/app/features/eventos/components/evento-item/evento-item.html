@@ -4,7 +4,6 @@
     <time *ngIf="fecha" [attr.datetime]="fecha">{{ fecha | date:'longDate' }}</time>
   </header>
 
-  <!-- 🔹 Añadimos un contenedor para controlar el tamaño -->
   <div class="evento-imagen" (click)="openModal()">
     <img [src]="imagen" [alt]="titulo" class="img-fluid rounded" />
   </div>
@@ -13,12 +12,11 @@
 
   <footer *ngIf="enlace" class="evento-footer">
     <a
-      target="_blank"
-      rel="noopener noreferrer"
       class="btn-thematic btn-leer-mas"
-      href="https://www.instagram.com/casinorockbar/?hl=es"
-      >Leer más</a
+      [routerLink]="['/eventos', id]"
     >
+      Leer más
+    </a>
   </footer>
 </article>
 
