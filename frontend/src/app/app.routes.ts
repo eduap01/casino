@@ -8,6 +8,9 @@ import { Welcome } from './features/welcome/pages/welcome-page/welcome-page';
 import { EventoDetallePage } from './features/eventos/pages/evento-detalle-page/evento-detalle-page';
 import { SobreNosotrosPage } from './features/sobre-nosotros/pages/sobre-nosotros-page/sobre-nosotros-page';
 import { ReservaEventoPage } from './features/reserva-evento/pages/reserva-evento-page/reserva-evento-page';
+import { QuienesSomosPage } from './features/sobre-nosotros/pages/quienes-somos-page/quienes-somos-page';
+import { NuestraHistoriaPage } from './features/sobre-nosotros/pages/nuestra-historia-page/nuestra-historia-page';
+
 
 export const routes: Routes = [
   { path: 'welcome', component: Welcome },
@@ -16,6 +19,8 @@ export const routes: Routes = [
   { path: 'eventos', component: EventosPage },
   { path: 'eventos/:id', component: EventoDetallePage },
   { path: 'sobre-nosotros', component: SobreNosotrosPage },
+  { path: 'quienes-somos', component: QuienesSomosPage },
+  { path: 'nuestra-historia', component: NuestraHistoriaPage },
   { path: 'reserva-evento', component: ReservaEventoPage },
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
   { path: '**', redirectTo: 'welcome' }
