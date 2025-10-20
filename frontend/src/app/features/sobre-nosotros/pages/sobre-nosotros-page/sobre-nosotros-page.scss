@@ -1,0 +1,77 @@
+.nosotros-container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 120px);
+  overflow: hidden;
+  background: var(--color-bg-gradient, linear-gradient(135deg, var(--color-bg), var(--color-bg-alt)));
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+  }
+}
+
+.nosotros-section {
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.4s ease, filter 0.4s ease;
+  cursor: pointer;
+  position: relative;
+  border: 2px solid var(--color-primary);
+  border-radius: 0; // opcional: quita si quieres esquinas redondeadas
+  overflow: hidden;
+
+  &:hover {
+    transform: scale(1.02);
+    filter: brightness(1.1);
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none; // 👈 deja pasar el clic al contenedor padre
+    transition: background 0.3s ease;
+
+    h2 {
+      color: var(--color-text, #fff);
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      text-shadow: 0 3px 10px rgba(0, 0, 0, 0.8);
+
+      @media (max-width: 768px) {
+        font-size: 1.8rem;
+      }
+    }
+  }
+}
+
+/* Secciones con imágenes */
+.quienes-somos {
+  background-image: url('/assets/quienesSomos.jpg');
+}
+
+.nuestra-historia {
+  background-image: url('/assets/antiguoCasino.jpg');
+}
+
+/* Animación de entrada */
+:host {
+  display: block;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
