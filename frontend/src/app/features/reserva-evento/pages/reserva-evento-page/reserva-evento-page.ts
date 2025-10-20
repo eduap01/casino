@@ -102,18 +102,38 @@ get f() {
 
     this.loading = true;
 
-    // Datos del formulario
     const datos = this.form.value;
 
+    const emailBody = `
+      <h3>Nueva solicitud de reserva</h3>
+      <p><b>Nombre:</b> ${datos.nombre}</p>
+      <p><b>Teléfono:</b> ${datos.telefono}</p>
+      <p><b>Correo:</b> ${datos.email}</p>
+      <p><b>Fecha inicio:</b> ${datos.fechaInicio} ${datos.horaInicio}</p>
+      <p><b>Fecha fin:</b> ${datos.fechaFin} ${datos.horaFin}</p>
+      <p><b>Personas:</b> ${datos.personas}</p>
+      <p><b>Comentarios:</b> ${datos.comentarios || 'Ninguno'}</p>
+    `;
 
-    console.log('Datos enviados:', datos);
-
-
-    setTimeout(() => {
-      this.loading = false;
-      this.success = true;
-      this.form.reset();
-      this.submitted = false;
-    }, 1500);
+    // Llamada al backend
+    this.http.post('http://localhost:8000/email/send', {
+      to_email: 'eduardoarevaloportero@gmail.com',  // 👉 correo destino real
+      subject: 'Nueva reserva recibida',
+      body: emailBody
+    }).subscribe({
+      next: (res: any) => {
+        console.log('Respuesta backend:', res);
+        this.loading = false;
+        this.success = true;
+        this.form.reset();
+        this.submitted = false;
+      },
+      error: (err) => {
+        console.error('Error al enviar el correo:', err);
+        this.loading = false;
+        this.errorMsg = 'Error al enviar el correo. Intenta de nuevo más tarde.';
+      }
+    });
   }
+
 }
