@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { EnConstruccion } from '../../../../shared/pages/en-construccion/en-construccion';
+
+
 
 @Component({
   selector: 'app-quienes-somos-page',
-  imports: [RouterLink],
+  imports: [CommonModule, EnConstruccion],
   templateUrl: './quienes-somos-page.html',
   styleUrl: './quienes-somos-page.scss'
 })
