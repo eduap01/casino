@@ -10,7 +10,9 @@ import { SobreNosotrosPage } from './features/sobre-nosotros/pages/sobre-nosotro
 import { ReservaEventoPage } from './features/reserva-evento/pages/reserva-evento-page/reserva-evento-page';
 import { QuienesSomosPage } from './features/sobre-nosotros/pages/quienes-somos-page/quienes-somos-page';
 import { NuestraHistoriaPage } from './features/sobre-nosotros/pages/nuestra-historia-page/nuestra-historia-page';
-
+import { ParticipaPage } from './features/participa/pages/participa-page/participa-page';
+import { ClubesPage } from './features/participa/pages/clubes-page/clubes-page';
+import { MerchandisingPage } from './features/merchandising/pages/merchandising-page/merchandising-page';
 
 export const routes: Routes = [
   { path: 'welcome', component: Welcome },
@@ -22,6 +24,9 @@ export const routes: Routes = [
   { path: 'quienes-somos', component: QuienesSomosPage },
   { path: 'nuestra-historia', component: NuestraHistoriaPage },
   { path: 'reserva-evento', component: ReservaEventoPage },
+  { path: 'participa', component: ParticipaPage },
+  { path: 'clubes', component: ClubesPage },
+  { path: 'merchandising', component: MerchandisingPage },
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
   { path: '**', redirectTo: 'welcome' }
 ];
