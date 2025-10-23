@@ -15,13 +15,14 @@ export class EventosPage {
   eventos = [
     {
       titulo: 'Hamburbeza',
-      descripcion: 'Las 7 mejores hamburgesas del mundo.',
-      fecha: '2025-10-15',
+      descripcion: 'Las 8 mejores hamburgesas del mundo.',
+      /*fecha: '2025-10-15',*/
       imagen: 'assets/eventos/Burguer.jpeg',
       enlace: 'https://www.instagram.com/casinorockbar/?hl=es'
     },
     {
-      titulo: 'Conciertos',
+      titulo: 'Colegui Fest',
+      fecha: '2025-10-25',
       imagen: 'assets/eventos/Concierto.jpeg',
       enlace: 'https://www.instagram.com/casinorockbar/?hl=es'
     }

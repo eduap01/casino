@@ -16,7 +16,7 @@ export class EventoDetallePage {
   eventos = [
     {
       titulo: 'Hamburbeza',
-      descripcion: 'Las 7 mejores hamburguesas del mundo.',
+      descripcion: 'Las 8 mejores hamburguesas del mundo.',
       fecha: '2025-10-15',
       imagen: 'assets/eventos/Burguer.jpeg',
       texto: `Ven y prueba nuestras hamburguesas artesanales, preparadas con ingredientes frescos y música en vivo.`,
@@ -26,13 +26,13 @@ export class EventoDetallePage {
       ]
     },
     {
-      titulo: 'Conciertos',
-      descripcion: 'Conciertos en vivo todas las semanas.',
-      fecha: '2025-10-20',
+      titulo: 'Colegui Fest',
+      descripcion: 'Conciertos en vivo.',
+      fecha: '2025-10-25',
       imagen: 'assets/eventos/Concierto.jpeg',
       texto: `Disfruta del mejor ambiente rock con bandas locales e invitados especiales. ¡No te lo pierdas!`,
       enlaces: [
-        { nombre: 'Entradas', url: 'https://entradas.casinorockbar.com' },
+        /*{ nombre: 'Entradas', url: 'https://entradas.casinorockbar.com' },*/
         { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' }
       ]
     }
