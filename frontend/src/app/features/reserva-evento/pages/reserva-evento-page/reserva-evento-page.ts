@@ -116,8 +116,8 @@ get f() {
     `;
 
     // Llamada al backend
-    this.http.post('http://localhost:8000/email/send', {
-      to_email: 'eduardoarevaloportero@gmail.com',  // 👉 correo destino real
+    this.http.post('/api/email/send', {
+      to_email: 'eduardoarevaloportero@gmail.com',
       subject: 'Nueva reserva recibida',
       body: emailBody
     }).subscribe({
