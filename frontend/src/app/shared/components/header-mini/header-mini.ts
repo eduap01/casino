@@ -19,7 +19,13 @@ export class HeaderMini {
     'acdc.jpg',
     'Concierto.jpeg',
     'Fredy.webp',
-    'LedZepelin.jpg'
+    'LedZepelin.jpg',
+    'elvis.jpg',
+    'gunsnroses.jpg',
+    'jagger.jpg',
+    'johnny_cash.jpg',
+    'paul_simonon.jpg',
+    'stevie_wonder.jpg'
   ];
 
 get eventosLoop(): string[] {
