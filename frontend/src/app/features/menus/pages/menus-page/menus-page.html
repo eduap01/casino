@@ -1,0 +1,21 @@
+<header class="mb-4">
+  <app-header-mini></app-header-mini>
+</header>
+
+<section class="menus-navidad">
+  <h1>Menús de Navidad 2025</h1>
+
+  <div class="menus-grid">
+    <div class="menu-item" *ngFor="let img of menus">
+      <img [src]="img" alt="Menú Navidad" (click)="abrirModal(img)" />
+    </div>
+  </div>
+</section>
+
+<!-- Modal -->
+<div class="modal" *ngIf="imagenSeleccionada" (click)="cerrarModal()">
+  <div class="modal-contenido" (click)="$event.stopPropagation()">
+    <img [src]="imagenSeleccionada" alt="Menú ampliado" />
+    <button class="cerrar" (click)="cerrarModal()">✕</button>
+  </div>
+</div>

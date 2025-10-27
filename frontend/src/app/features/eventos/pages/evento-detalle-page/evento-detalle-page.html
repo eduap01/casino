@@ -1,0 +1,80 @@
+<section class="evento-detalle animate">
+  <!-- LOGO -->
+  <div class="div-logo">
+    <img
+      routerLink="/welcome"
+      src="assets/logoCasino.png"
+      alt="Logo Casino"
+      class="img-fluid mb-3 logo"
+    />
+  </div>
+
+  <!-- CONTENIDO -->
+  <div class="detalle-container">
+    <div class="detalle-contenido" *ngIf="evento">
+      <!-- Imagen del evento -->
+      <div class="detalle-imagen">
+        <img
+          [src]="evento.imagen"
+          [alt]="evento.titulo"
+          class="img-fluid rounded shadow evento-img"
+        />
+      </div>
+
+      <!-- Texto del evento -->
+      <div class="detalle-texto">
+        <h1 class="titulo">{{ evento.titulo }}</h1>
+        <div class="titulo-underline"></div>
+        <p class="fecha">{{ evento.fecha | date: 'longDate' }}</p>
+        <p class="descripcion">{{ evento.descripcion }}</p>
+        <div class="texto-detalle">{{ evento.texto }}</div>
+
+        <!-- 🗺️ Mapa de localización -->
+        <div class="mapa-container mt-4 mb-4">
+          <h4 class="text-center mb-2">📍 Ubicación del evento</h4>
+
+          <!-- 📍 Mapa embebido de Google (sin API Key) -->
+          <div class="map-wrapper">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3088.4192818377315!2d-3.773333!3d40.1077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422016b60e0a21%3A0x7a2c65b8b5d8a54b!2sPl.%20Espa%C3%B1a%2C%2014%2C%2045221%20Esquivias%2C%20Toledo!5e0!3m2!1ses!2ses!4v1697028926379!5m2!1ses!2ses"
+              width="100%"
+              height="250"
+              style="border:0; border-radius: 12px;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+
+          <div class="text-center mt-3">
+            <a
+              href="https://www.google.com/maps?q=Plaza+de+España,+14,+45221+Esquivias,+Toledo"
+              target="_blank"
+              class="btn-thematic btn-sm"
+              style="border-radius: 8px; padding: 0.4rem 1rem;">
+              Ver en Google Maps →
+            </a>
+          </div>
+        </div>
+
+        <!-- Enlaces -->
+        <div class="botones-enlaces mt-4">
+          <button
+            *ngFor="let link of evento.enlaces"
+            (click)="openExternal(link.url)"
+            class="btn-thematic mx-2"
+          >
+            {{ link.nombre }}
+          </button>
+        </div>
+
+        <!-- Volver -->
+        <div class="volver mt-5">
+          <a routerLink="/eventos" class="btn-thematic btn-volver">
+            ← Volver a eventos
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

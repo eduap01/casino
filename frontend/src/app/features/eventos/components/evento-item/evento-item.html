@@ -1,0 +1,28 @@
+<article class="evento-item card shadow p-3">
+  <header>
+    <h2>{{ titulo }}</h2>
+    <time *ngIf="fecha" [attr.datetime]="fecha">{{ fecha | date:'longDate' }}</time>
+  </header>
+
+  <div class="evento-imagen" (click)="openModal()">
+    <img [src]="imagen" [alt]="titulo" class="img-fluid rounded" />
+  </div>
+
+  <p *ngIf="descripcion">{{ descripcion }}</p>
+
+  <footer *ngIf="enlace" class="evento-footer">
+    <a
+      class="btn-thematic btn-leer-mas"
+      [routerLink]="['/eventos', id]"
+    >
+      Leer más
+    </a>
+  </footer>
+</article>
+
+<!-- MODAL (se reubica en <body>) -->
+<div #overlay class="app-modal-overlay" *ngIf="showModal" (click)="closeModal()">
+  <div class="app-modal-content" (click)="$event.stopPropagation()">
+    <img [src]="imagen" [alt]="titulo" />
+  </div>
+</div>

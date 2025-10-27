@@ -1,0 +1,91 @@
+.reservas-page {
+  background: var(--color-bg-alt);
+  color: var(--color-text);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+
+  /* ---------- Texto introductorio ---------- */
+  p.text-muted {
+    color: var(--color-primary) !important; /* se asegura de que se vea sobre fondo oscuro */
+    opacity: 0.9;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+  }
+
+  /* ---------- Logo ---------- */
+  .logo {
+    max-width: 180px;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.5));
+
+    &:hover {
+      transform: scale(1.05);
+      filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.6)); /* brillo dorado al pasar el ratón */
+    }
+  }
+
+  /* ---------- Formulario ---------- */
+  .reserva-form {
+    background: var(--color-bg);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s ease;
+
+    label {
+      font-weight: 600;
+      color: var(--color-primary);
+    }
+
+    input,
+    textarea {
+      background-color: var(--color-bg-alt);
+      border: 1px solid var(--color-primary);
+      color: var(--color-text);
+      border-radius: 6px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+      &:focus {
+        border-color: var(--color-accent);
+        box-shadow: 0 0 6px var(--color-accent);
+        outline: none;
+      }
+    }
+
+    .invalid-feedback {
+      font-size: 0.9rem;
+      color: #ff6b6b;
+    }
+
+    .btn-thematic {
+      background-color: var(--color-primary);
+      color: #fff;
+      border-radius: 8px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      transition: background-color 0.3s, transform 0.2s;
+
+      &:hover {
+        background-color: var(--color-accent);
+        transform: scale(1.03);
+      }
+
+      &:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+    }
+
+    .text-success {
+      color: #5cf05c !important;
+      font-weight: 600;
+    }
+
+    .text-danger {
+      color: #ff6b6b !important;
+      font-weight: 600;
+    }
+  }
+}

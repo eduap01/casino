@@ -1,0 +1,22 @@
+<div class="welcome-page">
+  <!-- Carrusel -->
+  <div class="carousel-container">
+    <app-carrusel [images]="images"></app-carrusel>
+
+    <!-- Overlay con botones y carteles -->
+    <div class="overlay">
+      <!-- Fila de botones -->
+      <div class="fila fila-botones">
+        <a routerLink="/menus" class="btn btn-primary welcome-btn">Menús</a>
+        <a routerLink="/carta" class="btn btn-success welcome-btn">Carta</a>
+        <a routerLink="/eventos" class="btn btn-warning welcome-btn">Eventos</a>
+      </div>
+
+      <!--  1Fila de carteles -->
+      <div class="fila fila-carteles">
+        <img src="assets/pagos.jpeg" alt="Pago mínimo tarjeta" class="cartel-img cartel-welcome">
+        <img src="assets/servicioAgil.jpeg" alt="Una mesa una cuenta" class="cartel-img cartel-welcome">
+      </div>
+    </div>
+  </div>
+</div>

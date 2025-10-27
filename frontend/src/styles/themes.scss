@@ -1,0 +1,159 @@
+/* ===========================================================
+   SYSTEM THEMES
+   Paletas de color para distintos estilos estacionales
+   =========================================================== */
+
+/* ---------- Tema por defecto ---------- */
+:root,
+.theme-standard {
+  --color-bg: #121212;
+  --color-bg-alt: #1e1e2f;
+  --color-bg-gradient: linear-gradient(135deg, #1e1e2f, #343a40);
+  --color-bg-hover: rgba(255, 255, 255, 0.05);
+
+  --color-primary: #0d6efd;
+  --color-secondary: #6c757d;
+  --color-accent: #f8f9fa;
+  --color-accent-transparent: rgba(13, 110, 253, 0.15);
+
+  --color-text: #ffffff;
+
+  --color-transparent: rgba(0, 0, 0, 0);
+}
+
+
+/* ---------- Tema Halloween ---------- */
+/* ---------- Tema Halloween ---------- */
+/* ---------- Tema Halloween ---------- */
+.theme-halloween {
+  --color-transparent: rgba(255, 123, 0, 0.4);
+  --color-bg: #1a0d00;        /* Marrón oscuro casi negro — fondo principal (oscuro, cálido, terroso) */
+  --color-bg-alt: #2b0033;    /* Morado muy oscuro — fondo alternativo o secciones (tono nocturno, misterioso) */
+  --color-bg-gradient: linear-gradient(135deg, #0b0014 0%, #1a0d00 100%);
+  /* Gradiente entre negro azulado (#0b0014) y marrón oscuro (#1a0d00) — da profundidad tipo “noche de Halloween” */
+
+  --color-bg-hover: rgba(255, 117, 24, 0.1);
+  /* Naranja translúcido — sutil reflejo al pasar el ratón, simula luz cálida o fuego de calabaza */
+
+  --color-primary: #ff7518;   /* Naranja calabaza brillante — color principal del tema (energía, Halloween clásico) */
+  --color-secondary: #160006; /* Marrón-negruzco profundo — tono de apoyo más apagado, equilibra el naranja */
+  --color-accent: #ffe066;    /* Amarillo cálido y luminoso — detalles, brillos y efectos de luz */
+  --color-accent-transparent: rgba(255, 224, 102, 0.25);
+  /* Amarillo translúcido — usado para sombras o resplandores suaves */
+
+  --color-text: #f8f8ff;      /* Blanco sucio ligeramente azulado — texto claro que no cansa la vista sobre fondo oscuro */
+}
+
+/* Personalización de botones para Halloween */
+.theme-halloween {
+  .btn-thematic {
+    border-color: var(--color-accent);  /* borde amarillo cálido */
+    color: var(--color-accent);         /* texto amarillo brillante */
+
+    &:hover {
+      background-color: var(--color-accent); /* fondo amarillo al pasar el ratón */
+      color: var(--color-bg);                /* texto pasa a marrón oscuro para contraste */
+      box-shadow: 0 0 15px var(--color-primary); /* resplandor naranja alrededor */
+    }
+  }
+}
+/* ---------- Tema Halloween ---------- */
+/* ---------- Tema Halloween ---------- */
+/* ---------- Tema Halloween ---------- */
+
+/* ---------- Tema Cine Óscar ---------- */
+/* ---------- Inspirado en la alfombra roja y el glamour de Hollywood ---------- */
+
+.theme-casino {
+  /* ✨ Paleta principal:
+     Dorados brillantes + Rojo alfombra + Blanco cálido + sombras suaves.
+     Transmite lujo, elegancia y celebración.
+  */
+
+  --color-transparent: rgba(255, 215, 0, 0.4);
+  /* Dorado translúcido para brillos sutiles */
+
+  --color-bg: #fff4e6;
+  /* Blanco crema cálido — fondo principal (elegante y luminoso) */
+
+  --color-bg-alt: #fff8ee;
+  /* Tonalidad más clara aún — para separar secciones sin contraste brusco */
+
+  --color-bg-gradient: linear-gradient(135deg, #fff4e6 0%, #fbe5cf 100%);
+  /* Gradiente suave en tonos marfil y champagne, da sensación de lujo suave */
+
+  --color-bg-hover: rgba(183, 28, 28, 0.08);
+  /* Reflejo rojizo suave al pasar el ratón */
+
+  --color-primary: #b71c1c;
+  /* Rojo alfombra roja — color protagonista y emocional */
+
+  --color-secondary: #8b0000;
+  /* Rojo vino oscuro — acento elegante para botones y títulos */
+
+  --color-accent: #d4af37;
+  /* Dorado clásico — brillos, bordes, títulos destacados */
+
+  --color-accent-transparent: rgba(212, 175, 55, 0.25);
+  /* Dorado translúcido para reflejos suaves y sombras cálidas */
+
+  --color-text: #2b1a0d;
+  /* Marrón oscuro cálido — perfecto contraste sobre fondo crema */
+}
+
+/* 💡 Botones estilo alfombra roja */
+.theme-casino {
+  .btn-thematic {
+    border: 2px solid var(--color-accent);
+    color: var(--color-bg);
+    background: linear-gradient(145deg, var(--color-primary), var(--color-secondary));
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: all 0.25s ease-in-out;
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
+
+    &:hover {
+      background: linear-gradient(145deg, var(--color-accent), #ffcc33);
+      color: var(--color-text);
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+      transform: scale(1.05);
+    }
+
+    &:active {
+      transform: scale(0.96);
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+    }
+  }
+}
+
+/* 🌟 Títulos y detalles */
+.theme-casino {
+  h1, h2, h3 {
+    color: var(--color-primary);
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.35);
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+
+  .highlight {
+    background: var(--color-accent-transparent);
+    color: var(--color-secondary);
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+  }
+
+  footer {
+    background: linear-gradient(to top, var(--color-primary), var(--color-secondary));
+    color: var(--color-bg);
+    border-top: 3px solid var(--color-accent);
+    box-shadow: 0 -3px 10px rgba(212, 175, 55, 0.4);
+  }
+}
+
+
+
+
+
+
+

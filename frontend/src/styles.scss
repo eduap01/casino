@@ -1,0 +1,445 @@
+@use './styles/themes' as *;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, var(--color-bg) 0%,
+                                      var(--color-bg-alt) 50%,
+                                      var(--color-bg) 100%);
+  color: var(--color-text);
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+img {
+  vertical-align: middle;
+  margin-left: 0.5vh;
+}
+
+/* ========== NAVBAR ========== */
+.navbar {
+  font-family: 'Raleway', sans-serif;
+  background-color: var(--color-bg) !important;
+  border-bottom: 1px solid var(--color-bg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+
+  .nav-link {
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    position: relative;
+    transition: color 0.3s ease;
+    color: var(--color-text);
+
+    &:hover {
+      color: var(--color-accent) !important;
+    }
+
+    &.active {
+      font-weight: bold;
+      color: var(--color-primary) !important;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: var(--color-primary);
+      transition: width 0.3s ease;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+ .navbar-toggler {
+  border: 2px solid var(--color-primary);
+  background-color: var(--color-bg);
+  border-radius: 8px;
+  padding: 0.4rem 0.6rem;
+  transition: all 0.3s ease-in-out;
+
+  /* Estado normal y al volver a estar colapsado */
+  &.collapsed,
+  &:not(:focus):not(:hover) {
+    background-color: var(--color-transparent);
+    border-color: var(--color-transparent);
+  }
+
+  /* Hover o focus */
+  &:hover,
+  &:focus {
+    background-color: var(--color-transparent);
+    border-color: var(--color-primary);
+    outline: none;
+  }
+
+  /* Estado activo (menú abierto) */
+  &.show,
+  &:not(.collapsed) {
+    background-color: var(--color-trasnparent);
+    border-color: var(--color-primary);
+  }
+
+  .navbar-toggler-icon {
+    background-color: var(--color-trasnparent);
+  }
+}
+
+
+}
+
+/* Submenú */
+.subnav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+
+  a {
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    background-color: var(--color-secondary);
+    color: var(--color-text);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      background-color: var(--color-primary);
+      color: var(--color-bg);
+    }
+  }
+}
+
+/* ========== HEADER ========== */
+header {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  padding: 2rem 1rem;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: slideDown 0.7s ease-out;
+
+  h1 {
+    margin: 0;
+    font-size: 2.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* ========== HEADER MINI (Logo + Carruseles) ========== */
+.header-mini {
+  position: relative;
+  background: var(--color-bg-alt);
+  padding: 20px;
+  text-align: center;
+  overflow: hidden;
+  height: 220px;
+
+  .casino-logo {
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 0 8px var(--color-accent));
+    transition: filter 0.3s ease, transform 0.3s ease;
+  }
+
+  .casino-logotipo {
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 0 8px var(--color-accent));
+    transition: filter 0.3s ease, transform 0.3s ease;
+  }
+  .casino-logotipo:hover {
+    filter: drop-shadow(0 0 12px var(--color-primary));
+    transform: scale(1.05);
+  }
+
+  .slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    opacity: 0.25;
+  }
+
+  .slide-track {
+    display: flex;
+    width: calc(250px * 15 * 2); // 15 imágenes, duplicadas para el bucle
+    height: 100%;
+    animation: scroll 40s linear infinite;
+  }
+
+  .slide {
+    flex: 0 0 auto;
+    height: 100%;
+
+  }
+
+  .slide img {
+    height: 100%;
+    width: auto;
+    flex-shrink: 0;
+    margin-right: 10px;
+  }
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-250px * 15)); }
+}
+
+/* Animación carrusel */
+@keyframes scroll-vertical {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+/* Responsive móvil */
+@media (max-width: 768px) {
+  .eventos-derecha {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    height: 120px;
+    margin-top: 15px;
+
+    .eventos-slide {
+      display: flex;
+      flex-direction: row;
+      min-width: 200%;
+      animation: scroll-horizontal 30s linear infinite;
+    }
+
+    img {
+      width: auto;
+      height: 100px;
+      margin: 0 10px;
+      flex-shrink: 0;
+    }
+  }
+}
+
+@keyframes scroll-horizontal {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ========== SECCIONES ========= */
+section {
+  padding: 2rem 1.5rem;
+  border-bottom: 1px solid var(--color-secondary);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Solo aplica animación si añado la clase */
+.animate {
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.animate:nth-of-type(n) {
+  animation-delay: calc(0.2s * var(--i));
+}
+
+@keyframes fadeUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+h2 {
+  border-left: 5px solid var(--color-primary);
+  padding-left: 0.75rem;
+  margin-top: 2rem;
+  color: var(--color-text);
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px dashed var(--color-accent);
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: var(--color-bg-hover, rgba(255, 255, 255, 0.1));
+  }
+
+  span {
+    font-size: 1.05rem;
+  }
+}
+
+.price {
+  font-weight: bold;
+  color: var(--color-primary);
+}
+
+/* ========== FOOTER ========== */
+footer {
+  background-color: var(--color-secondary);
+  color: var(--color-text);
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.95rem;
+  animation: fadeIn 1s ease-in 0s forwards;
+}
+
+.highlight {
+  background: var(--color-accent-transparent, rgba(255, 111, 97, 0.2));
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.cta {
+  text-align: center;
+  margin: 2rem 0;
+  animation: fadeIn 1s ease-in 1.1s forwards;
+
+  a {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+
+    &:hover {
+      background-color: var(--color-secondary);
+      transform: scale(1.05);
+    }
+  }
+}
+
+.logo {
+  max-width: 250px;
+  margin: 0 auto;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: var(--color-primary);
+  border: none;
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0px 6px 12px rgba(0,0,0,0.4);
+  transition: transform 0.2s ease-in-out, background 0.3s;
+  z-index: 1000;
+}
+
+.back-to-top:hover {
+  background: var(--color-secondary);
+  transform: scale(1.15);
+}
+
+.btn-thematic {
+  font-weight: 600;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  background-color: transparent;
+  transition: all 0.25s ease-in-out;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+ text-decoration: none;
+
+  &:hover {
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+    box-shadow: 0 0 10px var(--color-accent);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.welcome-page .carousel-container app-carrusel .carousel-item img {
+  display: block;
+  max-width: none;   /* importante para permitir crecer */
+  width: 100%;       /* un pelín más grande para que no se vea borde vacío */
+  transform: translateX(-0.7%); /* desplaza a la izquierda */
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* el contenido ocupa todo el espacio disponible */
+.main-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* el footer queda al final */
+app-footer {
+  flex-shrink: 0;
+  box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.25);
+}
+
+.casino-logo .btn-phone {
+  position: relative;
+  z-index: 5;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+/* Si tienes capas/overlays en el header, que no capturen clics */
+.header-mini .slider,
+.header-mini::before,
+.header-mini::after {
+  pointer-events: none;
+}

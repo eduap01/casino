@@ -1,0 +1,24 @@
+<div class="header-mini">
+  <!-- Carrusel de fondo -->
+  <div class="slider">
+    <div class="slide-track">
+      <div class="slide" *ngFor="let evento of eventosLoop">
+        <img [src]="'assets/header-mini/' + evento" alt="Evento" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Contenido principal -->
+  <div class="casino-logo text-center">
+    <img routerLink="/welcome"
+         src="assets/logoCasino.png"
+         alt="Logo Casino"
+         class="casino-logotipo img-fluid mb-3 logo" />
+    <p>
+      Pedidos al
+      <a href="tel:+34666666369" class="btn-thematic btn-phone">
+        📞 666 666 369
+      </a>
+    </p>
+  </div>
+</div>
