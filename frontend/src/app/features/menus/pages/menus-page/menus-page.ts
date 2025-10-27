@@ -1,13 +1,28 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { HeaderMini } from '../../../../shared/components/header-mini/header-mini';
-import { EnConstruccion } from '../../../../shared/pages/en-construccion/en-construccion';
 
 @Component({
   selector: 'app-menus-page',
-  imports: [HeaderMini, EnConstruccion],
+  standalone: true,
+  imports: [CommonModule, HeaderMini],
   templateUrl: './menus-page.html',
-  styleUrl: './menus-page.scss'
+  styleUrls: ['./menus-page.scss']
 })
 export class MenusPage {
+  imagenSeleccionada: string | null = null;
 
+  menus = [
+    'assets/menus/menu25.jpg',
+    'assets/menus/menu27.jpg',
+    'assets/menus/menu29.jpg'
+  ];
+
+  abrirModal(imagen: string): void {
+    this.imagenSeleccionada = imagen;
+  }
+
+  cerrarModal(): void {
+    this.imagenSeleccionada = null;
+  }
 }

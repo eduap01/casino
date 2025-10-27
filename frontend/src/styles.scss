@@ -12,7 +12,9 @@ body {
   font-family: "Raleway", sans-serif;
   margin: 0;
   padding: 0;
-  background: var(--color-bg-gradient, linear-gradient(135deg, var(--color-bg), var(--color-accent)));
+  background: linear-gradient(180deg, var(--color-bg) 0%,
+                                      var(--color-bg-alt) 50%,
+                                      var(--color-bg) 100%);
   color: var(--color-text);
   animation: fadeIn 1s ease-in;
 }
@@ -157,7 +159,7 @@ header {
 /* ========== HEADER MINI (Logo + Carruseles) ========== */
 .header-mini {
   position: relative;
-  background: var(--color-bg-alt, #141428);
+  background: var(--color-bg-alt);
   padding: 20px;
   text-align: center;
   overflow: hidden;
@@ -194,7 +196,7 @@ header {
 
   .slide-track {
     display: flex;
-    width: 200%;
+    width: calc(250px * 15 * 2); // 15 imágenes, duplicadas para el bucle
     height: 100%;
     animation: scroll 40s linear infinite;
   }
@@ -202,19 +204,20 @@ header {
   .slide {
     flex: 0 0 auto;
     height: 100%;
+
   }
 
   .slide img {
     height: 100%;
     width: auto;
     flex-shrink: 0;
-    margin-right: 20px;
+    margin-right: 10px;
   }
 }
 
 @keyframes scroll {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-250px * 15)); }
 }
 
 /* Animación carrusel */

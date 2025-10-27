@@ -5,20 +5,21 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  align-items: stretch; /*  fuerza mismo alto en cada celda */
+  align-items: stretch;
 }
 
-/* Asegura que cada card ocupa todo el alto disponible */
+
 .card-evento {
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* reparte el contenido */
-  height: 100%; /* 🔹 se estira dentro de la celda */
+  justify-content: space-between;
+  height: 100%;
   background: var(--color-bg-alt);
   border-radius: 1rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
   overflow: hidden;
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;futbol fantasy
+
 
   &:hover {
     transform: translateY(-4px);
@@ -31,6 +32,7 @@
     height: auto;
     object-fit: contain;
     background: var(--color-bg);
+
   }
 
   /* Contenedor del texto y botón */
@@ -60,8 +62,9 @@
 /* Anula el margen global y centra el <img> */
 .eventos .div-logo img {
   display: block;
-  margin: 0 auto !important; /* centra */
-  max-width: 250px;           /* opcional: tamaño tope */
+  margin: 0 auto !important;
+  max-width: 250px;
   height: auto;
+
 }
 

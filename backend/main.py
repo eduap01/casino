@@ -23,18 +23,13 @@ app.add_middleware(
 )
 
 # --- Leer variables del entorno ---
-GOOGLE_MAPS_API_KEY = os.getenv("GOOGLE_MAPS_API_KEY")
 SMTP_SERVER = os.getenv("SMTP_SERVER")
 SMTP_PORT = int(os.getenv("SMTP_PORT", 587))
 SMTP_USERNAME = os.getenv("SMTP_USERNAME")
 SMTP_PASSWORD = os.getenv("SMTP_PASSWORD")
 EMAIL_FROM = os.getenv("EMAIL_FROM")
 
-# --- RUTA 1: Configuración Google Maps ---
-@app.get("/maps/config")
-async def get_maps_config():
-    """Devuelve la clave de Google Maps al frontend"""
-    return {"apiKey": GOOGLE_MAPS_API_KEY}
+
 
 # --- FUNCIÓN: Envío de correo ---
 def send_email(to_email: str, subject: str, body: str):
