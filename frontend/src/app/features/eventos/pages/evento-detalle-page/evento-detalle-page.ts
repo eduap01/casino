@@ -17,7 +17,7 @@ export class EventoDetallePage {
     {
       titulo: 'Hamburbeza',
       descripcion: 'Las 8 mejores hamburguesas del mundo.',
-      fechas: ['2025-10-25', '2025-10-27'],
+      fechas: ['2025-10-10', '2025-10-12'],
       imagen: 'assets/eventos/Burguer.jpeg',
       texto: `Ven y prueba nuestras hamburguesas artesanales, preparadas con ingredientes frescos y música en vivo.`,
       enlaces: [
