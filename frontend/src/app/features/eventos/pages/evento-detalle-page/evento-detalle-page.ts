@@ -15,6 +15,31 @@ export class EventoDetallePage {
 
   eventos = [
     {
+      titulo: 'Santo Tardeo',
+      descripcion: '¡Ven disfrazado y sigue la fiesta entre vivos y muertos!',
+      fechas: ['2025-11-1'],
+      imagen: 'assets/eventos/santo_tardeo2025.jpg',
+      texto: `El 1 de noviembre no te pierdas la mejor tarde post-Halloween con Stanz DJ.
+              Música, ambiente y mucha energía desde las 17:30 h. `,
+      enlaces: [
+        { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
+        { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
+      ]
+    },
+    {
+      titulo: 'Pasaje del Terror',
+      descripcion: 'Actividad organizada por los alumnos del C.E.I.P. Miguel de Cervantes (6º curso)',
+      fechas: ['2025-10-31','2025-11-1'],
+      imagen: 'assets/eventos/Pasaje_terror2025.jpg',
+      texto: `Prepárate para una noche escalofriante llena de sustos, risas y mucha adrenalina.
+              Viernes 31 desde las 18:00 y Sábado 1 desde las 20:00.
+              Entrada: 2 € — ¡Todo lo recaudado se destina al viaje de fin de curso!`,
+      enlaces: [
+        { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
+        { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
+      ]
+    },
+    {
       titulo: 'Hamburbeza',
       descripcion: 'Las 8 mejores hamburguesas del mundo.',
       fechas: ['2025-10-10', '2025-10-12'],

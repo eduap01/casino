@@ -14,11 +14,23 @@ import { RouterModule } from '@angular/router';
 export class EventosPage {
   eventos = [
     {
+      titulo: 'Santo Tardeo',
+      fechas: ['2025-11-1'],
+      imagen: 'assets/eventos/santo_tardeo2025.jpg',
+      activo: true
+    },
+  {
+      titulo: 'Pasaje del Terror',
+      fechas: ['2025-10-31','2025-11-1'],
+      imagen: 'assets/eventos/Pasaje_terror2025.jpg',
+      activo: true
+    },
+    {
+      id: 0,
       titulo: 'Hamburbeza',
       descripcion: 'Las 8 mejores hamburgesas del mundo.',
       fechas: ['2025-10-10', '2025-10-12'],
       imagen: 'assets/eventos/Burguer.jpeg',
-      enlace: 'https://www.instagram.com/casinorockbar/?hl=es',
       activo: true
     },
     {
@@ -26,7 +38,7 @@ export class EventosPage {
       fechas:[ '2025-10-25'],
       imagen: 'assets/eventos/Concierto.jpeg',
       enlace: 'https://www.instagram.com/casinorockbar/?hl=es',
-      activo: false
+      activo: true
     }
   ];
 }
