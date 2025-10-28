@@ -12,15 +12,16 @@ import { CommonModule } from '@angular/common';
 })
 export class HeaderMini {
   eventos: string[] = [
-    'Burguer.jpeg',
     'JimmyHendrix.jpg',
+    'halloween2025.jpg',
     'MichaelJackson.jpg',
-    'octoberfest2025.jpg',
     'acdc.jpg',
-    'Concierto.jpeg',
+    'Pasaje_terror2025.jpg',
     'Fredy.webp',
+    'Concierto.jpeg',
     'LedZepelin.jpg',
     'elvis.jpg',
+    'santo_tardeo2025.jpg',
     'gunsnroses.jpg',
     'jagger.jpg',
     'johnny_cash.jpg',
