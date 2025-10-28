@@ -1,10 +1,8 @@
-
-
 :host {
   display: block;
 }
 
-
+/* ===== Footer y botones ===== */
 .evento-footer {
   display: flex;
   justify-content: center;
@@ -12,13 +10,12 @@
   margin-top: auto;
 }
 
-
 .btn-leer-mas {
   min-width: 120px;
   text-align: center;
 }
 
-
+/* ===== Modal ===== */
 .app-modal-overlay {
   position: fixed;
   inset: 0;
@@ -32,7 +29,6 @@
   overscroll-behavior: contain;
 }
 
-
 .app-modal-content {
   position: relative;
   max-width: 95vw;
@@ -45,7 +41,6 @@
   color: var(--color-text);
 }
 
-
 .app-modal-content img {
   display: block;
   max-width: 92vw;
@@ -57,7 +52,7 @@
   border: 2px solid var(--color-accent);
 }
 
-/* Botón de cierre */
+/* Botón de cierre modal (si lo utilizas) */
 .app-modal-close {
   position: absolute;
   top: 8px;
@@ -81,30 +76,49 @@
   }
 }
 
+/* ===== Header unificado (conserva todo lo que tenías) ===== */
 header {
   background: var(--color-secondary);
   padding: 0.5rem 1rem;
   border-radius: 8px;
 
+  /* añadido del segundo bloque */
+  min-height: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
   h2 {
     font-size: 1.2rem;
     font-weight: 600;
-    margin: 0;
+    margin: 0 0 0.25rem 0;
     color: var(--color-text);
   }
 
   time {
     font-size: 0.85rem;
     color: var(--color-accent);
+    line-height: 1;
   }
 }
 
+/* ===== Item del evento (respeta tu extend) ===== */
 .evento-item {
   @extend .evento-card; /* hereda los estilos principales */
   gap: 0.8rem;
+  position: relative; /* necesario para overlay absoluto */
 
   p {
     margin: 0;
+  }
+
+  &.pasado {
+    filter: grayscale(85%) brightness(85%);
+    opacity: 1;            /* visible */
+    transform: scale(0.98);
+    transition: all 1s ease;
   }
 
   footer {
@@ -115,8 +129,7 @@ header {
   }
 }
 
-
-/* Contenedor general del evento */
+/* ===== Contenedor general del evento ===== */
 .evento-card {
   display: flex;
   flex-direction: column;
@@ -125,7 +138,6 @@ header {
   border-radius: 12px;
   overflow: hidden;
   background: #fff;
-
 
   .evento-imagen {
     width: 100%;
@@ -144,6 +156,11 @@ header {
       object-position: center;
       display: block;
       background-color: #fff;
+      transition: transform 0.6s ease;
+    }
+
+    &:hover img {
+      transform: scale(1.03);
     }
   }
 
@@ -155,12 +172,12 @@ header {
     justify-content: space-between;
   }
 
-
   .evento-footer {
     margin-top: auto;
   }
 }
 
+/* Altura mínima y layout */
 .evento-card {
   min-height: 550px;
   display: flex;
@@ -168,13 +185,11 @@ header {
   justify-content: space-between;
 }
 
-
 .evento-contenido {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
 
   p {
     flex-grow: 1;
@@ -182,42 +197,53 @@ header {
   }
 }
 
-
-header {
-  min-height: 70px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-
-  h2 {
-    margin-bottom: 0.25rem;
-  }
-
-  time {
-    line-height: 1;
-  }
+/* Efecto adicional si aplicas la clase en .evento-card directamente */
+.evento-card.pasado {
+  filter: grayscale(90%) brightness(70%);
+  opacity: 0.85;
+  transform: scale(0.98);
+  transition: all 1s ease;
 }
 
-.fechas-multiples ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+/* ===== Overlay para eventos pasados (no bloquea clicks) ===== */
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.35);
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none; /* clave: no bloquea interacciones */
 }
 
+/* Mostrar overlay cuando es pasado */
+.evento-item.pasado .overlay,
+.evento-card.pasado .overlay {
+  opacity: 1;
+}
+
+/* ===== Fechas ===== */
 .fechas-multiples {
   margin-top: 0.5rem;
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
 }
 
 .fechas-linea {
   display: inline;
   font-weight: 500;
+
+  span {
+    font-weight: 500;
+  }
 }
-
-.fechas-linea span {
-  font-weight: 500;
-}
-
-
-

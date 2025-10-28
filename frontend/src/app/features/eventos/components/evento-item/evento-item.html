@@ -1,4 +1,8 @@
-<article class="evento-item card shadow p-3">
+<article
+  class="evento-item card shadow p-3"
+  [class.pasado]="esPasado"
+  [class.inactivo]="!activo">
+
   <header>
     <h2>{{ titulo }}</h2>
     <p *ngIf="fechas && fechas.length > 0">
@@ -12,14 +16,20 @@
 
   <p *ngIf="descripcion">{{ descripcion }}</p>
 
-  <footer *ngIf="enlace" class="evento-footer">
-      <button
-        class="btn-thematic btn-leer-mas"
-        (click)="irADetalle()"
-      >
-        Leer más
-      </button>
+  <footer *ngIf="imagen" class="evento-footer">
+    <button
+      class="btn-thematic btn-leer-mas"
+      (click)="irADetalle()"
+    >
+      Leer más
+    </button>
   </footer>
+
+  <!-- Overlay visual para eventos pasados -->
+  <div class="overlay" *ngIf="esPasado && activo">
+    <span>Evento pasado</span>
+  </div>
+
 </article>
 
 <!-- MODAL (se reubica en <body>) -->
