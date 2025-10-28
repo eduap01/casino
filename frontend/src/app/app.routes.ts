@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, ExtraOptions } from '@angular/router';
+import { ValidEventGuard } from './core/guards/valid-event.guard';
+
+import { BlockedRouteGuard } from './core/guards/blocked-route.guard';
 
 import { MenusPage } from './features/menus/pages/menus-page/menus-page';
 import { CartaPage } from './features/carta/pages/carta-page/carta-page';
@@ -13,20 +16,28 @@ import { NuestraHistoriaPage } from './features/sobre-nosotros/pages/nuestra-his
 import { ParticipaPage } from './features/participa/pages/participa-page/participa-page';
 import { ClubesPage } from './features/participa/pages/clubes-page/clubes-page';
 import { MerchandisingPage } from './features/merchandising/pages/merchandising-page/merchandising-page';
+import { EnConstruccion } from './shared/pages/en-construccion/en-construccion';
+
+
 
 export const routes: Routes = [
   { path: 'welcome', component: Welcome },
   { path: 'menus', component: MenusPage },
   { path: 'carta', component: CartaPage },
   { path: 'eventos', component: EventosPage },
-  { path: 'eventos/:id', component: EventoDetallePage },
-  { path: 'sobre-nosotros', component: SobreNosotrosPage },
-  { path: 'quienes-somos', component: QuienesSomosPage },
-  { path: 'nuestra-historia', component: NuestraHistoriaPage },
-  { path: 'reserva-evento', component: ReservaEventoPage },
-  { path: 'participa', component: ParticipaPage },
-  { path: 'clubes', component: ClubesPage },
-  { path: 'merchandising', component: MerchandisingPage },
+  {
+    path: 'eventos/:id',
+    component: EventoDetallePage,
+    canActivate: [ValidEventGuard] // controla que el ID exista
+  }, // el , canActivate: [BlockedRouteGuard], es para bloquear que se cuelen
+  { path: 'sobre-nosotros', canActivate: [BlockedRouteGuard], component: SobreNosotrosPage },
+  { path: 'quienes-somos', canActivate: [BlockedRouteGuard], component: QuienesSomosPage },
+  { path: 'nuestra-historia', canActivate: [BlockedRouteGuard], component: NuestraHistoriaPage },
+  { path: 'reserva-evento', canActivate: [BlockedRouteGuard], component: ReservaEventoPage },
+  { path: 'participa', canActivate: [BlockedRouteGuard], component: ParticipaPage },
+  { path: 'clubes',canActivate: [BlockedRouteGuard], component: ClubesPage },
+  { path: 'merchandising', canActivate: [BlockedRouteGuard], component: MerchandisingPage },
+  { path: 'en-construccion', component: EnConstruccion },
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
   { path: '**', redirectTo: 'welcome' }
 ];

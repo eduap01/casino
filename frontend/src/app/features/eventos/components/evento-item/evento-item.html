@@ -1,7 +1,9 @@
 <article class="evento-item card shadow p-3">
   <header>
     <h2>{{ titulo }}</h2>
-    <time *ngIf="fecha" [attr.datetime]="fecha">{{ fecha | date:'longDate' }}</time>
+    <p *ngIf="fechas && fechas.length > 0">
+      {{ getFechasCompactas() }}
+    </p>
   </header>
 
   <div class="evento-imagen" (click)="openModal()">

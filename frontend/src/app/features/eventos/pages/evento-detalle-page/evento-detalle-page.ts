@@ -17,7 +17,7 @@ export class EventoDetallePage {
     {
       titulo: 'Hamburbeza',
       descripcion: 'Las 8 mejores hamburguesas del mundo.',
-      fecha: '2025-10-15',
+      fechas: ['2025-10-25', '2025-10-27'],
       imagen: 'assets/eventos/Burguer.jpeg',
       texto: `Ven y prueba nuestras hamburguesas artesanales, preparadas con ingredientes frescos y música en vivo.`,
       enlaces: [
@@ -28,12 +28,12 @@ export class EventoDetallePage {
     {
       titulo: 'Colegui Fest',
       descripcion: 'Conciertos en vivo.',
-      fecha: '2025-10-25',
+      fechas: ['2025-10-25'],
       imagen: 'assets/eventos/Concierto.jpeg',
       texto: `Disfruta del mejor ambiente rock con bandas locales e invitados especiales. ¡No te lo pierdas!`,
       enlaces: [
-        /*{ nombre: 'Entradas', url: 'https://entradas.casinorockbar.com' },*/
-        { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' }
+        { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
+        { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
       ]
     }
   ];
@@ -44,6 +44,24 @@ export class EventoDetallePage {
   ) {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
     this.evento = this.eventos[this.id];
+  }
+
+
+  getFechasCompactas(): string {
+    if (!this.evento?.fechas || this.evento.fechas.length === 0) return '';
+
+    const fechasOrdenadas = this.evento.fechas.sort(
+      (a: string, b: string) => new Date(a).getTime() - new Date(b).getTime()
+    );
+
+    if (fechasOrdenadas.length === 1) {
+      return new Date(fechasOrdenadas[0]).toLocaleDateString('es-ES');
+    }
+
+    const primera = new Date(fechasOrdenadas[0]).toLocaleDateString('es-ES');
+    const ultima = new Date(fechasOrdenadas[fechasOrdenadas.length - 1]).toLocaleDateString('es-ES');
+
+    return `${primera} - ${ultima}`;
   }
 
   openExternal(url: string): void {
