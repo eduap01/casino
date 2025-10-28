@@ -30,7 +30,7 @@ export  class App {
   }
   ngOnInit() {
     // 👇 Aplica el tema que quieras al iniciar la app
-    document.body.classList.add('theme-standard');
+    document.body.classList.add('theme-halloween');
     // Si prefieres dejar el estándar:
     // document.body.classList.add('theme-standard');
   }
