@@ -25,7 +25,9 @@
       <div class="detalle-texto">
         <h1 class="titulo">{{ evento.titulo }}</h1>
         <div class="titulo-underline"></div>
-        <p class="fecha">{{ evento.fecha | date: 'longDate' }}</p>
+        <p class="fecha" *ngIf="evento.fechas?.length">
+          {{ getFechasCompactas() }}
+        </p>
         <p class="descripcion">{{ evento.descripcion }}</p>
         <div class="texto-detalle">{{ evento.texto }}</div>
 
