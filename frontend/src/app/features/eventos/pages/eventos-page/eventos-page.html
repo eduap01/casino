@@ -14,12 +14,12 @@
     <app-evento-item
       *ngFor="let ev of eventos; let i = index"
       [id]="i"
-      [titulo]="ev.titulo"
-      [descripcion]="ev.descripcion"
-      [fechas]="ev.fechas"
-      [imagen]="ev.imagen"
-      [enlace]="ev.enlace"
-      [activo]="ev.activo">
+      [titulo]="ev?.titulo"
+      [descripcion]="ev?.descripcion"
+      [fechas]="ev?.fechas"
+      [imagen]="ev?.imagen"
+      [enlace]="ev?.enlace"
+      [activo]="ev?.activo">
     ></app-evento-item>
   </div>
 </section>

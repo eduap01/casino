@@ -10,13 +10,13 @@ import { RouterModule, Router } from '@angular/router';
   styleUrls: ['./evento-item.scss']
 })
 export class EventoItem {
-  @Input() titulo!: string;
+  @Input() titulo?: string;
   @Input() id!: number;
   @Input() descripcion?: string;
-  @Input() fechas: string[] | null = [];
-  @Input() imagen!: string;
+  @Input() fechas?: string[] | null = [];
+  @Input() imagen?: string;
   @Input() enlace?: string;
-  @Input() activo!: boolean;
+  @Input() activo?: boolean;
 
   @ViewChild('overlay') overlayEl?: ElementRef<HTMLDivElement>;
   showModal = false;
@@ -78,4 +78,18 @@ export class EventoItem {
     const ultima = formatDate(fechasOrdenadas[fechasOrdenadas.length - 1]);
     return `${primera} - ${ultima}`;
   }
+
+  get esPasado(): boolean {
+  if (!this.fechas || this.fechas.length === 0) return false;
+
+  const ultima = new Date(this.fechas[this.fechas.length - 1]);
+  const hoy = new Date();
+
+  hoy.setHours(0, 0, 0, 0);
+  ultima.setHours(0, 0, 0, 0);
+
+  return ultima < hoy;
+}
+
+
 }
