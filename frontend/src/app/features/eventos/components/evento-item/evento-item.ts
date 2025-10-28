@@ -1,6 +1,6 @@
 import { Component, Input, ElementRef, Renderer2, ViewChild, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 
 @Component({
   selector: 'app-evento-item',
@@ -16,11 +16,18 @@ export class EventoItem {
   @Input() fechas: string[] | null = [];
   @Input() imagen!: string;
   @Input() enlace?: string;
+  @Input() activo!: boolean;
 
   @ViewChild('overlay') overlayEl?: ElementRef<HTMLDivElement>;
   showModal = false;
 
-  constructor(private renderer: Renderer2) {}
+    constructor(private renderer: Renderer2, private router: Router) {} // 👈 INYECTAMOS Router
+
+  irADetalle(): void {
+    this.router.navigate(['/eventos', this.id], {
+      state: { activo: this.activo }
+    });
+  }
 
   openModal(): void {
     this.showModal = true;
@@ -43,7 +50,7 @@ export class EventoItem {
     if (this.showModal) this.closeModal();
   }
 
-  /** ✅ Formatea las fechas en formato fijo dd/MM/yyyy */
+
   getFechasCompactas(): string {
     if (!this.fechas || this.fechas.length === 0) return '';
 

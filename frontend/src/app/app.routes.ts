@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, ExtraOptions } from '@angular/router';
-import { ValidEventGuard } from './core/guards/valid-event.guard';
 
+import { ValidEventGuard } from './core/guards/valid-event.guard';
 import { BlockedRouteGuard } from './core/guards/blocked-route.guard';
 
 import { MenusPage } from './features/menus/pages/menus-page/menus-page';
@@ -26,10 +26,16 @@ export const routes: Routes = [
   { path: 'carta', component: CartaPage },
   { path: 'eventos', component: EventosPage },
   {
-    path: 'eventos/:id',
-    component: EventoDetallePage,
-    canActivate: [ValidEventGuard] // controla que el ID exista
-  }, // el , canActivate: [BlockedRouteGuard], es para bloquear que se cuelen
+  path: 'eventos/:id',
+    canActivate: [ValidEventGuard],
+    loadComponent: () => import('./features/eventos/pages/evento-detalle-page/evento-detalle-page')
+      .then(m => m.EventoDetallePage)
+  },
+  {
+    path: 'en-construccion',
+    loadComponent: () => import('./shared/pages/en-construccion/en-construccion')
+      .then(m => m.EnConstruccion)
+  },
   { path: 'sobre-nosotros', canActivate: [BlockedRouteGuard], component: SobreNosotrosPage },
   { path: 'quienes-somos', canActivate: [BlockedRouteGuard], component: QuienesSomosPage },
   { path: 'nuestra-historia', canActivate: [BlockedRouteGuard], component: NuestraHistoriaPage },
@@ -37,7 +43,6 @@ export const routes: Routes = [
   { path: 'participa', canActivate: [BlockedRouteGuard], component: ParticipaPage },
   { path: 'clubes',canActivate: [BlockedRouteGuard], component: ClubesPage },
   { path: 'merchandising', canActivate: [BlockedRouteGuard], component: MerchandisingPage },
-  { path: 'en-construccion', component: EnConstruccion },
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
   { path: '**', redirectTo: 'welcome' }
 ];

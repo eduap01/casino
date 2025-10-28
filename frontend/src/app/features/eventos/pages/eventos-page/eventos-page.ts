@@ -16,15 +16,17 @@ export class EventosPage {
     {
       titulo: 'Hamburbeza',
       descripcion: 'Las 8 mejores hamburgesas del mundo.',
-      fechas: ['2025-10-25', '2025-10-26', '2025-10-27'],
+      fechas: ['2025-10-10', '2025-10-12'],
       imagen: 'assets/eventos/Burguer.jpeg',
-      enlace: 'https://www.instagram.com/casinorockbar/?hl=es'
+      enlace: 'https://www.instagram.com/casinorockbar/?hl=es',
+      activo: true
     },
     {
       titulo: 'Colegui Fest',
       fechas:[ '2025-10-25'],
       imagen: 'assets/eventos/Concierto.jpeg',
-      enlace: 'https://www.instagram.com/casinorockbar/?hl=es'
+      enlace: 'https://www.instagram.com/casinorockbar/?hl=es',
+      activo: false
     }
   ];
 }
