@@ -13,12 +13,12 @@
   <p *ngIf="descripcion">{{ descripcion }}</p>
 
   <footer *ngIf="enlace" class="evento-footer">
-    <a
-      class="btn-thematic btn-leer-mas"
-      [routerLink]="['/eventos', id]"
-    >
-      Leer más
-    </a>
+      <button
+        class="btn-thematic btn-leer-mas"
+        (click)="irADetalle()"
+      >
+        Leer más
+      </button>
   </footer>
 </article>
 

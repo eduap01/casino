@@ -1,28 +1,32 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, Router } from '@angular/router';
-import { EventosService } from '../../features/eventos/services/eventos.service';
 
 @Injectable({ providedIn: 'root' })
 export class ValidEventGuard implements CanActivate {
-  constructor(private eventosService: EventosService, private router: Router) {}
+  constructor(private router: Router) {}
 
-  async canActivate(route: ActivatedRouteSnapshot): Promise<boolean> {
-    const id = route.paramMap.get('id');
-    if (!id) {
+  canActivate(route: ActivatedRouteSnapshot): boolean {
+    const nav = this.router.getCurrentNavigation();
+    const stateActivo = nav?.extras?.state?.['activo'];
+    const historyActivo = Object.prototype.hasOwnProperty.call(history.state || {}, 'activo')
+      ? history.state['activo']
+      : undefined;
+
+    const activo = stateActivo ?? historyActivo;
+
+    // Añadimos esta parte para bloquear accesos directos (sin state)
+    if (activo === undefined) {
+      console.warn('Intento de acceso directo sin state, redirigiendo...');
       this.router.navigate(['/en-construccion']);
       return false;
     }
 
-    try {
-      const evento = await this.eventosService.getEventoById(id);
-      if (!evento) {
-        this.router.navigate(['/en-construccion']);
-        return false;
-      }
-      return true;
-    } catch {
+    if (activo === false) {
+      console.warn('Evento inactivo, redirigiendo...');
       this.router.navigate(['/en-construccion']);
       return false;
     }
+
+    return true;
   }
 }
