@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, Router } from '@angular/router';
+import { EVENTOS } from '../../features/eventos/data/eventos.data';
 
 @Injectable({ providedIn: 'root' })
 export class ValidEventGuard implements CanActivate {
@@ -12,17 +13,19 @@ export class ValidEventGuard implements CanActivate {
       ? history.state['activo']
       : undefined;
 
-    const activo = stateActivo ?? historyActivo;
+    const activoState = stateActivo ?? historyActivo;
+    const id = Number(route.paramMap.get('id'));
 
-    // Añadimos esta parte para bloquear accesos directos (sin state)
-    if (activo === undefined) {
-      console.warn('Intento de acceso directo sin state, redirigiendo...');
+    // 1) Si viene con state desde la app, úsalo directamente
+    if (activoState === false) {
       this.router.navigate(['/en-construccion']);
       return false;
     }
+    if (activoState === true) return true;
 
-    if (activo === false) {
-      console.warn('Evento inactivo, redirigiendo...');
+    // 2) Si llega por URL directa (sin state), consulta la fuente única
+    const evento = EVENTOS.find(e => e.id === id);
+    if (!evento || !evento.activo) {
       this.router.navigate(['/en-construccion']);
       return false;
     }
