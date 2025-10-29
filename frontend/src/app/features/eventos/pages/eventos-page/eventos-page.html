@@ -12,14 +12,14 @@
 
   <div class="eventos-grid">
     <app-evento-item
-      *ngFor="let ev of eventos; let i = index"
-      [id]="i"
+      *ngFor="let ev of eventos"
+      [id]="ev.id"
       [titulo]="ev?.titulo"
       [descripcion]="ev?.descripcion"
       [fechas]="ev?.fechas"
       [imagen]="ev?.imagen"
       [enlace]="ev?.enlace"
       [activo]="ev?.activo">
-    ></app-evento-item>
+    </app-evento-item>
   </div>
 </section>
