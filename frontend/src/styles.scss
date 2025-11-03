@@ -1,4 +1,5 @@
 @use './styles/themes' as *;
+@import 'assets/fonts/fonts.css';
 
 * {
   box-sizing: border-box;
@@ -68,41 +69,37 @@ img {
       width: 100%;
     }
   }
- .navbar-toggler {
-  border: 2px solid var(--color-primary);
-  background-color: var(--color-bg);
-  border-radius: 8px;
-  padding: 0.4rem 0.6rem;
-  transition: all 0.3s ease-in-out;
 
-  /* Estado normal y al volver a estar colapsado */
-  &.collapsed,
-  &:not(:focus):not(:hover) {
-    background-color: var(--color-transparent);
-    border-color: var(--color-transparent);
+  .navbar-toggler {
+    border: 2px solid var(--color-primary);
+    background-color: var(--color-bg);
+    border-radius: 8px;
+    padding: 0.4rem 0.6rem;
+    transition: all 0.3s ease-in-out;
+
+    &.collapsed,
+    &:not(:focus):not(:hover) {
+      background-color: var(--color-transparent);
+      border-color: var(--color-transparent);
+    }
+
+    &:hover,
+    &:focus {
+      background-color: var(--color-transparent);
+      border-color: var(--color-primary);
+      outline: none;
+    }
+
+    &.show,
+    &:not(.collapsed) {
+      background-color: var(--color-trasnparent);
+      border-color: var(--color-primary);
+    }
+
+    .navbar-toggler-icon {
+      background-color: var(--color-trasnparent);
+    }
   }
-
-  /* Hover o focus */
-  &:hover,
-  &:focus {
-    background-color: var(--color-transparent);
-    border-color: var(--color-primary);
-    outline: none;
-  }
-
-  /* Estado activo (menú abierto) */
-  &.show,
-  &:not(.collapsed) {
-    background-color: var(--color-trasnparent);
-    border-color: var(--color-primary);
-  }
-
-  .navbar-toggler-icon {
-    background-color: var(--color-trasnparent);
-  }
-}
-
-
 }
 
 /* Submenú */
@@ -178,6 +175,7 @@ header {
     filter: drop-shadow(0 0 8px var(--color-accent));
     transition: filter 0.3s ease, transform 0.3s ease;
   }
+
   .casino-logotipo:hover {
     filter: drop-shadow(0 0 12px var(--color-primary));
     transform: scale(1.05);
@@ -196,7 +194,7 @@ header {
 
   .slide-track {
     display: flex;
-    width: calc(250px * 15 * 2); // 15 imágenes, duplicadas para el bucle
+    width: calc(250px * 15 * 2);
     height: 100%;
     animation: scroll 40s linear infinite;
   }
@@ -204,7 +202,6 @@ header {
   .slide {
     flex: 0 0 auto;
     height: 100%;
-
   }
 
   .slide img {
@@ -220,13 +217,11 @@ header {
   100% { transform: translateX(calc(-250px * 15)); }
 }
 
-/* Animación carrusel */
 @keyframes scroll-vertical {
-  0%   { transform: translateY(0); }
+  0% { transform: translateY(0); }
   100% { transform: translateY(-50%); }
 }
 
-/* Responsive móvil */
 @media (max-width: 768px) {
   .eventos-derecha {
     display: flex;
@@ -252,7 +247,7 @@ header {
 }
 
 @keyframes scroll-horizontal {
-  0%   { transform: translateX(0); }
+  0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
@@ -264,7 +259,6 @@ section {
   margin: 0 auto;
 }
 
-/* Solo aplica animación si añado la clase */
 .animate {
   opacity: 0;
   animation: fadeUp 0.8s ease forwards;
@@ -284,6 +278,25 @@ h2 {
   padding-left: 0.75rem;
   margin-top: 2rem;
   color: var(--color-text);
+}
+
+h2 lucide-icon.icon {
+  width: 1.3em;
+  height: 1.3em;
+  margin-right: 8px;
+  vertical-align: middle;
+  color: var(--color-accent);
+  opacity: 0.8;
+  filter: drop-shadow(0 0 4px rgba(198, 164, 88, 0.3));
+  transition: opacity 0.25s ease-in-out, transform 0.2s ease-in-out;
+  position: relative;
+  top: -2px;
+}
+
+h2 lucide-icon.icon:hover {
+  opacity: 1;
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 6px rgba(198, 164, 88, 0.5));
 }
 
 .item {
@@ -360,12 +373,11 @@ footer {
   border-radius: 50%;
   width: 64px;
   height: 64px;
-  font-size: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0px 6px 12px rgba(0,0,0,0.4);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
   transition: transform 0.2s ease-in-out, background 0.3s;
   z-index: 1000;
 }
@@ -375,6 +387,23 @@ footer {
   transform: scale(1.15);
 }
 
+/* 🎞️ Icono Lucide dentro del botón “Back to top” */
+.back-to-top lucide-icon.icon {
+  width: 1.8em;
+  height: 1.8em;
+  color: var(--color-text);
+  opacity: 0.85;
+  filter: drop-shadow(0 0 4px rgba(198, 164, 88, 0.3));
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.back-to-top:hover lucide-icon.icon {
+  opacity: 1;
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 6px rgba(198, 164, 88, 0.5));
+}
+
+/* Botones temáticos */
 .btn-thematic {
   font-weight: 600;
   color: var(--color-primary);
@@ -383,25 +412,25 @@ footer {
   transition: all 0.25s ease-in-out;
   border-radius: 8px;
   padding: 0.6rem 1.2rem;
- text-decoration: none;
+  text-decoration: none;
+}
 
-  &:hover {
-    background-color: var(--color-primary);
-    color: var(--color-bg);
-    box-shadow: 0 0 10px var(--color-accent);
-    transform: translateY(-2px);
-  }
+.btn-thematic:hover {
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+  box-shadow: 0 0 10px var(--color-accent);
+  transform: translateY(-2px);
+}
 
-  &:active {
-    transform: scale(0.98);
-  }
+.btn-thematic:active {
+  transform: scale(0.98);
 }
 
 .welcome-page .carousel-container app-carrusel .carousel-item img {
   display: block;
-  max-width: none;   /* importante para permitir crecer */
-  width: 100%;       /* un pelín más grande para que no se vea borde vacío */
-  transform: translateX(-0.7%); /* desplaza a la izquierda */
+  max-width: none;
+  width: 100%;
+  transform: translateX(-0.7%);
 }
 
 html, body {
@@ -417,14 +446,12 @@ app-root {
   min-height: 100vh;
 }
 
-/* el contenido ocupa todo el espacio disponible */
 .main-container {
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-/* el footer queda al final */
 app-footer {
   flex-shrink: 0;
   box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.25);
@@ -437,7 +464,6 @@ app-footer {
   cursor: pointer;
 }
 
-/* Si tienes capas/overlays en el header, que no capturen clics */
 .header-mini .slider,
 .header-mini::before,
 .header-mini::after {

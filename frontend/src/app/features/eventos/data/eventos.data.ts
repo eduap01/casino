@@ -13,6 +13,25 @@ export interface Evento {
 
 export const EVENTOS = [
   {
+    id: 4,
+    titulo: 'La Pura Sangre',
+    descripcion: 'Nito Serrano y La Pura Sangre llegan con su gira de otoño al Casino Rock Bar.',
+    texto: `El sábado 22 de noviembre a las 18:30 h, el escenario del Casino Rock (Esquivias) acoge la Gira Otoño 2025 de Nito Serrano y La Pura Sangre.
+
+Con su mezcla inconfundible de raíces andaluzas, rock y folk, el grupo ofrece un directo cargado de emoción, fuerza y autenticidad. Un viaje sonoro que combina la poesía de las letras con la energía de las guitarras y la calidez del cante.
+
+Entrada libre hasta completar aforo.
+
+No te pierdas una tarde de música en vivo con una de las bandas más vibrantes del panorama nacional.`,
+    fechas: ['2025-11-22'],
+    imagen: 'assets/eventos/laPuraSangre.jpg',
+    enlaces: [
+      { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
+      { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
+    ],
+    activo: true
+  },
+  {
     id: 3,
     titulo: 'Santo Tardeo',
     descripcion: 'Música, ambiente y mucho miedo...',
