@@ -3,12 +3,13 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule, Router } from '@angular/router';
 
 import { EVENTOS } from '../../data/eventos.data';
+import {LucideAngularModule} from 'lucide-angular';
 
 
 @Component({
   selector: 'app-evento-detalle-page',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, LucideAngularModule],
   templateUrl: './evento-detalle-page.html',
   styleUrls: ['./evento-detalle-page.scss']
 })

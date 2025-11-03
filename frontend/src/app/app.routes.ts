@@ -53,6 +53,7 @@ const routerOptions: ExtraOptions = {
   scrollPositionRestoration: 'enabled'
 };
 
+// @ts-ignore
 @NgModule({
   imports: [RouterModule.forRoot(routes, routerOptions)],
   exports: [RouterModule]

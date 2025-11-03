@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'DM Serif Display';
+  src: url('/assets/fonts/DM_Serif_Display/DMSerifDisplay-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cinzel Decorative';
+  src: url('/assets/fonts/Cinzel_Decorative/CinzelDecorative-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Unica One';
+  src: url('/assets/fonts/Unica_One/UnicaOne-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Tenor Sans';
+  src: url('/assets/fonts/Tenor_Sans/TenorSans-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lora';
+  src: url('/assets/fonts/Lora/static/Lora-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Forum';
+  src: url('/assets/fonts/Forum/Forum-Regular.ttf') format('truetype');
+  font-display: swap;
+}
