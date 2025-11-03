@@ -1,3 +1,6 @@
+@import 'assets/fonts/fonts.css';
+
+
 /* ===========================================================
    SYSTEM THEMES
    Paletas de color para distintos estilos estacionales
@@ -61,96 +64,173 @@
 /* ---------- Tema Halloween ---------- */
 /* ---------- Tema Halloween ---------- */
 
-/* ---------- Tema Cine Óscar ---------- */
-/* ---------- Inspirado en la alfombra roja y el glamour de Hollywood ---------- */
 
+
+/* ---------- Tema Casino Cine ---------- */
+/*  Tipografía general */
 .theme-casino {
-  /* ✨ Paleta principal:
-     Dorados brillantes + Rojo alfombra + Blanco cálido + sombras suaves.
-     Transmite lujo, elegancia y celebración.
-  */
-
-  --color-transparent: rgba(255, 215, 0, 0.4);
-  /* Dorado translúcido para brillos sutiles */
-
-  --color-bg: #fff4e6;
-  /* Blanco crema cálido — fondo principal (elegante y luminoso) */
-
-  --color-bg-alt: #fff8ee;
-  /* Tonalidad más clara aún — para separar secciones sin contraste brusco */
-
-  --color-bg-gradient: linear-gradient(135deg, #fff4e6 0%, #fbe5cf 100%);
-  /* Gradiente suave en tonos marfil y champagne, da sensación de lujo suave */
-
-  --color-bg-hover: rgba(183, 28, 28, 0.08);
-  /* Reflejo rojizo suave al pasar el ratón */
-
-  --color-primary: #b71c1c;
-  /* Rojo alfombra roja — color protagonista y emocional */
-
-  --color-secondary: #8b0000;
-  /* Rojo vino oscuro — acento elegante para botones y títulos */
-
-  --color-accent: #d4af37;
-  /* Dorado clásico — brillos, bordes, títulos destacados */
-
-  --color-accent-transparent: rgba(212, 175, 55, 0.25);
-  /* Dorado translúcido para reflejos suaves y sombras cálidas */
-
-  --color-text: #2b1a0d;
-  /* Marrón oscuro cálido — perfecto contraste sobre fondo crema */
+  font-family: 'Lora', serif;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  line-height: 1.6;
 }
 
-/* 💡 Botones estilo alfombra roja */
-.theme-casino {
-  .btn-thematic {
-    border: 2px solid var(--color-accent);
-    color: var(--color-bg);
-    background: linear-gradient(145deg, var(--color-primary), var(--color-secondary));
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    transition: all 0.25s ease-in-out;
-    box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
-
-    &:hover {
-      background: linear-gradient(145deg, var(--color-accent), #ffcc33);
-      color: var(--color-text);
-      box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
-      transform: scale(1.05);
-    }
-
-    &:active {
-      transform: scale(0.96);
-      box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
-    }
-  }
+/* Títulos */
+.theme-casino h1,
+.theme-casino h2,
+.theme-casino h3 {
+  font-family: 'Tenor Sans', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-accent);
 }
 
-/* 🌟 Títulos y detalles */
-.theme-casino {
-  h1, h2, h3 {
-    color: var(--color-primary);
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.35);
-    letter-spacing: 1px;
-    font-weight: 700;
-  }
-
-  .highlight {
-    background: var(--color-accent-transparent);
-    color: var(--color-secondary);
-    padding: 0.3rem 0.6rem;
-    border-radius: 6px;
-  }
-
-  footer {
-    background: linear-gradient(to top, var(--color-primary), var(--color-secondary));
-    color: var(--color-bg);
-    border-top: 3px solid var(--color-accent);
-    box-shadow: 0 -3px 10px rgba(212, 175, 55, 0.4);
-  }
+/*  Navbar */
+.theme-casino .navbar,
+.theme-casino .nav-link {
+  font-family: 'Tenor Sans', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--color-accent);
 }
 
+.theme-casino .nav-link:hover {
+  color: var(--color-text);
+  text-shadow: 0 0 6px rgba(198, 164, 88, 0.4);
+}
+
+
+.theme-casino .highlight {
+  font-family: 'Forum', serif;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  font-style: normal;
+  color: var(--color-secondary);
+}
+
+
+
+
+.theme-casino {
+  --color-transparent: rgba(200, 160, 70, 0.25);
+  --color-bg: #2b2521;
+  --color-bg-alt: #362f29;
+  --color-bg-gradient: linear-gradient(#3a312b 0%, #241e1a 45%, #3e332c 65%, #3a312b 100%);
+  --color-bg-hover: rgba(200, 160, 70, 0.15);
+  --color-primary: #7c1818;
+  --color-secondary: #4e0f0f;
+  --color-tertiary: #705b43;
+  --color-accent: #c6a458;
+  --color-accent-soft: #e3c77a;
+  --color-accent-transparent: rgba(198, 164, 88, 0.25);
+  --color-text: #f5e8cc;
+  --color-text-muted: #d4c5a4;
+  --color-highlight-bg: rgba(198, 164, 88, 0.15);
+  --color-shadow: rgba(0, 0, 0, 0.5);
+  --color-card-bg: #322a25;
+  --color-card-border: #a78650;
+  --color-link: #d4b24d;
+  --color-link-hover: #f1d176;
+}
+
+.theme-casino {
+  background: var(--color-bg-gradient);
+  color: var(--color-text);
+
+}
+
+.theme-casino .btn-thematic {
+  border: 2px solid var(--color-accent);
+  color: var(--color-text);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.25s ease-in-out;
+  box-shadow: 0 0 10px rgba(200, 160, 70, 0.3);
+
+}
+.theme-casino .btn-thematic:hover {
+  background: linear-gradient(145deg, var(--color-accent), var(--color-accent-soft));
+  color: var(--color-bg);
+  box-shadow: 0 0 18px rgba(200, 160, 70, 0.6);
+  transform: scale(1.05);
+}
+.theme-casino .btn-thematic:active {
+  transform: scale(0.96);
+  box-shadow: 0 0 8px rgba(200, 160, 70, 0.4);
+}
+
+.theme-casino h1,
+.theme-casino h2,
+.theme-casino h3 {
+  color: var(--color-accent);
+  text-shadow: 0 0 10px rgba(193, 162, 74, 0.35);
+  letter-spacing: 1px;
+  font-weight: 700;
+
+}
+
+.theme-casino .highlight {
+  background: var(--color-accent-transparent);
+  color: var(--color-text);
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+}
+
+.theme-casino header {
+  background: linear-gradient(to bottom, #3a312b, #221c18);
+
+  box-shadow: 0 3px 12px var(--color-shadow);
+}
+
+.theme-casino footer {
+  background: linear-gradient(to top, #251e1a, #3b302a);
+  color: var(--color-text-muted);
+  border-top: 3px solid var(--color-accent);
+  box-shadow: 0 -3px 10px rgba(193, 162, 74, 0.3);
+}
+
+.theme-casino .section {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.4);
+}
+
+.theme-casino a {
+  color: var(--color-link);
+  transition: color 0.3s ease-in-out;
+}
+.theme-casino a:hover {
+  color: var(--color-link-hover);
+  text-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
+}
+
+.theme-casino .div-logo img.logo {
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.7))
+          sepia(0.25)
+          saturate(1.3)
+          hue-rotate(10deg)
+          brightness(1.1);
+}
+
+.theme-casino .navbar,
+.theme-casino .nav-link,
+.theme-casino .nav-item {
+
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.theme-casino .nav-link:hover {
+  color: var(--color-text);
+  text-shadow: 0 0 6px rgba(198, 164, 88, 0.4);
+}
 
 
 
