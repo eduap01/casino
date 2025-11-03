@@ -1,10 +1,11 @@
 import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {LucideAngularModule} from 'lucide-angular';
 
 @Component({
   selector: 'app-back-to-top',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, LucideAngularModule],
   templateUrl: './back-to-top.html',
   styleUrls: ['./back-to-top.scss'],
 })
