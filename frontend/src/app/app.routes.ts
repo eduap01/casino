@@ -36,13 +36,13 @@ export const routes: Routes = [
     loadComponent: () => import('./shared/pages/en-construccion/en-construccion')
       .then(m => m.EnConstruccion)
   },
-  { path: 'sobre-nosotros', canActivate: [BlockedRouteGuard], component: SobreNosotrosPage },
-  { path: 'quienes-somos', canActivate: [BlockedRouteGuard], component: QuienesSomosPage },
-  { path: 'nuestra-historia', canActivate: [BlockedRouteGuard], component: NuestraHistoriaPage },
-  { path: 'reserva-evento', canActivate: [BlockedRouteGuard], component: ReservaEventoPage },
-  { path: 'participa', canActivate: [BlockedRouteGuard], component: ParticipaPage },
-  { path: 'clubes',canActivate: [BlockedRouteGuard], component: ClubesPage },
-  { path: 'merchandising', canActivate: [BlockedRouteGuard], component: MerchandisingPage },
+  { path: 'sobre-nosotros', /*canActivate: [BlockedRouteGuard],*/ component: SobreNosotrosPage },
+  { path: 'quienes-somos', /*canActivate: [BlockedRouteGuard],*/ component: QuienesSomosPage },
+  { path: 'nuestra-historia', /*canActivate: [BlockedRouteGuard],*/ component: NuestraHistoriaPage },
+  { path: 'reserva-evento', /*canActivate: [BlockedRouteGuard],*/ component: ReservaEventoPage },
+  { path: 'participa', /*canActivate: [BlockedRouteGuard],*/ component: ParticipaPage },
+  { path: 'clubes',/*canActivate: [BlockedRouteGuard],*/ component: ClubesPage },
+  { path: 'merchandising', /*canActivate: [BlockedRouteGuard],*/ component: MerchandisingPage },
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
   { path: '**', redirectTo: 'welcome' }
 ];
