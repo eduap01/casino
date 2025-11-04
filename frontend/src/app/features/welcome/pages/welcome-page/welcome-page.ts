@@ -14,8 +14,8 @@ import { Carrusel } from '../../../../shared/components/carrusel/carrusel';
 export class Welcome implements AfterViewInit, OnDestroy {
   images = [
     { src: 'assets/logoCasinoVertical.png', alt: 'Logo' },
-    { src: 'assets/eventos/halloween2025.jpg', alt: 'Halloween' },
-    { src: 'assets/eventos/Pasaje_terror2025.jpg', alt: 'PasajeTerror' }
+    { src: 'assets/eventos/laPuraSangre.jpg', alt: 'Halloween' }
+    //{ src: 'assets/eventos/Pasaje_terror2025.jpg', alt: 'PasajeTerror' }
   ];
 
   showCarousel = true;
