@@ -6,7 +6,7 @@
   overflow-x: hidden;
   width: 100%;
   height: 100%;
-  max-width: 120%;
+  max-width: 100%;
   max-height: 100%;
 
   .div-logo {
@@ -69,6 +69,7 @@
     align-items: flex-start;
     text-align: left;
     gap: 1rem;
+    color: var(--color-text-muted);
 
     .titulo {
       font-size: 2.4rem;
@@ -97,6 +98,8 @@
     .texto-detalle {
       font-size: 1.15rem;
       line-height: 1.8;
+      border-color: var(--color-text-muted);
+
     }
 
     .botones-enlaces {
@@ -131,7 +134,7 @@
 
     .text-center {
       margin-top: 0.5rem;
-      margin-bottom: 1rem; // 🔹 Espacio extra bajo el botón
+      margin-bottom: 1rem;
     }
 
     h4 {
@@ -155,6 +158,8 @@
 
   /* Responsive */
   @media (max-width: 992px) {
+    padding: 3rem 1rem 5rem;
+
     .detalle-contenido {
       flex-direction: column;
       text-align: center;
@@ -180,5 +185,116 @@
         width: 100%;
       }
     }
+  }
+}
+
+/* ==== HOTFIX responsive evento-detalle ==== */
+
+/* Asegura que el host no colapse y use ancho del viewport */
+:host {
+  display: block;
+  max-width: 100vw;
+}
+
+/* Nunca más ancho que el viewport */
+.evento-detalle,
+.evento-detalle .detalle-container,
+.evento-detalle .detalle-contenido {
+  max-width: 100vw;
+}
+
+/* Permite que los flex-items se encojan en móvil */
+.evento-detalle .detalle-contenido {
+  flex-wrap: wrap; /* aunque ya lo tengas, aquí forzamos */
+  gap: 1.25rem;
+}
+
+/* Clave: sin esto, los hijos de flex no se encogen y “rompen” el ancho */
+.evento-detalle .detalle-imagen,
+.evento-detalle .detalle-texto {
+  flex: 1 1 0;
+  min-width: 0;          /* ✅ evita desbordamiento de textos/elementos */
+  max-width: 100%;
+}
+
+/* Imágenes totalmente fluidas */
+.evento-detalle .detalle-imagen .evento-img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Textos largos o palabras sin espacios no rompen el layout */
+.evento-detalle .detalle-texto,
+.evento-detalle .texto-detalle {
+  white-space: normal;
+  overflow-wrap: anywhere;  /* ✅ corta palabras si hace falta */
+  word-break: break-word;
+  max-width: 100%;
+}
+
+/* Botonera y contenedores auxiliares no exceden el ancho */
+.evento-detalle .botones-enlaces,
+.evento-detalle .mapa-container {
+  max-width: 100%;
+}
+
+/* El web component del mapa debe comportarse como bloque fluido */
+.evento-detalle google-map {
+  display: block;
+  width: 100% !important;
+  max-width: 100% !important;
+  border-radius: 8px;
+}
+
+/* Reduce paddings en pantallas estrechas */
+@media (max-width: 992px) {
+  .evento-detalle {
+    padding: 3rem 1rem 5rem;
+  }
+}
+
+/* Un poco más de ajuste en móvil puro */
+@media (max-width: 480px) {
+  .evento-detalle .detalle-texto .titulo {
+    font-size: 1.8rem;
+  }
+}
+
+/* Opcional (si aún aparece scroll lateral en páginas específicas) */
+html, body {
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* ==== FIX responsive para Google Map ==== */
+
+.evento-detalle .mapa-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 60%; /* relación de aspecto aproximada 16:9 */
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  background: var(--color-bg-alt, #222);
+}
+
+.evento-detalle google-map {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  border: 0;
+  border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+  .evento-detalle .mapa-container {
+    padding-bottom: 75%; /* un poco más alto en móvil */
   }
 }
