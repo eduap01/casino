@@ -16,7 +16,7 @@ export class HeaderMini {
     'laPuraSangre.jpg',
     'MichaelJackson.jpg',
     'acdc.jpg',
-    'Pasaje_terror2025.jpg',
+    'fiestaRemember2025.jpg',
     'Fredy.webp',
     'Concierto.jpeg',
     'LedZepelin.jpg',
