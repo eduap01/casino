@@ -13,6 +13,21 @@ export interface Evento {
 
 export const EVENTOS = [
   {
+    id: 5,
+    titulo: 'Fiesta Remember',
+    descripcion: 'Revive los 90 en el Casino Rock Bar',
+    texto: `Vuelve la magia de los 90 y 2000 con los mejores temas de House y Techno House.
+    El 15 de noviembre de 2025, a las 23:00.
+    Una noche para revivir los grandes himnos de la pista con Stanz DJ al mando.`,
+    fechas: ['2025-11-15'],
+    imagen: 'assets/eventos/fiestaRemember2025.jpg',
+    enlaces: [
+      { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
+      { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
+    ],
+    activo: true
+  },
+  {
     id: 4,
     titulo: 'La Pura Sangre',
     descripcion: 'Nito Serrano y La Pura Sangre llegan con su gira de otoño al Casino Rock Bar.',
