@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-// 🍿 Importaciones de tus componentes
+
 import { Compartir } from '../../components/compartir/compartir';
 import { Ensaladas } from '../../components/ensaladas/ensaladas';
 import { Zipotes } from '../../components/zipotes/zipotes';
@@ -17,7 +17,7 @@ import { Pizzas } from '../../components/pizzas/pizzas';
 import { HeaderMini } from '../../../../shared/components/header-mini/header-mini';
 import { BackToTop } from '../../../../shared/components/back-to-top/back-to-top';
 
-// 🎥 Importa Lucide y los iconos que usarás
+
 import { LucideAngularModule, Handshake, Salad, Sandwich, Hamburger, Coffee, Pizza as PizzaIcon, Cake, Beer, Utensils } from 'lucide-angular';
 
 @Component({
