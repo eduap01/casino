@@ -14,8 +14,8 @@ import { Carrusel } from '../../../../shared/components/carrusel/carrusel';
 export class Welcome implements AfterViewInit, OnDestroy {
   images = [
     { src: 'assets/logoCasinoVertical.png', alt: 'Logo' },
-    { src: 'assets/eventos/laPuraSangre.jpg', alt: 'Halloween' },
-    { src: 'assets/eventos/fiestaRemember2025.jpg', alt: 'FiestaRemember' }
+    { src: 'assets/eventos/laPuraSangre.webp', alt: 'La Pura Sangre' },
+    { src: 'assets/eventos/fiestaRemember2025.webp', alt: 'Fiesta Remember 2025' }
   ];
 
   showCarousel = true;
@@ -24,8 +24,6 @@ export class Welcome implements AfterViewInit, OnDestroy {
   private routerSub?: Subscription;
 
   constructor(private router: Router) {
-    // 🔐 Plan C (solo si nada más funciona): fuerza recreación del componente en cada navegación
-    // this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
 
   ngAfterViewInit(): void {

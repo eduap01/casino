@@ -20,7 +20,7 @@ export const EVENTOS = [
     El 15 de noviembre de 2025, a las 23:00.
     Una noche para revivir los grandes himnos de la pista con Stanz DJ al mando.`,
     fechas: ['2025-11-15'],
-    imagen: 'assets/eventos/fiestaRemember2025.jpg',
+    imagen: 'assets/eventos/fiestaRemember2025.webp',
     enlaces: [
       { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
       { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
@@ -39,7 +39,7 @@ Entrada libre hasta completar aforo.
 
 No te pierdas una tarde de música en vivo con una de las bandas más vibrantes del panorama nacional.`,
     fechas: ['2025-11-22'],
-    imagen: 'assets/eventos/laPuraSangre.jpg',
+    imagen: 'assets/eventos/laPuraSangre.webp',
     enlaces: [
       { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
       { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
@@ -54,7 +54,7 @@ No te pierdas una tarde de música en vivo con una de las bandas más vibrantes 
     Desde las 17:30 h.
     ¡Ven disfrazado y sigue la fiesta entre vivos y muertos!`,
     fechas: ['2025-11-1'],
-    imagen: 'assets/eventos/santo_tardeo2025.jpg',
+    imagen: 'assets/eventos/santo_tardeo2025.webp',
     enlaces: [
       { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
       { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
@@ -69,7 +69,7 @@ No te pierdas una tarde de música en vivo con una de las bandas más vibrantes 
     Viernes 31 desde las 18:00 y Sábado 1 desde las 20:00. Entrada: 2 €.
     Prepárate para una noche escalofriante llena de sustos, risas y mucha adrenalina.`,
     fechas: ['2025-10-31', '2025-11-1'],
-    imagen: 'assets/eventos/Pasaje_terror2025.jpg',
+    imagen: 'assets/eventos/Pasaje_terror2025.webp',
     enlaces: [
       { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
       { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
@@ -81,7 +81,7 @@ No te pierdas una tarde de música en vivo con una de las bandas más vibrantes 
     titulo: 'Colegui Fest',
     descripcion: 'Conciertos en vivo.',
     fechas: ['2025-10-25'],
-    imagen: 'assets/eventos/Concierto.jpeg',
+    imagen: 'assets/eventos/Concierto.webp',
     enlaces: [
       { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
       { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
@@ -93,7 +93,7 @@ No te pierdas una tarde de música en vivo con una de las bandas más vibrantes 
     titulo: 'Hamburbeza',
     descripcion: 'Las 8 mejores hamburguesas del mundo.',
     fechas: ['2025-10-10', '2025-10-12'],
-    imagen: 'assets/eventos/Burguer.jpeg',
+    imagen: 'assets/eventos/Burguer.webp',
     texto: `Ven y prueba nuestras hamburguesas artesanales...`,
     enlaces: [
       { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
