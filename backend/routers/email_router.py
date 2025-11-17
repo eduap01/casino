@@ -121,7 +121,7 @@ async def crear_reserva(request: Request, background_tasks: BackgroundTasks, dat
     token = generar_token(token_data)
 
 
-    confirm_url = f"{BASE_URL}/email/confirm?token={quote(token)}"
+    confirm_url = f"{BASE_URL}/api/email/confirm?token={quote(token)}"
 
     # Email de confirmación al cliente
     body_cliente = f"""
