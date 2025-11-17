@@ -13,9 +13,9 @@ export class MenusPage {
   imagenSeleccionada: string | null = null;
 
   menus = [
-    'assets/menus/menu25.jpg',
-    'assets/menus/menu27.jpg',
-    'assets/menus/menu29.jpg'
+    'assets/menus/menu25.webp',
+    'assets/menus/menu27.webp',
+    'assets/menus/menu29.webp'
   ];
 
   abrirModal(imagen: string): void {
