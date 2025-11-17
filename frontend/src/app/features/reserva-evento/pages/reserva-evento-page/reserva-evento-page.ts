@@ -6,11 +6,11 @@ import {
   ReactiveFormsModule,
   AbstractControl,
   ValidationErrors,
+  ValidatorFn
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { debounceTime, map, catchError, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-reserva-evento-page',
@@ -25,35 +25,62 @@ export class ReservaEventoPage {
   loading = false;
   success = false;
   errorMsg = '';
+  mensaje: string = '';
+  maxPersonasPermitidas = 50;
 
   constructor(private fb: FormBuilder, private http: HttpClient) {
     this.form = this.fb.group(
       {
         nombre: ['', [Validators.required, Validators.minLength(2)]],
-        telefono: ['', [Validators.required]],
+        telefono: [
+          '',
+          [Validators.required, Validators.pattern(/^(\+34|0034|34)?[6|7|8|9][0-9]{8}$/)]
+        ],
         email: [
           '',
           [Validators.required, Validators.email],
-          [this.verificarEmailExistencia.bind(this)],
+          [this.verificarEmailExistencia.bind(this)]
         ],
         fechaInicio: ['', Validators.required],
         horaInicio: ['', Validators.required],
         fechaFin: ['', Validators.required],
         horaFin: ['', Validators.required],
-        personas: [1, [Validators.required, Validators.min(1), Validators.max(50)]],
-        comentarios: [''],
+        personas: [
+          1,
+          [Validators.required, Validators.min(1), Validators.max(50)]
+        ],
+        zona: ['', Validators.required],
+        comentarios: ['', [Validators.maxLength(300)]],
+        botCheck: ['']
       },
-      { validators: this.validarRangoFechasHoras }
+      {
+        validators: [this.validarRangoFechasHoras, this.validarCapacidad(), this.validarFechaPasada()]
+      }
     );
+
+    // Actualiza el límite de personas según la zona seleccionada
+    this.form.get('zona')?.valueChanges.subscribe((zona) => {
+      let maxPersonas = 50;
+      if (zona === 'butakaPie') maxPersonas = 120;
+      else if (zona === 'butakaSentado') maxPersonas = 60;
+      else if (zona === 'localCompleto') maxPersonas = 200;
+
+      const personasCtrl = this.form.get('personas');
+      personasCtrl?.setValidators([
+        Validators.required,
+        Validators.min(1),
+        Validators.max(maxPersonas)
+      ]);
+      personasCtrl?.updateValueAndValidity();
+      this.maxPersonasPermitidas = maxPersonas;
+    });
   }
 
-get f() {
-  return this.form.controls;
-}
+  get f() {
+    return this.form.controls;
+  }
 
-
-  /** ✅ Validador que comprueba que la fecha/hora fin sea posterior a la de inicio */
-  private validarRangoFechasHoras = (group: FormGroup): ValidationErrors | null => {
+  private validarRangoFechasHoras: ValidatorFn = (group: AbstractControl): ValidationErrors | null => {
     const fechaInicio = group.get('fechaInicio')?.value;
     const horaInicio = group.get('horaInicio')?.value;
     const fechaFin = group.get('fechaFin')?.value;
@@ -64,26 +91,42 @@ get f() {
     const inicio = new Date(`${fechaInicio}T${horaInicio}`);
     const fin = new Date(`${fechaFin}T${horaFin}`);
 
-    if (fin <= inicio) return { rangoInvalido: true };
-    return null;
+    return fin > inicio ? null : { rangoInvalido: true };
   };
 
+  private validarCapacidad(): ValidatorFn {
+    return (group: AbstractControl): ValidationErrors | null => {
+      const zona = group.get('zona')?.value;
+      const personas = +group.get('personas')?.value;
+      if (!zona || !personas) return null;
+
+      const limites = {
+        butakaPie: 120,
+        butakaSentado: 60,
+        localCompleto: 200
+      };
+
+      if (personas > (limites as any)[zona]) {
+        return { excesoCapacidad: true };
+      }
+      return null;
+    };
+  }
 
   private verificarEmailExistencia(control: AbstractControl): Observable<ValidationErrors | null> {
-  const email = control.value;
-  if (!email) return of(null);
+    const email = control.value;
+    if (!email) return of(null);
 
-  // Validación básica de dominio
-  const dominio = email.split('@')[1];
-  const dominiosPermitidos = ['gmail.com', 'hotmail.com', 'outlook.com', 'yahoo.es', 'icloud.com'];
+    const dominio = email.split('@')[1]?.toLowerCase();
+    const dominiosPermitidos = ['gmail.com', 'hotmail.com', 'outlook.com', 'yahoo.es', 'icloud.com'];
+    const dominiosBloqueados = ['tempmail.com', '10minutemail.com', 'mailinator.com', 'guerrillamail.com'];
 
-  if (!dominio) return of({ emailDomainInvalid: true });
-  if (!dominiosPermitidos.includes(dominio)) return of({ emailDomainInvalid: true });
+    if (!dominio) return of({ emailDomainInvalid: true });
+    if (dominiosBloqueados.includes(dominio)) return of({ emailDomainInvalid: true });
+    if (!dominiosPermitidos.includes(dominio)) return of({ emailDomainInvalid: true });
 
-  // Simula verificación correcta
-  return of(null);
-}
-
+    return of(null);
+  }
 
   triggerEmailCheck() {
     const emailCtrl = this.form.get('email');
@@ -92,48 +135,93 @@ get f() {
     }
   }
 
-
   onSubmit() {
     this.submitted = true;
     this.success = false;
     this.errorMsg = '';
 
+    if (this.form.get('botCheck')?.value) {
+      console.warn('Posible bot detectado.');
+      return;
+    }
+
     if (this.form.invalid) return;
 
     this.loading = true;
-
     const datos = this.form.value;
 
     const emailBody = `
       <h3>Nueva solicitud de reserva</h3>
-      <p><b>Nombre:</b> ${datos.nombre}</p>
-      <p><b>Teléfono:</b> ${datos.telefono}</p>
-      <p><b>Correo:</b> ${datos.email}</p>
+      <p><b>Nombre:</b> ${this.sanitize(datos.nombre)}</p>
+      <p><b>Teléfono:</b> ${this.sanitize(datos.telefono)}</p>
+      <p><b>Correo:</b> ${this.sanitize(datos.email)}</p>
+      <p><b>Zona:</b> ${this.obtenerNombreZona(datos.zona)}</p>
       <p><b>Fecha inicio:</b> ${datos.fechaInicio} ${datos.horaInicio}</p>
       <p><b>Fecha fin:</b> ${datos.fechaFin} ${datos.horaFin}</p>
       <p><b>Personas:</b> ${datos.personas}</p>
-      <p><b>Comentarios:</b> ${datos.comentarios || 'Ninguno'}</p>
+      <p><b>Comentarios:</b> ${this.sanitize(datos.comentarios || 'Ninguno')}</p>
     `;
 
-    // Llamada al backend
-    this.http.post('/api/email/send', {
-      to_email: 'eduardoarevaloportero@gmail.com',
-      subject: 'Nueva reserva recibida',
-      body: emailBody
-    }).subscribe({
+    this.http.post('/api/email/reserva', {
+      nombre: datos.nombre,
+      email_cliente: datos.email,
+      telefono: datos.telefono,
+      fecha: datos.fechaInicio,       // OK
+      hora: datos.horaInicio,         // OK
+      personas: datos.personas,
+      mensaje: datos.comentarios,     // <- ANTES FALLABA
+      email_casino: 'casinorock888@gmail.com',
+      detalle_html: emailBody
+    }, {
+      headers: {
+        'x-api-key':
+          'bb659e79305dde7929aa199ce2b99b70c513bc06740a84330d9c29fe832e6c1d'
+      }
+    })
+    .subscribe({
       next: (res: any) => {
         console.log('Respuesta backend:', res);
         this.loading = false;
         this.success = true;
         this.form.reset();
         this.submitted = false;
+        this.mensaje = 'Te hemos enviado un email para confirmar tu reserva.';
       },
       error: (err) => {
-        console.error('Error al enviar el correo:', err);
+        console.error('Error al enviar:', err);
         this.loading = false;
-        this.errorMsg = 'Error al enviar el correo. Intenta de nuevo más tarde.';
+        this.errorMsg = 'Error al enviar la reserva.';
       }
     });
+
   }
 
+  private sanitize(text: string): string {
+    return text.replace(/[<>]/g, '');
+  }
+
+  private obtenerNombreZona(valor: string): string {
+    const nombres: Record<string, string> = {
+      butakaPie: 'La Butaka (de pie)',
+      butakaSentado: 'La Butaka (sentados)',
+      localCompleto: 'Todo el local'
+    };
+    return nombres[valor] || valor;
+  }
+
+  private validarFechaPasada(): ValidatorFn {
+    return (group: AbstractControl): ValidationErrors | null => {
+      const fechaInicio = group.get('fechaInicio')?.value;
+      const horaInicio = group.get('horaInicio')?.value;
+      if (!fechaInicio || !horaInicio) return null;
+
+      const inicio = new Date(`${fechaInicio}T${horaInicio}`);
+      const ahora = new Date();
+
+      if (inicio < ahora) {
+        return { fechaPasada: true };
+      }
+      return null;
+    };
+  }
 }
