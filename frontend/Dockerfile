@@ -1,23 +1,27 @@
-# Etapa de build
+### 1️⃣ BUILD ANGULAR ###
 FROM node:20 AS build
 WORKDIR /app
 
-# Si tienes package-lock.json, mejor COPY ambos y usa npm ci
-COPY frontend/package*.json ./
+# Copiamos los archivos para instalar dependencias
+COPY package*.json ./
 RUN npm ci
 
-# Copiamos el resto del frontend y compilamos
-COPY frontend/ ./
-# Si tu package.json tiene "build": "ng build", esto vale:
-RUN npm run build
-# Si no, descomenta esta alternativa:
+# Copiamos todo el proyecto Angular
+COPY . .
+
+# Si tienes en package.json "build": "ng build", esto funciona:
+RUN npm run build --prod
+
+# Si tu Angular es > v15 y usa "ng build", esto:
 # RUN npx ng build --configuration production
 
-# Etapa de runtime con Nginx
+
+### 2️⃣ NGINX PARA SERVIR EL FRONT ###
 FROM nginx:1.27-alpine
-# Nginx con SPA fallback y proxy /api → backend
-COPY frontend/nginx.conf /etc/nginx/conf.d/default.conf
-# Archivos estáticos compilados
+
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Copiamos el dist generado en la etapa anterior
 COPY --from=build /app/dist/frontend/browser /usr/share/nginx/html
 
 EXPOSE 80
