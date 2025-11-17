@@ -4,6 +4,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1
 
 WORKDIR /app
+COPY . /app
 
 # Dependencias del sistema (opcional, pero útil)
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -25,4 +26,5 @@ EXPOSE 8000
 
 # --- Ejecutar el servidor ---
 # ⚠️ Cambiamos a versión segura con python -m
-CMD ["python", "-m", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+# --- Ejecutar el servidor ---
+CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000", "--no-access-log", "--log-level", "warning"]
