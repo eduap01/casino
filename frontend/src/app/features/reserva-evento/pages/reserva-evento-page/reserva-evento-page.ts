@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
+
 import {
   FormBuilder,
   FormGroup,
@@ -15,7 +17,7 @@ import { Observable, of } from 'rxjs';
 @Component({
   selector: 'app-reserva-evento-page',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, HttpClientModule],
+  imports: [CommonModule, ReactiveFormsModule, HttpClientModule, RouterLink],
   templateUrl: './reserva-evento-page.html',
   styleUrls: ['./reserva-evento-page.scss'],
 })

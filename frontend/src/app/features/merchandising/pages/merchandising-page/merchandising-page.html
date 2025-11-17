@@ -13,8 +13,16 @@
       *ngFor="let producto of productos"
       [imagen]="producto.imagen"
       [titulo]="producto.titulo"
-      [precio]="producto.precio">
+      [precio]="producto.precio"
+      [descripcion]="producto.descripcion"
+      (clickItem)="abrirModal($event)">
     </app-merchandising-item>
+  </div>
+</div>
+
+<div class="modal" *ngIf="imagenSeleccionada" (click)="cerrarModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <img [src]="imagenSeleccionada" alt="Imagen ampliada">
   </div>
 </div>
 

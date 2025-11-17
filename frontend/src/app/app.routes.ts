@@ -42,7 +42,7 @@ export const routes: Routes = [
   { path: 'reserva-evento', /*canActivate: [BlockedRouteGuard],*/ component: ReservaEventoPage },
   { path: 'participa', canActivate: [BlockedRouteGuard], component: ParticipaPage },
   { path: 'clubes',canActivate: [BlockedRouteGuard], component: ClubesPage },
-  { path: 'merchandising', canActivate: [BlockedRouteGuard], component: MerchandisingPage },
+  { path: 'merchandising', /*canActivate: [BlockedRouteGuard], */component: MerchandisingPage },
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
   { path: '**', redirectTo: 'welcome' }
 ];
