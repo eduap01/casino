@@ -30,6 +30,8 @@ router = APIRouter()
 SECRET_KEY = EMAIL_SECRET_KEY
 SECURITY_SALT = "email-confirm-salt"
 
+TOKENS_USADOS = set()
+
 
 
 serializer = URLSafeTimedSerializer(SECRET_KEY)
@@ -181,6 +183,23 @@ async def crear_reserva(request: Request, background_tasks: BackgroundTasks, dat
 
 @router.get("/confirm")
 async def confirmar_reserva(token: str, background_tasks: BackgroundTasks):
+
+    # 🔒 Evitar uso doble del enlace
+    if token in TOKENS_USADOS:
+        return HTMLResponse("""
+            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 40px auto; text-align: center;">
+                <h2 style="color:#c49b63;">Esta reserva ya está verificada</h2>
+                <p style="font-size: 16px; line-height: 1.6;">
+                    La verificación ya se realizó correctamente y no se ha enviado ningún correo nuevo.
+                </p>
+                <a href="https://casinorockbar.com"
+                   style="display:inline-block; margin-top:25px; padding:12px 20px;
+                          background:#c49b63; color:white; text-decoration:none; border-radius:6px;">
+                    Volver a la web
+                </a>
+            </div>
+        """, status_code=200)
+
     # Si el token es inválido o está caducado, esta función lanzará una excepción
     datos = verificar_token(token)
 
@@ -246,6 +265,9 @@ async def confirmar_reserva(token: str, background_tasks: BackgroundTasks):
         body_cliente
     )
 
+    # 🔒 Marcar token como usado
+    TOKENS_USADOS.add(token)
+
     return HTMLResponse("""
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 40px auto; text-align: center;">
             <h1 style="color:#c49b63;">¡Correo verificado correctamente!</h1>
@@ -271,6 +293,7 @@ async def confirmar_reserva(token: str, background_tasks: BackgroundTasks):
             </a>
         </div>
     """)
+
 
 
 
