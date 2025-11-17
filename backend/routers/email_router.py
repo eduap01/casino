@@ -29,7 +29,7 @@ router = APIRouter()
 
 SECRET_KEY = EMAIL_SECRET_KEY
 SECURITY_SALT = "email-confirm-salt"
-DETALLES_TEMPORALES = {}
+
 
 
 serializer = URLSafeTimedSerializer(SECRET_KEY)
@@ -120,10 +120,6 @@ async def crear_reserva(request: Request, background_tasks: BackgroundTasks, dat
 
     token = generar_token(token_data)
 
-    # Guardamos estado del token: AÚN NO USADO
-    DETALLES_TEMPORALES[token] = {
-        "used": False
-    }
 
     confirm_url = f"{BASE_URL}/email/confirm?token={quote(token)}"
 
@@ -185,28 +181,10 @@ async def crear_reserva(request: Request, background_tasks: BackgroundTasks, dat
 
 @router.get("/confirm")
 async def confirmar_reserva(token: str, background_tasks: BackgroundTasks):
-
+    # Si el token es inválido o está caducado, esta función lanzará una excepción
     datos = verificar_token(token)
 
-    info_token = DETALLES_TEMPORALES.get(token)
-
-    # Token nunca creado o expirado del diccionario
-    if not info_token:
-        return HTMLResponse("""
-            <h1>Enlace inválido</h1>
-            <p>Este enlace ya no es válido.</p>
-            <a href="https://casinorockbar.com">Volver a la web</a>
-        """)
-
-    # Si ya se usó, impedir confirmación repetida
-    if info_token["used"]:
-        return HTMLResponse("""
-            <h1>Reserva ya confirmada</h1>
-            <p>Este enlace ya fue utilizado anteriormente.</p>
-            <a href="https://casinorockbar.com">Volver a la web</a>
-        """)
-
-    info_token["used"] = True
+    # Si llegamos aquí, el token es válido → el usuario ha verificado su correo
 
     # Email al restaurante
     body_casino = f"""
@@ -227,6 +205,7 @@ async def confirmar_reserva(token: str, background_tasks: BackgroundTasks):
         f"Reserva confirmada - {datos['fecha']} {datos['hora']} - {datos['nombre']}"
     )
 
+    # Enviar correo al bar
     background_tasks.add_task(
         send_email,
         "casinorock888@gmail.com",
@@ -239,7 +218,7 @@ async def confirmar_reserva(token: str, background_tasks: BackgroundTasks):
     <p>Hola {datos['nombre']},</p>
 
     <p>¡Gracias por verificar tu correo electrónico! 😊</p>
-    
+
     <p>
     Tu solicitud de reserva en <b>Casino Rock Bar</b> ha quedado registrada correctamente en nuestro sistema.
     Sin embargo, esto <b>no implica la confirmación definitiva</b>.
@@ -292,7 +271,6 @@ async def confirmar_reserva(token: str, background_tasks: BackgroundTasks):
             </a>
         </div>
     """)
-
 
 
 
