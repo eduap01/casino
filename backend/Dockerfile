@@ -4,27 +4,15 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1
 
 WORKDIR /app
-COPY . /app
 
-# Dependencias del sistema (opcional, pero útil)
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    netcat-traditional curl \
-    && rm -rf /var/lib/apt/lists/*
+# Copiar solo los archivos del backend
+COPY backend/requirements.txt /app/requirements.txt
 
-# --- Instalar dependencias Python ---
-COPY backend/requirements.txt .
 RUN pip install --no-cache-dir --upgrade pip \
     && pip install --no-cache-dir -r requirements.txt
 
-# --- AÑADIDO: aseguramos que uvicorn esté instalado ---
-RUN pip install --no-cache-dir uvicorn
-
-# Copiamos el código del backend
 COPY backend/ /app/
 
 EXPOSE 8000
 
-# --- Ejecutar el servidor ---
-# ⚠️ Cambiamos a versión segura con python -m
-# --- Ejecutar el servidor ---
 CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000", "--no-access-log", "--log-level", "warning"]
