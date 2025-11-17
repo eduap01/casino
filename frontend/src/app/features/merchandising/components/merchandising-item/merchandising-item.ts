@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -12,4 +12,11 @@ export class MerchandisingItem {
   @Input() imagen!: string;
   @Input() titulo!: string;
   @Input() precio!: string;
+  @Input() descripcion!: string;
+
+  @Output() clickItem = new EventEmitter<string>();
+
+  onClick() {
+    this.clickItem.emit(this.imagen);
+  }
 }

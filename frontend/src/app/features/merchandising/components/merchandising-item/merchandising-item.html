@@ -1,6 +1,6 @@
-<div class="merch-item">
+<div class="merch-item" (click)="onClick()">
   <img [src]="imagen" [alt]="titulo" class="merch-img" />
   <h3 class="merch-titulo">{{ titulo }}</h3>
+   <h4 class="merch-descripcion">{{ descripcion }}</h4>
   <p class="merch-precio">{{ precio }}</p>
 </div>
-
