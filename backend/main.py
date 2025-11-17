@@ -2,8 +2,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from routers.email_router import router as email_router
-from utils.security import add_security_headers, limit_request_size
+from backend.routers.email_router import router as email_router
+from backend.utils.security import add_security_headers, limit_request_size
 
 app = FastAPI(title="Backend Web Casino")
 
