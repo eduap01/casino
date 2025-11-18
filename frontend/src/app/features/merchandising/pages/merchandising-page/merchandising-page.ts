@@ -14,7 +14,7 @@ import { MerchandisingItem } from '../../components/merchandising-item/merchandi
 })
 export class MerchandisingPage {
 
-  // 💥 ESTA ES LA PROPIEDAD QUE TE FALTABA
+  // ESTA ES LA PROPIEDAD QUE TE FALTABA
   imagenSeleccionada: string | null = null;
 
   productos = [
