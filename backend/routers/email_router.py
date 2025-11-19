@@ -168,7 +168,7 @@ async def crear_reserva(request: Request, background_tasks: BackgroundTasks, dat
     background_tasks.add_task(
         send_email,
         data.email_cliente,
-        "Confirma tu correo para Casino Rock Bar. Solicitud no enviada",
+        "Confirma tu correo - Solicitud no enviada",
         body_cliente
     )
 
@@ -261,7 +261,7 @@ async def confirmar_reserva(token: str, background_tasks: BackgroundTasks):
     background_tasks.add_task(
         send_email,
         datos["email_cliente"],
-        "Correo verificado. Solicitud enviada",
+        "Correo verificado - Solicitud enviada",
         body_cliente
     )
 
