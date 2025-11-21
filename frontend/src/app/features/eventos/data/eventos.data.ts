@@ -4,7 +4,7 @@ export interface Evento {
   titulo: string;
   descripcion?: string;
   fechas: string[];
-  imagen: string;
+  imagen: string[];
   texto?: string;
   enlace?: string;
   enlaces?: { nombre: string; url: string }[];
@@ -13,6 +13,24 @@ export interface Evento {
 
 export const EVENTOS = [
   {
+    id: 6,
+    titulo: ' XLVI Jornadas Cervantinas',
+    descripcion: 'Historia, literatura y la tradición',
+    texto: `Celebra la historia y el legado de Miguel de Cervantes en Esquivias con una semana llena de actividades culturales, recreaciones históricas y visitas guiadas.
+    El evento incluye representaciones de la famosa Boda de Cervantes y Catalina, rutas teatralizadas y mercados tradicionales que convierten el municipio en un auténtico viaje al siglo XVI.`,
+    fechas: ['2025-12-06', '2025-12-08'],
+    imagen: [
+      'assets/eventos/itinerariojornadas2.webp',
+      'assets/eventos/itinerariojornadas1.webp',
+      'assets/eventos/cartajornadas2025.webp'
+    ],
+    enlaces: [
+      { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
+      { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
+    ],
+    activo: true
+  },
+  {
     id: 5,
     titulo: 'Fiesta Remember',
     descripcion: 'Revive los 90 en el Casino Rock Bar',
@@ -20,7 +38,7 @@ export const EVENTOS = [
     El 15 de noviembre de 2025, a las 23:00.
     Una noche para revivir los grandes himnos de la pista con Stanz DJ al mando.`,
     fechas: ['2025-11-15'],
-    imagen: 'assets/eventos/fiestaRemember2025.webp',
+    imagen: ['assets/eventos/fiestaRemember2025.webp'],
     enlaces: [
       { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
       { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
@@ -39,7 +57,7 @@ Entrada libre hasta completar aforo.
 
 No te pierdas una tarde de música en vivo con una de las bandas más vibrantes del panorama nacional.`,
     fechas: ['2025-11-22'],
-    imagen: 'assets/eventos/laPuraSangre.webp',
+    imagen: ['assets/eventos/laPuraSangre.webp'],
     enlaces: [
       { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
       { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
@@ -54,7 +72,7 @@ No te pierdas una tarde de música en vivo con una de las bandas más vibrantes 
     Desde las 17:30 h.
     ¡Ven disfrazado y sigue la fiesta entre vivos y muertos!`,
     fechas: ['2025-11-1'],
-    imagen: 'assets/eventos/santo_tardeo2025.webp',
+    imagen: ['assets/eventos/santo_tardeo2025.webp'],
     enlaces: [
       { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
       { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
@@ -69,7 +87,7 @@ No te pierdas una tarde de música en vivo con una de las bandas más vibrantes 
     Viernes 31 desde las 18:00 y Sábado 1 desde las 20:00. Entrada: 2 €.
     Prepárate para una noche escalofriante llena de sustos, risas y mucha adrenalina.`,
     fechas: ['2025-10-31', '2025-11-1'],
-    imagen: 'assets/eventos/Pasaje_terror2025.webp',
+    imagen: ['assets/eventos/Pasaje_terror2025.webp'],
     enlaces: [
       { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
       { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
@@ -81,7 +99,7 @@ No te pierdas una tarde de música en vivo con una de las bandas más vibrantes 
     titulo: 'Colegui Fest',
     descripcion: 'Conciertos en vivo.',
     fechas: ['2025-10-25'],
-    imagen: 'assets/eventos/Concierto.webp',
+    imagen: ['assets/eventos/Concierto.webp'],
     enlaces: [
       { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
       { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
@@ -93,7 +111,7 @@ No te pierdas una tarde de música en vivo con una de las bandas más vibrantes 
     titulo: 'Hamburbeza',
     descripcion: 'Las 8 mejores hamburguesas del mundo.',
     fechas: ['2025-10-10', '2025-10-12'],
-    imagen: 'assets/eventos/Burguer.webp',
+    imagen: ['assets/eventos/Burguer.webp'],
     texto: `Ven y prueba nuestras hamburguesas artesanales...`,
     enlaces: [
       { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
