@@ -11,7 +11,7 @@
   </header>
 
   <div class="evento-imagen" (click)="openModal()">
-    <img [src]="imagen" [alt]="titulo" class="img-fluid rounded" />
+    <img [src]="imagen?.[0]" [alt]="titulo" class="img-fluid rounded" />
   </div>
 
   <p *ngIf="descripcion">{{ descripcion }}</p>

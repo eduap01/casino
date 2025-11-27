@@ -2,47 +2,75 @@
 <div class="reservas-page container py-5">
   <!-- LOGO -->
   <div class="text-center mb-4 casino-logo">
-    <img
-      routerLink="/welcome"
-      src="assets/logoCasino.png"
-      alt="Logo Casino"
-      class="img-fluid mb-3 logo"
-    />
+    <a routerLink="/welcome">
+      <img
+        src="assets/logoCasino.png"
+        alt="Logo Casino"
+        class="img-fluid mb-3 logo"
+      />
+    </a>
   </div>
-
   <h2 class="text-center mb-4">Solicitud de Reserva</h2>
-  <p class="text-center mb-5 text-muted ">
-    Rellena el formulario y te confirmaremos por teléfono o correo lo antes posible.
+  <p class="text-center mb-5 text-muted">
+    Rellena el formulario y te confirmaremos por correo lo antes posible.
     <br>
-    O bien puedes enviar un Whatsapp al +34 111 111 111
+    También puedes enviar un Whatsapp al
+    <a
+      href="https://wa.me/34634132000"
+      target="_blank"
+      class="text-success fw-bold"
+    >
+      634 13 20 00 <br>
+    </a>
+    O bien al
+    <a
+      href="https://wa.me/34666666369"
+      target="_blank"
+      class="text-success fw-bold"
+    >
+     666 66 63 69</a>
+     Disponible de Lunes a Jueves
   </p>
   <form [formGroup]="form" (ngSubmit)="onSubmit()" class="reserva-form mx-auto" style="max-width: 720px;">
     <!-- Datos de contacto -->
     <div class="row g-3">
       <div class="col-md-6">
-        <label for="nombre" class="form-label">👤 Nombre completo</label>
-        <input id="nombre" type="text" class="form-control" formControlName="nombre" placeholder="Tu nombre y apellidos" />
+        <label for="nombre" class="form-label">Nombre completo</label>
+        <input id="nombre" type="text" class="form-control" formControlName="nombre" placeholder="Nombre y apellidos" />
         <div class="invalid-feedback d-block" *ngIf="submitted && f['nombre'].invalid">
           El nombre es obligatorio (mín. 2 caracteres).
         </div>
       </div>
 
       <div class="col-md-6">
-        <label for="telefono" class="form-label">📞 Teléfono</label>
-        <input id="telefono" type="tel" class="form-control" formControlName="telefono" placeholder="+34 600 000 000" />
+        <label for="zona" class="form-label">Zona de reserva</label>
+        <select id="zona" class="form-select" formControlName="zona">
+          <option value="" disabled selected>Selecciona una opción</option>
+          <option value="butakaPie">La Butaka (de pie)</option>
+          <option value="butakaSentado">La Butaka (sentados)</option>
+          <option value="localCompleto">Todo el local</option>
+        </select>
+        <div class="invalid-feedback d-block" *ngIf="submitted && f['zona'].invalid">
+          Selecciona una zona válida.
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <label for="telefono" class="form-label">Teléfono</label>
+        <input id="telefono" type="tel" class="form-control" formControlName="telefono" placeholder=" " />
         <div class="invalid-feedback d-block" *ngIf="submitted && f['telefono'].invalid">
           Introduce un teléfono válido.
         </div>
       </div>
 
       <div class="col-12">
-        <label for="email" class="form-label">✉️ Correo electrónico</label>
+        <label for="email" class="form-label">Correo electrónico (necesario para verificar reserva)</label>
         <input
           id="email"
           type="email"
           class="form-control"
           formControlName="email"
-          placeholder="tucorreo@ejemplo.com"
+          placeholder=" "
           (blur)="triggerEmailCheck()"
         />
         <div class="invalid-feedback d-block" *ngIf="submitted && f['email'].errors?.['email']">
@@ -65,22 +93,22 @@
     <!-- Ventana de reserva: inicio y fin -->
     <div class="row g-3">
       <div class="col-md-6">
-        <label for="fechaInicio" class="form-label">📅 Fecha de inicio</label>
+        <label for="fechaInicio" class="form-label">Fecha de inicio</label>
         <input id="fechaInicio" type="date" class="form-control" formControlName="fechaInicio" />
       </div>
 
       <div class="col-md-6">
-        <label for="horaInicio" class="form-label">⏰ Hora de inicio</label>
+        <label for="horaInicio" class="form-label">Hora de inicio</label>
         <input id="horaInicio" type="time" class="form-control" formControlName="horaInicio" />
       </div>
 
       <div class="col-md-6">
-        <label for="fechaFin" class="form-label">📅 Fecha de fin</label>
+        <label for="fechaFin" class="form-label">Fecha de fin</label>
         <input id="fechaFin" type="date" class="form-control" formControlName="fechaFin" />
       </div>
 
       <div class="col-md-6">
-        <label for="horaFin" class="form-label">⏰ Hora de fin</label>
+        <label for="horaFin" class="form-label">Hora de fin</label>
         <input id="horaFin" type="time" class="form-control" formControlName="horaFin" />
       </div>
 
@@ -88,30 +116,42 @@
         <div class="invalid-feedback d-block" *ngIf="submitted && form.errors?.['rangoInvalido']">
           La fecha/hora de fin debe ser posterior a la de inicio.
         </div>
+
+        <div class="invalid-feedback d-block" *ngIf="submitted && form.errors?.['fechaPasada']">
+          La fecha de inicio no puede ser anterior al momento actual.
+        </div>
       </div>
     </div>
 
     <div class="row g-3 mt-1">
       <div class="col-md-6">
-        <label for="personas" class="form-label">👥 Número de personas</label>
+        <label for="personas" class="form-label">Número de personas</label>
         <input
           id="personas"
           type="number"
           class="form-control"
           formControlName="personas"
           min="1"
-          max="50"
+          [max]="maxPersonasPermitidas"
           placeholder="Ej. 4"
         />
-        <div class="invalid-feedback d-block" *ngIf="submitted && f['personas'].invalid">
-          Indica entre 1 y 50 personas.
+        <!-- Mensaje dinámico -->
+        <small>Indica entre 1 y {{ maxPersonasPermitidas }} personas.</small>
+
+        <!-- Error si se excede el límite -->
+        <div class="invalid-feedback d-block" *ngIf="submitted && f['personas'].errors?.['max']">
+          Has superado la capacidad máxima para esta zona ({{ maxPersonasPermitidas }} personas).
+        </div>
+        <div class="invalid-feedback d-block" *ngIf="submitted && f['personas'].errors?.['min']">
+          Debe haber al menos 1 persona.
         </div>
       </div>
     </div>
 
+
     <!-- Comentarios -->
     <div class="mb-4 mt-3">
-      <label for="comentarios" class="form-label">💬 Comentarios</label>
+      <label for="comentarios" class="form-label">Comentarios</label>
       <textarea
         id="comentarios"
         class="form-control"
@@ -124,10 +164,14 @@
     <!-- Botón de Envío -->
     <div class="text-center">
       <button type="submit" class="btn btn-thematic px-4 py-2" [disabled]="loading">
-        <span *ngIf="!loading">📩 Enviar solicitud</span>
+        <span *ngIf="!loading">Enviar solicitud</span>
         <span *ngIf="loading">Enviando…</span>
       </button>
-      <div class="text-success mt-3" *ngIf="success">¡Solicitud enviada! Te contactaremos pronto.</div>
+      <div class="text-success mt-3" *ngIf="success">
+        <p class="m-0">¡Genial!</p>
+        <p class="m-0">Por favor, revisa el correo indicado para confirmar la reserva.</p>
+        <p class="m-0">Si no has recibido ningún correo, revisa tu carpeta de spam.</p>
+      </div>
       <div class="text-danger mt-3" *ngIf="errorMsg">{{ errorMsg }}</div>
     </div>
   </form>

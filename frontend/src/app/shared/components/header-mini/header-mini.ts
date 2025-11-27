@@ -15,15 +15,15 @@ export class HeaderMini implements OnInit {
 
     eventos: string[] = [
     'assets/artistas/JimmyHendrix.webp',
-    'assets/eventos/laPuraSangre.webp',
+    'assets/eventos/itinerariojornadas2.webp',
     'assets/artistas/michaeljackson.webp',
     'assets/artistas/acdc.webp',
     'assets/eventos/fiestaRemember2025.webp',
     'assets/artistas/Fredy.webp',
-    'assets/eventos/Concierto.webp',
+    'assets/eventos/laPuraSangre.webp',
     'assets/artistas/LedZepelin.webp',
     'assets/artistas/elvis.webp',
-    'assets/eventos/santo_tardeo2025.webp',
+    'assets/eventos/cartajornadas2025.webp',
     'assets/artistas/gunsnroses.webp',
     'assets/artistas/jagger.webp',
     'assets/artistas/johnny_cash.webp',
