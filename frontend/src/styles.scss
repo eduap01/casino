@@ -10,7 +10,7 @@ html {
 }
 
 body {
-  font-family: "Raleway", sans-serif;
+  font-family: var(--font-main); /* ← actualizado */
   margin: 0;
   padding: 0;
   background: linear-gradient(180deg, var(--color-bg) 0%,
@@ -32,7 +32,7 @@ img {
 
 /* ========== NAVBAR ========== */
 .navbar {
-  font-family: 'Raleway', sans-serif;
+  font-family: var(--font-heading); /* ← actualizado */
   background-color: var(--color-bg) !important;
   border-bottom: 1px solid var(--color-bg);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
@@ -51,7 +51,7 @@ img {
 
     &.active {
       font-weight: bold;
-      color: var(--color-primary) !important;
+      color: var(--color-text) !important;
     }
 
     &::after {
@@ -72,32 +72,33 @@ img {
 
   .navbar-toggler {
     border: 2px solid var(--color-primary);
-    background-color: var(--color-bg);
+    background-color: var(--color-primary);
     border-radius: 8px;
     padding: 0.4rem 0.6rem;
     transition: all 0.3s ease-in-out;
+    color: var(--color-text);
 
     &.collapsed,
     &:not(:focus):not(:hover) {
-      background-color: var(--color-transparent);
-      border-color: var(--color-transparent);
+      background-color: var(--color-primary);
+      border-color: var(--color-primary);
     }
 
     &:hover,
     &:focus {
-      background-color: var(--color-transparent);
+      background-color: var(--color-primary);
       border-color: var(--color-primary);
       outline: none;
     }
 
     &.show,
     &:not(.collapsed) {
-      background-color: var(--color-trasnparent);
-      border-color: var(--color-primary);
+      background-color: var(--color-transparent); /* ← corregido */
+      border-color: var(--color-text);
     }
 
     .navbar-toggler-icon {
-      background-color: var(--color-trasnparent);
+      background-color: var(--color-transparent); /* ← corregido */
     }
   }
 }
@@ -140,6 +141,7 @@ header {
   h1 {
     margin: 0;
     font-size: 2.5rem;
+    font-family: var(--font-heading); /* ← actualizado */
   }
 
   p {
@@ -172,7 +174,7 @@ header {
   .casino-logotipo {
     position: relative;
     z-index: 2;
-    filter: drop-shadow(0 0 8px var(--color-accent));
+    filter: drop-shadow(0 0 8px var(--color-secondary));
     transition: filter 0.3s ease, transform 0.3s ease;
   }
 
@@ -273,12 +275,25 @@ section {
   to { transform: translateY(0); opacity: 1; }
 }
 
+/* Antes
 h2 {
   border-left: 5px solid var(--color-primary);
   padding-left: 0.75rem;
   margin-top: 2rem;
   color: var(--color-text);
+  font-family: var(--font-heading);
 }
+*/
+
+/* Después (sin palito) */
+h2 {
+  /* border-left: 5px solid var(--color-primary);  <-- quitado */
+  /* padding-left: 0.75rem;                       <-- ya no hace falta */
+  margin-top: 2rem;
+  color: var(--color-text);
+  font-family: var(--font-heading);
+}
+
 
 h2 lucide-icon.icon {
   width: 1.3em;
@@ -311,15 +326,14 @@ h2 lucide-icon.icon:hover {
     background-color: var(--color-bg-hover, rgba(255, 255, 255, 0.1));
   }
 
-
   > span:first-child {
     flex: 1;
-    min-width: 0; // evita desbordes del texto largo
-    padding-right: 2.5rem; // añade separación del precio
+    min-width: 0;
+    padding-right: 2.5rem;
   }
 
   .price {
-    flex-shrink: 0; // evita que el precio se mueva o reduzca
+    flex-shrink: 0;
     white-space: nowrap;
     font-weight: bold;
     color: var(--color-link-hover);
@@ -329,7 +343,6 @@ h2 lucide-icon.icon:hover {
     font-size: 1.05rem;
   }
 }
-
 
 /* ========== FOOTER ========== */
 footer {
@@ -398,11 +411,10 @@ footer {
   transform: scale(1.15);
 }
 
-/* 🎞️ Icono Lucide dentro del botón “Back to top” */
 .back-to-top lucide-icon.icon {
   width: 1.8em;
   height: 1.8em;
-  color: var(--color-text);
+  color: var(--color-accent-soft);
   opacity: 0.85;
   filter: drop-shadow(0 0 4px rgba(198, 164, 88, 0.3));
   transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
@@ -417,9 +429,9 @@ footer {
 /* Botones temáticos */
 .btn-thematic {
   font-weight: 600;
-  color: var(--color-primary);
+  color: var(--color-text);
   border: 2px solid var(--color-primary);
-  background-color: transparent;
+  background-color: var(--color-secondary);
   transition: all 0.25s ease-in-out;
   border-radius: 8px;
   padding: 0.6rem 1.2rem;
@@ -480,3 +492,5 @@ app-footer {
 .header-mini::after {
   pointer-events: none;
 }
+
+

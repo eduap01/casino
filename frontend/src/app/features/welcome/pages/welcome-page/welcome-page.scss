@@ -16,6 +16,8 @@
     height: 100%;
 
     app-carrusel {
+      filter: blur(4px);
+      transform: scale(1.03);
       height: 100%;
 
       .carousel-inner,
@@ -45,8 +47,6 @@
         content: "";
         position: absolute;
         inset: 0;
-        backdrop-filter: blur(3px);
-        -webkit-backdrop-filter: blur(5px);
         background: rgba(0, 0, 0, 0.25); /* difuminado más suave */
         z-index: 2;
         pointer-events: none;
@@ -60,7 +60,6 @@
         flex-wrap: wrap;
         position: relative;
         z-index: 3;
-
       }
 
       /* Botones */

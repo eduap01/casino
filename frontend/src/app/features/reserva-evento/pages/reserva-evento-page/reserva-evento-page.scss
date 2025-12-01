@@ -22,8 +22,8 @@
 
     &:hover {
       transform: scale(1.05);
-      filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.6)); /* brillo dorado al pasar el ratón */
-    }
+      filter: drop-shadow(0 0 8px var(--color-secondary));
+      }
   }
 
   /* ---------- Formulario ---------- */
@@ -97,3 +97,17 @@
     opacity: 1;
   }
 }
+
+.reservas-page h1::before,
+.reservas-page h1::after,
+.reservas-page h2::before,
+.reservas-page h2::after {
+  content: none !important;
+  display: none !important;
+}
+
+.reservas-page h1,
+.reservas-page h2 {
+  border-left: none !important;
+}
+

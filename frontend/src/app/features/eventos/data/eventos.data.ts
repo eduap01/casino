@@ -15,14 +15,15 @@ export const EVENTOS = [
   {
     id: 6,
     titulo: ' XLVI Jornadas Cervantinas',
-    descripcion: 'Historia, literatura y la tradición',
+    descripcion: 'Historia, literatura y tradición',
     texto: `Celebra la historia y el legado de Miguel de Cervantes en Esquivias con una semana llena de actividades culturales, recreaciones históricas y visitas guiadas.
     El evento incluye representaciones de la famosa Boda de Cervantes y Catalina, rutas teatralizadas y mercados tradicionales que convierten el municipio en un auténtico viaje al siglo XVI.`,
     fechas: ['2025-12-06', '2025-12-08'],
     imagen: [
       'assets/eventos/itinerariojornadas2.webp',
       'assets/eventos/itinerariojornadas1.webp',
-      'assets/eventos/cartajornadas2025.webp'
+      'assets/eventos/cartajornadas2025.webp',
+      'assets/eventos/conciertosJornadasCervantinas.webp'
     ],
     enlaces: [
       { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
