@@ -1,6 +1,3 @@
-/* =========================================
-   GRID DE EVENTOS — Altura uniforme
-========================================= */
 .eventos-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -8,65 +5,50 @@
   align-items: stretch;
 }
 
-
 .card-evento {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  background: var(--color-bg-alt);
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
   border-radius: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 12px var(--color-shadow);
   overflow: hidden;
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;futbol fantasy
-
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 18px var(--color-shadow);
   }
 
-  /* Imagen del evento */
   img {
     width: 100%;
     height: auto;
-    object-fit: contain;
-    background: var(--color-bg);
-
+    object-fit: cover;
+    background: var(--color-bg-alt);
   }
 
-  /* Contenedor del texto y botón */
   .card-body {
     flex: 1;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 1rem;
+    color: var(--color-text);
   }
 
-  /* Botón al final */
   .btn {
     align-self: center;
     margin-top: auto;
+    font-family: var(--font-heading);
   }
 }
 
-/* Centrar el logo en la sección de eventos */
-.eventos .div-logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-/* Anula el margen global y centra el <img> */
 .eventos .div-logo img {
   display: block;
   margin: 0 auto !important;
   max-width: 250px;
-  height: auto;
 }
-
-
 
 

@@ -24,7 +24,7 @@
 
 @font-face {
   font-family: 'Lora';
-  src: url('/assets/fonts/Lora/static/Lora-Regular.ttf') format('truetype');
+  src: url('/assets/fonts/Lora/Lora-Italic-VariableFont_wght.ttf') format('truetype');
   font-display: swap;
 }
 
@@ -33,3 +33,9 @@
   src: url('/assets/fonts/Forum/Forum-Regular.ttf') format('truetype');
   font-display: swap;
 }
+
+@font-face {
+  font-family: 'Uncial Antiqua';
+  src: url('/assets/fonts/Uncial_Antiqua/UncialAntiqua-Regular.ttf') format('truetype');
+}
+

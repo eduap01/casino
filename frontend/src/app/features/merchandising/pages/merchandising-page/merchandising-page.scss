@@ -4,33 +4,38 @@
   background: var(--color-bg-alt);
   color: var(--color-text);
   min-height: 100vh;
+  font-family: var(--font-main);
 
   /* ---------- Encabezados ---------- */
   h1 {
     color: var(--color-primary);
     font-size: 2.5rem;
     margin-bottom: 0.8rem;
-    text-shadow: var(--color-secondary);
+    text-shadow: 0 0 6px var(--color-secondary); /* antes text-shadow sin valor útil */
+    font-family: var(--font-heading);
   }
 
   h2 {
     font-size: 1.8rem;
     color: var(--color-accent);
     margin-bottom: 0.4rem;
+    font-family: var(--font-heading);
   }
 
   h3 {
     font-size: 1.3rem;
     font-weight: 500;
-    color: var(--color-accent);
+    color: var(--color-accent); /* mejor transición visual */
     margin-bottom: 0.2rem;
+    font-family: var(--font-heading);
   }
 
   h4 {
     font-size: 1.1rem;
     font-weight: 400;
-    color: var(--color-text);
+    color: var(--color-text-muted); /* antes var(--color-text) */
     margin-bottom: 3rem;
+    font-family: var(--font-main);
   }
 
   /* ---------- Contenedor de productos ---------- */
@@ -58,6 +63,10 @@
   }
 }
 
+/* =====================================================
+   PRODUCTOS
+   ===================================================== */
+
 .productos-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -66,15 +75,18 @@
 }
 
 .producto {
-  background: #111;
+  background: var(--color-card-bg);     /* antes #111 */
+  border: 1px solid var(--color-card-border);
   padding: 1rem;
   border-radius: 10px;
   cursor: pointer;
   text-align: center;
-  transition: transform .2s;
+  transition: transform .2s, box-shadow .2s ease-in-out;
+  box-shadow: 0 2px 6px var(--color-shadow); /* uso shadow */
 
   &:hover {
     transform: scale(1.04);
+    box-shadow: 0 4px 12px var(--color-shadow);
   }
 
   img {
@@ -83,14 +95,18 @@
   }
 }
 
-/* MODAL */
+/* =====================================================
+   MODAL
+   ===================================================== */
+
 .modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.85);
+  background: var(--color-transparent); /* fallback queda igual pero semántico */
+  background: rgba(0, 0, 0, 0.85);      /* mantenemos tu overlay real */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -103,6 +119,8 @@
   max-width: 90%;
   max-height: 90%;
   border-radius: 10px;
+  background: var(--color-card-bg);      /* nuevo */
+  border: 1px solid var(--color-card-border);
 
   img {
     width: 100%;
@@ -111,8 +129,3 @@
     border-radius: 10px;
   }
 }
-
-
-
-
-

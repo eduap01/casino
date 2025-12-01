@@ -22,7 +22,8 @@ export const EVENTOS = [
     imagen: [
       'assets/eventos/itinerariojornadas2.webp',
       'assets/eventos/itinerariojornadas1.webp',
-      'assets/eventos/cartajornadas2025.webp'
+      'assets/eventos/cartajornadas2025.webp',
+      'assets/eventos/conciertosJornadasCervantinas.webp'
     ],
     enlaces: [
       { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
