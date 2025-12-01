@@ -12,14 +12,40 @@
   <!-- CONTENIDO -->
   <div class="detalle-container">
     <div class="detalle-contenido" *ngIf="evento">
-      <!-- Imagen del evento -->
-      <div class="detalle-imagen">
+      <!-- Solo 1 imagen → mostrar estática -->
+      <div *ngIf="evento?.imagen?.length === 1" class="detalle-imagen">
         <img
-          [src]="evento.imagen"
+          [src]="evento.imagen[0]"
           [alt]="evento.titulo"
-          class="img-fluid rounded shadow evento-img"
+          class="carousel-image"
         />
       </div>
+
+      <!-- 2 o más imágenes → carrusel -->
+      <div class="carousel-container" *ngIf="evento?.imagen?.length > 1">
+
+        <button class="carousel-btn left" (click)="prevImage()">&#10094;</button>
+
+        <div class="carousel-slide">
+          <img
+            [src]="evento.imagen[currentImage]"
+            [alt]="evento.titulo"
+            class="carousel-image"
+          />
+        </div>
+
+        <button class="carousel-btn right" (click)="nextImage()">&#10095;</button>
+
+        <div class="carousel-indicators">
+          <span
+            *ngFor="let img of evento.imagen; let i = index"
+            [class.active]="i === currentImage"
+            (click)="goToImage(i)"
+          ></span>
+        </div>
+
+      </div>
+
 
       <!-- Texto del evento -->
       <div class="detalle-texto">

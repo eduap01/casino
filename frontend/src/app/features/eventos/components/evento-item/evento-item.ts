@@ -14,14 +14,14 @@ export class EventoItem {
   @Input() id!: number;
   @Input() descripcion?: string;
   @Input() fechas?: string[] | null = [];
-  @Input() imagen?: string;
+  @Input() imagen?: string[];
   @Input() enlace?: string;
   @Input() activo?: boolean;
 
   @ViewChild('overlay') overlayEl?: ElementRef<HTMLDivElement>;
   showModal = false;
 
-    constructor(private renderer: Renderer2, private router: Router) {} // 👈 INYECTAMOS Router
+    constructor(private renderer: Renderer2, private router: Router) {}
 
   irADetalle(): void {
     this.router.navigate(['/eventos', this.id], {

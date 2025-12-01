@@ -3,8 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule, Router } from '@angular/router';
 
 import { EVENTOS } from '../../data/eventos.data';
-import {LucideAngularModule} from 'lucide-angular';
-
+import { LucideAngularModule } from 'lucide-angular';
 
 @Component({
   selector: 'app-evento-detalle-page',
@@ -17,6 +16,9 @@ export class EventoDetallePage {
   id!: number;
   evento: any;
 
+  // 👉 CARRUSEL
+  currentImage = 0;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router
@@ -26,6 +28,29 @@ export class EventoDetallePage {
     if (!this.evento) this.router.navigate(['/en-construccion']);
   }
 
+  // 👉 CARRUSEL: siguiente foto
+  nextImage() {
+    if (!this.evento?.imagen) return;
+    this.currentImage =
+      (this.currentImage + 1) % this.evento.imagen.length;
+  }
+
+  // 👉 CARRUSEL: foto anterior
+  prevImage() {
+    if (!this.evento?.imagen) return;
+    this.currentImage =
+      (this.currentImage - 1 + this.evento.imagen.length) %
+      this.evento.imagen.length;
+  }
+
+  // 👉 CARRUSEL: ir a una foto concreta
+  goToImage(index: number) {
+    this.currentImage = index;
+  }
+
+  // ===========================
+  //   TUS MÉTODOS ORIGINALES
+  // ===========================
 
   getFechasCompactas(): string {
     if (!this.evento?.fechas || this.evento.fechas.length === 0) return '';
@@ -39,7 +64,9 @@ export class EventoDetallePage {
     }
 
     const primera = new Date(fechasOrdenadas[0]).toLocaleDateString('es-ES');
-    const ultima = new Date(fechasOrdenadas[fechasOrdenadas.length - 1]).toLocaleDateString('es-ES');
+    const ultima = new Date(
+      fechasOrdenadas[fechasOrdenadas.length - 1]
+    ).toLocaleDateString('es-ES');
 
     return `${primera} - ${ultima}`;
   }
