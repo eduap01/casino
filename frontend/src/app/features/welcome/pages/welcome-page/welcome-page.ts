@@ -14,7 +14,7 @@ import { Carrusel } from '../../../../shared/components/carrusel/carrusel';
 export class Welcome implements AfterViewInit, OnDestroy {
   images = [
     { src: 'assets/logoCasinoVertical.png', alt: 'Logo' },
-    { src: 'assets/eventos/laPuraSangre.webp', alt: 'La Pura Sangre' },
+    { src: 'assets/eventos/conciertosJornadasCervantinas.webp', alt: 'Conciertos Jornadas Cervantinas' },
     { src: 'assets/eventos/cartajornadas2025.webp', alt: 'Fiesta Remember 2025' }
   ];
 

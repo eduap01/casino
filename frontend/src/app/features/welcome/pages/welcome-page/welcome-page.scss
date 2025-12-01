@@ -60,7 +60,6 @@
         flex-wrap: wrap;
         position: relative;
         z-index: 3;
-
       }
 
       /* Botones */
@@ -73,7 +72,7 @@
         padding: 0.8rem 2rem;
         border-radius: 2rem;
         font-weight: bold;
-        color: var(--color-accent);
+        color: var(--color-text);
         background-color: var(--color-primary);
         border-color: var(--color-accent);
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);

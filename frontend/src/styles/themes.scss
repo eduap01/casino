@@ -284,18 +284,18 @@
   /* Fondos pergamino */
   --color-bg: #F8ECD0;
   --color-bg-alt: #E9D5AE;
-  --color-bg-gradient: linear-gradient(#F8ECD0 0%, #E8D4AA 40%, #D9BF8C 80%, #F8ECD0 100%);
+  --color-bg-gradient: linear-gradient(#F8ECD0 0%, #F3E3C3 40%, #F3E3C3 80%, #F8ECD0 100%);
   --color-card-bg: #F3E3C3;
   --color-card-border: #C9AC7B;
 
   /* Verde elegante (sustituye rojo) */
-  --color-primary: #1F4A34;       /* verde bosque elegante */
-  --color-secondary: #163A28;     /* verde profundo */
-  --color-tertiary: #1E6BB4;      /* azul del escudo (opcional) */
+  --color-primary: #F3E3C3;
+  --color-secondary: #F3E3C3;
+  --color-tertiary: #F3E3C3;
 
   /* Dorado suave (solo para detalles, no texto) */
-  --color-accent: #D8B133;
-  --color-accent-soft: #F4D96B;
+  --color-accent: #3A2A1A;
+  --color-accent-soft: #3A2A1A;
   --color-accent-transparent: rgba(209, 178, 120, 0.25);
 
   /* Texto oscuro (total claridad) */
@@ -305,10 +305,10 @@
 
   /* Enlaces */
   --color-link: #3A2A1A;
-  --color-link-hover: #1F4A34;
+  --color-link-hover: #3A2A1A;
 
   --color-shadow: rgba(0, 0, 0, 0.25);
-  --color-bg-hover: rgba(31, 74, 52, 0.15);
+  --color-bg-hover: rgba(58, 42, 26, 0.15);
 }
 
 /* Fondo general */
@@ -320,7 +320,7 @@
 .theme-cervantina .btn-thematic {
   border: 2px solid var(--color-primary);
   color: var(--color-accent-soft);
-  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary));
   font-family: 'Cinzel Decorative', serif;
   font-weight: 700;
   transition: all 0.25s ease-in-out;
@@ -329,6 +329,7 @@
 
 .theme-cervantina .btn-thematic:hover {
   background: var(--color-accent);
+  color: var(--color-primary);
   color: #2A1D12;
   transform: scale(1.05);
 }
@@ -365,7 +366,7 @@
   transition: color 0.3s ease-in-out;
 }
 .theme-cervantina a:hover {
-  color: var(--color-link-hover);
+  color: var(--color-accent);
 }
 
 /* Logo */
