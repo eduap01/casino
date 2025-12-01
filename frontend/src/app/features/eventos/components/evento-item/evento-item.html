@@ -14,7 +14,7 @@
     <img [src]="imagen?.[0]" [alt]="titulo" class="img-fluid rounded" />
   </div>
 
-  <p *ngIf="descripcion">{{ descripcion }}</p>
+  <a *ngIf="descripcion">{{ descripcion }}</a>
 
   <footer *ngIf="imagen" class="evento-footer">
     <button
@@ -27,7 +27,7 @@
 
   <!-- Overlay visual para eventos pasados -->
   <div class="overlay" *ngIf="esPasado && activo">
-    <span>Evento pasado</span>
+    <!--<span>Evento pasado</span>-->
   </div>
 
 </article>
