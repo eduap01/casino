@@ -114,7 +114,7 @@
 
 
 .theme-casino {
-  --color-transparent: rgba(200, 160, 70, 0.25);
+  --color-transparent: rgba(0, 0, 0, 0.0);
   --color-bg: #2b2521;
   --color-bg-alt: #362f29;
   --color-bg-gradient: linear-gradient(#3a312b 0%, #241e1a 45%, #3e332c 65%, #3a312b 100%);
@@ -232,6 +232,146 @@
   text-shadow: 0 0 6px rgba(198, 164, 88, 0.4);
 }
 
+/* ---------- Tema Bodas Medievales (Cervantina v3 – texto oscuro + verdes elegantes) ---------- */
+
+/* Tipografía general */
+.theme-cervantina {
+  font-family: 'Cinzel Decorative', serif;
+  letter-spacing: 0.3px;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+/* Títulos */
+.theme-cervantina h1,
+.theme-cervantina h2,
+.theme-cervantina h3 {
+  font-family: 'Uncial Antiqua', serif;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-heading);
+  text-shadow: none;
+}
+
+/* Navbar */
+.theme-cervantina .navbar,
+.theme-cervantina .nav-link {
+  font-family: 'Cinzel Decorative', serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-heading);
+}
+
+.theme-cervantina .nav-link:hover {
+  color: var(--color-text);
+}
+
+/* Destacados */
+.theme-cervantina .highlight {
+  font-family: 'Cinzel Decorative', serif;
+  background: var(--color-accent-transparent);
+  color: var(--color-text);
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+}
+
+/* ---------- NUEVA PALETA CERVANTINA ---------- */
+
+.theme-cervantina {
+
+  /* Fondos pergamino */
+  --color-bg: #F8ECD0;
+  --color-bg-alt: #E9D5AE;
+  --color-bg-gradient: linear-gradient(#F8ECD0 0%, #E8D4AA 40%, #D9BF8C 100%);
+  --color-card-bg: #F3E3C3;
+  --color-card-border: #C9AC7B;
+
+  /* Verde elegante (sustituye rojo) */
+  --color-primary: #1F4A34;       /* verde bosque elegante */
+  --color-secondary: #163A28;     /* verde profundo */
+  --color-tertiary: #1E6BB4;      /* azul del escudo (opcional) */
+
+  /* Dorado suave (solo para detalles, no texto) */
+  --color-accent: #D8B133;
+  --color-accent-soft: #F4D96B;
+  --color-accent-transparent: rgba(209, 178, 120, 0.25);
+
+  /* Texto oscuro (total claridad) */
+  --color-heading: #2A1D12;      /* títulos */
+  --color-text: #3A2A1A;         /* texto general */
+  --color-text-muted: #6B5843;
+
+  /* Enlaces */
+  --color-link: #3A2A1A;
+  --color-link-hover: #1F4A34;
+
+  --color-shadow: rgba(0, 0, 0, 0.25);
+  --color-bg-hover: rgba(31, 74, 52, 0.15);
+}
+
+/* Fondo general */
+.theme-cervantina {
+  background: var(--color-bg-gradient);
+}
+
+/* Botones temáticos */
+.theme-cervantina .btn-thematic {
+  border: 2px solid var(--color-primary);
+  color: var(--color-text);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  font-family: 'Cinzel Decorative', serif;
+  font-weight: 700;
+  transition: all 0.25s ease-in-out;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.theme-cervantina .btn-thematic:hover {
+  background: var(--color-accent);
+  color: #2A1D12;
+  transform: scale(1.05);
+}
+
+.theme-cervantina .btn-thematic:active {
+  transform: scale(0.96);
+}
+
+/* Header */
+.theme-cervantina header {
+  background: linear-gradient(to bottom, #F0E0BF, #D9C39B);
+  box-shadow: 0 3px 12px var(--color-shadow);
+}
+
+/* Footer */
+.theme-cervantina footer {
+  background: linear-gradient(to top, #D9C39B, #E7D4AE);
+  color: var(--color-text-muted);
+  border-top: 3px solid var(--color-primary);
+}
+
+/* Secciones */
+.theme-cervantina .section {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.15);
+}
+
+/* Enlaces */
+.theme-cervantina a {
+  color: var(--color-link);
+  transition: color 0.3s ease-in-out;
+}
+.theme-cervantina a:hover {
+  color: var(--color-link-hover);
+}
+
+/* Logo */
+.theme-cervantina .div-logo img.logo {
+  filter: drop-shadow(0 0 3px rgba(0,0,0,0.4));
+}
 
 
 
