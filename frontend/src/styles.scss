@@ -72,20 +72,21 @@ img {
 
   .navbar-toggler {
     border: 2px solid var(--color-primary);
-    background-color: var(--color-bg);
+    background-color: var(--color-primary);
     border-radius: 8px;
     padding: 0.4rem 0.6rem;
     transition: all 0.3s ease-in-out;
+    color: var(--color-text);
 
     &.collapsed,
     &:not(:focus):not(:hover) {
-      background-color: var(--color-transparent);
-      border-color: var(--color-transparent);
+      background-color: var(--color-primary);
+      border-color: var(--color-primary);
     }
 
     &:hover,
     &:focus {
-      background-color: var(--color-transparent);
+      background-color: var(--color-primary);
       border-color: var(--color-primary);
       outline: none;
     }
@@ -93,7 +94,7 @@ img {
     &.show,
     &:not(.collapsed) {
       background-color: var(--color-trasnparent);
-      border-color: var(--color-primary);
+      border-color: var(--color-text);
     }
 
     .navbar-toggler-icon {
@@ -398,11 +399,11 @@ footer {
   transform: scale(1.15);
 }
 
-/* 🎞️ Icono Lucide dentro del botón “Back to top” */
+/* Icono Lucide dentro del botón “Back to top” */
 .back-to-top lucide-icon.icon {
   width: 1.8em;
   height: 1.8em;
-  color: var(--color-text);
+  color: var(--color-accent-soft);
   opacity: 0.85;
   filter: drop-shadow(0 0 4px rgba(198, 164, 88, 0.3));
   transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;

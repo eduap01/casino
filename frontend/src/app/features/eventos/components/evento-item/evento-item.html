@@ -14,7 +14,7 @@
     <img [src]="imagen?.[0]" [alt]="titulo" class="img-fluid rounded" />
   </div>
 
-  <p *ngIf="descripcion">{{ descripcion }}</p>
+  <a *ngIf="descripcion">{{ descripcion }}</a>
 
   <footer *ngIf="imagen" class="evento-footer">
     <button

@@ -284,7 +284,7 @@
   /* Fondos pergamino */
   --color-bg: #F8ECD0;
   --color-bg-alt: #E9D5AE;
-  --color-bg-gradient: linear-gradient(#F8ECD0 0%, #E8D4AA 40%, #D9BF8C 100%);
+  --color-bg-gradient: linear-gradient(#F8ECD0 0%, #E8D4AA 40%, #D9BF8C 80%, #F8ECD0 100%);
   --color-card-bg: #F3E3C3;
   --color-card-border: #C9AC7B;
 
@@ -319,7 +319,7 @@
 /* Botones temáticos */
 .theme-cervantina .btn-thematic {
   border: 2px solid var(--color-primary);
-  color: var(--color-text);
+  color: var(--color-accent-soft);
   background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
   font-family: 'Cinzel Decorative', serif;
   font-weight: 700;
@@ -346,8 +346,8 @@
 /* Footer */
 .theme-cervantina footer {
   background: linear-gradient(to top, #D9C39B, #E7D4AE);
+  box-shadow: 0 3px 12px var(--color-shadow);
   color: var(--color-text-muted);
-  border-top: 3px solid var(--color-primary);
 }
 
 /* Secciones */
@@ -372,6 +372,8 @@
 .theme-cervantina .div-logo img.logo {
   filter: drop-shadow(0 0 3px rgba(0,0,0,0.4));
 }
+
+
 
 
 
