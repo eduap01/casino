@@ -10,7 +10,7 @@
     color: var(--color-primary);
     font-size: 2.5rem;
     margin-bottom: 0.8rem;
-    text-shadow: 0 2px 10px rgba(13, 110, 253, 0.25);
+    text-shadow: var(--color-secondary);
   }
 
   h2 {
@@ -111,4 +111,8 @@
     border-radius: 10px;
   }
 }
+
+
+
+
 
