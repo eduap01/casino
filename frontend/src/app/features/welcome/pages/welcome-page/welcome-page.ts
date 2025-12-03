@@ -2,12 +2,14 @@ import { Component, AfterViewInit, OnDestroy } from '@angular/core';
 import { Router, NavigationEnd, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { filter, Subscription } from 'rxjs';
-import { Carrusel } from '../../../../shared/components/carrusel/carrusel';
+import { LucideAngularModule} from 'lucide-angular';
+
 
 @Component({
   selector: 'app-welcome',
   standalone: true,
-  imports: [CommonModule, RouterModule, Carrusel],
+  imports: [CommonModule, RouterModule,
+    LucideAngularModule],
   templateUrl: './welcome-page.html',
   styleUrls: ['./welcome-page.scss']
 })

@@ -1,116 +1,531 @@
-
-:host {
-  --app-header-h: 0px;
-  --app-footer-h: 0px;
+/* ============================================================
+   RESETEO DEL LAYOUT PARA ANGULAR
+   ============================================================ */
+:host ::ng-deep section.welcome-page {
+  max-width: none !important;
+  width: 100vw !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-bottom: none !important;
 }
 
+
+/* ============================================================
+   CONTENEDOR PRINCIPAL
+   ============================================================ */
 .welcome-page {
-  position: relative;
-  width: 100%;
-  height: 100dvh;
+  width: 100vw;
+  height: 100vh;
   overflow: hidden;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  background: var(--color-bg);
+}
 
-  .carousel-container {
-    position: relative;
+.hero {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+
+/* ============================================================
+   HERO CONTENT (nuevo contenedor para responsive avanzado)
+   ============================================================ */
+.hero-content {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+
+/* ============================================================
+   IMÁGENES LATERALES
+   ============================================================ */
+
+.side-img {
+  position: absolute;
+  z-index: 2;
+  filter: blur(2px) brightness(0.95);
+  opacity: 0.75;
+  border-radius: 12px;
+
+  img {
     width: 100%;
-    height: 100%;
-
-    app-carrusel {
-      filter: blur(4px);
-      transform: scale(1.03);
-      height: 100%;
-
-      .carousel-inner,
-      .carousel-item,
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-        background-color: var(--color-bg); /* antes #000 */
-      }
-    }
-
-    .overlay {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 5rem;
-      z-index: 3;
-      text-align: center;
-
-      /* ==== CAPA DE SOMBREADO Y DIFUMINADO ==== */
-      &::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.25); /* difuminado más suave */
-        z-index: 2;
-        pointer-events: none;
-      }
-
-      .fila {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 1.5rem;
-        flex-wrap: wrap;
-        position: relative;
-        z-index: 3;
-      }
-
-      /* Botones */
-      .fila-botones {
-        margin-top: 2rem;
-      }
-
-      .welcome-btn {
-        font-size: 1.7rem;
-        padding: 0.8rem 2rem;
-        border-radius: 2rem;
-        font-weight: bold;
-        color: var(--color-text);
-        background-color: var(--color-primary);
-        border-color: var(--color-accent);
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        transition: all 0.2s ease-in-out;
-
-        &:hover {
-          transform: scale(1.05);
-          background-color: var(--color-secondary);
-          box-shadow: 0 0 15px var(--color-accent);
-        }
-      }
-
-      /* Carteles */
-      .fila-carteles {
-        margin-top: 1.5rem;
-
-        .cartel-img {
-          height: 120px;
-          border-radius: 0.5rem;
-          object-fit: contain;
-          background: rgba(255, 255, 255, 0.1);
-          backdrop-filter: blur(4px);
-          padding: 0.3rem;
-          box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
-          border: 2px solid var(--color-accent);
-        }
-      }
-    }
+    height: auto;
+    display: block;
+    border-radius: inherit;
   }
 }
 
-/* === Ocultar flechas e indicadores del carrusel solo en este componente === */
-:host ::ng-deep .carousel-control-prev,
-:host ::ng-deep .carousel-control-next,
-:host ::ng-deep .carousel-indicators {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
+.left {
+  width: 38vw;
+  left: 3vw;
+  top: 45%;
+  transform: translateY(-50%) rotate(-2deg);
 }
+
+.center {
+  width: 54vw;
+  left: 50%;
+  top: 42%;
+  transform: translate(-50%, -50%) rotate(1deg);
+  filter: blur(3px) brightness(0.85);
+  opacity: 0.55;
+}
+
+.right {
+  width: 38vw;
+  right: 3vw;
+  top: 60%;
+  transform: translateY(-50%) rotate(1deg);
+}
+
+
+/* ============================================================
+   TEXTO DEL SLOGAN
+   ============================================================ */
+
+.hero-text {
+  position: relative;
+  width: 100%;
+  padding-left: 8vw;
+  padding-top: 15vh;
+  z-index: 30;
+
+  .line {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 10vw, 10rem);
+    color: var(--color-text);
+    text-transform: uppercase;
+    white-space: nowrap;
+    margin: 0;
+    line-height: 0.9;
+  }
+
+  .l1 { transform: translateX(0); }
+  .l2 { transform: translateX(10vw); margin-top: 1vh; }
+  .l3 { transform: translateX(20vw); margin-top: 1vh;
+    span { color: var(--color-accent); }
+  }
+}
+
+
+/* ============================================================
+   BOTONES CTA
+   ============================================================ */
+
+.cta-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-left: 8vw;
+  z-index: 40;
+}
+
+.cta-main {
+  border: 2px solid var(--color-accent);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(4px);
+  color: var(--color-text);
+  border-radius: 45px;
+  font-size: 1.4rem;
+  padding: 1.2rem 3.5rem;
+  font-family: var(--font-heading);
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.25s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.cta-main:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: translateX(6px);
+}
+
+
+/* ============================================================
+   TOP BAR
+   ============================================================ */
+
+.top-bar {
+  backdrop-filter: blur(6px);
+  width: 100%;
+  height: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3vw;
+  background: var(--color-bg);
+  position: relative;
+  z-index: 50;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.top-bar .brand img {
+  height: 55px;
+}
+
+/* ================= ICONOS REDES SOCIALES ================= */
+
+.top-bar .icons {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  padding-right: 1.5rem;
+}
+
+.rrss-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rrss-icon {
+  width: 32px;
+  height: 32px;
+  color: var(--color-accent);
+
+  path,
+  rect,
+  circle {
+    fill: currentColor !important;
+    stroke: none !important;
+  }
+
+  transition: color .25s ease, transform .25s ease;
+}
+
+/* 🔥 Igualar tamaño visual del icono de Instagram */
+.rrss-icon.instagram {
+  transform: scale(1.15);
+}
+
+/* Hover elegante */
+.top-bar .icons a:hover .rrss-icon {
+  color: var(--color-primary);
+  transform: scale(1.18);
+}
+
+
+/* ============================================================
+   MARQUESINA
+   ============================================================ */
+
+.marquee {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  background: var(--color-bg-alt);
+  height: 40px;
+  display: flex;
+  align-items: center;
+  z-index: 60;
+}
+
+.marquee-track {
+  display: flex;
+  white-space: nowrap;
+  animation: marquee 20s linear infinite;
+}
+
+.marquee-track span {
+  margin-right: 3rem;
+  color: var(--color-accent);
+  font-size: 1rem;
+  font-family: var(--font-heading);
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+
+/* ============================================================
+   RESPONSIVE: TABLETS (≤ 1200px)
+   ============================================================ */
+
+@media (max-width: 1200px) {
+
+  .side-img.left, .side-img.right { width: 32vw; }
+  .side-img.center { width: 48vw; }
+  .rrss-icon { width: 24px; height: 24px; }
+
+  .hero-text .line {
+    font-size: clamp(2.5rem, 8vw, 7rem);
+  }
+
+  .cta-main {
+    font-size: 1.2rem;
+    padding: 1rem 2.8rem;
+  }
+}
+
+@media (min-width: 600px) and (orientation: landscape) {
+
+  .cta-group {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.2rem;
+    margin-top: 2rem;
+    padding-left: 6vw;
+  }
+
+  .cta-main {
+    font-size: 1.2rem;
+    padding: 1rem 2.6rem;
+    border-radius: 40px;
+    white-space: nowrap;
+  }
+}
+
+
+
+/* ============================================================
+   RESPONSIVE: MÓVILES (≤ 600px)
+   ============================================================ */
+
+@media (max-width: 600px) and (orientation: portrait) {
+
+  /* Topbar */
+  .top-bar { height: 60px; padding: 0 3vw; }
+  .top-bar .brand img { height: 40px; }
+  .rrss-icon { width: 18px; height: 18px; }
+
+  /* Imágenes */
+  .side-img.left { display: none; }
+  .side-img.right { width: 42vw; top: 65%; right:10%; opacity: .55; }
+  .side-img.center { width: 72vw; top: 38%; opacity: .35; }
+
+  /* Texto */
+  .hero-text {
+    padding-top: 14vh;
+    padding-left: 5vw;
+  }
+
+  .hero-text .line {
+    font-size: clamp(1.8rem, 10vw, 3.4rem);
+  }
+
+  .l2 { transform: translateX(5vw); }
+  .l3 { transform: translateX(10vw); }
+
+  /* Botones */
+  .cta-group { margin-top: 1.4rem; gap: .8rem; }
+  .cta-main { font-size: 1rem; padding: .9rem 2.2rem; border-radius: 35px; }
+
+  .top-bar .icons {
+    padding-right: 0.5rem;
+    gap: 1rem;
+  }
+
+}
+
+
+
+
+/* ============================================================
+   🔥 MÓVILES HORIZONTALES (≤ 500px altura) — VERSIÓN CORREGIDA
+   ============================================================ */
+@media (max-height: 500px) and (orientation: landscape) {
+
+  /* Navbar */
+  .top-bar {
+    height: 48px;
+  }
+  .top-bar .brand img { height: 28px; }
+  .rrss-icon { width: 18px; height: 18px; }
+
+  /* IMÁGENES más pequeñas para liberar espacio */
+  .side-img.left {
+    width: 22vw;
+    top: 56%;
+    opacity: .30;
+  }
+  .side-img.center {
+    width: 34vw;
+    top: 50%;
+    opacity: .22;
+  }
+  .side-img.right { display: none; }
+
+    .side-img.right {
+    display: block !important;
+    width: 26vw;
+    max-width: 260px;
+
+    right: 2vw;
+    top: 55%;
+    transform: translateY(-50%) rotate(1deg);
+
+    opacity: 0.26;
+    filter: blur(2px) brightness(0.7);
+    z-index: 1;
+  }
+
+  /* SLOGAN AJUSTADO (el problema real) */
+  .hero-text {
+    padding-top: 6vh;      /* antes 10vh, baja MUCHO mejor */
+    padding-left: 4vw;
+  }
+
+  .hero-text .line {
+    font-size: clamp(1.1rem, 5vw, 2rem);   /* mucho más razonable */
+    line-height: 1.05;
+  }
+
+  /* desplazamientos más suaves (antes demasiado grandes) */
+  .l1 { transform: translateX(0); }
+  .l2 { transform: translateX(6vw); }
+  .l3 { transform: translateX(12vw); }
+
+  /* CTA — ahora sí horizontales */
+  .cta-group {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: .7rem;
+    margin-top: 1rem;
+    padding-left: 4vw;
+  }
+
+  .cta-main {
+    font-size: .8rem;
+    padding: .6rem 1.2rem;
+    border-radius: 22px;
+    white-space: nowrap;
+  }
+
+  /* Marquesina más fina */
+  .marquee {
+    height: 26px;
+  }
+
+  .marquee-track span {
+    font-size: .75rem;
+  }
+}
+
+/* ============================================================
+   📱 MÓVILES ALTOS (iPhone 12/13/14/15, Pixel, Samsung)
+   Mejor composición + imágenes más grandes + slogan más presente
+   ============================================================ */
+
+@media (max-width: 600px) and (min-height: 750px) and (orientation: portrait) {
+
+  /* --- Imágenes --- */
+  .side-img.center {
+    width: 85vw;          /* más grande */
+    top: 46%;             /* más centrada verticalmente */
+    opacity: 0.40;        /* un poco más visible */
+    filter: blur(2px) brightness(0.80);
+  }
+
+  .side-img.right {
+    width: 55vw;          /* antes 42vw → más grande */
+    top: 68%;
+    right: 6%;
+    opacity: 0.50;
+  }
+
+  .side-img.left {
+    display: none;        /* seguimos ocultándola en móviles */
+  }
+
+  /* --- Slogan --- */
+  .hero-text {
+    padding-top: 10vh;    /* subimos el slogan */
+    padding-left: 6vw;
+  }
+
+  .hero-text .line {
+    font-size: clamp(2.2rem, 11vw, 3.8rem);  /* más grande */
+    line-height: 1.12;                      /* más aire */
+  }
+
+  .l2 { transform: translateX(6vw); }
+  .l3 { transform: translateX(12vw); }
+
+  /* --- Botones --- */
+  .cta-group {
+    margin-top: 2.2rem;  /* más separación del slogan */
+    gap: 1.2rem;
+  }
+
+  .cta-main {
+    font-size: 1.15rem;
+    padding: 1rem 2.4rem;
+    border-radius: 38px;
+  }
+
+  /* --- Marquesina --- */
+  .marquee {
+    height: 32px;
+  }
+}
+
+/* ============================================================
+   🖥️ ESCRITORIO / PORTÁTILES GRANDES (≥ 1280px)
+   Controlar tamaño de imágenes y composición general
+   ============================================================ */
+
+@media (min-width: 1280px) {
+
+  /* --- IMÁGENES --- */
+  .side-img.center {
+    width: 42vw;          /* antes demasiado grande → reducimos */
+    max-width: 680px;
+    top: 48%;
+    opacity: 0.45;        /* ligera presencia */
+    filter: blur(3px) brightness(0.9);
+  }
+
+  .side-img.left {
+    width: 28vw;
+    max-width: 480px;
+    top: 52%;
+    opacity: 0.55;
+  }
+
+  .side-img.right {
+    width: 28vw;
+    max-width: 480px;
+    top: 55%;
+    opacity: 0.50;
+  }
+
+  /* --- SLOGAN --- */
+  .hero-text {
+    padding-top: 18vh;    /* más arriba en pantallas grandes */
+    padding-left: 10vw;
+  }
+
+  .hero-text .line {
+    font-size: clamp(3rem, 6vw, 6rem);  /* tamaño más controlado */
+    line-height: 1;
+  }
+
+  .l2 { transform: translateX(6vw); }
+  .l3 { transform: translateX(12vw); }
+
+  /* --- BOTONES --- */
+  .cta-group {
+    margin-top: 2rem;
+    padding-left: 10vw;
+  }
+
+  .cta-main {
+    font-size: 1.2rem;
+    padding: 1rem 3rem;
+  }
+}
+
 
