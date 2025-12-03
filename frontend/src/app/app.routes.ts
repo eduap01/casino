@@ -13,8 +13,8 @@ import { SobreNosotrosPage } from './features/sobre-nosotros/pages/sobre-nosotro
 import { ReservaEventoPage } from './features/reserva-evento/pages/reserva-evento-page/reserva-evento-page';
 import { QuienesSomosPage } from './features/sobre-nosotros/pages/quienes-somos-page/quienes-somos-page';
 import { NuestraHistoriaPage } from './features/sobre-nosotros/pages/nuestra-historia-page/nuestra-historia-page';
-import { ParticipaPage } from './features/participa/pages/participa-page/participa-page';
-import { ClubesPage } from './features/participa/pages/clubes-page/clubes-page';
+import { ParticipaPage } from './features/participa/participa-page/participa-page';
+import { ClubesPage } from './features/participa/clubes/pages/clubes-page/clubes-page';
 import { MerchandisingPage } from './features/merchandising/pages/merchandising-page/merchandising-page';
 import { EnConstruccion } from './shared/pages/en-construccion/en-construccion';
 
@@ -39,12 +39,12 @@ export const routes: Routes = [
   { path: 'sobre-nosotros', canActivate: [BlockedRouteGuard], component: SobreNosotrosPage },
   { path: 'quienes-somos', canActivate: [BlockedRouteGuard], component: QuienesSomosPage },
   { path: 'nuestra-historia', canActivate: [BlockedRouteGuard], component: NuestraHistoriaPage },
-  { path: 'reserva-evento', /*canActivate: [BlockedRouteGuard],*/ component: ReservaEventoPage },
-  { path: 'participa', canActivate: [BlockedRouteGuard], component: ParticipaPage },
-  { path: 'clubes',canActivate: [BlockedRouteGuard], component: ClubesPage },
-  { path: 'merchandising', /*canActivate: [BlockedRouteGuard], */component: MerchandisingPage },
+  { path: 'reserva-evento', /*canActivate: [BlockedRouteGuard]*/ component: ReservaEventoPage },
+  { path: 'participa', /*canActivate: [BlockedRouteGuard]*/ component: ParticipaPage },
+  { path: 'clubes',/*canActivate: [BlockedRouteGuard]*/ component: ClubesPage },
+  { path: 'merchandising', /*canActivate: [BlockedRouteGuard]*/ component: MerchandisingPage },
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
-  { path: '**', redirectTo: 'welcome' }
+  { path: '**', redirectTo: 'en-construccion' }
 ];
 
 const routerOptions: ExtraOptions = {
