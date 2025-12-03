@@ -1,0 +1,26 @@
+<div class="club-item-container">
+
+  <!-- LOGO protagonista con spotlight -->
+  <div class="club-logo-zone">
+    <div class="spotlight"></div>
+    <img class="club-logo" [src]="club.logo" alt="{{ club.nombre }}" />
+  </div>
+
+  <!-- PANEL DE INFORMACIÓN -->
+  <div class="club-panel">
+
+    <h2 class="club-title">{{ club.nombre }}</h2>
+
+    <p class="club-lema" *ngIf="club.lema">{{ club.lema }}</p>
+    <p class="club-sub" *ngIf="club.subtitulo">{{ club.subtitulo }}</p>
+
+    <p class="club-desc">{{ club.descripcion }}</p>
+
+    <ul class="club-acts" *ngIf="club.actividades">
+      <li *ngFor="let act of club.actividades">
+        {{ act }}
+      </li>
+    </ul>
+  </div>
+
+</div>

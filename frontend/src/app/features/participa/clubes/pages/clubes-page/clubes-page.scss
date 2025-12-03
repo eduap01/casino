@@ -1,0 +1,58 @@
+.clubes-wrapper {
+  padding: 3rem 1rem 5rem;
+  background: radial-gradient(circle at top, #1a1a27 0%, #0d0d14 70%);
+  color: var(--color-text);
+  text-align: center;
+}
+
+/* LOGO CASINO */
+.casino-logo img {
+  width: 150px;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 0 6px rgba(255,255,255,0.25));
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+/* TITULO PRINCIPAL */
+.clubes-hero h1 {
+  font-size: 3rem;
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  margin-bottom: 0.7rem;
+}
+
+.clubes-hero p {
+  font-size: 1.2rem;
+  color: var(--color-text-muted);
+  max-width: 700px;
+  margin: 0 auto 2rem;
+}
+
+/* INFO INSCRIPCIÓN */
+.club-inscripcion p {
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+  color: var(--color-accent-soft);
+
+  .tel-whatsapp {
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-success-rgb), var(--bs-text-opacity)); // mismo mecanismo que .text-success
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.25s ease;
+   }
+}
+
+
+
+.club-list-container {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}

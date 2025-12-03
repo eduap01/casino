@@ -1,0 +1,33 @@
+<section class="clubes-wrapper">
+
+  <!-- LOGO CASINO -->
+  <div class="casino-logo">
+    <a routerLink="/welcome">
+      <img src="assets/logoCasino.png" alt="Casino Logo" />
+    </a>
+  </div>
+
+  <!-- TITULO PRINCIPAL -->
+  <div class="clubes-hero">
+    <h1>Clubes Exclusivos</h1>
+    <p>Asociaciones culturales y gastronómicas con identidad propia.<br>
+      Vive experiencias únicas dentro del Casino Rock Bar.</p>
+  </div>
+
+  <!-- INFO DE INSCRIPCIÓN -->
+  <div class="club-inscripcion">
+    <p>
+      Para unirte, llámanos al
+      <a href="https://wa.me/34634132000" target="_blank" class="tel-whatsapp">634 13 20 00</a><br>
+      o acércate al establecimiento.
+    </p>
+  </div>
+
+  <!-- LISTA DE CLUBES -->
+  <div class="club-list-container">
+    <div *ngFor="let club of clubes">
+      <app-club-item [club]="club"></app-club-item>
+    </div>
+  </div>
+
+</section>

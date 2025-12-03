@@ -3,7 +3,9 @@
   flex-direction: column;
   height: calc(100vh - 120px);
   overflow: hidden;
-  background: var(--color-bg-gradient, linear-gradient(135deg, var(--color-bg), var(--color-bg-alt)));
+
+  /* Usa el degradado del tema */
+  background: var(--color-bg-gradient);
 
   @media (min-width: 1024px) {
     flex-direction: row;
@@ -17,7 +19,6 @@
   transition: transform 0.4s ease, filter 0.4s ease;
   cursor: pointer;
   position: relative;
-  border: 2px solid var(--color-primary);
   overflow: hidden;
 
   &:hover {
@@ -28,19 +29,25 @@
   .overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.45);
+
+   background: rgba(0, 0, 0, 0.45);
+
     display: flex;
     align-items: center;
     justify-content: center;
-    pointer-events: none; // permite clic al contenedor padre
+    pointer-events: none;
     transition: background 0.3s ease;
 
     h2 {
-      color: var(--color-text, #fff);
-      font-size: 2.5rem;
+      /* Fuentes del tema */
+      font-family: var(--font-heading);
+      color: var(--color-heading);
       text-transform: uppercase;
+
+      font-size: 2.5rem;
       font-weight: 700;
-      text-shadow: 0 3px 10px rgba(0, 0, 0, 0.8);
+
+      text-shadow: 0 3px 10px var(--color-shadow);
 
       @media (max-width: 768px) {
         font-size: 1.8rem;
@@ -51,11 +58,11 @@
 
 /* ---------- Secciones con imágenes ---------- */
 .clubes-eventos {
-  background-image: url('/assets/clubesEventos.jpg'); // sustituye por la ruta real
+  background-image: url('/assets/clubesEventos.jpg');
 }
 
 .encuestas {
-  background-image: url('/assets/encuestas.jpg'); // sustituye por la ruta real
+  background-image: url('/assets/encuestas.jpg');
 }
 
 /* ---------- Animación de entrada ---------- */
