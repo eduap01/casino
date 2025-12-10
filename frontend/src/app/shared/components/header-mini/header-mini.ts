@@ -14,22 +14,20 @@ export class HeaderMini implements OnInit {
   basePath = 'assets/';
 
     eventos: string[] = [
-    'assets/artistas/JimmyHendrix.webp',
-    'assets/eventos/itinerariojornadas2.webp',
-    'assets/artistas/michaeljackson.webp',
-    'assets/artistas/acdc.webp',
-    'assets/eventos/fiestaRemember2025.webp',
-    'assets/artistas/Fredy.webp',
-    'assets/eventos/Concierto.webp',
-    'assets/artistas/LedZepelin.webp',
-    'assets/artistas/elvis.webp',
-    'assets/eventos/santo_tardeo2025.webp',
-    'assets/artistas/gunsnroses.webp',
-    'assets/artistas/jagger.webp',
-    'assets/artistas/johnny_cash.webp',
-    'assets/artistas/paul_simonon.webp',
-    'assets/artistas/stevie_wonder.webp'
-  ];
+      'assets/navidad/queen-navidad.webp',
+      'assets/navidad/elvis-navidad.webp',
+      'assets/navidad/beatles-navidad.webp',
+      'assets/navidad/eddie-navidad.webp',
+      'assets/navidad/sinatra-navidad.webp',
+      'assets/navidad/kiss-navidad.webp',
+      'assets/navidad/acdc-navidad.webp',
+      'assets/navidad/mickey-navidad.webp',
+      'assets/navidad/paul-navidad.webp',
+      'assets/navidad/cosby-navidad.webp',
+      'assets/navidad/maiden-navidad.webp',
+      'assets/navidad/wham-navidad.webp'
+    ];
+
 
   get eventosLoop(): string[] {
     return Array(50).fill(this.eventos).flat();
