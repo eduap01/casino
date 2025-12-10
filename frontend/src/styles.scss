@@ -13,9 +13,7 @@ body {
   font-family: var(--font-main); /* ← actualizado */
   margin: 0;
   padding: 0;
-  background: linear-gradient(180deg, var(--color-bg) 0%,
-                                      var(--color-bg-alt) 50%,
-                                      var(--color-bg) 100%);
+  background: var(--color-bg-gradient);
   color: var(--color-text);
   animation: fadeIn 1s ease-in;
 }
@@ -71,8 +69,8 @@ img {
   }
 
   .navbar-toggler {
-    border: 2px solid var(--color-primary);
-    background-color: var(--color-primary);
+    border: 2px solid var(--color-tertiary);
+    background-color: var(--color-tertiary);
     border-radius: 8px;
     padding: 0.4rem 0.6rem;
     transition: all 0.3s ease-in-out;
@@ -80,14 +78,14 @@ img {
 
     &.collapsed,
     &:not(:focus):not(:hover) {
-      background-color: var(--color-primary);
-      border-color: var(--color-primary);
+      background-color: var(--color-tertiary);
+      border-color: var(--color-tertiary);
     }
 
     &:hover,
     &:focus {
-      background-color: var(--color-primary);
-      border-color: var(--color-primary);
+      background-color: var(--color-tertiary);
+      border-color: var(--color-tertiary);
       outline: none;
     }
 
@@ -167,7 +165,7 @@ header {
   .casino-logo {
     position: relative;
     z-index: 2;
-    filter: drop-shadow(0 0 8px var(--color-accent));
+    filter: drop-shadow(0 0 6px var(--color-accent));
     transition: filter 0.3s ease, transform 0.3s ease;
   }
 
@@ -392,7 +390,7 @@ footer {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  background: var(--color-primary);
+  background: var(--color-tertiary);
   border: none;
   border-radius: 50%;
   width: 64px;
@@ -430,7 +428,7 @@ footer {
 .btn-thematic {
   font-weight: 600;
   color: var(--color-text);
-  border: 2px solid var(--color-primary);
+  border: 2px solid var(--color-accent);
   background-color: var(--color-secondary);
   transition: all 0.25s ease-in-out;
   border-radius: 8px;

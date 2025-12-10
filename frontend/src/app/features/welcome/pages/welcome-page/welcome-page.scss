@@ -20,7 +20,7 @@
   padding: 0;
   margin: 0;
   position: relative;
-  background: var(--color-bg);
+  background: var(--color-primary);
 }
 
 .hero {
@@ -99,7 +99,12 @@
   .line {
     font-family: var(--font-heading);
     font-size: clamp(3rem, 10vw, 10rem);
-    color: var(--color-text);
+    color: var(--color-secondary);
+    text-shadow:
+      1px 1px 2px var(--color-text),
+     -1px -1px 2px var(--color-text),
+      1px -1px 2px var(--color-text),
+     -1px  1px 2px var(--color-text);
     text-transform: uppercase;
     white-space: nowrap;
     margin: 0;
@@ -109,7 +114,12 @@
   .l1 { transform: translateX(0); }
   .l2 { transform: translateX(10vw); margin-top: 1vh; }
   .l3 { transform: translateX(20vw); margin-top: 1vh;
-    span { color: var(--color-accent); }
+    text-shadow:
+      1px 1px 2px var(--color-bg),
+     -1px -1px 2px var(--color-bg),
+      1px -1px 2px var(--color-bg),
+     -1px  1px 2px var(--color-bg);
+    span { color: var(--color-text); }
   }
 }
 
@@ -129,7 +139,7 @@
 }
 
 .cta-main {
-  border: 2px solid var(--color-accent);
+  border: 2px solid var(--color-link);
   background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(4px);
   color: var(--color-text);
@@ -189,7 +199,7 @@
 .rrss-icon {
   width: 32px;
   height: 32px;
-  color: var(--color-accent);
+  color: var(--color-link);
 
   path,
   rect,
@@ -201,7 +211,7 @@
   transition: color .25s ease, transform .25s ease;
 }
 
-/* 🔥 Igualar tamaño visual del icono de Instagram */
+/* Igualar tamaño visual del icono de Instagram */
 .rrss-icon.instagram {
   transform: scale(1.15);
 }
@@ -227,6 +237,7 @@
   display: flex;
   align-items: center;
   z-index: 60;
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 .marquee-track {
@@ -333,7 +344,7 @@
 
 
 /* ============================================================
-   🔥 MÓVILES HORIZONTALES (≤ 500px altura) — VERSIÓN CORREGIDA
+    MÓVILES HORIZONTALES (≤ 500px altura) — VERSIÓN CORREGIDA
    ============================================================ */
 @media (max-height: 500px) and (orientation: landscape) {
 
@@ -415,7 +426,7 @@
 }
 
 /* ============================================================
-   📱 MÓVILES ALTOS (iPhone 12/13/14/15, Pixel, Samsung)
+    MÓVILES ALTOS (iPhone 12/13/14/15, Pixel, Samsung)
    Mejor composición + imágenes más grandes + slogan más presente
    ============================================================ */
 
@@ -473,7 +484,7 @@
 }
 
 /* ============================================================
-   🖥️ ESCRITORIO / PORTÁTILES GRANDES (≥ 1280px)
+    ESCRITORIO / PORTÁTILES GRANDES (≥ 1280px)
    Controlar tamaño de imágenes y composición general
    ============================================================ */
 

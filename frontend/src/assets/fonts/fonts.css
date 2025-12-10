@@ -39,3 +39,12 @@
   src: url('/assets/fonts/Uncial_Antiqua/UncialAntiqua-Regular.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'MountainsofChristmas';
+  src: url('/assets/fonts/MountainsofChristmas/MountainsofChristmas-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'MountainsofChristmas-Bold';
+  src: url('/assets/fonts/MountainsofChristmas/MountainsofChristmas-Bold.ttf') format('truetype');
+}
