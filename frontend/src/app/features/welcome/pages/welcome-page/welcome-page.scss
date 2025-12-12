@@ -111,8 +111,8 @@
     line-height: 0.9;
   }
 
-  .l1 { transform: translateX(0); }
-  .l2 { transform: translateX(35vw); margin-top: 1vh; }
+  .l1 { transform: translateX(2vw); }
+  .l2 { transform: translateX(31vw); margin-top: 1vh; }
   .l3 { transform: translateX(20vw); margin-top: 1vh;
     text-shadow:
       1px 1px 2px var(--color-bg),
@@ -121,7 +121,7 @@
      -1px  1px 2px var(--color-bg);
     span { color: var(--color-text); }
   }
-  .l4 { transform: translateX(40vw); margin-top: 1vh;
+  .l4 { transform: translateX(46vw); margin-top: 1vh;
     text-shadow:
       1px 1px 2px var(--color-bg),
      -1px -1px 2px var(--color-bg),
