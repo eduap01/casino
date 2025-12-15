@@ -69,8 +69,8 @@ img {
   }
 
   .navbar-toggler {
-    border: 2px solid var(--color-tertiary);
-    background-color: var(--color-tertiary);
+    border: 2px solid var(--color-primary);
+    background-color: var(--color-secondary);
     border-radius: 8px;
     padding: 0.4rem 0.6rem;
     transition: all 0.3s ease-in-out;
@@ -78,21 +78,21 @@ img {
 
     &.collapsed,
     &:not(:focus):not(:hover) {
-      background-color: var(--color-tertiary);
-      border-color: var(--color-tertiary);
+      background-color: var(--color-primary);
+      border-color: var(--color-secondary);
     }
 
     &:hover,
     &:focus {
-      background-color: var(--color-tertiary);
-      border-color: var(--color-tertiary);
+      background-color: var(--color-primary);
+      border-color: var(--color-secondary);
       outline: none;
     }
 
     &.show,
     &:not(.collapsed) {
-      background-color: var(--color-transparent); /* ← corregido */
-      border-color: var(--color-text);
+      background-color: var(--color-tertiary); /* ← corregido */
+      border-color: var(--color-secondary);
     }
 
     .navbar-toggler-icon {

@@ -20,7 +20,7 @@
   padding: 0;
   margin: 0;
   position: relative;
-  background: var(--color-primary);
+  background: var(--color-bg-gradient);
 }
 
 .hero {
@@ -49,8 +49,8 @@
 .side-img {
   position: absolute;
   z-index: 2;
-  filter: blur(2px) brightness(0.95);
-  opacity: 0.75;
+  filter: blur(0.5px) brightness(0.90);
+  opacity: 0.90;
   border-radius: 12px;
 
   img {
@@ -73,8 +73,8 @@
   left: 50%;
   top: 42%;
   transform: translate(-50%, -50%) rotate(1deg);
-  filter: blur(3px) brightness(0.85);
-  opacity: 0.55;
+  filter: blur(0.5px) brightness(0.90);
+  opacity: 0.90;
 }
 
 .right {
@@ -111,9 +111,17 @@
     line-height: 0.9;
   }
 
-  .l1 { transform: translateX(0); }
-  .l2 { transform: translateX(10vw); margin-top: 1vh; }
+  .l1 { transform: translateX(2vw); }
+  .l2 { transform: translateX(31vw); margin-top: 1vh; }
   .l3 { transform: translateX(20vw); margin-top: 1vh;
+    text-shadow:
+      1px 1px 2px var(--color-bg),
+     -1px -1px 2px var(--color-bg),
+      1px -1px 2px var(--color-bg),
+     -1px  1px 2px var(--color-bg);
+    span { color: var(--color-text); }
+  }
+  .l4 { transform: translateX(46vw); margin-top: 1vh;
     text-shadow:
       1px 1px 2px var(--color-bg),
      -1px -1px 2px var(--color-bg),
@@ -141,9 +149,9 @@
 .cta-main {
   border: 2px solid var(--color-link);
   background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(15px);
   color: var(--color-text);
-  border-radius: 45px;
+  border-radius: 15px;
   font-size: 1.4rem;
   padding: 1.2rem 3.5rem;
   font-family: var(--font-heading);
@@ -293,7 +301,7 @@
   .cta-main {
     font-size: 1.2rem;
     padding: 1rem 2.6rem;
-    border-radius: 40px;
+    border-radius: 15px;
     white-space: nowrap;
   }
 }
@@ -313,8 +321,8 @@
 
   /* Imágenes */
   .side-img.left { display: none; }
-  .side-img.right { width: 42vw; top: 65%; right:10%; opacity: .55; }
-  .side-img.center { width: 72vw; top: 38%; opacity: .35; }
+  .side-img.right { width: 42vw; top: 65%; right:10%; opacity: .90; }
+  .side-img.center { width: 72vw; top: 32%; opacity: .90; }
 
   /* Texto */
   .hero-text {
@@ -330,8 +338,8 @@
   .l3 { transform: translateX(10vw); }
 
   /* Botones */
-  .cta-group { margin-top: 1.4rem; gap: .8rem; }
-  .cta-main { font-size: 1rem; padding: .9rem 2.2rem; border-radius: 35px; }
+  .cta-group { margin-top: 3rem; gap: .8rem; }
+  .cta-main { font-size: 1rem; padding: .9rem 2.2rem; border-radius: 15px; }
 
   .top-bar .icons {
     padding-right: 0.5rem;
@@ -359,12 +367,12 @@
   .side-img.left {
     width: 22vw;
     top: 56%;
-    opacity: .30;
+    opacity: .90;
   }
   .side-img.center {
     width: 34vw;
     top: 50%;
-    opacity: .22;
+    opacity: .90;
   }
   .side-img.right { display: none; }
 
@@ -377,26 +385,37 @@
     top: 55%;
     transform: translateY(-50%) rotate(1deg);
 
-    opacity: 0.26;
-    filter: blur(2px) brightness(0.7);
+    filter: blur(0.5px) brightness(0.90);
+    opacity: 0.90;
     z-index: 1;
   }
 
-  /* SLOGAN AJUSTADO (el problema real) */
   .hero-text {
-    padding-top: 6vh;      /* antes 10vh, baja MUCHO mejor */
+    padding-top: 6vh;
     padding-left: 4vw;
   }
 
   .hero-text .line {
-    font-size: clamp(1.1rem, 5vw, 2rem);   /* mucho más razonable */
+    font-size: clamp(1.1rem, 5vw, 2rem);
     line-height: 1.05;
   }
 
-  /* desplazamientos más suaves (antes demasiado grandes) */
-  .l1 { transform: translateX(0); }
-  .l2 { transform: translateX(6vw); }
-  .l3 { transform: translateX(12vw); }
+
+  .hero-text .l1 {
+    transform: translateX(1em) !important;
+  }
+
+  .hero-text .l2 {
+    transform: translateX(9.2em) !important;
+  }
+
+  .hero-text .l3 {
+    transform: translateX(4.4em) !important;
+  }
+
+  .hero-text .l4 {
+    transform: translateX(15.4em) !important;
+  }
 
   /* CTA — ahora sí horizontales */
   .cta-group {
@@ -411,7 +430,7 @@
   .cta-main {
     font-size: .8rem;
     padding: .6rem 1.2rem;
-    border-radius: 22px;
+    border-radius: 15px;
     white-space: nowrap;
   }
 
@@ -435,16 +454,17 @@
   /* --- Imágenes --- */
   .side-img.center {
     width: 85vw;          /* más grande */
-    top: 46%;             /* más centrada verticalmente */
-    opacity: 0.40;        /* un poco más visible */
-    filter: blur(2px) brightness(0.80);
+    top: 36%;             /* más centrada verticalmente */
+    filter: blur(0.5px) brightness(0.90);
+    opacity: 0.90;
   }
 
   .side-img.right {
     width: 55vw;          /* antes 42vw → más grande */
     top: 68%;
     right: 6%;
-    opacity: 0.50;
+    filter: blur(0.5px) brightness(0.90);
+    opacity: 0.90;
   }
 
   .side-img.left {
@@ -474,7 +494,7 @@
   .cta-main {
     font-size: 1.15rem;
     padding: 1rem 2.4rem;
-    border-radius: 38px;
+    border-radius: 15px;
   }
 
   /* --- Marquesina --- */
@@ -495,22 +515,22 @@
     width: 42vw;          /* antes demasiado grande → reducimos */
     max-width: 680px;
     top: 48%;
-    opacity: 0.45;        /* ligera presencia */
-    filter: blur(3px) brightness(0.9);
+    filter: blur(0.5px) brightness(0.90);
+    opacity: 0.90;
   }
 
   .side-img.left {
     width: 28vw;
     max-width: 480px;
     top: 52%;
-    opacity: 0.55;
+    opacity: 0.90;
   }
 
   .side-img.right {
     width: 28vw;
     max-width: 480px;
     top: 55%;
-    opacity: 0.50;
+    opacity: 0.90;
   }
 
   /* --- SLOGAN --- */

@@ -21,11 +21,11 @@ export class HeaderMini implements OnInit {
       'assets/navidad/sinatra-navidad.webp',
       'assets/navidad/kiss-navidad.webp',
       'assets/navidad/acdc-navidad.webp',
-      'assets/navidad/mickey-navidad.webp',
+      'assets/navidad/wham-navidad.webp',
       'assets/navidad/paul-navidad.webp',
       'assets/navidad/cosby-navidad.webp',
       'assets/navidad/maiden-navidad.webp',
-      'assets/navidad/wham-navidad.webp'
+      'assets/navidad/grinch-navidad.webp'
     ];
 
 
