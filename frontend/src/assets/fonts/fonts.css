@@ -48,3 +48,43 @@
   font-family: 'MountainsofChristmas-Bold';
   src: url('/assets/fonts/MountainsofChristmas/MountainsofChristmas-Bold.ttf') format('truetype');
 }
+
+@font-face {
+  font-family: 'Staatliches';
+  src: url('/assets/fonts/Staatliches/Staatliches-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Cinzel';
+  src: url('/assets/fonts/Cinzel/static/Cinzel-Regular.ttf') format('truetype');
+
+}
+
+@font-face {
+  font-family: 'Cinzel';
+  src: url('/assets/fonts/Cinzel/static/Cinzel-Medium.ttf') format('truetype');
+
+}
+
+@font-face {
+  font-family: 'Cinzel';
+  src: url('/assets/fonts/Cinzel/static/Cinzel-SemiBold.ttf') format('truetype');
+
+}
+
+@font-face {
+  font-family: 'Cinzel';
+  src: url('/assets/fonts/Cinzel/static/Cinzel-Bold.ttf') format('truetype');
+
+}
+
+@font-face {
+  font-family: 'Cinzel';
+  src: url('/assets/fonts/Cinzel/static/Cinzel-ExtraBold.ttf') format('truetype');
+
+}
+
+@font-face {
+  font-family: 'Cinzel';
+  src: url('/assets/fonts/Cinzel/static/Cinzel-Black.ttf') format('truetype');
+}
+

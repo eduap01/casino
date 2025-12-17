@@ -1,15 +1,17 @@
-import { Component, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, ElementRef, ViewChild } from '@angular/core';
 import { Router, NavigationEnd, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { filter, Subscription } from 'rxjs';
 import { LucideAngularModule} from 'lucide-angular';
+import { MenuFinSemana } from '../../../menus/pages/menu-fin-semana/menu-fin-semana';
+
 
 
 @Component({
   selector: 'app-welcome',
   standalone: true,
   imports: [CommonModule, RouterModule,
-    LucideAngularModule],
+    LucideAngularModule, MenuFinSemana],
   templateUrl: './welcome-page.html',
   styleUrls: ['./welcome-page.scss']
 })
@@ -59,4 +61,17 @@ export class Welcome implements AfterViewInit, OnDestroy {
     if (header) root.style.setProperty('--app-header-h', `${header.offsetHeight}px`);
     if (footer) root.style.setProperty('--app-footer-h', `${footer.offsetHeight}px`);
   }
+
+  scrollToMenuFinSemana(): void {
+  const el = document.getElementById('menu-fin-semana');
+
+  if (el) {
+    el.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
+}
+
+
 }
