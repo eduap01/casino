@@ -3,7 +3,7 @@
    ============================================================ */
 :host ::ng-deep section.welcome-page {
   max-width: none !important;
-  width: 100vw !important;
+  width: 100%!important;
   margin: 0 !important;
   padding: 0 !important;
   border-bottom: none !important;
@@ -14,7 +14,7 @@
    CONTENEDOR PRINCIPAL
    ============================================================ */
 .welcome-page {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   overflow: hidden;
   padding: 0;
