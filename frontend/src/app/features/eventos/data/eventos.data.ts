@@ -13,6 +13,26 @@ export interface Evento {
 
 export const EVENTOS = [
   {
+    id: 7,
+    titulo: 'Eventos en Navidad',
+    descripcion: 'Estas fiestas se viven en el Casino Rock Bar',
+    texto: ` Esta Navidad, el Casino Rock Bar se convierte en el punto de encuentro para los que saben disfrutar de las fiestas como se merecen.
+
+Sesiones con DJ, tardes especiales, platos tradicionales y el mejor ambiente para celebrar diciembre entre amigos, música y buena energía.
+Desde los días previos a Nochebuena hasta la despedida del año, te esperamos con eventos pensados para vivir la Navidad sin perder la esencia del rock.
+
+Porque las fiestas también se celebran con volumen alto y actitud. `,
+    fechas: ['2025-12-13', '2025-12-31'],
+    imagen: [
+      '/assets/navidad/eventos-navidad.webp'
+    ],
+    enlaces: [
+      { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
+      { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
+    ],
+    activo: true
+  },
+  {
     id: 6,
     titulo: ' XLVI Jornadas Cervantinas',
     descripcion: 'Historia, literatura y tradición',
