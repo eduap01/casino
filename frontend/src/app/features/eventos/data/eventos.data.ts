@@ -13,6 +13,75 @@ export interface Evento {
 
 export const EVENTOS = [
   {
+    id: 10,
+    titulo: 'Tardevieja con Roberto G',
+    descripcion: 'La mejor previa antes de despedir el año',
+    texto: `
+  El 31 de diciembre no empieza por la noche.
+  Empieza cuando la música marca el ritmo y el ambiente se calienta desde primera hora.
+
+  Celebra la Tardevieja en el Casino Rock Bar con Roberto G y una sesión de clásicos electrónicos
+  pensada para brindar, reencontrarse y arrancar el último día del año como se merece.
+
+  Porque despedir el año también es una cuestión de actitud.
+    `,
+    fechas: ['2025-12-31'],
+    imagen: [
+      '/assets/eventos/tardevieja-navidad.jpg'
+    ],
+    enlaces: [
+      { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
+      { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
+    ],
+    activo: true
+  },
+  {
+    id: 9,
+    titulo: 'Cocido en dos vuelcos',
+    descripcion: 'Un martes diferente se come a cucharadas',
+    texto: `
+  Hay días que piden bajar el ritmo, sentarse a la mesa y disfrutar como se hacía antes.
+  En el Casino Rock Bar, los martes 23 y 30 de diciembre se sirven a fuego lento con nuestro cocido en dos vuelcos.
+
+  Plato tradicional, ambiente cercano y ese punto especial que convierte una comida en plan.
+  Ideal para romper la rutina y darse un homenaje como manda el invierno.
+
+  Bajo reserva. Porque las cosas buenas se preparan con tiempo.
+    `,
+    fechas: ['2025-12-23', '2025-12-30'],
+    imagen: [
+      '/assets/eventos/cocido-navidad.jpg'
+    ],
+    enlaces: [
+      { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
+      { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
+    ],
+    activo: true
+  },
+  {
+    id: 8,
+    titulo: 'Monstanzbuena',
+    descripcion: 'La Nochebuena también se baila',
+    texto: `
+  Antes de sentarte a la mesa, hay tiempo para mover el cuerpo.
+  El 24 de diciembre el Casino Rock Bar celebra la Monstanzbuena con sesiones DJ desde el mediodía.
+
+  Buena música, ambiente navideño sin formalidades y la excusa perfecta para empezar las fiestas
+  rodeado de amigos, ritmo y espíritu rockero.
+
+  Porque la Navidad también se vive con volumen alto.
+    `,
+    fechas: ['2025-12-24'],
+    imagen: [
+      '/assets/eventos/tardebuena-navidad.jpg'
+    ],
+    enlaces: [
+      { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
+      { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
+    ],
+    activo: true
+  },
+  {
     id: 7,
     titulo: 'Eventos en Navidad',
     descripcion: 'Estas fiestas se viven en el Casino Rock Bar',
@@ -34,6 +103,7 @@ Porque las fiestas también se celebran con volumen alto y actitud. `,
   },
   {
     id: 6,
+
     titulo: ' XLVI Jornadas Cervantinas',
     descripcion: 'Historia, literatura y tradición',
     texto: `Celebra la historia y el legado de Miguel de Cervantes en Esquivias con una semana llena de actividades culturales, recreaciones históricas y visitas guiadas.
