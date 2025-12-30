@@ -31,7 +31,7 @@ export const EVENTOS = [
   `,
   fechas: ['2026-01-05'],
   imagen: [
-    '/assets/eventos/reyes-navidad.jpg'
+    '/assets/navidad/reyes-navidad.jpg'
   ],
   enlaces: [
     { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
