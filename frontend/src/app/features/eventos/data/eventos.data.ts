@@ -13,6 +13,34 @@ export interface Evento {
 
 export const EVENTOS = [
   {
+  id: 11,
+  titulo: 'Fiesta de Reyes con Stanz DJ',
+  descripcion: 'La noche más mágica se baila en el Casino Rock Bar',
+  texto: `
+  La magia no termina el 5 de enero.
+  Empieza cuando sube el volumen y la pista se llena.
+
+  Este viernes, celebra la Fiesta de Reyes en el Casino Rock Bar con Stanz DJ
+  y una sesión pensada para todos los regalos musicales:
+  mix verbena, petardeo indie y una segunda parte de remember, tech y latin house.
+
+  Desde las 19:30 calentamos motores
+  y a partir de las 23:30 la noche se transforma en una auténtica fiesta.
+
+  Porque los Reyes también saben dónde se vive la mejor noche.
+  `,
+  fechas: ['2026-01-05'],
+  imagen: [
+    '/assets/navidad/reyes-navidad.jpg'
+  ],
+  enlaces: [
+    { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
+    { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
+  ],
+  activo: true
+},
+
+  {
     id: 10,
     titulo: 'Tardevieja con Roberto G',
     descripcion: 'La mejor previa antes de despedir el año',
