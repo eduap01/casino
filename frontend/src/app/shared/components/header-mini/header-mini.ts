@@ -14,18 +14,18 @@ export class HeaderMini implements OnInit {
   basePath = 'assets/';
 
     eventos: string[] = [
-      'assets/navidad/queen-navidad.webp',
-      'assets/navidad/elvis-navidad.webp',
-      'assets/navidad/beatles-navidad.webp',
-      'assets/navidad/eddie-navidad.webp',
-      'assets/navidad/sinatra-navidad.webp',
-      'assets/navidad/kiss-navidad.webp',
-      'assets/navidad/acdc-navidad.webp',
-      'assets/navidad/wham-navidad.webp',
-      'assets/navidad/paul-navidad.webp',
-      'assets/navidad/cosby-navidad.webp',
-      'assets/navidad/maiden-navidad.webp',
-      'assets/navidad/grinch-navidad.webp'
+      'assets/artistas/acdc.webp',
+      'assets/artistas/elvis.webp',
+      'assets/artistas/Fredy.webp',
+      'assets/artistas/stevie_wonder.webp',
+      'assets/artistas/jagger.webp',
+      'assets/artistas/janis.webp',
+      'assets/artistas/JimmyHendrix.webp',
+      'assets/artistas/johnny_cash.webp',
+      'assets/artistas/LedZepelin.webp',
+      'assets/artistas/michaeljackson.webp',
+      'assets/artistas/paul_simonon.webp',
+      'assets/artistas/gunsnroses.webp'
     ];
 
 

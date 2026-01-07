@@ -38,17 +38,17 @@
 
     <!-- Imagen izquierda -->
     <div class="side-img left">
-      <img src="/assets/navidad/vader-navidad.webp" alt="left" />
+      <img src="/assets/artistas/paul_simonon.webp" alt="left" />
     </div>
 
     <!-- Imagen central -->
     <div class="side-img center">
-      <img src="/assets/navidad/harry-potter-navidad.webp" alt="center" />
+      <img src="/assets/artistas/janis.webp" alt="center" />
     </div>
 
     <!-- Imagen derecha -->
     <div class="side-img right">
-      <img src="/assets/navidad/grinch2-navidad.webp" alt="right" />
+      <img src="/assets/artistas/Fredy.webp" alt="right" />
     </div>
 
     <!-- CONTENEDOR NUEVO PARA RESPONSIVE -->
@@ -64,13 +64,12 @@
 
       <!-- CTA -->
       <div class="cta-group">
-        <button class="cta-main" routerLink="/menus">MENÚ</button>
+        <button class="cta-main" (click)="scrollToMenuFinSemana()">MENÚ FIN DE SEMANA</button>
+        <!--<button class="cta-main" routerLink="/menus">MENÚ</button> -->
         <button class="cta-main" routerLink="/carta">CARTA</button>
         <button class="cta-main" routerLink="/eventos">EVENTOS</button>
 
-        <button class="cta-main" (click)="scrollToMenuFinSemana()">
-          MENÚ FIN DE SEMANA
-        </button>
+
       </div>
 
     </div>

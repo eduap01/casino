@@ -14,7 +14,7 @@
 .btn-leer-mas {
   min-width: 120px;
   text-align: center;
-  color: var(--color-accent);
+  color: var(--color-text);
 }
 
 /* ===== Modal ===== */
@@ -96,7 +96,7 @@ header {
     font-size: 1.2rem;
     font-weight: 600;
     margin: 0 0 0.25rem 0;
-    color: var(--color-accent-soft);
+    color: var(--color-text);
     font-family: var(--font-heading);
 
     border-left: none;
@@ -105,7 +105,7 @@ header {
 
   time {
     font-size: 0.85rem;
-    color: var(--color-accent);
+    color: var(--color-text);
   }
 }
 
@@ -120,12 +120,12 @@ header {
 
   p {
     margin: 0;
-    color: var(--color-accent-soft);
+    color: var(--color-text);
   }
 
   a {
     margin: 0;
-    color: var(--color-link);
+    color: var(--color-text);
   }
 
   &.pasado {
