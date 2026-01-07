@@ -116,7 +116,7 @@
       .btn-thematic {
         text-transform: uppercase;
         font-weight: 600;
-        color: var(--color-accent);
+        color: var(--color-text);
         border-color: var(--color-accent);
         font-family: var(--font-heading);
       }
@@ -124,7 +124,7 @@
 
     .btn-volver {
       margin-top: 2rem;
-      color: var(--color-accent);
+      color: var(--color-text);
       font-family: var(--font-heading);
     }
   }
@@ -174,7 +174,7 @@
 
     .btn-thematic {
       margin-top: 1.5rem;
-      color: var(--color-accent);
+      color: var(--color-text);
       font-family: var(--font-heading);
     }
   }

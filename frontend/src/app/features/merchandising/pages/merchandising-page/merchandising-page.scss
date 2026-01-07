@@ -1,13 +1,13 @@
 :host {
   display: block;
   min-height: 100vh;
-  background: var(--color-secondary);
+  background: var(--color-bg);
 }
 
 .merch-container {
   text-align: center;
   padding: 4rem 2rem;
-  background: var(--color-secondary);
+  background: var(--color-bg-gradient);
   color: var(--color-text);
   min-height: 100vh;
   font-family: var(--font-main);

@@ -1,6 +1,6 @@
 import { Component, Input, AfterViewInit, OnDestroy, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-declare var bootstrap: any; // <- necesario para acceder al JS de Bootstrap
+declare var bootstrap: any;
 
 @Component({
   selector: 'app-carrusel',
