@@ -22,7 +22,7 @@ import { EnConstruccion } from './shared/pages/en-construccion/en-construccion';
 
 export const routes: Routes = [
   { path: 'welcome', component: Welcome },
-  { path: 'menus', component: MenusPage },
+  { path: 'menus', canActivate: [BlockedRouteGuard], component: MenusPage },
   { path: 'carta', component: CartaPage },
   { path: 'eventos', component: EventosPage },
   {
@@ -39,7 +39,7 @@ export const routes: Routes = [
   { path: 'sobre-nosotros', canActivate: [BlockedRouteGuard], component: SobreNosotrosPage },
   { path: 'quienes-somos', canActivate: [BlockedRouteGuard], component: QuienesSomosPage },
   { path: 'nuestra-historia', canActivate: [BlockedRouteGuard], component: NuestraHistoriaPage },
-  { path: 'reserva-evento', /*canActivate: [BlockedRouteGuard]*/ component: ReservaEventoPage },
+  { path: 'reserva-evento', canActivate: [BlockedRouteGuard], component: ReservaEventoPage },
   { path: 'participa', /*canActivate: [BlockedRouteGuard]*/ component: ParticipaPage },
   { path: 'clubes',/*canActivate: [BlockedRouteGuard]*/ component: ClubesPage },
   { path: 'merchandising', /*canActivate: [BlockedRouteGuard]*/ component: MerchandisingPage },
