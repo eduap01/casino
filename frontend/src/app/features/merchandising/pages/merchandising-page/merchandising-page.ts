@@ -14,25 +14,28 @@ import { MerchandisingItem } from '../../components/merchandising-item/merchandi
 })
 export class MerchandisingPage {
 
-  // ESTA ES LA PROPIEDAD QUE TE FALTABA
   imagenSeleccionada: string | null = null;
 
-  productos = [
-    { imagen: 'assets/merch/1.webp',  titulo: 'Camiseta 1',  descripcion: 'Zipote Rock Fest 2017', precio: '10 €' },
-    { imagen: 'assets/merch/2.webp',  titulo: 'Camiseta 2',  descripcion: 'ReguetOFF', precio: '10 €' },
-    { imagen: 'assets/merch/3.webp',  titulo: 'Camiseta 3',  descripcion: 'Cthulhu', precio: '10 €' },
-    { imagen: 'assets/merch/4.webp',  titulo: 'Camiseta 4',  descripcion: 'Calavera en llamas', precio: '10 €' },
-    { imagen: 'assets/merch/5.webp',  titulo: 'Camiseta 5',  descripcion: 'Good Morning Party - Bola 8', precio: '10 €' },
-    { imagen: 'assets/merch/6.webp',  titulo: 'Camiseta 6',  descripcion: 'Colegui Fest 2025', precio: '10 €' },
-    { imagen: 'assets/merch/7.webp',  titulo: 'Camiseta 7',  descripcion: 'Hamburbeza Fest 2025', precio: '10 €' },
-    { imagen: 'assets/merch/8.webp',  titulo: 'Camiseta 8',  descripcion: 'Rock and Roll en Las Venas', precio: '10 €' },
-    { imagen: 'assets/merch/9.webp',  titulo: 'Camiseta 9',  descripcion: 'Wrath of Zeus', precio: '10 €' },
-    { imagen: 'assets/merch/10.webp', titulo: 'Camiseta 10', descripcion: 'Birrafest', precio: '10 €' },
-    { imagen: 'assets/merch/11.webp', titulo: 'Camiseta 11', descripcion: 'Freddie Mercury', precio: '10 €' },
-    { imagen: 'assets/merch/12.webp', titulo: 'Camiseta 12', descripcion: 'E.T', precio: '10 €' },
-    { imagen: 'assets/merch/13.webp', titulo: 'Camiseta 13', descripcion: 'BRF', precio: '10 €' }
-  ];
+  readonly mediaBase = 'https://casinorockbar.com/media';
 
+  productos = [
+    { imagen: 'merch/1.webp',  titulo: 'Camiseta 1',  descripcion: 'Zipote Rock Fest 2017', precio: '10 €' },
+    { imagen: 'merch/2.webp',  titulo: 'Camiseta 2',  descripcion: 'ReguetOFF', precio: '10 €' },
+    { imagen: 'merch/3.webp',  titulo: 'Camiseta 3',  descripcion: 'Cthulhu', precio: '10 €' },
+    { imagen: 'merch/4.webp',  titulo: 'Camiseta 4',  descripcion: 'Calavera en llamas', precio: '10 €' },
+    { imagen: 'merch/5.webp',  titulo: 'Camiseta 5',  descripcion: 'Good Morning Party - Bola 8', precio: '10 €' },
+    { imagen: 'merch/6.webp',  titulo: 'Camiseta 6',  descripcion: 'Colegui Fest 2025', precio: '10 €' },
+    { imagen: 'merch/7.webp',  titulo: 'Camiseta 7',  descripcion: 'Hamburbeza Fest 2025', precio: '10 €' },
+    { imagen: 'merch/8.webp',  titulo: 'Camiseta 8',  descripcion: 'Rock and Roll en Las Venas', precio: '10 €' },
+    { imagen: 'merch/9.webp',  titulo: 'Camiseta 9',  descripcion: 'Wrath of Zeus', precio: '10 €' },
+    { imagen: 'merch/10.webp', titulo: 'Camiseta 10', descripcion: 'Birrafest', precio: '10 €' },
+    { imagen: 'merch/11.webp', titulo: 'Camiseta 11', descripcion: 'Freddie Mercury', precio: '10 €' },
+    { imagen: 'merch/12.webp', titulo: 'Camiseta 12', descripcion: 'E.T', precio: '10 €' },
+    { imagen: 'merch/13.webp', titulo: 'Camiseta 13', descripcion: 'BRF', precio: '10 €' }
+  ].map(p => ({
+    ...p,
+    imagen: `${this.mediaBase}/${p.imagen}`
+  }));
 
   abrirModal(imagen: string) {
     this.imagenSeleccionada = imagen;

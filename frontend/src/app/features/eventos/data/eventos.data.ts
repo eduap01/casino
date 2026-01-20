@@ -1,4 +1,5 @@
 // src/app/features/eventos/data/eventos.data.ts
+
 export interface Evento {
   id: number;
   titulo: string;
@@ -11,12 +12,15 @@ export interface Evento {
   activo: boolean;
 }
 
-export const EVENTOS = [
+const MEDIA_BASE_URL = 'https://casinorockbar.com/media';
+const media = (path: string) => `${MEDIA_BASE_URL}/${path}`;
+
+export const EVENTOS: Evento[] = [
   {
-  id: 11,
-  titulo: 'Fiesta de Reyes con Stanz DJ',
-  descripcion: 'La noche más mágica se baila en el Casino Rock Bar',
-  texto: `
+    id: 11,
+    titulo: 'Fiesta de Reyes con Stanz DJ',
+    descripcion: 'La noche más mágica se baila en el Casino Rock Bar',
+    texto: `
   La magia no termina el 5 de enero.
   Empieza cuando sube el volumen y la pista se llena.
 
@@ -29,16 +33,16 @@ export const EVENTOS = [
 
   Porque los Reyes también saben dónde se vive la mejor noche.
   `,
-  fechas: ['2026-01-05'],
-  imagen: [
-    '/assets/navidad/reyes-navidad.jpg'
-  ],
-  enlaces: [
-    { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
-    { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
-  ],
-  activo: true
-},
+    fechas: ['2026-01-05'],
+    imagen: [
+      media('navidad/reyes-navidad.jpg')
+    ],
+    enlaces: [
+      { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
+      { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
+    ],
+    activo: true
+  },
 
   {
     id: 10,
@@ -55,7 +59,7 @@ export const EVENTOS = [
     `,
     fechas: ['2025-12-31'],
     imagen: [
-      '/assets/eventos/tardevieja-navidad.jpg'
+      media('eventos/tardevieja-navidad.jpg')
     ],
     enlaces: [
       { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
@@ -63,6 +67,7 @@ export const EVENTOS = [
     ],
     activo: true
   },
+
   {
     id: 9,
     titulo: 'Cocido en dos vuelcos',
@@ -78,7 +83,7 @@ export const EVENTOS = [
     `,
     fechas: ['2025-12-23', '2025-12-30'],
     imagen: [
-      '/assets/eventos/cocido-navidad.jpg'
+      media('eventos/cocido-navidad.jpg')
     ],
     enlaces: [
       { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
@@ -86,6 +91,7 @@ export const EVENTOS = [
     ],
     activo: true
   },
+
   {
     id: 8,
     titulo: 'Monstanzbuena',
@@ -101,7 +107,7 @@ export const EVENTOS = [
     `,
     fechas: ['2025-12-24'],
     imagen: [
-      '/assets/eventos/tardebuena-navidad.jpg'
+      media('eventos/tardebuena-navidad.jpg')
     ],
     enlaces: [
       { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
@@ -109,6 +115,7 @@ export const EVENTOS = [
     ],
     activo: true
   },
+
   {
     id: 7,
     titulo: 'Eventos en Navidad',
@@ -121,7 +128,7 @@ Desde los días previos a Nochebuena hasta la despedida del año, te esperamos c
 Porque las fiestas también se celebran con volumen alto y actitud. `,
     fechas: ['2025-12-13', '2025-12-31'],
     imagen: [
-      '/assets/navidad/eventos-navidad.webp'
+      media('navidad/eventos-navidad.webp')
     ],
     enlaces: [
       { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
@@ -129,19 +136,19 @@ Porque las fiestas también se celebran con volumen alto y actitud. `,
     ],
     activo: true
   },
+
   {
     id: 6,
-
     titulo: ' XLVI Jornadas Cervantinas',
     descripcion: 'Historia, literatura y tradición',
     texto: `Celebra la historia y el legado de Miguel de Cervantes en Esquivias con una semana llena de actividades culturales, recreaciones históricas y visitas guiadas.
     El evento incluye representaciones de la famosa Boda de Cervantes y Catalina, rutas teatralizadas y mercados tradicionales que convierten el municipio en un auténtico viaje al siglo XVI.`,
     fechas: ['2025-12-06', '2025-12-08'],
     imagen: [
-      'assets/eventos/itinerariojornadas2.webp',
-      'assets/eventos/itinerariojornadas1.webp',
-      'assets/eventos/cartajornadas2025.webp',
-      'assets/eventos/conciertosJornadasCervantinas.webp'
+      media('eventos/itinerariojornadas2.webp'),
+      media('eventos/itinerariojornadas1.webp'),
+      media('eventos/cartajornadas2025.webp'),
+      media('eventos/conciertosJornadasCervantinas.webp')
     ],
     enlaces: [
       { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
@@ -149,6 +156,7 @@ Porque las fiestas también se celebran con volumen alto y actitud. `,
     ],
     activo: true
   },
+
   {
     id: 5,
     titulo: 'Fiesta Remember',
@@ -157,13 +165,16 @@ Porque las fiestas también se celebran con volumen alto y actitud. `,
     El 15 de noviembre de 2025, a las 23:00.
     Una noche para revivir los grandes himnos de la pista con Stanz DJ al mando.`,
     fechas: ['2025-11-15'],
-    imagen: ['assets/eventos/fiestaRemember2025.webp'],
+    imagen: [
+      media('eventos/fiestaRemember2025.webp')
+    ],
     enlaces: [
       { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
       { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
     ],
     activo: true
   },
+
   {
     id: 4,
     titulo: 'La Pura Sangre',
@@ -176,13 +187,16 @@ Entrada libre hasta completar aforo.
 
 No te pierdas una tarde de música en vivo con una de las bandas más vibrantes del panorama nacional.`,
     fechas: ['2025-11-22'],
-    imagen: ['assets/eventos/laPuraSangre.webp'],
+    imagen: [
+      media('eventos/laPuraSangre.webp')
+    ],
     enlaces: [
       { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
       { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
     ],
     activo: true
   },
+
   {
     id: 3,
     titulo: 'Santo Tardeo',
@@ -191,46 +205,57 @@ No te pierdas una tarde de música en vivo con una de las bandas más vibrantes 
     Desde las 17:30 h.
     ¡Ven disfrazado y sigue la fiesta entre vivos y muertos!`,
     fechas: ['2025-11-1'],
-    imagen: ['assets/eventos/santo_tardeo2025.webp'],
+    imagen: [
+      media('eventos/santo_tardeo2025.webp')
+    ],
     enlaces: [
       { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
       { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
     ],
     activo: true
   },
+
   {
     id: 2,
     titulo: 'Pasaje del Terror',
-    descripcion:'¡Todo lo recaudado se destina al viaje de fin de curso!',
-    texto:`Actividad organizada por los alumnos del C.E.I.P. Miguel de Cervantes (6º curso)
+    descripcion: '¡Todo lo recaudado se destina al viaje de fin de curso!',
+    texto: `Actividad organizada por los alumnos del C.E.I.P. Miguel de Cervantes (6º curso)
     Viernes 31 desde las 18:00 y Sábado 1 desde las 20:00. Entrada: 2 €.
     Prepárate para una noche escalofriante llena de sustos, risas y mucha adrenalina.`,
     fechas: ['2025-10-31', '2025-11-1'],
-    imagen: ['assets/eventos/Pasaje_terror2025.webp'],
+    imagen: [
+      media('eventos/Pasaje_terror2025.webp')
+    ],
     enlaces: [
       { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
       { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
     ],
     activo: true
   },
+
   {
     id: 1,
     titulo: 'Colegui Fest',
     descripcion: 'Conciertos en vivo.',
     fechas: ['2025-10-25'],
-    imagen: ['assets/eventos/Concierto.webp'],
+    imagen: [
+      media('eventos/Concierto.webp')
+    ],
     enlaces: [
       { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
       { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
     ],
     activo: true
   },
+
   {
     id: 0,
     titulo: 'Hamburbeza',
     descripcion: 'Las 8 mejores hamburguesas del mundo.',
     fechas: ['2025-10-10', '2025-10-12'],
-    imagen: ['assets/eventos/Burguer.webp'],
+    imagen: [
+      media('eventos/Burguer.webp')
+    ],
     texto: `Ven y prueba nuestras hamburguesas artesanales...`,
     enlaces: [
       { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
@@ -239,4 +264,3 @@ No te pierdas una tarde de música en vivo con una de las bandas más vibrantes 
     activo: true
   }
 ];
-

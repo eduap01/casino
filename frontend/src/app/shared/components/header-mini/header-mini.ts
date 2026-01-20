@@ -11,23 +11,22 @@ import { CommonModule } from '@angular/common';
 })
 export class HeaderMini implements OnInit {
 
-  basePath = 'assets/';
+  readonly mediaBase = 'https://casinorockbar.com/media';
 
-    eventos: string[] = [
-      'assets/artistas/acdc.webp',
-      'assets/artistas/elvis.webp',
-      'assets/artistas/Fredy.webp',
-      'assets/artistas/stevie_wonder.webp',
-      'assets/artistas/jagger.webp',
-      'assets/artistas/janis.webp',
-      'assets/artistas/JimmyHendrix.webp',
-      'assets/artistas/johnny_cash.webp',
-      'assets/artistas/LedZepelin.webp',
-      'assets/artistas/michaeljackson.webp',
-      'assets/artistas/paul_simonon.webp',
-      'assets/artistas/gunsnroses.webp'
-    ];
-
+  eventos: string[] = [
+    `${this.mediaBase}/artistas/acdc.webp`,
+    `${this.mediaBase}/artistas/elvis.webp`,
+    `${this.mediaBase}/artistas/Fredy.webp`,
+    `${this.mediaBase}/artistas/stevie_wonder.webp`,
+    `${this.mediaBase}/artistas/jagger.webp`,
+    `${this.mediaBase}/artistas/janis.webp`,
+    `${this.mediaBase}/artistas/JimmyHendrix.webp`,
+    `${this.mediaBase}/artistas/johnny_cash.webp`,
+    `${this.mediaBase}/artistas/LedZepelin.webp`,
+    `${this.mediaBase}/artistas/michaeljackson.webp`,
+    `${this.mediaBase}/artistas/paul_simonon.webp`,
+    `${this.mediaBase}/artistas/gunsnroses.webp`
+  ];
 
   get eventosLoop(): string[] {
     return Array(50).fill(this.eventos).flat();

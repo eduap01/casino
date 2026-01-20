@@ -13,9 +13,9 @@ export class MenusPage {
   imagenSeleccionada: string | null = null;
 
   menus = [
-    'assets/menus/menu25.webp',
-    'assets/menus/menu27.webp',
-    'assets/menus/menu29.webp'
+    'https://casinorockbar.com/media/menus/menu25.webp',
+    'https://casinorockbar.com/media/menus/menu27.webp',
+    'https://casinorockbar.com/media/menus/menu29.webp'
   ];
 
   abrirModal(imagen: string): void {

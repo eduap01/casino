@@ -16,7 +16,7 @@ export class EventoDetallePage {
   id!: number;
   evento: any;
 
-  // 👉 CARRUSEL
+
   currentImage = 0;
 
   constructor(
@@ -28,14 +28,14 @@ export class EventoDetallePage {
     if (!this.evento) this.router.navigate(['/en-construccion']);
   }
 
-  // 👉 CARRUSEL: siguiente foto
+
   nextImage() {
     if (!this.evento?.imagen) return;
     this.currentImage =
       (this.currentImage + 1) % this.evento.imagen.length;
   }
 
-  // 👉 CARRUSEL: foto anterior
+
   prevImage() {
     if (!this.evento?.imagen) return;
     this.currentImage =
@@ -43,7 +43,7 @@ export class EventoDetallePage {
       this.evento.imagen.length;
   }
 
-  // 👉 CARRUSEL: ir a una foto concreta
+
   goToImage(index: number) {
     this.currentImage = index;
   }

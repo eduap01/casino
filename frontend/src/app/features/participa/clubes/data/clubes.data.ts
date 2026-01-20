@@ -15,6 +15,9 @@ export interface ClubItem {
   activo: boolean;
 }
 
+const MEDIA_BASE_URL = 'https://casinorockbar.com/media';
+const media = (path: string) => `${MEDIA_BASE_URL}/${path}`;
+
 export const CLUBES: ClubItem[] = [
   {
     id: 1,
@@ -27,8 +30,10 @@ export const CLUBES: ClubItem[] = [
 
     esDestacado: true,
 
-    logo: 'assets/clubes/garbanzo-negro/garbanzo-negro-logo.png',
-    imagen: ['assets/clubes/garbanzo-negro/garbanzo-negro-logo.png'],
+    logo: media('clubes/garbanzo-negro/garbanzo-negro-logo.png'),
+    imagen: [
+      media('clubes/garbanzo-negro/garbanzo-negro-logo.png')
+    ],
 
     actividades: [
       'Degustaciones mensuales',
