@@ -17,6 +17,44 @@ const media = (path: string) => `${MEDIA_BASE_URL}/${path}`;
 
 export const EVENTOS: Evento[] = [
   {
+    id: 12,
+    titulo: 'Alfonso Ferrer & Los que van en carruaje',
+    descripcion: 'Un directo con alma, emoción y una banda que lo eleva todo',
+    texto: `
+    Las canciones nacen de la palabra,
+    pero cobran sentido cuando suenan en directo.
+
+    Este día, el Casino Rock Bar acoge el proyecto de Alfonso Ferrer
+    junto a Los Que Van en Carruaje, una banda excepcional que convierte
+    cada concierto en una experiencia viva y emocional.
+
+    Pop y folk en castellano, virtuosismo instrumental y una conexión real
+    con el público se mezclan en un directo que respira, crece y sorprende.
+    Canciones con alma, texturas que envuelven y una energía que se siente
+    desde la primera nota.
+
+    Porque hay conciertos que se escuchan
+    y otros que se viven.
+  `,
+    fechas: ['2026-02-07'],
+    imagen: [
+      media('eventos/alfonso-ferrer1.jpg'),
+      media('eventos/alfonso-ferrer2.jpg'),
+      media('eventos/alfonso-ferrer3.jpg'),
+      media('eventos/alfonso-ferrer4.jpg'),
+      media('eventos/alfonso-ferrer5.jpg'),
+      media('eventos/alfonso-ferrer6.jpg'),
+      media('eventos/alfonso-ferrer7.jpg'),
+      media('eventos/alfonso-ferrer8.jpg'),
+      media('eventos/alfonso-ferrer9.jpg'),
+    ],
+    enlaces: [
+      { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
+      { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
+    ],
+    activo: true
+  },
+  {
     id: 11,
     titulo: 'Fiesta de Reyes con Stanz DJ',
     descripcion: 'La noche más mágica se baila en el Casino Rock Bar',
@@ -35,7 +73,7 @@ export const EVENTOS: Evento[] = [
   `,
     fechas: ['2026-01-05'],
     imagen: [
-      media('navidad/reyes-navidad.jpg')
+      media('eventos/reyes-navidad.jpg')
     ],
     enlaces: [
       { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
@@ -43,7 +81,6 @@ export const EVENTOS: Evento[] = [
     ],
     activo: true
   },
-
   {
     id: 10,
     titulo: 'Tardevieja con Roberto G',
