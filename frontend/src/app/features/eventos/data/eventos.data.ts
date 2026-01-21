@@ -17,7 +17,7 @@ const media = (path: string) => `${MEDIA_BASE_URL}/${path}`;
 
 export const EVENTOS: Evento[] = [
   {
-    id: 12,
+    id: 13,
     titulo: 'Alfonso Ferrer & Los que van en carruaje',
     descripcion: 'Un directo con alma, emoción y una banda que lo eleva todo',
     texto: `
@@ -46,7 +46,7 @@ export const EVENTOS: Evento[] = [
       media('eventos/alfonso-ferrer6.jpg'),
       media('eventos/alfonso-ferrer7.jpg'),
       media('eventos/alfonso-ferrer8.jpg'),
-      media('eventos/alfonso-ferrer9.jpg'),
+      media('eventos/alfonso-ferrer9.jpg')
     ],
     enlaces: [
       { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
@@ -54,6 +54,29 @@ export const EVENTOS: Evento[] = [
     ],
     activo: true
   },
+  {
+      id: 12,
+      titulo: 'V Jornadas del Cachopo',
+      descripcion: 'Tres días para disfrutar del cachopo como se merece',
+      texto: `
+      Llega una de esas citas que se viven con hambre y con ganas: las V Jornadas del Cachopo en el Casino Rock Bar.
+
+  Un menú cerrado por 29€ por persona, con entrantes para abrir boca, cachopo a elegir y postre para rematar.
+  Además, incluye media botella de sidra natural por persona.
+
+  Plazas limitadas. ¡Reserva y no te quedes sin mesa!
+    `,
+      fechas: ['2026-01-30', '2026-01-31', '2026-02-01'],
+      imagen: [
+        media('eventos/jornada-cachopo-2026.jpg')
+
+      ],
+      enlaces: [
+        { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
+        { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
+      ],
+      activo: true
+    },
   {
     id: 11,
     titulo: 'Fiesta de Reyes con Stanz DJ',
