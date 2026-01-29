@@ -13,11 +13,10 @@ export interface NowPlaying {
 
 @Injectable({ providedIn: 'root' })
 export class NowPlayingService {
-  // En local:
-  private readonly url = 'http://localhost:8000/api/music/now-playing';
-
-  // En producción (cuando lo tengas en tu dominio):
-  // private readonly url = '/api/music/now-playing';
+  private readonly url =
+    (typeof window !== 'undefined' && window.location.hostname === 'localhost')
+      ? 'http://localhost:8000/api/music/now-playing'
+      : '/api/music/now-playing';
 
   constructor(private http: HttpClient) {}
 
