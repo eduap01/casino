@@ -491,4 +491,11 @@ app-footer {
   pointer-events: none;
 }
 
+html.pantalla-mode,
+body.pantalla-mode {
+  overflow: hidden !important;
+  background: #000;
+}
+
+
 

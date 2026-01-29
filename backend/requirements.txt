@@ -4,6 +4,9 @@ pydantic
 python-multipart
 itsdangerous
 email-validator
+httpx
+python-dotenv
+
 
 
 

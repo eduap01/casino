@@ -43,6 +43,11 @@ export const routes: Routes = [
   { path: 'participa', /*canActivate: [BlockedRouteGuard]*/ component: ParticipaPage },
   { path: 'clubes',/*canActivate: [BlockedRouteGuard]*/ component: ClubesPage },
   { path: 'merchandising', /*canActivate: [BlockedRouteGuard]*/ component: MerchandisingPage },
+  {
+  path: 'tv',
+    loadComponent: () =>
+      import('./features/tv/pages/tv/tv').then(m => m.Tv),
+  },
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
   { path: '**', redirectTo: 'en-construccion' }
 ];
