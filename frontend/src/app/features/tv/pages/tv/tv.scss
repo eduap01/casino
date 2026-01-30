@@ -6,6 +6,8 @@
   position: fixed;
   inset: 0;
   display: block;
+  width: 100vw;
+  height: 100vh;
   background: #000;
   overflow: hidden;
 
@@ -17,6 +19,14 @@
   --color-text-main: #ffffff;
   --color-text-soft: rgba(255, 255, 255, 0.82);
   --color-text-muted: rgba(255, 255, 255, 0.65);
+
+  /* Escala de UI pensada para 4K 16:9 */
+  --safe-pad: clamp(24px, 3.2vh, 56px);
+  --panel-pad: var(--safe-pad);
+
+  /* Columna izquierda: mejor responsive (no fija) */
+  --col-left: clamp(420px, 32vw, 720px);
+  --panel-gap: clamp(28px, 3.8vw, 72px);
 }
 
 * { box-sizing: border-box; }
@@ -28,23 +38,6 @@
   font-family: var(--font-main);
   color: var(--color-text-main);
 }
-
-.fade-layer {
-  display: grid;
-  grid-template-columns: 560px 1fr;
-  gap: 72px;
-  align-items: center;
-
-
-  transition: opacity 700ms ease;
-  opacity: 1;
-
-  &.fade {
-    opacity: 0.15;
-  }
-}
-
-
 
 /* ===== FONDO CINEMATOGRÁFICO ===== */
 
@@ -81,20 +74,42 @@
   position: relative;
   z-index: 2;
   height: 100%;
-  display: grid;
-  place-items: center;
-  padding: 56px;
+  width: 100%;
+
+  /* IMPORTANTE: en TV no queremos “centrar con marco”, queremos ocupar */
+  display: block;
+  padding: var(--safe-pad);
 }
 
 .panel {
   position: relative;
+  width: 100%;
+  height: 100%;
 
-  --panel-pad: 48px;
-  --col-left: 560px;
-  --panel-gap: 72px;
+  /* Usa variables del :host */
+  --panel-pad: var(--panel-pad);
+  --col-left: var(--col-left);
+  --panel-gap: var(--panel-gap);
 }
 
-/* topline fuera del fade */
+/* Contenedor principal que realmente compone el layout */
+.fade-layer {
+  height: 100%;
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: var(--col-left) 1fr;
+  gap: var(--panel-gap);
+  align-items: stretch;
+
+  transition: opacity 700ms ease;
+  opacity: 1;
+
+  &.fade { opacity: 0.15; }
+}
+
+/* ===== TOPLINE / REC ===== */
+
 .fixed-topline {
   position: absolute;
   top: var(--panel-pad);
@@ -107,82 +122,6 @@
   opacity: 0.95;
 }
 
-.dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 999px;
-  background-color: #ffffff;
-  animation: recBlink 1.2s infinite;
-}
-
-
-.info {
-  min-width: 0;
-  padding-top: 56px;
-  padding-bottom: 190px;
-}
-
-
-/* ===== POSTER ===== */
-
-.poster-wrap {
-  position: relative;
-  width: 109%;
-  height: 100%;
-  display: grid;
-  place-items: center;
-  align-self: stretch;
-}
-
-.poster {
-  width: 100%;
-  height: 100%;
-  max-height: 100%;
-  object-fit: cover;
-  border-radius: 18px;
-  filter: blur(1px);
-  margin-right: 25px;
-  box-shadow:
-    0 40px 120px rgba(0,0,0,0.85),
-    0 0 0 1px rgba(255,255,255,0.08);
-}
-
-.poster-glow {
-  position: absolute;
-  inset: 20px;
-
-  border-radius: 26px;
-  filter: blur(26px);
-  opacity: 0.55;
-  background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.0));
-}
-
-/* ===== INFO ===== */
-
-.info {
-  min-width: 0;
-  padding-top: 56px;
-  padding-bottom: 190px;
-}
-
-
-
-.topline {
-  position: absolute;
-  top: 48px;
-  left: calc(48px + 560px + 72px);
-
-
-  display: flex;
-  align-items: center;
-  gap: 14px;
-
-  opacity: 0.95;
-  z-index: 10;
-}
-
-
-
 .badge {
   font-family: var(--font-accent);
   font-size: 13px;
@@ -194,16 +133,6 @@
   border: 1px solid rgba(255,255,255,0.2);
 }
 
-.dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 999px;
-
-  background-color: #ffffff;
-  animation: recBlink 1.2s infinite;
-}
-
-
 .meta {
   font-family: var(--font-accent);
   font-size: 13px;
@@ -211,12 +140,66 @@
   color: var(--color-text-muted);
 }
 
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background-color: #ffffff;
+  animation: recBlink 1.0s infinite;
+}
+
+/* ===== POSTER ===== */
+
+.poster-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  align-self: stretch;
+  display: grid;
+  place-items: stretch;
+}
+
+/* IMPORTANTÍSIMO: que rellene su columna sin márgenes raros */
+.poster {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  object-fit: cover;
+
+  border-radius: 18px;
+  filter: blur(1px);
+
+  /* Quitamos hacks que pueden “encoger” el conjunto en TV */
+  margin-right: 0;
+
+  box-shadow:
+    0 40px 120px rgba(0,0,0,0.85),
+    0 0 0 1px rgba(255,255,255,0.08);
+}
+
+.poster-glow {
+  position: absolute;
+  inset: 20px;
+  border-radius: 26px;
+  filter: blur(26px);
+  opacity: 0.55;
+  background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.0));
+}
+
+/* ===== INFO ===== */
+
+.info {
+  min-width: 0;
+
+  /* En TV, más estable con padding proporcional */
+  padding-top: clamp(32px, 3.2vh, 56px);
+  padding-bottom: clamp(120px, 10vh, 190px);
+}
 
 .title {
   margin: 0;
-
   font-family: var(--font-heading);
-  font-size: clamp(60px, 6vw, 92px);
+  font-size: clamp(54px, 5.8vw, 92px);
   font-weight: 900;
   letter-spacing: 0.08em;
   line-height: 0.95;
@@ -227,13 +210,7 @@
     0 20px 60px rgba(0,0,0,0.8);
 }
 
-
-
-
-
-
-
-/* ===== DESCRIPCIÓN (ANCLADA) ===== */
+/* ===== DESCRIPCIÓN ===== */
 
 .desc {
   font-family: var(--font-main);
@@ -243,7 +220,6 @@
   max-width: 52ch;
   margin-top: 18px;
 }
-
 
 /* ===== FECHAS ===== */
 
@@ -284,7 +260,7 @@
   white-space: nowrap;
 }
 
-
+/* NOW PLAYING FIJO */
 
 .now-playing.fixed {
   position: absolute;
@@ -292,15 +268,13 @@
 
   left: calc(var(--panel-pad) + var(--col-left) + var(--panel-gap));
   right: var(--panel-pad);
-  bottom: 86px;
-
+  bottom: clamp(64px, 6.5vh, 86px);
 
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   pointer-events: auto;
 }
-
 
 .now-playing .np-badge {
   display: inline-block;
@@ -333,7 +307,6 @@
   width: min(520px, 100%);
 }
 
-
 .now-playing .np-cover {
   width: 64px;
   height: 64px;
@@ -358,10 +331,7 @@
   text-align: right;
 }
 
-.now-playing .np-badge {
-  margin-left: auto;
-}
-
+.now-playing .np-badge { margin-left: auto; }
 
 .now-playing .np-artist,
 .now-playing .np-album {
@@ -375,13 +345,14 @@
 }
 
 /* FOOTER FIJO */
+
 .footer.fixed {
   position: absolute;
   z-index: 55;
 
   left: calc(var(--panel-pad) + var(--col-left) + var(--panel-gap));
   right: var(--panel-pad);
-  bottom: 24px;
+  bottom: clamp(16px, 2.2vh, 24px);
 
   display: flex;
   align-items: center;
@@ -403,7 +374,6 @@
   background: rgba(255,255,255,0.55);
   transition: transform 100ms linear;
 }
-
 
 .hint {
   font-family: var(--font-accent);
@@ -452,18 +422,18 @@
 /* ===== RESPONSIVE ===== */
 
 @media (max-width: 1100px) {
-  .panel {
-    grid-template-columns: 1fr;
-    height: auto;
-    padding: 28px;
-
-    --panel-pad: 28px;
+  :host {
+    --safe-pad: 24px;
     --col-left: 0px;
     --panel-gap: 0px;
   }
 
-  .poster-wrap { height: 520px; }
+  .fade-layer {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
 
+  .poster-wrap { height: 520px; }
 
   .now-playing.fixed,
   .footer.fixed {
@@ -476,9 +446,14 @@
   }
 
   .info { padding-bottom: 0; }
+
+  .fixed-topline {
+    position: static;
+    margin-bottom: 14px;
+  }
 }
 
-
+/* Logo */
 .dvd-logo {
   position: absolute;
   top: 0;
@@ -487,7 +462,7 @@
   height: auto;
   z-index: 200;
   pointer-events: none;
-  opacity: 0.35;    /* sutil */
+  opacity: 0.35;
   filter: drop-shadow(0 10px 18px rgba(0,0,0,0.55));
   mix-blend-mode: screen;
 }
