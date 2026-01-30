@@ -182,12 +182,26 @@
 
 .info {
   min-width: 0;
-  padding-top: clamp(32px, 3.2vh, 56px);
+
+  /* Baja el bloque para respetar la topline fija */
+  padding-top: clamp(84px, 7vh, 132px);
+
   padding-bottom: clamp(120px, 10vh, 190px);
 }
 
+
+.fixed-topline {
+  pointer-events: none;
+}
+
+.fade-layer {
+  padding-top: clamp(56px, 4.5vh, 96px);
+}
+
+
 .title {
   margin: 0;
+  margin-top: 10px;
   font-family: var(--font-heading);
   font-size: clamp(54px, 5.8vw, 92px);
   font-weight: 900;
@@ -462,7 +476,7 @@
    ========================= */
 
 .screen.bing-tv {
-  transform: scale(1.06);
+  transform: scale(1.075);
   transform-origin: center center;
 }
 
