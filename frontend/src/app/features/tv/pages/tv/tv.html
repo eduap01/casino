@@ -5,15 +5,14 @@
 
   <main class="stage">
     <section class="panel">
-
-      <!--  TOPLINE FUERA DEL FADE -->
+      <!-- TOPLINE FUERA DEL FADE -->
       <div class="topline fixed-topline">
         <span class="badge">Casino Rock Bar</span>
         <span class="dot"></span>
         <span class="meta">Próximo evento</span>
       </div>
 
-      <!--  SOLO ESTO SE ATENÚA EN EL CAMBIO -->
+      <!-- SOLO ESTO SE ATENÚA EN EL CAMBIO -->
       <div class="fade-layer" [class.fade]="isFading">
         <!-- Poster vertical -->
         <div class="poster-wrap">
@@ -40,7 +39,7 @@
         </div>
       </div>
 
-      <!--  NOW PLAYING (NO FADE) -->
+      <!-- NOW PLAYING (NO FADE) -->
       <div class="now-playing fixed" *ngIf="nowPlaying?.isPlaying">
         <div class="np-badge">SONANDO AHORA</div>
 
@@ -54,16 +53,16 @@
         </a>
       </div>
 
-      <!--  FOOTER (NO FADE) -->
+      <!-- FOOTER (NO FADE) -->
       <div class="footer fixed">
         <div class="progress" aria-hidden="true">
           <span #progressBar class="bar"></span>
         </div>
         <div class="hint">@casinorockbar</div>
       </div>
-
     </section>
   </main>
+
   <!-- DVD bounce (logo Casino) -->
   <img
     #dvdLogo
@@ -72,5 +71,6 @@
     alt="Casino Rock Bar"
     aria-hidden="true"
   />
+
   <div class="grain" aria-hidden="true"></div>
 </div>
