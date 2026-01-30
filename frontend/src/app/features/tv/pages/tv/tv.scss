@@ -1,5 +1,5 @@
 /* =========================
-   TV — CARTELERA DE CINE
+   TV — CARTELERA DE CINE (ESTABLE EN BING TV)
    ========================= */
 
 :host {
@@ -19,12 +19,19 @@
   --color-text-soft: rgba(255, 255, 255, 0.82);
   --color-text-muted: rgba(255, 255, 255, 0.65);
 
-  /* Safe area TV */
   --safe-pad: clamp(24px, 3.2vh, 56px);
   --panel-pad: var(--safe-pad);
 
-  --col-left: clamp(480px, 36vw, 820px);
+  --col-left: clamp(420px, 32vw, 720px);
   --panel-gap: clamp(28px, 3.8vw, 72px);
+
+  /* RESERVAS PARA QUE NO SE PISE NADA */
+  --top-reserve: clamp(72px, 7vh, 128px);      /* zona topline */
+  --footer-h: 56px;                            /* alto aprox del footer */
+  --footer-gap: clamp(14px, 2vh, 24px);        /* separación al borde */
+  --np-h: 86px;                                /* alto aprox now playing */
+  --hud-gap: 16px;                             /* margen entre NP y footer */
+  --bottom-reserve: calc(var(--footer-h) + var(--footer-gap) + var(--np-h) + var(--hud-gap));
 }
 
 * { box-sizing: border-box; }
@@ -80,16 +87,21 @@
   height: 100%;
 }
 
+/* Layout */
 .fade-layer {
-  width: 100%;
   height: 100%;
+  width: 100%;
   display: grid;
   grid-template-columns: var(--col-left) 1fr;
   gap: var(--panel-gap);
   align-items: stretch;
-  transition: opacity 700ms ease;
-}
 
+  /* 🔒 Reserva superior para el topline */
+  padding-top: var(--top-reserve);
+
+  transition: opacity 700ms ease;
+  opacity: 1;
+}
 .fade-layer.fade { opacity: 0.15; }
 
 /* ===== TOPLINE ===== */
@@ -98,11 +110,13 @@
   position: absolute;
   top: var(--panel-pad);
   left: calc(var(--panel-pad) + var(--col-left) + var(--panel-gap));
+  z-index: 80;
+
   display: flex;
+  align-items: center;
   gap: 14px;
   opacity: 0.95;
   pointer-events: none;
-  z-index: 80;
 }
 
 .badge {
@@ -137,10 +151,12 @@
   position: relative;
   width: 100%;
   height: 100%;
+  align-self: stretch;
   display: grid;
   place-items: stretch;
-  transform: translateY(-18px);
-  transform: scaleX(1.06);
+
+  /* 🔼 Subimos un pelín el poster para que no se corte abajo */
+  transform: translateY(-14px);
 }
 
 .poster {
@@ -166,8 +182,9 @@
 
 .info {
   min-width: 0;
-  padding-top: clamp(72px, 6vh, 120px);
-  padding-bottom: 0;
+
+  /* 🔒 Lo más importante: el texto NO puede bajar a la zona HUD */
+  padding-bottom: var(--bottom-reserve);
 }
 
 .title {
@@ -178,6 +195,9 @@
   letter-spacing: 0.08em;
   line-height: 0.95;
   text-transform: uppercase;
+
+  /* Evita “picos” raros con títulos larguísimos */
+  max-width: 18ch;
 }
 
 .desc {
@@ -188,35 +208,64 @@
   margin-top: 18px;
 }
 
-/* ===== FECHAS ===== */
-
 .dates { margin-top: 18px; }
 
 .chip {
   font-family: var(--font-accent);
   font-size: 22px;
+  font-weight: 700;
   letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-main);
 }
 
-/* ===== NOW PLAYING (REDUCIDO Y LIMPIO) ===== */
+.links { margin-top: 10px; }
+
+.links .link {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  color: var(--color-text-soft);
+}
+
+.links .key {
+  font-family: var(--font-accent);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.links .val {
+  font-size: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ===== NOW PLAYING (COMPACTO Y NO MOLESTA) ===== */
 
 .now-playing.fixed {
   position: absolute;
   z-index: 60;
+
   left: calc(var(--panel-pad) + var(--col-left) + var(--panel-gap));
   right: var(--panel-pad);
-  bottom: 86px;
+
+  /* Encima del footer, siempre */
+  bottom: calc(var(--footer-gap) + var(--footer-h) + var(--hud-gap));
+
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  pointer-events: none;
 }
 
-/* ❌ eliminamos “SONANDO AHORA” */
-.now-playing .np-badge {
-  display: none;
-}
+/* ✅ “SONANDO AHORA” desaparece */
+.now-playing .np-badge { display: none; }
 
 .now-playing .np-card {
+  pointer-events: none;
   display: flex;
   flex-direction: row-reverse;
   gap: 10px;
@@ -224,27 +273,30 @@
 
   padding: 10px 12px;
   border-radius: 14px;
+  text-decoration: none;
+  color: #fff;
 
-  background: rgba(0,0,0,0.25);
+  background: rgba(0,0,0,0.22);
   border: 1px solid rgba(255,255,255,0.12);
 
-  width: min(260px, 100%); /* ⬅️ MÁS ESTRECHO */
+  /* ⬅️ Más estrecho (no invade) */
+  width: min(340px, 100%);
 }
 
 .now-playing .np-cover {
-  width: 48px;
-  height: 48px;
+  width: 46px;
+  height: 46px;
   border-radius: 10px;
   object-fit: cover;
+  flex: 0 0 auto;
 }
 
-.now-playing .np-meta {
-  text-align: right;
-}
+.now-playing .np-meta { min-width: 0; text-align: right; }
 
 .now-playing .np-title {
   font-size: 15px;
-  font-weight: 700;
+  font-weight: 800;
+  line-height: 1.1;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -254,40 +306,26 @@
 .now-playing .np-album {
   font-size: 13px;
   opacity: 0.85;
+  margin-top: 3px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
-.now-playing .np-cover {
-  width: 42px;
-  height: 42px;
-  border-radius: 8px;
-}
-
-.now-playing .np-title {
-  font-size: 14px;
-  font-weight: 700;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.now-playing .np-artist {
-  font-size: 12px;
-  opacity: 0.8;
-}
-
 
 /* ===== FOOTER ===== */
 
 .footer.fixed {
   position: absolute;
+  z-index: 55;
+
   left: calc(var(--panel-pad) + var(--col-left) + var(--panel-gap));
   right: var(--panel-pad);
-  bottom: 24px;
+  bottom: var(--footer-gap);
+
   display: flex;
+  align-items: center;
   gap: 16px;
+  height: var(--footer-h);
 }
 
 .progress {
@@ -295,11 +333,15 @@
   height: 10px;
   border-radius: 999px;
   background: rgba(255,255,255,0.10);
+  overflow: hidden;
 }
 
 .bar {
   height: 100%;
+  width: 100%;
+  transform-origin: left center;
   background: rgba(255,255,255,0.55);
+  transition: transform 100ms linear;
 }
 
 .hint {
@@ -315,31 +357,35 @@
   position: absolute;
   inset: -60px;
   z-index: 3;
-  opacity: 0.12;
   pointer-events: none;
+  opacity: 0.12;
+
   background-image:
     repeating-radial-gradient(circle at 20% 30%,
       rgba(255,255,255,0.08) 0,
       rgba(255,255,255,0.08) 1px,
       transparent 2px,
       transparent 6px);
+
   mix-blend-mode: overlay;
   animation: grainMove 1.6s steps(2) infinite;
 }
 
 @keyframes grainMove {
-  0% { transform: translate(0,0); }
-  50% { transform: translate(-10px,8px); }
-  100% { transform: translate(0,0); }
+  0% { transform: translate3d(0,0,0); }
+  50% { transform: translate3d(-10px, 8px,0); }
+  100% { transform: translate3d(0,0,0); }
 }
 
 @keyframes recBlink {
-  0%,100% { background:#fff; }
+  0%,100% { background:#fff; box-shadow:none; }
   50% { background:#d10000; box-shadow:0 0 6px rgba(209,0,0,.8); }
 }
 
-/* ===== FIX BING TV ===== */
+/* ===== DVD LOGO (FUERA: LAGEA EN BING TV) ===== */
+.dvd-logo { display: none !important; }
 
+/* ===== FIX BING TV UNDERSCAN ===== */
 .screen.bing-tv {
   transform: scale(1.075);
   transform-origin: center center;
