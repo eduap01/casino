@@ -189,11 +189,10 @@
 
 .info {
   min-width: 0;
-
-  /* Limpio: no dependemos de “a ojo”, reservamos arriba/abajo */
   padding-top: 0;
-  padding-bottom: var(--bottom-reserve);
+  padding-bottom: clamp(220px, 18vh, 360px);
 }
+
 
 .title {
   margin: 0;
@@ -268,8 +267,8 @@
   left: calc(var(--panel-pad) + var(--col-left) + var(--panel-gap));
   right: var(--panel-pad);
 
-  top: calc(var(--panel-pad) + var(--topline-h));
-  bottom: auto;
+  top: auto;
+  bottom: calc(clamp(16px, 2.2vh, 24px) + 58px); /* footer bottom + altura aprox */
 
   display: flex;
   flex-direction: column;
