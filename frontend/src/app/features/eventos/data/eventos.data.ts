@@ -18,7 +18,7 @@ const media = (path: string) => `${MEDIA_BASE_URL}/${path}`;
 export const EVENTOS: Evento[] = [
   {
     id: 13,
-    titulo: 'Alfonso Ferrer & Los que van en carruaje',
+    titulo: 'En Concierto: Alfonso Ferrer & Los que van en carruaje',
     descripcion: 'Un directo con alma, emoción y una banda que lo eleva todo',
     texto: `
     Las canciones nacen de la palabra,

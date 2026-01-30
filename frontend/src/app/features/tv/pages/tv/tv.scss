@@ -161,7 +161,7 @@
   object-fit: cover;
 
   border-radius: 18px;
-  filter: blur(1px);
+  /* ===== filter: blur(1px); ===== */
   margin-right: 0;
 
   box-shadow:
@@ -272,13 +272,17 @@
 
   left: calc(var(--panel-pad) + var(--col-left) + var(--panel-gap));
   right: var(--panel-pad);
-  bottom: clamp(64px, 6.5vh, 86px);
+
+  /* ⬇️ lo subimos y lo hacemos convivir con el topline */
+  top: calc(var(--panel-pad) + 56px);
+  bottom: auto;
 
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   pointer-events: auto;
 }
+
 
 .now-playing .np-badge {
   display: inline-block;
@@ -303,10 +307,11 @@
   text-decoration: none;
   color: #fff;
 
-  background: transparent;
-  backdrop-filter: none;
+  background: rgba(0,0,0,0.28);
+  border: 1px solid rgba(255,255,255,0.14);
+  backdrop-filter: blur(8px);
   box-shadow: none;
-  border: none;
+
 
   width: min(520px, 100%);
 }
@@ -459,8 +464,8 @@
 
 .dvd-logo {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 8vh;
+  left: 6vw;
   width: 110px;
   height: auto;
   z-index: 200;
@@ -468,7 +473,20 @@
   opacity: 0.35;
   filter: drop-shadow(0 10px 18px rgba(0,0,0,0.55));
   mix-blend-mode: screen;
+
+  will-change: transform;
+  transform: translate3d(0,0,0);
+  animation: dvdFloat 10s linear infinite;
 }
+
+@keyframes dvdFloat {
+  0%   { transform: translate3d(0, 0, 0); }
+  25%  { transform: translate3d(70vw, 6vh, 0); }
+  50%  { transform: translate3d(70vw, 62vh, 0); }
+  75%  { transform: translate3d(0, 62vh, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
 
 /* =========================
    FIX BING TV UNDERSCAN
