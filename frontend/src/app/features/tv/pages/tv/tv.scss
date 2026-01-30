@@ -137,6 +137,16 @@
   color: var(--color-text-muted);
 }
 
+.now-playing .np-now {
+  font-family: var(--font-accent);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.65;
+  margin-bottom: 4px;
+}
+
+
 .dot {
   width: 12px;
   height: 12px;
@@ -156,7 +166,7 @@
   place-items: stretch;
 
   /* Ajuste fino de posición */
-  transform: translate(26px, -26px); /* ➡️ derecha / ⬆️ arriba */
+  transform: translate(26px, -30px); /* ➡️ derecha / ⬆️ arriba */
 }
 
 .poster {

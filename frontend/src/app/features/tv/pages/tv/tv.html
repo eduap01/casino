@@ -41,6 +41,7 @@
         <a class="np-card" [href]="nowPlaying?.trackUrl" target="_blank" rel="noopener">
           <img class="np-cover" [src]="nowPlaying?.albumArt" alt="cover" />
           <div class="np-meta">
+            <div class="np-now">Sonando ahora</div>
             <div class="np-title">{{ nowPlaying?.title }}</div>
             <div class="np-artist">{{ nowPlaying?.artist }}</div>
             <div class="np-album" *ngIf="nowPlaying?.album">{{ nowPlaying?.album }}</div>
