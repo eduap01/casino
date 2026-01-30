@@ -23,7 +23,7 @@
   --safe-pad: clamp(24px, 3.2vh, 56px);
   --panel-pad: var(--safe-pad);
 
-  --col-left: clamp(420px, 32vw, 720px);
+  --col-left: clamp(480px, 36vw, 820px);
   --panel-gap: clamp(28px, 3.8vw, 72px);
 }
 
@@ -139,7 +139,8 @@
   height: 100%;
   display: grid;
   place-items: stretch;
-  transform: translateY(-18px); /* 🔼 SUBE EL POSTER */
+  transform: translateY(-18px);
+  transform: scaleX(1.06);
 }
 
 .poster {
@@ -227,7 +228,7 @@
   background: rgba(0,0,0,0.25);
   border: 1px solid rgba(255,255,255,0.12);
 
-  width: min(360px, 100%); /* ⬅️ MÁS ESTRECHO */
+  width: min(260px, 100%); /* ⬅️ MÁS ESTRECHO */
 }
 
 .now-playing .np-cover {
@@ -257,6 +258,26 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.now-playing .np-cover {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+}
+
+.now-playing .np-title {
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.now-playing .np-artist {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
 
 /* ===== FOOTER ===== */
 
