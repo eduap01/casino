@@ -6,7 +6,6 @@ import {
   ElementRef,
   ViewChild,
   AfterViewInit,
-  NgZone,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
@@ -15,7 +14,6 @@ import { interval, Subscription, switchMap, startWith, catchError, of } from 'rx
 
 import { EVENTOS, Evento } from '../../../eventos/data/eventos.data';
 import { NowPlayingService, NowPlaying } from '../../../../shared/components/now-playing/now-playing.service';
-
 
 @Component({
   selector: 'app-tv',
@@ -46,20 +44,7 @@ export class Tv implements OnInit, OnDestroy, AfterViewInit {
   private progressRafId: number | null = null;
   private progressStartT = 0;
 
-  @ViewChild('dvdLogo', { static: false })
-  dvdLogo?: ElementRef<HTMLImageElement>;
-
-  private dvdRafId: number | null = null;
-  private dvdX = 80;
-  private dvdY = 80;
-  private dvdVx = 140;
-  private dvdVy = 120;
-  private dvdLastT = 0;
-
-  constructor(
-    private nowPlayingService: NowPlayingService,
-    private zone: NgZone
-  ) {}
+  constructor(private nowPlayingService: NowPlayingService) {}
 
   ngOnInit(): void {
     const tvEventos = (EVENTOS as Evento[]).filter(
@@ -67,14 +52,11 @@ export class Tv implements OnInit, OnDestroy, AfterViewInit {
     );
 
     const upcoming = this.getUpcomingEventos(tvEventos);
-
     this.slides = upcoming.length ? upcoming : tvEventos;
 
     this.preloadImages(this.slides);
 
     this.timer = window.setInterval(() => this.next(), this.intervalMs);
-
-    this.startProgress();
 
     this.nowPlayingSub = interval(12000)
       .pipe(
@@ -87,9 +69,7 @@ export class Tv implements OnInit, OnDestroy, AfterViewInit {
       });
   }
 
-
   ngAfterViewInit(): void {
-    this.startDvdBounce();
     this.startProgress();
   }
 
@@ -97,7 +77,6 @@ export class Tv implements OnInit, OnDestroy, AfterViewInit {
     if (this.timer) window.clearInterval(this.timer);
     this.nowPlayingSub?.unsubscribe();
     this.stopProgress();
-    this.stopDvdBounce();
   }
 
   next(): void {
@@ -157,73 +136,6 @@ export class Tv implements OnInit, OnDestroy, AfterViewInit {
       cancelAnimationFrame(this.progressRafId);
       this.progressRafId = null;
     }
-  }
-
-  private startDvdBounce(): void {
-    const el = this.dvdLogo?.nativeElement;
-    if (!el) return;
-
-    if (el.naturalWidth === 0) {
-      el.addEventListener(
-        'load',
-        () => {
-          this.startDvdBounce();
-        },
-        { once: true }
-      );
-      return;
-    }
-
-    el.style.transform = `translate3d(${this.dvdX}px, ${this.dvdY}px, 0)`;
-
-    this.zone.runOutsideAngular(() => {
-      const step = (t: number) => {
-        if (!this.dvdLastT) this.dvdLastT = t;
-        const dt = (t - this.dvdLastT) / 1000;
-        this.dvdLastT = t;
-
-        const host = (el.getRootNode() as ShadowRoot).host as HTMLElement;
-        const W = host.clientWidth;
-        const H = host.clientHeight;
-
-        const r = el.getBoundingClientRect();
-        const w = r.width;
-        const h = r.height;
-
-        this.dvdX += this.dvdVx * dt;
-        this.dvdY += this.dvdVy * dt;
-
-        if (this.dvdX <= 0) {
-          this.dvdX = 0;
-          this.dvdVx *= -1;
-        } else if (this.dvdX >= W - w) {
-          this.dvdX = W - w;
-          this.dvdVx *= -1;
-        }
-
-        if (this.dvdY <= 0) {
-          this.dvdY = 0;
-          this.dvdVy *= -1;
-        } else if (this.dvdY >= H - h) {
-          this.dvdY = H - h;
-          this.dvdVy *= -1;
-        }
-
-        el.style.transform = `translate3d(${this.dvdX}px, ${this.dvdY}px, 0)`;
-
-        this.dvdRafId = requestAnimationFrame(step);
-      };
-
-      this.dvdRafId = requestAnimationFrame(step);
-    });
-  }
-
-  private stopDvdBounce(): void {
-    if (this.dvdRafId != null) {
-      cancelAnimationFrame(this.dvdRafId);
-      this.dvdRafId = null;
-    }
-    this.dvdLastT = 0;
   }
 
   private getUpcomingEventos(list: Evento[]): Evento[] {
