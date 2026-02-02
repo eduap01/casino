@@ -24,7 +24,7 @@ import { NowPlayingService, NowPlaying } from '../../../../shared/components/now
   encapsulation: ViewEncapsulation.ShadowDom,
 })
 export class Tv implements OnInit, OnDestroy, AfterViewInit {
-  readonly intervalMs = 9000;
+  readonly intervalMs = 10000;
   readonly fadeMs = 700;
 
   slides: Evento[] = [];
@@ -35,6 +35,15 @@ export class Tv implements OnInit, OnDestroy, AfterViewInit {
 
   nowPlaying: NowPlaying | null = null;
   private nowPlayingSub?: Subscription;
+
+  // --- Now Playing: robustez / fallback ---
+  fallbackArt = '/media/now-playing-fallback.png';
+  showNowPlaying = false;
+
+  private lastGoodNowPlaying: NowPlaying | null = null;
+  private lastGoodTs = 0;
+  private readonly keepLastGoodMs = 180000; // 3 min
+  // --------------------------------------
 
   progress = 0;
 
@@ -58,14 +67,40 @@ export class Tv implements OnInit, OnDestroy, AfterViewInit {
 
     this.timer = window.setInterval(() => this.next(), this.intervalMs);
 
-    this.nowPlayingSub = interval(12000)
+    this.nowPlayingSub = interval(30000)
       .pipe(
         startWith(0),
         switchMap(() => this.nowPlayingService.getNowPlaying()),
-        catchError(() => of({ isPlaying: false } as NowPlaying))
+        catchError(() => of(null as unknown as NowPlaying))
       )
       .subscribe((data) => {
-        this.nowPlaying = data;
+        const now = Date.now();
+
+        const looksValid =
+          !!data &&
+          ((data as any).isPlaying === true ||
+            !!(data as any).title ||
+            !!(data as any).artist ||
+            !!(data as any).albumArt);
+
+        if (looksValid) {
+          this.lastGoodNowPlaying = data;
+          this.lastGoodTs = now;
+          this.nowPlaying = data;
+          this.showNowPlaying = true;
+          return;
+        }
+
+        // Si viene vacío o hay fallo puntual, mantenemos lo último bueno 3 minutos
+        if (this.lastGoodNowPlaying && now - this.lastGoodTs < this.keepLastGoodMs) {
+          this.nowPlaying = this.lastGoodNowPlaying;
+          this.showNowPlaying = true;
+          return;
+        }
+
+        // Pasado el margen, lo ocultamos
+        this.nowPlaying = { isPlaying: false } as NowPlaying;
+        this.showNowPlaying = false;
       });
   }
 
@@ -77,6 +112,13 @@ export class Tv implements OnInit, OnDestroy, AfterViewInit {
     if (this.timer) window.clearInterval(this.timer);
     this.nowPlayingSub?.unsubscribe();
     this.stopProgress();
+  }
+
+  onAlbumArtError(ev: Event): void {
+    const img = ev.target as HTMLImageElement;
+    if (img && img.src !== this.fallbackArt) {
+      img.src = this.fallbackArt;
+    }
   }
 
   next(): void {
