@@ -10,16 +10,98 @@ export interface Evento {
   enlace?: string;
   enlaces?: { nombre: string; url: string }[];
   activo: boolean;
+  visibleEn: ('web' | 'tv')[];
 }
 
 const MEDIA_BASE_URL = 'https://casinorockbar.com/media';
 const media = (path: string) => `${MEDIA_BASE_URL}/${path}`;
 
 export const EVENTOS: Evento[] = [
+  //EVENTO PARA TV ============================================
+  {
+    id: 100,
+    titulo: 'Menú de estreno',
+    descripcion: 'Especial Fines de semana — Comedor de cine',
+    texto: `Reservas: 634132000`,
+    fechas: ['2099-12-31'],
+    imagen: [
+      media('eventos/menu-fin-semana.jpg')
+    ],
+    enlaces: [
+      { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
+      { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
+    ],
+    activo: true,
+    visibleEn: ['tv']
+  },
+  {
+    id: 101,
+    titulo: 'Club del Garbanzo Negro',
+    descripcion: '¡Vuelven los Yonkis de la Cuchara! ¡Pregunta en barra para unirte!',
+    texto: ``,
+    fechas: ['2099-12-31'],
+    imagen: [
+      media('eventos/garbanzo-negro-logo.png')
+    ],
+    enlaces: [
+      { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
+      { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
+    ],
+    activo: true,
+    visibleEn: ['tv']
+  },
+  //FIN: EVENTO PARA TV ============================================
+  {
+  id: 15,
+  titulo: 'Producciones Monstruosas',
+  descripcion: 'Pinchada especial con artistas estratosféricos invitados.',
+  texto: `
+  El Casino Rock Bar presenta una sesión fuera de lo normal.
+
+  Producciones Monstruosas aterriza con una pinchada especial, artistas invitados y una selección musical potente, oscura y sin concesiones.
+
+  Una noche pensada para amantes del sonido contundente, la cabina en llamas y la pista sin descanso hasta bien entrada la madrugada.
+
+  Si te gusta lo diferente, lo intenso y lo monstruoso… esta es tu noche.
+  `,
+  fechas: ['2026-02-07'],
+  imagen: [
+    media('eventos/producciones_monstruosas_2026.jpg')
+  ],
+  enlaces: [
+    { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
+    { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
+  ],
+  activo: true,
+  visibleEn: ['web', 'tv']
+  },
+  {
+  id: 14,
+  titulo: 'Fiesta de Carnaval',
+  descripcion: 'Carnaval en estado puro con sesión DJ y mucho brillo.',
+  texto: `
+  El Carnaval se vive de noche… y en el Casino Rock Bar se vive a lo grande.
+
+  Prepárate para una fiesta llena de color, lentejuelas y temazos con la sesión especial de STANZ DJ, en una noche pensada para bailar, disfrazarse y dejarse llevar.
+
+  Confeti, luces, actitud y música sin descanso desde primera hora.
+  Saca tu mejor disfraz y ven a celebrar el Carnaval como se merece.
+  `,
+  fechas: ['2026-02-14'],
+  imagen: [
+    media('eventos/carnaval_2026.jpg')
+  ],
+  enlaces: [
+    { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
+    { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
+  ],
+  activo: true,
+  visibleEn: ['web', 'tv']
+  },
   {
     id: 13,
     titulo: 'Alfonso Ferrer & Los que van en carruaje',
-    descripcion: 'Un directo con alma, emoción y una banda que lo eleva todo',
+    descripcion: 'Un directo con alma, emoción y una banda que lo eleva todo.',
     texto: `
     Las canciones nacen de la palabra,
     pero cobran sentido cuando suenan en directo.
@@ -52,7 +134,8 @@ export const EVENTOS: Evento[] = [
       { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
       { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
     ],
-    activo: true
+    activo: true,
+    visibleEn: ['web', 'tv']
   },
   {
       id: 12,
@@ -75,7 +158,8 @@ export const EVENTOS: Evento[] = [
         { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
         { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
       ],
-      activo: true
+      activo: true,
+      visibleEn: ['web', 'tv']
     },
   {
     id: 11,
@@ -102,7 +186,8 @@ export const EVENTOS: Evento[] = [
       { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
       { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
     ],
-    activo: true
+    activo: true,
+    visibleEn: ['web', 'tv']
   },
   {
     id: 10,
@@ -125,7 +210,8 @@ export const EVENTOS: Evento[] = [
       { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
       { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
     ],
-    activo: true
+    activo: true,
+    visibleEn: ['web', 'tv']
   },
 
   {
@@ -149,7 +235,8 @@ export const EVENTOS: Evento[] = [
       { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
       { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
     ],
-    activo: true
+    activo: true,
+    visibleEn: ['web', 'tv']
   },
 
   {
@@ -173,7 +260,8 @@ export const EVENTOS: Evento[] = [
       { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
       { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
     ],
-    activo: true
+    activo: true,
+    visibleEn: ['web', 'tv']
   },
 
   {
@@ -194,7 +282,8 @@ Porque las fiestas también se celebran con volumen alto y actitud. `,
       { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
       { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
     ],
-    activo: true
+    activo: true,
+    visibleEn: ['web', 'tv']
   },
 
   {
@@ -214,7 +303,8 @@ Porque las fiestas también se celebran con volumen alto y actitud. `,
       { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
       { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
     ],
-    activo: true
+    activo: true,
+    visibleEn: ['web', 'tv']
   },
 
   {
@@ -232,7 +322,8 @@ Porque las fiestas también se celebran con volumen alto y actitud. `,
       { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
       { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
     ],
-    activo: true
+    activo: true,
+    visibleEn: ['web', 'tv']
   },
 
   {
@@ -254,7 +345,8 @@ No te pierdas una tarde de música en vivo con una de las bandas más vibrantes 
       { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
       { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
     ],
-    activo: true
+    activo: true,
+    visibleEn: ['web', 'tv']
   },
 
   {
@@ -272,7 +364,8 @@ No te pierdas una tarde de música en vivo con una de las bandas más vibrantes 
       { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
       { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
     ],
-    activo: true
+    activo: true,
+    visibleEn: ['web', 'tv']
   },
 
   {
@@ -290,7 +383,8 @@ No te pierdas una tarde de música en vivo con una de las bandas más vibrantes 
       { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
       { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
     ],
-    activo: true
+    activo: true,
+    visibleEn: ['web', 'tv']
   },
 
   {
@@ -305,7 +399,8 @@ No te pierdas una tarde de música en vivo con una de las bandas más vibrantes 
       { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
       { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
     ],
-    activo: true
+    activo: true,
+    visibleEn: ['web', 'tv']
   },
 
   {
@@ -321,6 +416,7 @@ No te pierdas una tarde de música en vivo con una de las bandas más vibrantes 
       { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
       { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
     ],
-    activo: true
+    activo: true,
+    visibleEn: ['web', 'tv']
   }
 ];

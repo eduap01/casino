@@ -13,20 +13,9 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { interval, Subscription, switchMap, startWith, catchError, of } from 'rxjs';
 
-import { EVENTOS } from '../../../eventos/data/eventos.data';
+import { EVENTOS, Evento } from '../../../eventos/data/eventos.data';
 import { NowPlayingService, NowPlaying } from '../../../../shared/components/now-playing/now-playing.service';
 
-type Evento = {
-  id: number;
-  titulo: string;
-  descripcion?: string;
-  fechas: string[];
-  imagen: string[];
-  texto?: string;
-  enlace?: string;
-  enlaces?: { nombre: string; url: string }[];
-  activo: boolean;
-};
 
 @Component({
   selector: 'app-tv',
@@ -73,10 +62,13 @@ export class Tv implements OnInit, OnDestroy, AfterViewInit {
   ) {}
 
   ngOnInit(): void {
-    const upcoming = this.getUpcomingEventos(EVENTOS as Evento[]);
-    this.slides = upcoming.length
-      ? upcoming
-      : (EVENTOS as Evento[]).filter((e) => e.activo);
+    const tvEventos = (EVENTOS as Evento[]).filter(
+      (e) => e.activo !== false && e.visibleEn.includes('tv')
+    );
+
+    const upcoming = this.getUpcomingEventos(tvEventos);
+
+    this.slides = upcoming.length ? upcoming : tvEventos;
 
     this.preloadImages(this.slides);
 
@@ -94,6 +86,7 @@ export class Tv implements OnInit, OnDestroy, AfterViewInit {
         this.nowPlaying = data;
       });
   }
+
 
   ngAfterViewInit(): void {
     this.startDvdBounce();
