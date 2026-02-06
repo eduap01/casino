@@ -15,5 +15,7 @@ import { EVENTOS, Evento } from '../../data/eventos.data';
 })
 
 export class EventosPage {
-  eventos: Evento[] = [...EVENTOS].sort((a, b) => b.id - a.id);
+  eventos: Evento[] = [...EVENTOS]
+    .filter((e) => e.activo !== false && e.visibleEn.includes('web'))
+    .sort((a, b) => b.id - a.id);
 }

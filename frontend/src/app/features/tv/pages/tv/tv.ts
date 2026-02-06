@@ -6,27 +6,14 @@ import {
   ElementRef,
   ViewChild,
   AfterViewInit,
-  NgZone,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
 import { interval, Subscription, switchMap, startWith, catchError, of } from 'rxjs';
 
-import { EVENTOS } from '../../../eventos/data/eventos.data';
+import { EVENTOS, Evento } from '../../../eventos/data/eventos.data';
 import { NowPlayingService, NowPlaying } from '../../../../shared/components/now-playing/now-playing.service';
-
-type Evento = {
-  id: number;
-  titulo: string;
-  descripcion?: string;
-  fechas: string[];
-  imagen: string[];
-  texto?: string;
-  enlace?: string;
-  enlaces?: { nombre: string; url: string }[];
-  activo: boolean;
-};
 
 @Component({
   selector: 'app-tv',
@@ -37,7 +24,7 @@ type Evento = {
   encapsulation: ViewEncapsulation.ShadowDom,
 })
 export class Tv implements OnInit, OnDestroy, AfterViewInit {
-  readonly intervalMs = 9000;
+  readonly intervalMs = 10000;
   readonly fadeMs = 700;
 
   slides: Evento[] = [];
@@ -49,6 +36,15 @@ export class Tv implements OnInit, OnDestroy, AfterViewInit {
   nowPlaying: NowPlaying | null = null;
   private nowPlayingSub?: Subscription;
 
+  // --- Now Playing: robustez / fallback ---
+  fallbackArt = '/media/now-playing-fallback.png';
+  showNowPlaying = false;
+
+  private lastGoodNowPlaying: NowPlaying | null = null;
+  private lastGoodTs = 0;
+  private readonly keepLastGoodMs = 180000; // 3 min
+  // --------------------------------------
+
   progress = 0;
 
   @ViewChild('progressBar', { static: false })
@@ -57,46 +53,58 @@ export class Tv implements OnInit, OnDestroy, AfterViewInit {
   private progressRafId: number | null = null;
   private progressStartT = 0;
 
-  @ViewChild('dvdLogo', { static: false })
-  dvdLogo?: ElementRef<HTMLImageElement>;
-
-  private dvdRafId: number | null = null;
-  private dvdX = 80;
-  private dvdY = 80;
-  private dvdVx = 140;
-  private dvdVy = 120;
-  private dvdLastT = 0;
-
-  constructor(
-    private nowPlayingService: NowPlayingService,
-    private zone: NgZone
-  ) {}
+  constructor(private nowPlayingService: NowPlayingService) {}
 
   ngOnInit(): void {
-    const upcoming = this.getUpcomingEventos(EVENTOS as Evento[]);
-    this.slides = upcoming.length
-      ? upcoming
-      : (EVENTOS as Evento[]).filter((e) => e.activo);
+    const tvEventos = (EVENTOS as Evento[]).filter(
+      (e) => e.activo !== false && e.visibleEn.includes('tv')
+    );
+
+    const upcoming = this.getUpcomingEventos(tvEventos);
+    this.slides = upcoming.length ? upcoming : tvEventos;
 
     this.preloadImages(this.slides);
 
     this.timer = window.setInterval(() => this.next(), this.intervalMs);
 
-    this.startProgress();
-
-    this.nowPlayingSub = interval(12000)
+    this.nowPlayingSub = interval(30000)
       .pipe(
         startWith(0),
         switchMap(() => this.nowPlayingService.getNowPlaying()),
-        catchError(() => of({ isPlaying: false } as NowPlaying))
+        catchError(() => of(null as unknown as NowPlaying))
       )
       .subscribe((data) => {
-        this.nowPlaying = data;
+        const now = Date.now();
+
+        const looksValid =
+          !!data &&
+          ((data as any).isPlaying === true ||
+            !!(data as any).title ||
+            !!(data as any).artist ||
+            !!(data as any).albumArt);
+
+        if (looksValid) {
+          this.lastGoodNowPlaying = data;
+          this.lastGoodTs = now;
+          this.nowPlaying = data;
+          this.showNowPlaying = true;
+          return;
+        }
+
+        // Si viene vacío o hay fallo puntual, mantenemos lo último bueno 3 minutos
+        if (this.lastGoodNowPlaying && now - this.lastGoodTs < this.keepLastGoodMs) {
+          this.nowPlaying = this.lastGoodNowPlaying;
+          this.showNowPlaying = true;
+          return;
+        }
+
+        // Pasado el margen, lo ocultamos
+        this.nowPlaying = { isPlaying: false } as NowPlaying;
+        this.showNowPlaying = false;
       });
   }
 
   ngAfterViewInit(): void {
-    this.startDvdBounce();
     this.startProgress();
   }
 
@@ -104,7 +112,13 @@ export class Tv implements OnInit, OnDestroy, AfterViewInit {
     if (this.timer) window.clearInterval(this.timer);
     this.nowPlayingSub?.unsubscribe();
     this.stopProgress();
-    this.stopDvdBounce();
+  }
+
+  onAlbumArtError(ev: Event): void {
+    const img = ev.target as HTMLImageElement;
+    if (img && img.src !== this.fallbackArt) {
+      img.src = this.fallbackArt;
+    }
   }
 
   next(): void {
@@ -164,73 +178,6 @@ export class Tv implements OnInit, OnDestroy, AfterViewInit {
       cancelAnimationFrame(this.progressRafId);
       this.progressRafId = null;
     }
-  }
-
-  private startDvdBounce(): void {
-    const el = this.dvdLogo?.nativeElement;
-    if (!el) return;
-
-    if (el.naturalWidth === 0) {
-      el.addEventListener(
-        'load',
-        () => {
-          this.startDvdBounce();
-        },
-        { once: true }
-      );
-      return;
-    }
-
-    el.style.transform = `translate3d(${this.dvdX}px, ${this.dvdY}px, 0)`;
-
-    this.zone.runOutsideAngular(() => {
-      const step = (t: number) => {
-        if (!this.dvdLastT) this.dvdLastT = t;
-        const dt = (t - this.dvdLastT) / 1000;
-        this.dvdLastT = t;
-
-        const host = (el.getRootNode() as ShadowRoot).host as HTMLElement;
-        const W = host.clientWidth;
-        const H = host.clientHeight;
-
-        const r = el.getBoundingClientRect();
-        const w = r.width;
-        const h = r.height;
-
-        this.dvdX += this.dvdVx * dt;
-        this.dvdY += this.dvdVy * dt;
-
-        if (this.dvdX <= 0) {
-          this.dvdX = 0;
-          this.dvdVx *= -1;
-        } else if (this.dvdX >= W - w) {
-          this.dvdX = W - w;
-          this.dvdVx *= -1;
-        }
-
-        if (this.dvdY <= 0) {
-          this.dvdY = 0;
-          this.dvdVy *= -1;
-        } else if (this.dvdY >= H - h) {
-          this.dvdY = H - h;
-          this.dvdVy *= -1;
-        }
-
-        el.style.transform = `translate3d(${this.dvdX}px, ${this.dvdY}px, 0)`;
-
-        this.dvdRafId = requestAnimationFrame(step);
-      };
-
-      this.dvdRafId = requestAnimationFrame(step);
-    });
-  }
-
-  private stopDvdBounce(): void {
-    if (this.dvdRafId != null) {
-      cancelAnimationFrame(this.dvdRafId);
-      this.dvdRafId = null;
-    }
-    this.dvdLastT = 0;
   }
 
   private getUpcomingEventos(list: Evento[]): Evento[] {

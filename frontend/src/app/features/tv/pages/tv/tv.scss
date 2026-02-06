@@ -200,7 +200,7 @@
 }
 
 .title {
-  margin: 0;
+  margin: clamp(16px, 2vh, 28px) 0 0;
   font-family: var(--font-heading);
   font-size: clamp(54px, 5.8vw, 92px);
   font-weight: 900;
@@ -394,8 +394,6 @@
   50% { background:#d10000; box-shadow:0 0 6px rgba(209,0,0,.8); }
 }
 
-/* ===== DVD LOGO (FUERA: LAGEA EN BING TV) ===== */
-.dvd-logo { display: none !important; }
 
 /* ===== FIX BING TV UNDERSCAN ===== */
 .screen.bing-tv {

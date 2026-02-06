@@ -36,18 +36,26 @@
         </div>
       </div>
 
-      <div class="now-playing fixed" *ngIf="nowPlaying?.isPlaying">
+      <div class="now-playing fixed" *ngIf="showNowPlaying">
         <div class="np-badge">SONANDO AHORA</div>
-        <a class="np-card" [href]="nowPlaying?.trackUrl" target="_blank" rel="noopener">
-          <img class="np-cover" [src]="nowPlaying?.albumArt" alt="cover" />
+
+        <a class="np-card" [href]="nowPlaying?.trackUrl || '#'" target="_blank" rel="noopener" [class.is-disabled]="!(nowPlaying?.trackUrl)">
+          <img
+            class="np-cover"
+            [src]="nowPlaying?.albumArt || fallbackArt"
+            (error)="onAlbumArtError($event)"
+            alt="cover"
+          />
+
           <div class="np-meta">
             <div class="np-now">Sonando ahora</div>
-            <div class="np-title">{{ nowPlaying?.title }}</div>
-            <div class="np-artist">{{ nowPlaying?.artist }}</div>
+            <div class="np-title">{{ nowPlaying?.title || '—' }}</div>
+            <div class="np-artist">{{ nowPlaying?.artist || '' }}</div>
             <div class="np-album" *ngIf="nowPlaying?.album">{{ nowPlaying?.album }}</div>
           </div>
         </a>
       </div>
+
 
       <div class="footer fixed">
         <div class="progress" aria-hidden="true">
