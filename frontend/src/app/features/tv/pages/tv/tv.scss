@@ -194,7 +194,7 @@
 
 .info {
   min-width: 0;
-
+  transform: translateX(-12px);
   /* 🔒 Lo más importante: el texto NO puede bajar a la zona HUD */
   padding-bottom: var(--bottom-reserve);
 }
