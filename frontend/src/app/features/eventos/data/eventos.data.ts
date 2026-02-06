@@ -38,7 +38,7 @@ export const EVENTOS: Evento[] = [
   {
     id: 101,
     titulo: 'Club del Garbanzo Negro',
-    descripcion: '¡Vuelven los Yonkis de la Cuchara! ¡Pregunta en barra para unirte!',
+    descripcion: 'Club Gastronómico-cultural ¡Vuelven los Yonkis de la Cuchara! ¡Pregunta en barra para unirte!',
     texto: ``,
     fechas: [hoy],
     imagen: [
@@ -61,7 +61,7 @@ export const EVENTOS: Evento[] = [
   `,
   fechas: ['2026-05-29', '2026-05-30','31-05-2026'],
   imagen: [
-    media('eventos/Birrafest_2026.jpg')
+    media('eventos/Birrafest_2026.png')
   ],
   enlaces: [
     { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
