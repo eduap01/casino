@@ -53,6 +53,24 @@ export const EVENTOS: Evento[] = [
   },
   //FIN: EVENTO PARA TV ============================================
   {
+  id: 16,
+  titulo: 'BIRRAFEST',
+  descripcion: '¡Vuelve el festival Birrafest por su especial 10º aniversario!',
+  texto: ` ¡Permaneced antentos a novedades inminentes!
+
+  `,
+  fechas: ['2026-05-29', '2026-05-30','31-05-2026'],
+  imagen: [
+    media('eventos/Birrafest_2026.jpg')
+  ],
+  enlaces: [
+    { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
+    { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
+  ],
+  activo: true,
+  visibleEn: ['web', 'tv']
+  },
+  {
   id: 15,
   titulo: 'Producciones Monstruosas',
   descripcion: 'Pinchada especial con artistas estratosféricos invitados.',
