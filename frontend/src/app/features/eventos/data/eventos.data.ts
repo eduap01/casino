@@ -108,7 +108,7 @@ export const EVENTOS: Evento[] = [
   `,
   fechas: ['2026-02-14'],
   imagen: [
-    media('eventos/carnaval_2026.jpg')
+    media('eventos/Carnaval_2026.png')
   ],
   enlaces: [
     { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
