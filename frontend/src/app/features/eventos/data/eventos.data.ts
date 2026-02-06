@@ -15,6 +15,7 @@ export interface Evento {
 
 const MEDIA_BASE_URL = 'https://casinorockbar.com/media';
 const media = (path: string) => `${MEDIA_BASE_URL}/${path}`;
+const hoy = new Date().toISOString().split('T')[0];
 
 export const EVENTOS: Evento[] = [
   //EVENTO PARA TV ============================================
@@ -23,7 +24,7 @@ export const EVENTOS: Evento[] = [
     titulo: 'Menú de estreno',
     descripcion: 'Especial Fines de semana — Comedor de cine',
     texto: `Reservas: 634132000`,
-    fechas: ['2099-12-31'],
+    fechas: [hoy],
     imagen: [
       media('eventos/menu-fin-semana.jpg')
     ],
@@ -39,7 +40,7 @@ export const EVENTOS: Evento[] = [
     titulo: 'Club del Garbanzo Negro',
     descripcion: '¡Vuelven los Yonkis de la Cuchara! ¡Pregunta en barra para unirte!',
     texto: ``,
-    fechas: ['2099-12-31'],
+    fechas: [hoy],
     imagen: [
       media('eventos/garbanzo-negro-logo.png')
     ],
