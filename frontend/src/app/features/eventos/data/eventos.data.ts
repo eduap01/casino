@@ -54,6 +54,30 @@ export const EVENTOS: Evento[] = [
   //FIN: EVENTO PARA TV ============================================
   {
   id: 16,
+  titulo: 'JORNADAS DEL COCIDO',
+  descripcion: 'Cocido en dos vuelcos en barro individual.',
+  texto: `Disfruta de nuestras Jornadas del Cocido, servido en dos vuelcos en barro individual.
+
+Incluye ensalada de encurtidos y pan.
+
+Precio: 19,90€
+
+¡Reserva tu mesa y no te quedes sin probarlo!`,
+  fechas: ['2026-02-27', '2026-02-28', '2026-03-01'],
+  imagen: [
+    media('eventos/jornadas-cocido.jpg')
+  ],
+  enlaces: [
+    { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
+    { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
+  ],
+  activo: true,
+  visibleEn: ['web', 'tv']
+},
+
+
+  {
+  id: 16,
   titulo: 'BIRRAFEST',
   descripcion: '¡Vuelve el festival Birrafest por su especial 10º aniversario!',
   texto: ` ¡Permaneced antentos a novedades inminentes!
