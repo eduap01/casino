@@ -426,3 +426,25 @@
 .desc--extra {
   -webkit-line-clamp: 6; /* prueba 5–8 según tu TV */
 }
+
+/* ===== FECHA TV (alineada con Now Playing) ===== */
+
+.tv-date.fixed {
+  position: absolute;
+  z-index: 60;
+
+  left: calc(var(--panel-pad) + var(--col-left) + var(--panel-gap));
+
+  /* ⬅️ Lo colocamos a la misma altura exacta */
+  bottom: calc(var(--footer-gap) + var(--footer-h) + var(--hud-gap));
+
+  pointer-events: none;
+}
+
+.tv-date .chip {
+  font-family: var(--font-accent);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}

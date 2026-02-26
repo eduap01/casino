@@ -6,6 +6,7 @@
   <main class="stage">
     <section class="panel">
 
+      <!-- TOPLINE -->
       <div class="topline fixed-topline">
         <span class="badge">Casino Rock Bar</span>
         <span class="dot"></span>
@@ -13,20 +14,24 @@
       </div>
 
       <div class="fade-layer" [class.fade]="isFading">
+
+        <!-- POSTER -->
         <div class="poster-wrap">
           <img class="poster" [src]="heroImage" [alt]="e.titulo" />
           <div class="poster-glow"></div>
         </div>
 
+        <!-- INFO -->
         <div class="info">
           <h1 class="title">{{ e.titulo }}</h1>
 
-          <p class="desc" *ngIf="e.descripcion">{{ e.descripcion }}</p>
-          <p class="desc desc--extra" *ngIf="e.texto">{{ e.texto }}</p>
+          <p class="desc" *ngIf="e.descripcion">
+            {{ e.descripcion }}
+          </p>
 
-          <div class="dates" *ngIf="e.fechas?.length">
-            <span class="chip">{{ formatFechasCartelera(e.fechas) }}</span>
-          </div>
+          <p class="desc desc--extra" *ngIf="e.texto">
+            {{ e.texto }}
+          </p>
 
           <div class="links" *ngIf="e.enlace || (e.enlaces?.length)">
             <div class="link" *ngIf="e.enlace">
@@ -35,12 +40,26 @@
             </div>
           </div>
         </div>
+
       </div>
 
+      <!-- ✅ FECHA ALINEADA CON NOW PLAYING -->
+      <div class="tv-date fixed" *ngIf="e.fechas?.length">
+        <span class="chip">
+          {{ formatFechasCartelera(e.fechas) }}
+        </span>
+      </div>
+
+      <!-- NOW PLAYING -->
       <div class="now-playing fixed" *ngIf="showNowPlaying">
         <div class="np-badge">SONANDO AHORA</div>
 
-        <a class="np-card" [href]="nowPlaying?.trackUrl || '#'" target="_blank" rel="noopener" [class.is-disabled]="!(nowPlaying?.trackUrl)">
+        <a class="np-card"
+           [href]="nowPlaying?.trackUrl || '#'"
+           target="_blank"
+           rel="noopener"
+           [class.is-disabled]="!(nowPlaying?.trackUrl)">
+
           <img
             class="np-cover"
             [src]="nowPlaying?.albumArt || fallbackArt"
@@ -52,12 +71,14 @@
             <div class="np-now">Sonando ahora</div>
             <div class="np-title">{{ nowPlaying?.title || '—' }}</div>
             <div class="np-artist">{{ nowPlaying?.artist || '' }}</div>
-            <div class="np-album" *ngIf="nowPlaying?.album">{{ nowPlaying?.album }}</div>
+            <div class="np-album" *ngIf="nowPlaying?.album">
+              {{ nowPlaying?.album }}
+            </div>
           </div>
         </a>
       </div>
 
-
+      <!-- FOOTER -->
       <div class="footer fixed">
         <div class="progress" aria-hidden="true">
           <span #progressBar class="bar"></span>
@@ -67,5 +88,6 @@
 
     </section>
   </main>
+
   <div class="grain" aria-hidden="true"></div>
 </div>
