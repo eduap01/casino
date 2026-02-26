@@ -33,7 +33,7 @@ export const EVENTOS: Evento[] = [
       { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
     ],
     activo: true,
-    visibleEn: ['tv']
+    visibleEn: []
   },
   {
     id: 101,
@@ -53,7 +53,36 @@ export const EVENTOS: Evento[] = [
   },
   //FIN: EVENTO PARA TV ============================================
   {
-  id: 16,
+  id: 18,
+  titulo: 'WOMAN WEEKEND',
+  descripcion: 'Sesión especial Día de la Mujer con DJs femeninas.',
+  texto: `Celebramos el Día de la Mujer con una jornada muy especial dedicada exclusivamente a talento femenino.
+
+🎧 FUCKING DJ (Delia) – Desde las 17:00
+La primera DJ residente del Casino Rock Bar vuelve a los ruedos para esta ocasión tan especial. Una sesión cargada de energía, historia y temazos.
+
+🎶 VIOLET FEMME – 22:00
+Sesión en vinilo con una selección exclusiva de música creada e interpretada por mujeres.
+
+Durante todo el evento sonará únicamente música de artistas femeninas.
+
+Plaza de España, 14 – Esquivias (Toledo)
+Sábado 7 de marzo
+
+Una tarde-noche para celebrar, bailar y reivindicar.`,
+  fechas: ['2026-03-07'],
+  imagen: [
+    media('eventos/woman_weekend_2026.jpg')
+  ],
+  enlaces: [
+    { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
+    { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
+  ],
+  activo: true,
+  visibleEn: ['web', 'tv']
+},
+  {
+  id: 17,
   titulo: 'JORNADAS DEL COCIDO',
   descripcion: 'Cocido en dos vuelcos en barro individual.',
   texto: `Disfruta de nuestras Jornadas del Cocido, servido en dos vuelcos en barro individual.
@@ -77,7 +106,7 @@ Precio: 19,90€
 
 
   {
-  id: 16,
+  id: 90,
   titulo: 'BIRRAFEST',
   descripcion: '¡Vuelve el festival Birrafest por su especial 10º aniversario!',
   texto: ` ¡Permaneced antentos a novedades inminentes!
