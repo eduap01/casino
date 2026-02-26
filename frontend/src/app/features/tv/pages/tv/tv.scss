@@ -400,3 +400,43 @@
   transform: scale(1.075);
   transform-origin: center center;
 }
+
+/* Zona máxima de texto dentro de la columna derecha */
+.info {
+  /* ya lo tienes */
+  padding-bottom: var(--bottom-reserve);
+  min-width: 0;
+}
+
+/* Recorta de forma segura cuando el texto es demasiado largo */
+.desc {
+  max-width: 52ch;
+  margin-top: 18px;
+
+  /* ✅ evita que un texto enorme empuje al HUD */
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+
+  /* por defecto, 3 líneas (puedes ajustar) */
+  -webkit-line-clamp: 3;
+}
+
+/* El texto extra puede tener más líneas, pero controladas */
+.desc--extra {
+  max-width: 52ch;
+
+  /* ✅ no invade el HUD: limita el alto del bloque */
+  max-height: calc(100vh - var(--safe-pad)*2 - var(--top-reserve) - var(--bottom-reserve) - 220px);
+  /* ese 220px es colchón por título/fechas; si quieres, bájalo/subelo poco */
+
+  overflow: hidden auto;
+  padding-right: 10px;
+
+  /* suaviza el scroll en TVs */
+  overscroll-behavior: contain;
+}
+
+/* Scrollbar discreta (opcional) */
+.desc--extra::-webkit-scrollbar { width: 8px; }
+.desc--extra::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.18); border-radius: 999px; }

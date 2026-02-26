@@ -22,6 +22,7 @@
           <h1 class="title">{{ e.titulo }}</h1>
 
           <p class="desc" *ngIf="e.descripcion">{{ e.descripcion }}</p>
+          <p class="desc desc--extra" *ngIf="e.texto">{{ e.texto }}</p>
 
           <div class="dates" *ngIf="e.fechas?.length">
             <span class="chip">{{ formatFechasCartelera(e.fechas) }}</span>
