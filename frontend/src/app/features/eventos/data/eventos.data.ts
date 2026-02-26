@@ -56,9 +56,9 @@ export const EVENTOS: Evento[] = [
   id: 18,
   titulo: 'WOMEN MUSIC POWER',
   descripcion: 'Celebramos el Día de la Mujer con una jornada dedicada exclusivamente a talento femenino.',
-  texto: `Fucking DJ (Delia), la primera DJ residente del Casino Rock Bar, vuelve a los ruedos para esta ocasión especial.
-Violet Femme ofrecerá una sesión en vinilo con una selección exclusiva cuidadosamente elegida para la noche.
-Una tarde-noche pensada para celebrar, bailar y reivindicar el talento femenino a través de la música.`,
+  texto: `Fucking DJ (Delia), la primera DJ residente del Casino Rock Bar, vuelve a los ruedos!
+  Y junto Violet Femme, quien pinchará en vinilo, ofrecerán una jornada para celebrar, bailar y reivindicar.
+  `,
   fechas: ['2026-03-07'],
   imagen: [
     media('eventos/woman_weekend_2026.jpg')
