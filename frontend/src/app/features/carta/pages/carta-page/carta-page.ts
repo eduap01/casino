@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-
 
 import { Compartir } from '../../components/compartir/compartir';
 import { Ensaladas } from '../../components/ensaladas/ensaladas';
@@ -17,6 +16,7 @@ import { Pizzas } from '../../components/pizzas/pizzas';
 import { HeaderMini } from '../../../../shared/components/header-mini/header-mini';
 import { BackToTop } from '../../../../shared/components/back-to-top/back-to-top';
 
+import { SeoService } from '../../../../shared/seo.service';
 
 import { LucideAngularModule, Handshake, Salad, Sandwich, Hamburger, Coffee, Pizza as PizzaIcon, Cake, Beer, Utensils } from 'lucide-angular';
 
@@ -44,12 +44,25 @@ import { LucideAngularModule, Handshake, Salad, Sandwich, Hamburger, Coffee, Piz
     LucideAngularModule,
 
     // Iconos Lucide
-
   ],
   templateUrl: './carta-page.html',
   styleUrl: './carta-page.scss'
 })
-export class CartaPage {
+export class CartaPage implements OnInit {
+
+  constructor(private seo: SeoService) {}
+
+  ngOnInit(): void {
+    this.seo.setSeo({
+      title: 'Carta | Restaurante y Rock Bar en Esquivias (Toledo) | Casino Rock Bar',
+      description:
+        'Consulta la carta de Casino Rock Bar: raciones, hamburguesas, pizzas, cafés y postres. Restaurante y rock bar en Esquivias (Toledo), cerca de Illescas y Madrid Sur.',
+      canonical: 'https://casinorockbar.com/carta',
+      ogImage: 'https://casinorockbar.com/media/logoCasino.png',
+      robots: 'index, follow'
+    });
+  }
+
   scrollTo(sectionId: string) {
     const el = document.getElementById(sectionId);
     if (el) {

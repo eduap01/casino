@@ -1,21 +1,25 @@
-import { Component, AfterViewInit, OnDestroy, ElementRef, ViewChild } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Router, NavigationEnd, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { filter, Subscription } from 'rxjs';
-import { LucideAngularModule} from 'lucide-angular';
+import { LucideAngularModule } from 'lucide-angular';
 import { MenuFinSemana } from '../../../menus/pages/menu-fin-semana/menu-fin-semana';
-
-
+import { SeoService } from '../../../../shared/seo.service';
 
 @Component({
   selector: 'app-welcome',
   standalone: true,
-  imports: [CommonModule, RouterModule,
-    LucideAngularModule, MenuFinSemana],
+  imports: [
+    CommonModule,
+    RouterModule,
+    LucideAngularModule,
+    MenuFinSemana
+  ],
   templateUrl: './welcome-page.html',
   styleUrls: ['./welcome-page.scss']
 })
-export class Welcome implements AfterViewInit, OnDestroy {
+export class Welcome implements AfterViewInit, OnDestroy, OnInit {
+
   images = [
     { src: 'assets/logoCasinoVertical.png', alt: 'Logo' },
     { src: 'assets/eventos/cartajornadas2025.webp', alt: 'Conciertos Jornadas Cervantinas' },
@@ -27,7 +31,20 @@ export class Welcome implements AfterViewInit, OnDestroy {
   private onResize = () => this.setLayoutVars();
   private routerSub?: Subscription;
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private seo: SeoService
+  ) {}
+
+  ngOnInit(): void {
+    this.seo.setSeo({
+      title: 'Restaurante y Rock Bar en Esquivias (Toledo) | Música en directo | Casino Rock Bar',
+      description:
+        'Casino Rock Bar es un restaurante y rock bar en Esquivias (Toledo) con música en directo y eventos. Cerca de Illescas, Seseña y Madrid Sur. Consulta la carta y próximos eventos.',
+      canonical: 'https://casinorockbar.com/welcome',
+      ogImage: 'https://casinorockbar.com/media/logoCasino.png',
+      robots: 'index, follow'
+    });
   }
 
   ngAfterViewInit(): void {
@@ -63,15 +80,13 @@ export class Welcome implements AfterViewInit, OnDestroy {
   }
 
   scrollToMenuFinSemana(): void {
-  const el = document.getElementById('menu-fin-semana');
+    const el = document.getElementById('menu-fin-semana');
 
-  if (el) {
-    el.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
-    });
+    if (el) {
+      el.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
   }
-}
-
-
 }

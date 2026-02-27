@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { HeaderMini } from '../../../../shared/components/header-mini/header-mini';
 import { BackToTop } from '../../../../shared/components/back-to-top/back-to-top';
 import { MerchandisingItem } from '../../components/merchandising-item/merchandising-item';
+import { SeoService } from '../../../../shared/seo.service';
 
 @Component({
   selector: 'app-merchandising-page',
@@ -12,7 +13,7 @@ import { MerchandisingItem } from '../../components/merchandising-item/merchandi
   templateUrl: './merchandising-page.html',
   styleUrls: ['./merchandising-page.scss']
 })
-export class MerchandisingPage {
+export class MerchandisingPage implements OnInit {
 
   imagenSeleccionada: string | null = null;
 
@@ -36,6 +37,19 @@ export class MerchandisingPage {
     ...p,
     imagen: `${this.mediaBase}/${p.imagen}`
   }));
+
+  constructor(private seo: SeoService) {}
+
+  ngOnInit(): void {
+    this.seo.setSeo({
+      title: 'Merchandising | Casino Rock Bar | Camisetas y recuerdos',
+      description:
+        'Merchandising oficial de Casino Rock Bar: camisetas y recuerdos de eventos y festivales. Recoge en el local en Esquivias (Toledo).',
+      canonical: 'https://casinorockbar.com/merchandising',
+      ogImage: 'https://casinorockbar.com/media/logoCasino.png',
+      robots: 'index, follow'
+    });
+  }
 
   abrirModal(imagen: string) {
     this.imagenSeleccionada = imagen;

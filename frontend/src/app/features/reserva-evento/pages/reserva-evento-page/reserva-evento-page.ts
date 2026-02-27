@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import {
@@ -14,6 +14,8 @@ import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 
+import { SeoService } from '../../../../shared/seo.service';
+
 @Component({
   selector: 'app-reserva-evento-page',
   standalone: true,
@@ -21,7 +23,7 @@ import { Observable, of } from 'rxjs';
   templateUrl: './reserva-evento-page.html',
   styleUrls: ['./reserva-evento-page.scss'],
 })
-export class ReservaEventoPage {
+export class ReservaEventoPage implements OnInit {
   form!: FormGroup;
   submitted = false;
   loading = false;
@@ -30,7 +32,11 @@ export class ReservaEventoPage {
   mensaje: string = '';
   maxPersonasPermitidas = 50;
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient,
+    private seo: SeoService
+  ) {
     this.form = this.fb.group(
       {
         nombre: ['', [Validators.required, Validators.minLength(2)]],
@@ -75,6 +81,17 @@ export class ReservaEventoPage {
       ]);
       personasCtrl?.updateValueAndValidity();
       this.maxPersonasPermitidas = maxPersonas;
+    });
+  }
+
+  ngOnInit(): void {
+    this.seo.setSeo({
+      title: 'Reserva para eventos | Casino Rock Bar | Esquivias (Toledo)',
+      description:
+        'Solicita tu reserva para eventos en Casino Rock Bar (Esquivias, Toledo). Indica fecha, hora y número de personas. Cerca de Illescas, Seseña y Madrid Sur.',
+      canonical: 'https://casinorockbar.com/reserva-evento',
+      ogImage: 'https://casinorockbar.com/media/logoCasino.png',
+      robots: 'index, follow'
     });
   }
 
