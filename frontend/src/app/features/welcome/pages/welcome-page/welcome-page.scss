@@ -564,4 +564,71 @@
   }
 }
 
+/* ============================================================
+   PORTÁTIL COMPACTO / NEST HUB (≈ 1024x600)
+   Problema: poca altura + overflow hidden -> CTA recortados
+   ============================================================ */
+@media (min-width: 900px) and (max-width: 1280px) and (max-height: 720px) and (orientation: landscape) {
+
+  /* Si prefieres NO scroll, comenta overflow-y y ajusta aún más paddings */
+  .welcome-page {
+    overflow-x: hidden;
+    overflow-y: auto; /* evita recortes en alturas bajas */
+  }
+
+  /* Topbar más baja */
+  .top-bar {
+    height: 70px;
+  }
+  .top-bar .brand img {
+    height: 42px;
+  }
+
+  /* Slogan más arriba y un pelín más compacto */
+  .hero-text {
+    padding-top: 10vh;   /* antes 15vh */
+    padding-left: 6vw;   /* un poco menos */
+  }
+
+  .hero-text .line {
+    font-size: clamp(2.2rem, 7vw, 5.2rem);
+    line-height: 0.98;
+  }
+
+  /* Ajusta los desplazamientos para que no “empujen” demasiado en vertical */
+  .hero-text .l2,
+  .hero-text .l3,
+  .hero-text .l4 {
+    margin-top: 0.6vh;
+  }
+
+  /* CTA: menos margen y botón más compacto */
+  .cta-group {
+    margin-top: 1.2rem;   /* antes 3rem */
+    padding-left: 6vw;
+    gap: 0.9rem;
+    flex-direction: row;  /* en portátil suele funcionar mejor */
+    align-items: center;
+    flex-wrap: wrap;      /* por si hay 3+ botones */
+  }
+
+  .cta-main {
+    font-size: 1.05rem;
+    padding: 0.85rem 2.1rem;
+    white-space: nowrap;
+  }
+
+  /* Marquesina un poco más fina para recuperar altura */
+  .marquee {
+    height: 32px; /* antes 40px */
+  }
+  .marquee-track span {
+    font-size: 0.9rem;
+  }
+
+  /* Imágenes: ligeramente más pequeñas para liberar espacio */
+  .side-img.left, .side-img.right { width: 30vw; }
+  .side-img.center { width: 44vw; top: 45%; }
+}
+
 

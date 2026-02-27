@@ -101,7 +101,7 @@ Precio: 19,90€
   texto: ` ¡Permaneced antentos a novedades inminentes!
 
   `,
-  fechas: ['2026-05-29', '2026-05-30','31-05-2026'],
+  fechas: ['2026-05-29', '2026-05-30', '2026-05-31'],
   imagen: [
     media('eventos/Birrafest_2026.png')
   ],

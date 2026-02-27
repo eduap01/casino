@@ -9,11 +9,15 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { Meta } from '@angular/platform-browser';
 
 import { interval, Subscription, switchMap, startWith, catchError, of } from 'rxjs';
 
 import { EVENTOS, Evento } from '../../../eventos/data/eventos.data';
-import { NowPlayingService, NowPlaying } from '../../../../shared/components/now-playing/now-playing.service';
+import {
+  NowPlayingService,
+  NowPlaying,
+} from '../../../../shared/components/now-playing/now-playing.service';
 
 @Component({
   selector: 'app-tv',
@@ -53,7 +57,13 @@ export class Tv implements OnInit, OnDestroy, AfterViewInit {
   private progressRafId: number | null = null;
   private progressStartT = 0;
 
-  constructor(private nowPlayingService: NowPlayingService) {}
+  constructor(
+    private meta: Meta,
+    private nowPlayingService: NowPlayingService
+  ) {
+    // Bloquea indexación SOLO en esta ruta
+    this.meta.updateTag({ name: 'robots', content: 'noindex, nofollow' });
+  }
 
   ngOnInit(): void {
     const tvEventos = (EVENTOS as Evento[]).filter(
@@ -109,6 +119,9 @@ export class Tv implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnDestroy(): void {
+    // Deja el robots normal para el resto del sitio al salir de /tv
+    this.meta.updateTag({ name: 'robots', content: 'index, follow' });
+
     if (this.timer) window.clearInterval(this.timer);
     this.nowPlayingSub?.unsubscribe();
     this.stopProgress();
@@ -279,7 +292,9 @@ export class Tv implements OnInit, OnDestroy, AfterViewInit {
           ? `${uniqueDays[0]}`
           : uniqueDays.length === 2
           ? `${uniqueDays[0]} y ${uniqueDays[1]}`
-          : `${uniqueDays.slice(0, -1).join(', ')} y ${uniqueDays[uniqueDays.length - 1]}`;
+          : `${uniqueDays.slice(0, -1).join(', ')} y ${
+              uniqueDays[uniqueDays.length - 1]
+            }`;
 
       const monthName = fmtMonth.format(new Date(g.year, g.month, 1));
       const monthCap = monthName.charAt(0).toUpperCase() + monthName.slice(1);
