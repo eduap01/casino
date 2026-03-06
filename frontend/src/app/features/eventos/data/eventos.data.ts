@@ -53,6 +53,26 @@ export const EVENTOS: Evento[] = [
   },
   //FIN: EVENTO PARA TV ============================================
   {
+    id: 21,
+    titulo: 'HAMBURBEZA FEST',
+    descripcion: 'Tres días de hamburguesas, birras y DJs en Casino Rock Bar.',
+    texto: `
+  Tres días para disfrutar a lo grande.
+  8 burgers, 8 birras y 8 DJs.
+  Puro sabor y música.
+    `,
+    fechas: ['2026-03-20','2026-03-21','2026-03-22'],
+    imagen: [
+      media('eventos/hamburbeza1-2026.jpg')
+    ],
+    enlaces: [
+      { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
+      { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
+    ],
+    activo: true,
+    visibleEn: ['web', 'tv']
+  },
+  {
     id: 20,
     titulo: 'MENÚ SANTA JUANA',
     descripcion: 'Menú especial por las fiestas de Santa Juana.',
