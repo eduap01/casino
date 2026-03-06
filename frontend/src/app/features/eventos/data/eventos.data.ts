@@ -20,10 +20,10 @@ const hoy = new Date().toISOString().split('T')[0];
 export const EVENTOS: Evento[] = [
   //EVENTO PARA TV ============================================
   {
-    id: 100,
+    id: 101,
     titulo: 'Menú de estreno',
     descripcion: 'Especial Fines de semana — Comedor de cine',
-    texto: `Reservas: 634132000`,
+    texto: `Reservas: 634 132 000`,
     fechas: [hoy],
     imagen: [
       media('eventos/menu-fin-semana.jpg')
@@ -33,10 +33,10 @@ export const EVENTOS: Evento[] = [
       { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
     ],
     activo: true,
-    visibleEn: []
+    visibleEn: ['tv']
   },
   {
-    id: 101,
+    id: 100,
     titulo: 'Club del Garbanzo Negro',
     descripcion: 'Club Gastronómico-cultural ¡Vuelven los Yonkis de la Cuchara! ¡Pregunta en barra para unirte!',
     texto: ``,
@@ -52,6 +52,45 @@ export const EVENTOS: Evento[] = [
     visibleEn: ['tv']
   },
   //FIN: EVENTO PARA TV ============================================
+  {
+    id: 20,
+    titulo: 'MENÚ SANTA JUANA',
+    descripcion: 'Menú especial por las fiestas de Santa Juana.',
+    texto: `
+  Un menú inspirado en un día de sabores tradicionales para celebrar Santa Juana.
+Comida casera como la de siempre, para compartir y disfrutar.
+    `,
+    fechas: ['2026-03-08','2026-03-09'],
+    imagen: [
+      media('eventos/santa-juana-2026.jpg')
+    ],
+    enlaces: [
+      { nombre: 'Reservas', url: 'tel:634132000' },
+      { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' }
+    ],
+    activo: true,
+    visibleEn: ['web', 'tv']
+  },
+  {
+  id: 19,
+  titulo: 'TORTILANDIA',
+  descripcion: 'VI Jornadas de la Tortilla en Casino Rock Bar.',
+  texto: `
+Tres días dedicados a la tortilla.
+Ocho variedades especiales para probar y disfrutar.
+¡Ven a descubrir tu favorita!
+  `,
+  fechas: ['2026-03-13','2026-03-14','2026-03-15'],
+  imagen: [
+    media('eventos/tortilandia.jpg')
+  ],
+  enlaces: [
+    { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
+    { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
+  ],
+  activo: true,
+  visibleEn: ['web', 'tv']
+},
   {
   id: 18,
   titulo: 'WOMEN MUSIC POWER',
