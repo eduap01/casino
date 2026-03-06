@@ -102,7 +102,7 @@ Ocho variedades especiales para probar y disfrutar.
   `,
   fechas: ['2026-03-13','2026-03-14','2026-03-15'],
   imagen: [
-    media('eventos/tortilandia.jpg')
+    media('eventos/tortilandia2.jpg')
   ],
   enlaces: [
     { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },
