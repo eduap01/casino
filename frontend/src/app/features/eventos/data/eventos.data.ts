@@ -60,7 +60,7 @@ export const EVENTOS: Evento[] = [
   Un menú inspirado en un día de sabores tradicionales para celebrar Santa Juana.
 Comida casera como la de siempre, para compartir y disfrutar.
     `,
-    fechas: ['2026-03-08','2026-03-09'],
+    fechas: ['2026-03-13','2026-03-14','2026-03-15'],
     imagen: [
       media('eventos/santa-juana-2026.jpg')
     ],
