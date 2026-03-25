@@ -257,6 +257,12 @@
   display: flex;
   white-space: nowrap;
   animation: marquee 20s linear infinite;
+  will-change: transform;
+}
+
+.marquee-content {
+  display: flex;
+  flex-shrink: 0;
 }
 
 .marquee-track span {

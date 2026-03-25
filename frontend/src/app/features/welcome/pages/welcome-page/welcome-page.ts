@@ -13,7 +13,6 @@ import { SeoService } from '../../../../shared/seo.service';
     CommonModule,
     RouterModule,
     LucideAngularModule,
-    MenuFinSemana
   ],
   templateUrl: './welcome-page.html',
   styleUrls: ['./welcome-page.scss']
