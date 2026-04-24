@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//mnt/c/Users/earev/PycharmProjects/casino/frontend/src/assets/**)",
+      "Bash(mkdir -p Bebas_Neue Barrio Rubik)",
+      "Bash(curl -sL \"https://fonts.google.com/download?family=Bebas+Neue\" -o /tmp/bebas.zip)",
+      "Bash(curl -sL \"https://fonts.google.com/download?family=Barrio\" -o /tmp/barrio.zip)",
+      "Bash(curl -sL \"https://fonts.google.com/download?family=Rubik\" -o /tmp/rubik.zip)",
+      "Bash(FONTS_DIR=\"C:/Users/earev/PycharmProjects/casino/frontend/src/assets/fonts\")",
+      "Bash(mkdir -p \"$FONTS_DIR/Bebas_Neue\" \"$FONTS_DIR/Barrio\" \"$FONTS_DIR/Rubik\")",
+      "Read(//tmp/**)",
+      "Bash(__NEW_LINE_e909f9a9e56e5270__:*)",
+      "Bash(__NEW_LINE_4f372517d47e3093__:*)",
+      "Bash(mv:*)"
+    ]
+  }
+}

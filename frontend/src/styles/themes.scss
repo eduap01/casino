@@ -207,3 +207,74 @@
 }
 
 
+/* ---------- Tema Birrafest (punk/rock · neón) ---------- */
+.theme-birrafest {
+  --font-main:    'Rubik', sans-serif;
+  --font-heading: 'Bebas Neue', sans-serif;
+  --font-alt:     'Barrio', cursive;
+
+  /* Fondos: negro puro con tinte morado muy sutil */
+  --color-bg:          #0A0A0A;
+  --color-bg-alt:      #0F0A15;
+  --color-bg-gradient: linear-gradient(180deg, #0A0A0A 0%, #130820 50%, #0A0A0A 100%);
+  --color-bg-hover:    #1C0E2A;
+
+  /* Tarjetas: borde con tinte magenta */
+  --color-card-bg:     #0D0A12;
+  --color-card-border: #2E1445;
+
+  /* Paleta principal: magenta predomina */
+  --color-primary:   #CC2EFA;
+  --color-secondary: #39FF14;
+  --color-tertiary:  #00CFFF;
+
+  /* Accent = magenta */
+  --color-accent:             #CC2EFA;
+  --color-accent-soft:        #8B1FBF;
+  --color-accent-transparent: rgba(204, 46, 250, 0.18);
+
+  /* Texto */
+  --color-text:       #F0EAD6;
+  --color-text-muted: #9A88B0;
+  --color-heading:    #CC2EFA;
+
+  /* Links: verde neón sobre negro contrasta bien */
+  --color-link:       #39FF14;
+  --color-link-hover: #F5E642;
+
+  /* Utilidades */
+  --color-highlight-bg: rgba(204, 46, 250, 0.12);
+  --color-shadow:       rgba(204, 46, 250, 0.4);
+
+  --color-transparent: transparent;
+
+  /* Extras exclusivos del tema Birrafest */
+  --color-neon-green:    #39FF14;
+  --color-neon-green-dk: #2ABF0E;
+  --color-magenta:       #CC2EFA;
+  --color-magenta-dk:    #8B1FBF;
+  --color-amber:         #FF6B00;
+}
+
+/* Personalización de botones para Birrafest */
+.theme-birrafest {
+  .btn-thematic {
+    background-color: var(--color-secondary);
+    border-color: var(--color-primary);
+    color: var(--color-text);
+    text-shadow: 0 0 3px var(--color-primary), 0 1px 2px var(--color-primary);
+    font-family: var(--font-heading);
+
+    svg {
+      filter: drop-shadow(0 0 3px var(--color-primary)) drop-shadow(0 1px 2px var(--color-primary));
+    }
+
+    &:hover {
+      background-color: var(--color-primary);
+      color: var(--color-bg);
+      box-shadow: 0 0 15px var(--color-secondary);
+    }
+  }
+}
+
+

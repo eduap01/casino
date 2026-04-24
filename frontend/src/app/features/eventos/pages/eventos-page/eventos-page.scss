@@ -51,4 +51,12 @@
   max-width: 250px;
 }
 
+:host ::ng-deep header h2 {
+  text-shadow: 0 0 3px var(--color-primary), 0 1px 2px var(--color-primary);
+}
+
+:host ::ng-deep .evento-item p {
+  text-shadow: 0 0 3px var(--color-primary), 0 1px 2px var(--color-primary);
+}
+
 

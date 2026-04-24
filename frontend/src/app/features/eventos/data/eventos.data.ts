@@ -33,7 +33,7 @@ export const EVENTOS: Evento[] = [
       { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
     ],
     activo: true,
-    visibleEn: ['tv']
+    visibleEn: []
   },
   {
     id: 100,
@@ -156,13 +156,14 @@ Precio: 19,90€
   {
   id: 90,
   titulo: 'BIRRAFEST',
-  descripcion: '¡Vuelve el festival Birrafest por su especial 10º aniversario!',
-  texto: ` ¡Permaneced antentos a novedades inminentes!
-
+  descripcion: '¡Vuelve el festival Birrafest!',
+  texto: ` ¡Birrafest celebra su X Aniversario!
+Los días 29, 30 y 31 de mayo, la Plaza España se llena de música en directo con King Sapo, Varonas, Mr. Wolf & The Blues Freaks, Eyelet, Los Polipós y mucho más.
+Entrada gratuita. ¡No te lo pierdas!
   `,
   fechas: ['2026-05-29', '2026-05-30', '2026-05-31'],
   imagen: [
-    media('eventos/Birrafest_2026.png')
+    media('eventos/Birrafest_2026.jpg')
   ],
   enlaces: [
     { nombre: 'Instagram', url: 'https://www.instagram.com/casinorockbar/' },

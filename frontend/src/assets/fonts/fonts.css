@@ -88,3 +88,31 @@
   src: url('/assets/fonts/Cinzel/static/Cinzel-Black.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url('/assets/fonts/Bebas_Neue/BebasNeue-Regular.woff') format('woff');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Barrio';
+  src: url('/assets/fonts/Barrio/Barrio-Regular.woff') format('woff');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('/assets/fonts/Rubik/Rubik-Regular.woff') format('woff');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('/assets/fonts/Rubik/Rubik-Bold.woff') format('woff');
+  font-weight: 700;
+  font-display: swap;
+}
+
