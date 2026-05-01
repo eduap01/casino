@@ -33,7 +33,7 @@ export const EVENTOS: Evento[] = [
       { nombre: 'Facebook', url: 'https://www.facebook.com/casinorockbar/' }
     ],
     activo: true,
-    visibleEn: []
+    visibleEn: ['tv']
   },
   {
     id: 100,
