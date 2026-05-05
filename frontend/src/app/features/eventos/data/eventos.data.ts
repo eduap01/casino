@@ -1,7 +1,7 @@
 // src/app/features/eventos/data/eventos.data.ts
 
 export interface Evento {
-  id: number;
+  id: string | number;
   titulo: string;
   descripcion?: string;
   fechas: string[];

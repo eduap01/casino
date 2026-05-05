@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule, Router } from '@angular/router';
 
 import { EVENTOS } from '../../data/eventos.data';
+import { EventosService } from '../../services/eventos.service';
 import { LucideAngularModule } from 'lucide-angular';
 import { SeoService } from '../../../../shared/seo.service';
 
@@ -14,7 +15,7 @@ import { SeoService } from '../../../../shared/seo.service';
   styleUrls: ['./evento-detalle-page.scss']
 })
 export class EventoDetallePage implements OnInit {
-  id!: number;
+  id!: string;
   evento: any;
 
   currentImage = 0;
@@ -22,16 +23,33 @@ export class EventoDetallePage implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
+    private eventosService: EventosService,
     private seo: SeoService
-  ) {
-    this.id = Number(this.route.snapshot.paramMap.get('id'));
-    this.evento = EVENTOS.find((e: any) => e.id === this.id);
-    if (!this.evento) this.router.navigate(['/en-construccion']);
-  }
+  ) {}
 
   ngOnInit(): void {
-    if (!this.evento) return;
+    this.id = this.route.snapshot.paramMap.get('id') ?? '';
 
+    // Buscar primero en datos estáticos
+    const staticEvento = EVENTOS.find(e => String(e.id) === this.id);
+    if (staticEvento) {
+      this.evento = staticEvento;
+      this.applySeo();
+      return;
+    }
+
+    // Si no está en estáticos, buscar en la API
+    this.eventosService.getEventoById(this.id).subscribe(evento => {
+      if (!evento || !evento.activo) {
+        this.router.navigate(['/en-construccion']);
+        return;
+      }
+      this.evento = evento;
+      this.applySeo();
+    });
+  }
+
+  private applySeo(): void {
     const titulo = (this.evento?.titulo ?? 'Evento').toString().trim();
     const descripcion = (this.evento?.descripcion ?? '').toString().trim();
 

@@ -11,7 +11,7 @@ import { RouterModule, Router } from '@angular/router';
 })
 export class EventoItem {
   @Input() titulo?: string;
-  @Input() id!: number;
+  @Input() id!: string | number;
   @Input() descripcion?: string;
   @Input() fechas?: string[] | null = [];
   @Input() imagen?: string[];

@@ -4,6 +4,7 @@ import { EventoItem } from '../../components/evento-item/evento-item';
 import { RouterModule } from '@angular/router';
 
 import { EVENTOS, Evento } from '../../data/eventos.data';
+import { EventosService } from '../../services/eventos.service';
 import { SeoService } from '../../../../shared/seo.service';
 
 @Component({
@@ -15,11 +16,12 @@ import { SeoService } from '../../../../shared/seo.service';
 })
 export class EventosPage implements OnInit {
 
-  eventos: Evento[] = [...EVENTOS]
-    .filter((e) => e.activo !== false && e.visibleEn.includes('web'))
-    .sort((a, b) => b.id - a.id);
+  eventos: Evento[] = [];
 
-  constructor(private seo: SeoService) {}
+  constructor(
+    private eventosService: EventosService,
+    private seo: SeoService
+  ) {}
 
   ngOnInit(): void {
     this.seo.setSeo({
@@ -29,6 +31,21 @@ export class EventosPage implements OnInit {
       canonical: 'https://casinorockbar.com/eventos',
       ogImage: 'https://casinorockbar.com/media/logoCasino.png',
       robots: 'index, follow'
+    });
+
+    this.eventosService.getEventos().subscribe(apiEventos => {
+      const apiIds = new Set(apiEventos.map(e => String(e.id)));
+      const staticEventos = EVENTOS.filter(e => !apiIds.has(String(e.id)));
+      this.eventos = [...apiEventos, ...staticEventos]
+        .filter(e => e.activo !== false && e.visibleEn.includes('web'))
+        .sort((a, b) => {
+          const aIsUUID = typeof a.id === 'string' && isNaN(Number(a.id));
+          const bIsUUID = typeof b.id === 'string' && isNaN(Number(b.id));
+          if (aIsUUID && !bIsUUID) return -1;
+          if (!aIsUUID && bIsUUID) return 1;
+          if (!aIsUUID && !bIsUUID) return (b.id as number) - (a.id as number);
+          return 0;
+        });
     });
   }
 }

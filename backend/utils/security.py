@@ -9,11 +9,12 @@ async def add_security_headers(request: Request, call_next):
   response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains"
   return response
 
-# Limitar tamaño de las peticiones
+# Limitar tamaño de las peticiones (excluye uploads multipart que validan su propio tamaño)
 async def limit_request_size(request: Request, call_next):
+  if request.url.path.startswith("/api/media/"):
+    return await call_next(request)
   body = await request.body()
   if len(body) > 1_000_000:  # 1 MB
     raise HTTPException(status_code=413, detail="Petición demasiado grande.")
-  # FastAPI volverá a leer el body internamente sin problema en la práctica
   response = await call_next(request)
   return response

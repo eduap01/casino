@@ -11,7 +11,16 @@
       "Read(//tmp/**)",
       "Bash(__NEW_LINE_e909f9a9e56e5270__:*)",
       "Bash(__NEW_LINE_4f372517d47e3093__:*)",
-      "Bash(mv:*)"
+      "Bash(mv:*)",
+      "Read(//mnt/c/Users/earev/PycharmProjects/**)",
+      "Bash(.venv/Scripts/python -m uvicorn backend.main:app --reload --port 8000)",
+      "Bash(uvicorn backend.main:app:*)",
+      "Bash(npm start:*)",
+      "Bash(python:*)",
+      "Bash(.venv/Scripts/uvicorn backend.main:app:*)",
+      "Bash(.venv/Scripts/pip install:*)",
+      "Bash(.venv/Scripts/python.exe:*)",
+      "Bash(ssh:*)"
     ]
   }
 }
