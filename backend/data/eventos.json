@@ -1,0 +1,41 @@
+[
+  {
+    "titulo": "Evento de prueba2",
+    "descripcion": "prueba",
+    "fechas": [
+      "2026-05-22"
+    ],
+    "imagen": [],
+    "texto": "prueba",
+    "enlace": "",
+    "enlaces": [],
+    "activo": true,
+    "visibleEn": [
+      "web",
+      "tv"
+    ],
+    "id": "fe85488c-e9f8-4f97-81b7-e1129501adcd"
+  },
+  {
+    "titulo": "hola hola",
+    "descripcion": "aaa",
+    "fechas": [
+      "2026-05-27",
+      "2026-05-29",
+      "2026-05-30",
+      "2026-05-31"
+    ],
+    "imagen": [
+      "https://casinorockbar.com/media/eventos/058f5bb4a5094634bf977ffeb3533f10.png"
+    ],
+    "texto": "",
+    "enlace": "",
+    "enlaces": [],
+    "activo": true,
+    "visibleEn": [
+      "web",
+      "tv"
+    ],
+    "id": "23669caf-b4ca-49a4-abaf-d2b5a6a60014"
+  }
+]
