@@ -6,10 +6,16 @@ import { Compartir } from '../../components/compartir/compartir';
 import { Ensaladas } from '../../components/ensaladas/ensaladas';
 import { Zipotes } from '../../components/zipotes/zipotes';
 import { Molletes } from '../../components/molletes/molletes';
+import { Tostas } from '../../components/tostas/tostas';
 import { Sandwiches } from '../../components/sandwiches/sandwiches';
 import { Hamburguesas } from '../../components/hamburguesas/hamburguesas';
+import { Perritos } from '../../components/perritos/perritos';
 import { Cafes } from '../../components/cafes/cafes';
 import { Postres } from '../../components/postres/postres';
+import { Helados } from '../../components/helados/helados';
+import { Batidos } from '../../components/batidos/batidos';
+import { Cocteles } from '../../components/cocteles/cocteles';
+// Secciones inactivas (conservadas para uso futuro)
 import { Cervezas } from '../../components/cervezas/cervezas';
 import { Arroces } from '../../components/arroces/arroces';
 import { Pizzas } from '../../components/pizzas/pizzas';
@@ -27,23 +33,28 @@ import { LucideAngularModule, Handshake, Salad, Sandwich, Hamburger, Coffee, Piz
     CommonModule,
     RouterModule,
 
-    // Componentes de la carta
+    // Componentes activos de la carta
     Compartir,
     Ensaladas,
     Zipotes,
     Molletes,
+    Tostas,
     Sandwiches,
     Hamburguesas,
+    Perritos,
     Cafes,
     Postres,
-    Cervezas,
-    Arroces,
-    Pizzas,
+    Helados,
+    Batidos,
+    Cocteles,
     HeaderMini,
     BackToTop,
     LucideAngularModule,
 
-    // Iconos Lucide
+    // Componentes inactivos (conservados para uso futuro)
+    Cervezas,
+    Arroces,
+    Pizzas,
   ],
   templateUrl: './carta-page.html',
   styleUrl: './carta-page.scss'

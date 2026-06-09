@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { PlatoItem } from '../plato-item/plato-item';
+import { LucideAngularModule } from 'lucide-angular';
 
 @Component({
   selector: 'app-helados',
-  imports: [],
+  standalone: true,
+  imports: [LucideAngularModule],
   templateUrl: './helados.html',
   styleUrl: './helados.scss'
 })
