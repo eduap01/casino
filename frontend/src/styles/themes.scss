@@ -207,6 +207,70 @@
 }
 
 
+/* ---------- Tema Verano (playa · tropical · sol) ---------- */
+.theme-verano {
+  --font-main:    'Nunito', sans-serif;
+  --font-heading: 'Pacifico', cursive;
+
+  /* Fondos: océano profundo con gradiente cálido */
+  --color-bg:          #071E2F;
+  --color-bg-alt:      #0C2D42;
+  --color-bg-gradient: linear-gradient(
+    180deg,
+    #0C3352 0%,
+    #071E2F 25%,
+    #0A2416 50%,
+    #071E2F 75%,
+    #0C3352 100%
+  );
+  --color-bg-hover:    #0F3050;
+
+  /* Tarjetas */
+  --color-card-bg:     #0A2238;
+  --color-card-border: #1A5070;
+
+  /* Paleta principal */
+  --color-primary:   #00C9B1;   /* turquesa tropical */
+  --color-secondary: #FF6B6B;   /* coral veraniego */
+  --color-tertiary:  #FFD166;   /* amarillo sol */
+
+  /* Accent = sol amarillo */
+  --color-accent:             #FFD166;
+  --color-accent-soft:        #FFE8A3;
+  --color-accent-transparent: rgba(255, 209, 102, 0.2);
+
+  /* Texto */
+  --color-text:       #F0F8FF;
+  --color-text-muted: #94C8DE;
+  --color-heading:    #FFD166;
+
+  /* Links: turquesa */
+  --color-link:       #00C9B1;
+  --color-link-hover: #4DE8D5;
+
+  /* Utilidades */
+  --color-highlight-bg: rgba(0, 201, 177, 0.12);
+  --color-shadow:       rgba(255, 107, 107, 0.35);
+
+  --color-transparent: transparent;
+}
+
+/* Personalización de botones para Verano */
+.theme-verano {
+  .btn-thematic {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    background-color: rgba(0, 201, 177, 0.08);
+
+    &:hover {
+      background-color: var(--color-primary);
+      color: var(--color-bg);
+      box-shadow: 0 0 16px var(--color-primary);
+    }
+  }
+}
+
+
 /* ---------- Tema Birrafest (punk/rock · neón) ---------- */
 .theme-birrafest {
   --font-main:    'Rubik', sans-serif;

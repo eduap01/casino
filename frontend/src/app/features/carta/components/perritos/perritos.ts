@@ -3,12 +3,12 @@ import { PlatoItem } from '../plato-item/plato-item';
 import { LucideAngularModule } from 'lucide-angular';
 
 @Component({
-  selector: 'app-batidos',
+  selector: 'app-perritos',
   standalone: true,
   imports: [PlatoItem, LucideAngularModule],
-  templateUrl: './batidos.html',
-  styleUrl: './batidos.scss'
+  templateUrl: './perritos.html',
+  styleUrl: './perritos.scss'
 })
-export class Batidos {
+export class Perritos {
 
 }

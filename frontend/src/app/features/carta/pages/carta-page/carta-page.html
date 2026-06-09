@@ -19,31 +19,34 @@
   <button class="btn btn-thematic m-1" (click)="scrollTo('molletes')">
     <lucide-icon name="hamburger" class="icon"></lucide-icon> Molletes
   </button>
-  <button class="btn btn-thematic m-1" (click)="scrollTo('sandwiches')">
-    <lucide-icon name="sandwich" class="icon"></lucide-icon> Sándwiches
+  <button class="btn btn-thematic m-1" (click)="scrollTo('tostas')">
+    <lucide-icon name="sandwich" class="icon"></lucide-icon> Tostas
   </button>
   <button class="btn btn-thematic m-1" (click)="scrollTo('hamburguesas')">
     <lucide-icon name="hamburger" class="icon"></lucide-icon> Hamburguesas
   </button>
-  <button class="btn btn-thematic m-1" (click)="scrollTo('cafes')">
-    <lucide-icon name="coffee" class="icon"></lucide-icon> Cafés
+  <button class="btn btn-thematic m-1" (click)="scrollTo('sandwiches')">
+    <lucide-icon name="sandwich" class="icon"></lucide-icon> Sándwiches
   </button>
-  <button class="btn btn-thematic m-1" (click)="scrollTo('pizzas')">
-    <lucide-icon name="pizza" class="icon"></lucide-icon> Pizzas
+  <button class="btn btn-thematic m-1" (click)="scrollTo('perritos')">
+    <lucide-icon name="sandwich" class="icon"></lucide-icon> Perritos
   </button>
   <button class="btn btn-thematic m-1" (click)="scrollTo('postres')">
     <lucide-icon name="cake-slice" class="icon"></lucide-icon> Postres
   </button>
-  <button class="btn btn-thematic m-1" (click)="scrollTo('cervezas')">
-    <lucide-icon name="beer" class="icon"></lucide-icon> Cervezas
+  <button class="btn btn-thematic m-1" (click)="scrollTo('helados')">
+    <lucide-icon name="ice-cream-bowl" class="icon"></lucide-icon> Helados
   </button>
-  <button class="btn btn-thematic m-1" (click)="scrollTo('arroces')">
-    <lucide-icon name="utensils" class="icon"></lucide-icon> Arroces
+  <button class="btn btn-thematic m-1" (click)="scrollTo('batidos')">
+    <lucide-icon name="cup-soda" class="icon"></lucide-icon> Batidos
+  </button>
+  <button class="btn btn-thematic m-1" (click)="scrollTo('cocteles')">
+    <lucide-icon name="wine" class="icon"></lucide-icon> Cócteles
+  </button>
+  <button class="btn btn-thematic m-1" (click)="scrollTo('cafes')">
+    <lucide-icon name="coffee" class="icon"></lucide-icon> Cafés
   </button>
 </div>
-
-
-
 
 
 <section id="compartir">
@@ -62,24 +65,48 @@
   <app-molletes></app-molletes>
 </section>
 
-<section id="sandwiches">
-  <app-sandwiches></app-sandwiches>
+<section id="tostas">
+  <app-tostas></app-tostas>
 </section>
 
 <section id="hamburguesas">
   <app-hamburguesas></app-hamburguesas>
 </section>
 
-<section id="pizzas">
-  <app-pizzas></app-pizzas>
+<section id="sandwiches">
+  <app-sandwiches></app-sandwiches>
 </section>
 
-<section id="cafes">
-  <app-cafes></app-cafes>
+<section id="perritos">
+  <app-perritos></app-perritos>
 </section>
 
 <section id="postres">
   <app-postres></app-postres>
+</section>
+
+<!--
+<section id="helados">
+  <app-helados></app-helados>
+</section>
+-->
+
+<section id="batidos">
+  <app-batidos></app-batidos>
+</section>
+
+<section id="cocteles">
+  <app-cocteles></app-cocteles>
+</section>
+
+<section id="cafes" class="mb-5">
+  <app-cafes></app-cafes>
+</section>
+
+<!-- SECCIONES INACTIVAS (conservadas para uso futuro) -->
+<!--
+<section id="pizzas">
+  <app-pizzas></app-pizzas>
 </section>
 
 <section id="cervezas">
@@ -89,22 +116,7 @@
 <section id="arroces">
   <app-arroces></app-arroces>
 </section>
-
-<!-- DE MOMENTO NO SE UTILIZARÁN -->
-<!--
-<section id="helados">
-  <app-helados></app-helados>
-</section>
-
-<section id="batidos">
-  <app-batidos></app-batidos>
-</section>
-
-<section id="bebidas">
-  <app-bebidas></app-bebidas>
-</section>
 -->
 
+
 <app-back-to-top></app-back-to-top>
-
-

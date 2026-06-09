@@ -44,6 +44,6 @@ export class App {
 
   ngOnInit() {
     // Tema global
-    document.body.classList.add('theme-birrafest');
+    document.body.classList.add('theme-verano');
   }
 }
