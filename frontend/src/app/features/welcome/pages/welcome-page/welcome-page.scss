@@ -83,20 +83,13 @@
     white-space: nowrap;
     margin: 0;
     line-height: 0.9;
+    text-shadow: 1px 1px 2px var(--color-bg), -1px -1px 2px var(--color-bg), 1px -1px 2px var(--color-bg), -1px 1px 2px var(--color-bg);
   }
 
-  .l1 { transform: translateX(2vw);
-        text-shadow: 1px 1px 2px var(--color-bg), -1px -1px 2px var(--color-bg), 1px -1px 2px var(--color-bg), -1px 1px 2px var(--color-bg); }
-  .l2 { transform: translateX(31vw); margin-top: 1vh;
-        text-shadow: 1px 1px 2px var(--color-bg), -1px -1px 2px var(--color-bg), 1px -1px 2px var(--color-bg), -1px 1px 2px var(--color-bg); }
-  .l3 { transform: translateX(20vw); margin-top: 1vh;
-        text-shadow: 1px 1px 2px var(--color-bg), -1px -1px 2px var(--color-bg), 1px -1px 2px var(--color-bg), -1px 1px 2px var(--color-bg);
-    span { color: var(--color-text); }
-  }
-  .l4 { transform: translateX(46vw); margin-top: 1vh;
-    text-shadow: 1px 1px 2px var(--color-bg), -1px -1px 2px var(--color-bg), 1px -1px 2px var(--color-bg), -1px 1px 2px var(--color-bg);
-    span { color: var(--color-text); }
-  }
+  .l1 { transform: translateX(2vw); }
+  .l2 { transform: translateX(31vw); margin-top: 1vh; }
+  .l3 { transform: translateX(20vw); margin-top: 1vh; span { color: var(--color-text); } }
+  .l4 { transform: translateX(46vw); margin-top: 1vh; span { color: var(--color-text); } }
 }
 
 .cta-group {
