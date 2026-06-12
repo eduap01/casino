@@ -282,7 +282,7 @@
    RESPONSIVE: TABLETS (≤ 1200px)
    ============================================================ */
 
-@media (max-width: 1200px) {
+@media (max-width: 1279px) {
 
   .side-img.left, .side-img.right { width: 32vw; }
   .side-img.center { width: 48vw; }
@@ -338,15 +338,16 @@
   /* Texto */
   .hero-text {
     padding-top: 14vh;
-    padding-left: 5vw;
+    padding-left: 3vw;
   }
 
   .hero-text .line {
-    font-size: clamp(1.8rem, 10vw, 3.4rem);
+    font-size: clamp(1.5rem, 8vw, 2.8rem);
   }
 
-  .l2 { transform: translateX(5vw); }
+  .l2 { transform: translateX(2vw); }
   .l3 { transform: translateX(10vw); }
+  .l4 { transform: translateX(24vw); }
 
   /* Botones */
   .cta-group { margin-top: 3rem; gap: .8rem; }
@@ -360,6 +361,34 @@
 }
 
 
+
+
+/* ============================================================
+   RESPONSIVE: TABLETS PORTRAIT (601px – 900px)
+   ============================================================ */
+
+@media (min-width: 601px) and (max-width: 900px) and (orientation: portrait) {
+
+  /* Imagen izquierda oculta — interfiere con el texto */
+  .side-img.left { display: none; }
+  .side-img.center { width: 52vw; top: 44%; }
+  .side-img.right  { width: 38vw; top: 62%; right: 4vw; }
+
+  .hero-text {
+    padding-top: 14vh;
+    padding-left: 6vw;
+  }
+
+  /* Ajuste de offsets para este ancho intermedio */
+  .hero-text .l2 { transform: translateX(22vw); }
+  .hero-text .l3 { transform: translateX(13vw); }
+  .hero-text .l4 { transform: translateX(36vw); }
+
+  .cta-group {
+    margin-top: 2.5rem;
+    padding-left: 6vw;
+  }
+}
 
 
 /* ============================================================
@@ -385,17 +414,13 @@
     top: 50%;
     opacity: .90;
   }
-  .side-img.right { display: none; }
-
-    .side-img.right {
-    display: block !important;
+  .side-img.right {
+    display: block;
     width: 26vw;
     max-width: 260px;
-
     right: 2vw;
     top: 55%;
     transform: translateY(-50%) rotate(1deg);
-
     filter: blur(0.5px) brightness(0.90);
     opacity: 0.90;
     z-index: 1;
@@ -484,17 +509,18 @@
 
   /* --- Slogan --- */
   .hero-text {
-    padding-top: 10vh;    /* subimos el slogan */
-    padding-left: 6vw;
+    padding-top: 10vh;
+    padding-left: 3vw;
   }
 
   .hero-text .line {
-    font-size: clamp(2.2rem, 11vw, 3.8rem);  /* más grande */
-    line-height: 1.12;                      /* más aire */
+    font-size: clamp(1.5rem, 8vw, 2.8rem);
+    line-height: 1.12;
   }
 
-  .l2 { transform: translateX(6vw); }
+  .l2 { transform: translateX(2vw); }
   .l3 { transform: translateX(12vw); }
+  .l4 { transform: translateX(24vw); }
 
   /* --- Botones --- */
   .cta-group {
