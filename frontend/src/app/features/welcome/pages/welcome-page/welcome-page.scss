@@ -1,6 +1,3 @@
-/* ============================================================
-   RESETEO DEL LAYOUT PARA ANGULAR
-   ============================================================ */
 :host ::ng-deep section.welcome-page {
   max-width: none !important;
   width: 100%!important;
@@ -9,10 +6,6 @@
   border-bottom: none !important;
 }
 
-
-/* ============================================================
-   CONTENEDOR PRINCIPAL
-   ============================================================ */
 .welcome-page {
   width: 100%;
   height: 100vh;
@@ -29,10 +22,6 @@
   position: relative;
 }
 
-
-/* ============================================================
-   HERO CONTENT (nuevo contenedor para responsive avanzado)
-   ============================================================ */
 .hero-content {
   position: relative;
   z-index: 20;
@@ -40,11 +29,6 @@
   flex-direction: column;
   width: 100%;
 }
-
-
-/* ============================================================
-   IMÁGENES LATERALES
-   ============================================================ */
 
 .side-img {
   position: absolute;
@@ -84,11 +68,6 @@
   transform: translateY(-50%) rotate(1deg);
 }
 
-
-/* ============================================================
-   TEXTO DEL SLOGAN
-   ============================================================ */
-
 .hero-text {
   position: relative;
   width: 100%;
@@ -107,39 +86,18 @@
   }
 
   .l1 { transform: translateX(2vw);
-        text-shadow:
-      1px 1px 2px var(--color-bg),
-     -1px -1px 2px var(--color-bg),
-      1px -1px 2px var(--color-bg),
-     -1px  1px 2px var(--color-bg);}
+        text-shadow: 1px 1px 2px var(--color-bg), -1px -1px 2px var(--color-bg), 1px -1px 2px var(--color-bg), -1px 1px 2px var(--color-bg); }
   .l2 { transform: translateX(31vw); margin-top: 1vh;
-        text-shadow:
-      1px 1px 2px var(--color-bg),
-     -1px -1px 2px var(--color-bg),
-      1px -1px 2px var(--color-bg),
-     -1px  1px 2px var(--color-bg);}
+        text-shadow: 1px 1px 2px var(--color-bg), -1px -1px 2px var(--color-bg), 1px -1px 2px var(--color-bg), -1px 1px 2px var(--color-bg); }
   .l3 { transform: translateX(20vw); margin-top: 1vh;
-        text-shadow:
-      1px 1px 2px var(--color-bg),
-     -1px -1px 2px var(--color-bg),
-      1px -1px 2px var(--color-bg),
-     -1px  1px 2px var(--color-bg);
+        text-shadow: 1px 1px 2px var(--color-bg), -1px -1px 2px var(--color-bg), 1px -1px 2px var(--color-bg), -1px 1px 2px var(--color-bg);
     span { color: var(--color-text); }
   }
   .l4 { transform: translateX(46vw); margin-top: 1vh;
-    text-shadow:
-      1px 1px 2px var(--color-bg),
-     -1px -1px 2px var(--color-bg),
-      1px -1px 2px var(--color-bg),
-     -1px  1px 2px var(--color-bg);
+    text-shadow: 1px 1px 2px var(--color-bg), -1px -1px 2px var(--color-bg), 1px -1px 2px var(--color-bg), -1px 1px 2px var(--color-bg);
     span { color: var(--color-text); }
   }
 }
-
-
-/* ============================================================
-   BOTONES CTA
-   ============================================================ */
 
 .cta-group {
   display: flex;
@@ -171,11 +129,6 @@
   transform: translateX(6px);
 }
 
-
-/* ============================================================
-   TOP BAR
-   ============================================================ */
-
 .top-bar {
   backdrop-filter: blur(6px);
   width: 100%;
@@ -193,8 +146,6 @@
 .top-bar .brand img {
   height: 55px;
 }
-
-/* ================= ICONOS REDES SOCIALES ================= */
 
 .top-bar .icons {
   display: flex;
@@ -214,9 +165,7 @@
   height: 32px;
   color: var(--color-link);
 
-  path,
-  rect,
-  circle {
+  path, rect, circle {
     fill: currentColor !important;
     stroke: none !important;
   }
@@ -224,21 +173,14 @@
   transition: color .25s ease, transform .25s ease;
 }
 
-/* Igualar tamaño visual del icono de Instagram */
 .rrss-icon.instagram {
   transform: scale(1.15);
 }
 
-/* Hover elegante */
 .top-bar .icons a:hover .rrss-icon {
   color: var(--color-primary);
   transform: scale(1.18);
 }
-
-
-/* ============================================================
-   MARQUESINA
-   ============================================================ */
 
 .marquee {
   position: absolute;
@@ -277,392 +219,6 @@
   to { transform: translateX(-50%); }
 }
 
-
-/* ============================================================
-   RESPONSIVE: TABLETS (≤ 1200px)
-   ============================================================ */
-
-@media (max-width: 1279px) {
-
-  .side-img.left, .side-img.right { width: 32vw; }
-  .side-img.center { width: 48vw; }
-  .rrss-icon { width: 24px; height: 24px; }
-
-  .hero-text .line {
-    font-size: clamp(2.5rem, 8vw, 7rem);
-  }
-
-  .cta-main {
-    font-size: 1.2rem;
-    padding: 1rem 2.8rem;
-  }
-}
-
-@media (min-width: 600px) and (orientation: landscape) {
-
-  .cta-group {
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 1.2rem;
-    margin-top: 2rem;
-    padding-left: 6vw;
-  }
-
-  .cta-main {
-    font-size: 1.2rem;
-    padding: 1rem 2.6rem;
-    border-radius: 15px;
-    white-space: nowrap;
-  }
-}
-
-
-
-/* ============================================================
-   RESPONSIVE: MÓVILES (≤ 600px)
-   ============================================================ */
-
-@media (max-width: 600px) and (orientation: portrait) {
-
-  /* Topbar */
-  .top-bar { height: 60px; padding: 0 3vw; }
-  .top-bar .brand img { height: 40px; }
-  .rrss-icon { width: 18px; height: 18px; }
-
-  /* Imágenes */
-  .side-img.left { display: none; }
-  .side-img.right { width: 42vw; top: 65%; right:10%; opacity: .90; }
-  .side-img.center { width: 72vw; top: 32%; opacity: .90; }
-
-  /* Texto */
-  .hero-text {
-    padding-top: 14vh;
-    padding-left: 3vw;
-  }
-
-  .hero-text .line {
-    font-size: clamp(1.5rem, 8vw, 2.8rem);
-  }
-
-  .l2 { transform: translateX(2vw); }
-  .l3 { transform: translateX(10vw); }
-  .l4 { transform: translateX(24vw); }
-
-  /* Botones */
-  .cta-group { margin-top: 3rem; gap: .8rem; }
-  .cta-main { font-size: 1rem; padding: .9rem 2.2rem; border-radius: 15px; }
-
-  .top-bar .icons {
-    padding-right: 0.5rem;
-    gap: 1rem;
-  }
-
-}
-
-
-
-
-/* ============================================================
-   RESPONSIVE: TABLETS PORTRAIT (601px – 900px)
-   ============================================================ */
-
-@media (min-width: 601px) and (max-width: 900px) and (orientation: portrait) {
-
-  /* Imagen izquierda oculta — interfiere con el texto */
-  .side-img.left { display: none; }
-  .side-img.center { width: 52vw; top: 44%; }
-  .side-img.right  { width: 38vw; top: 62%; right: 4vw; }
-
-  .hero-text {
-    padding-top: 14vh;
-    padding-left: 6vw;
-  }
-
-  /* Ajuste de offsets para este ancho intermedio */
-  .hero-text .l2 { transform: translateX(22vw); }
-  .hero-text .l3 { transform: translateX(13vw); }
-  .hero-text .l4 { transform: translateX(36vw); }
-
-  .cta-group {
-    margin-top: 2.5rem;
-    padding-left: 6vw;
-  }
-}
-
-
-/* ============================================================
-    MÓVILES HORIZONTALES (≤ 500px altura) — VERSIÓN CORREGIDA
-   ============================================================ */
-@media (max-height: 500px) and (orientation: landscape) {
-
-  /* Navbar */
-  .top-bar {
-    height: 48px;
-  }
-  .top-bar .brand img { height: 28px; }
-  .rrss-icon { width: 18px; height: 18px; }
-
-  /* IMÁGENES más pequeñas para liberar espacio */
-  .side-img.left {
-    width: 22vw;
-    top: 56%;
-    opacity: .90;
-  }
-  .side-img.center {
-    width: 34vw;
-    top: 50%;
-    opacity: .90;
-  }
-  .side-img.right {
-    display: block;
-    width: 26vw;
-    max-width: 260px;
-    right: 2vw;
-    top: 55%;
-    transform: translateY(-50%) rotate(1deg);
-    filter: blur(0.5px) brightness(0.90);
-    opacity: 0.90;
-    z-index: 1;
-  }
-
-  .hero-text {
-    padding-top: 6vh;
-    padding-left: 4vw;
-  }
-
-  .hero-text .line {
-    font-size: clamp(1.1rem, 5vw, 2rem);
-    line-height: 1.05;
-  }
-
-
-  .hero-text .l1 {
-    transform: translateX(1em) !important;
-  }
-
-  .hero-text .l2 {
-    transform: translateX(9.2em) !important;
-  }
-
-  .hero-text .l3 {
-    transform: translateX(4.4em) !important;
-  }
-
-  .hero-text .l4 {
-    transform: translateX(15.4em) !important;
-  }
-
-  /* CTA — ahora sí horizontales */
-  .cta-group {
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    gap: .7rem;
-    margin-top: 1rem;
-    padding-left: 4vw;
-  }
-
-  .cta-main {
-    font-size: .8rem;
-    padding: .6rem 1.2rem;
-    border-radius: 15px;
-    white-space: nowrap;
-  }
-
-  /* Marquesina más fina */
-  .marquee {
-    height: 26px;
-  }
-
-  .marquee-track span {
-    font-size: .75rem;
-  }
-}
-
-/* ============================================================
-    MÓVILES ALTOS (iPhone 12/13/14/15, Pixel, Samsung)
-   Mejor composición + imágenes más grandes + slogan más presente
-   ============================================================ */
-
-@media (max-width: 600px) and (min-height: 750px) and (orientation: portrait) {
-
-  /* --- Imágenes --- */
-  .side-img.center {
-    width: 85vw;          /* más grande */
-    top: 36%;             /* más centrada verticalmente */
-    filter: blur(0.5px) brightness(0.90);
-    opacity: 0.90;
-  }
-
-  .side-img.right {
-    width: 55vw;          /* antes 42vw → más grande */
-    top: 68%;
-    right: 6%;
-    filter: blur(0.5px) brightness(0.90);
-    opacity: 0.90;
-  }
-
-  .side-img.left {
-    display: none;        /* seguimos ocultándola en móviles */
-  }
-
-  /* --- Slogan --- */
-  .hero-text {
-    padding-top: 10vh;
-    padding-left: 3vw;
-  }
-
-  .hero-text .line {
-    font-size: clamp(1.5rem, 8vw, 2.8rem);
-    line-height: 1.12;
-  }
-
-  .l2 { transform: translateX(2vw); }
-  .l3 { transform: translateX(12vw); }
-  .l4 { transform: translateX(24vw); }
-
-  /* --- Botones --- */
-  .cta-group {
-    margin-top: 2.2rem;  /* más separación del slogan */
-    gap: 1.2rem;
-  }
-
-  .cta-main {
-    font-size: 1.15rem;
-    padding: 1rem 2.4rem;
-    border-radius: 15px;
-  }
-
-  /* --- Marquesina --- */
-  .marquee {
-    height: 32px;
-  }
-}
-
-/* ============================================================
-    ESCRITORIO / PORTÁTILES GRANDES (≥ 1280px)
-   Controlar tamaño de imágenes y composición general
-   ============================================================ */
-
-@media (min-width: 1280px) {
-
-  /* --- IMÁGENES --- */
-  .side-img.center {
-    width: 42vw;          /* antes demasiado grande → reducimos */
-    max-width: 680px;
-    top: 48%;
-    filter: blur(0.5px) brightness(0.90);
-    opacity: 0.90;
-  }
-
-  .side-img.left {
-    width: 28vw;
-    max-width: 480px;
-    top: 52%;
-    opacity: 0.90;
-  }
-
-  .side-img.right {
-    width: 28vw;
-    max-width: 480px;
-    top: 55%;
-    opacity: 0.90;
-  }
-
-  /* --- SLOGAN --- */
-  .hero-text {
-    padding-top: 18vh;    /* más arriba en pantallas grandes */
-    padding-left: 10vw;
-  }
-
-  .hero-text .line {
-    font-size: clamp(3rem, 6vw, 6rem);  /* tamaño más controlado */
-    line-height: 1;
-  }
-
-  .l2 { transform: translateX(6vw); }
-  .l3 { transform: translateX(12vw); }
-
-  /* --- BOTONES --- */
-  .cta-group {
-    margin-top: 2rem;
-    padding-left: 10vw;
-  }
-
-  .cta-main {
-    font-size: 1.2rem;
-    padding: 1rem 3rem;
-  }
-}
-
-/* ============================================================
-   PORTÁTIL COMPACTO / NEST HUB (≈ 1024x600)
-   Problema: poca altura + overflow hidden -> CTA recortados
-   ============================================================ */
-@media (min-width: 900px) and (max-width: 1280px) and (max-height: 720px) and (orientation: landscape) {
-
-  /* Si prefieres NO scroll, comenta overflow-y y ajusta aún más paddings */
-  .welcome-page {
-    overflow-x: hidden;
-    overflow-y: auto; /* evita recortes en alturas bajas */
-  }
-
-  /* Topbar más baja */
-  .top-bar {
-    height: 70px;
-  }
-  .top-bar .brand img {
-    height: 42px;
-  }
-
-  /* Slogan más arriba y un pelín más compacto */
-  .hero-text {
-    padding-top: 10vh;   /* antes 15vh */
-    padding-left: 6vw;   /* un poco menos */
-  }
-
-  .hero-text .line {
-    font-size: clamp(2.2rem, 7vw, 5.2rem);
-    line-height: 0.98;
-  }
-
-  /* Ajusta los desplazamientos para que no “empujen” demasiado en vertical */
-  .hero-text .l2,
-  .hero-text .l3,
-  .hero-text .l4 {
-    margin-top: 0.6vh;
-  }
-
-  /* CTA: menos margen y botón más compacto */
-  .cta-group {
-    margin-top: 1.2rem;   /* antes 3rem */
-    padding-left: 6vw;
-    gap: 0.9rem;
-    flex-direction: row;  /* en portátil suele funcionar mejor */
-    align-items: center;
-    flex-wrap: wrap;      /* por si hay 3+ botones */
-  }
-
-  .cta-main {
-    font-size: 1.05rem;
-    padding: 0.85rem 2.1rem;
-    white-space: nowrap;
-  }
-
-  /* Marquesina un poco más fina para recuperar altura */
-  .marquee {
-    height: 32px; /* antes 40px */
-  }
-  .marquee-track span {
-    font-size: 0.9rem;
-  }
-
-  /* Imágenes: ligeramente más pequeñas para liberar espacio */
-  .side-img.left, .side-img.right { width: 30vw; }
-  .side-img.center { width: 44vw; top: 45%; }
-}
-
 .seo-h1 {
   position: absolute;
   width: 1px;
@@ -675,4 +231,120 @@
   border: 0;
 }
 
+@media (max-width: 1279px) {
+  .side-img.left, .side-img.right { width: 32vw; }
+  .side-img.center { width: 48vw; }
+  .rrss-icon { width: 24px; height: 24px; }
+  .hero-text .line { font-size: clamp(2.5rem, 8vw, 7rem); }
+  .cta-main { font-size: 1.2rem; padding: 1rem 2.8rem; }
+}
 
+@media (min-width: 600px) and (orientation: landscape) {
+  .cta-group {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.2rem;
+    margin-top: 2rem;
+    padding-left: 6vw;
+  }
+  .cta-main { font-size: 1.2rem; padding: 1rem 2.6rem; border-radius: 15px; white-space: nowrap; }
+}
+
+@media (max-width: 600px) and (orientation: portrait) {
+  .top-bar { height: 60px; padding: 0 3vw; }
+  .top-bar .brand img { height: 40px; }
+  .top-bar .icons { padding-right: 0.5rem; gap: 1rem; }
+  .rrss-icon { width: 18px; height: 18px; }
+  .side-img.left { display: none; }
+  .side-img.right { width: 42vw; top: 65%; right: 10%; opacity: .90; }
+  .side-img.center { width: 72vw; top: 32%; opacity: .90; }
+  .hero-text { padding-top: 14vh; padding-left: 3vw; }
+  .hero-text .line { font-size: clamp(1.5rem, 8vw, 2.8rem); }
+  .l2 { transform: translateX(2vw); }
+  .l3 { transform: translateX(10vw); }
+  .l4 { transform: translateX(24vw); }
+  .cta-group { margin-top: 3rem; gap: .8rem; }
+  .cta-main { font-size: 1rem; padding: .9rem 2.2rem; border-radius: 15px; }
+}
+
+@media (min-width: 601px) and (max-width: 900px) and (orientation: portrait) {
+  .side-img.left { display: none; }
+  .side-img.center { width: 52vw; top: 44%; }
+  .side-img.right { width: 38vw; top: 62%; right: 4vw; }
+  .hero-text { padding-top: 14vh; padding-left: 6vw; }
+  .hero-text .l2 { transform: translateX(22vw); }
+  .hero-text .l3 { transform: translateX(13vw); }
+  .hero-text .l4 { transform: translateX(36vw); }
+  .cta-group { margin-top: 2.5rem; padding-left: 6vw; }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .top-bar { height: 48px; }
+  .top-bar .brand img { height: 28px; }
+  .rrss-icon { width: 18px; height: 18px; }
+  .side-img.left { width: 22vw; top: 56%; opacity: .90; }
+  .side-img.center { width: 34vw; top: 50%; opacity: .90; }
+  .side-img.right {
+    display: block;
+    width: 26vw;
+    max-width: 260px;
+    right: 2vw;
+    top: 55%;
+    transform: translateY(-50%) rotate(1deg);
+    filter: blur(0.5px) brightness(0.90);
+    opacity: 0.90;
+    z-index: 1;
+  }
+  .hero-text { padding-top: 6vh; padding-left: 4vw; }
+  .hero-text .line { font-size: clamp(1.1rem, 5vw, 2rem); line-height: 1.05; }
+  .hero-text .l1 { transform: translateX(1em) !important; }
+  .hero-text .l2 { transform: translateX(9.2em) !important; }
+  .hero-text .l3 { transform: translateX(4.4em) !important; }
+  .hero-text .l4 { transform: translateX(15.4em) !important; }
+  .cta-group { flex-direction: row; justify-content: flex-start; align-items: center; gap: .7rem; margin-top: 1rem; padding-left: 4vw; }
+  .cta-main { font-size: .8rem; padding: .6rem 1.2rem; border-radius: 15px; white-space: nowrap; }
+  .marquee { height: 26px; }
+  .marquee-track span { font-size: .75rem; }
+}
+
+@media (max-width: 600px) and (min-height: 750px) and (orientation: portrait) {
+  .side-img.center { width: 85vw; top: 36%; filter: blur(0.5px) brightness(0.90); opacity: 0.90; }
+  .side-img.right { width: 55vw; top: 68%; right: 6%; filter: blur(0.5px) brightness(0.90); opacity: 0.90; }
+  .side-img.left { display: none; }
+  .hero-text { padding-top: 10vh; padding-left: 3vw; }
+  .hero-text .line { font-size: clamp(1.5rem, 8vw, 2.8rem); line-height: 1.12; }
+  .l2 { transform: translateX(2vw); }
+  .l3 { transform: translateX(12vw); }
+  .l4 { transform: translateX(24vw); }
+  .cta-group { margin-top: 2.2rem; gap: 1.2rem; }
+  .cta-main { font-size: 1.15rem; padding: 1rem 2.4rem; border-radius: 15px; }
+  .marquee { height: 32px; }
+}
+
+@media (min-width: 1280px) {
+  .side-img.center { width: 42vw; max-width: 680px; top: 48%; filter: blur(0.5px) brightness(0.90); opacity: 0.90; }
+  .side-img.left { width: 28vw; max-width: 480px; top: 52%; opacity: 0.90; }
+  .side-img.right { width: 28vw; max-width: 480px; top: 55%; opacity: 0.90; }
+  .hero-text { padding-top: 18vh; padding-left: 10vw; }
+  .hero-text .line { font-size: clamp(3rem, 6vw, 6rem); line-height: 1; }
+  .l2 { transform: translateX(6vw); }
+  .l3 { transform: translateX(12vw); }
+  .cta-group { margin-top: 2rem; padding-left: 10vw; }
+  .cta-main { font-size: 1.2rem; padding: 1rem 3rem; }
+}
+
+@media (min-width: 900px) and (max-width: 1280px) and (max-height: 720px) and (orientation: landscape) {
+  .welcome-page { overflow-x: hidden; overflow-y: auto; }
+  .top-bar { height: 70px; }
+  .top-bar .brand img { height: 42px; }
+  .hero-text { padding-top: 10vh; padding-left: 6vw; }
+  .hero-text .line { font-size: clamp(2.2rem, 7vw, 5.2rem); line-height: 0.98; }
+  .hero-text .l2, .hero-text .l3, .hero-text .l4 { margin-top: 0.6vh; }
+  .cta-group { margin-top: 1.2rem; padding-left: 6vw; gap: 0.9rem; flex-direction: row; align-items: center; flex-wrap: wrap; }
+  .cta-main { font-size: 1.05rem; padding: 0.85rem 2.1rem; white-space: nowrap; }
+  .marquee { height: 32px; }
+  .marquee-track span { font-size: 0.9rem; }
+  .side-img.left, .side-img.right { width: 30vw; }
+  .side-img.center { width: 44vw; top: 45%; }
+}
