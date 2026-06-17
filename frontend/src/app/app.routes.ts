@@ -22,7 +22,7 @@ import { EnConstruccion } from './shared/pages/en-construccion/en-construccion';
 
 export const routes: Routes = [
   { path: 'welcome', component: Welcome },
-  { path: 'menus', canActivate: [BlockedRouteGuard], component: MenusPage },
+  { path: 'menus', component: MenusPage },
   { path: 'carta', component: CartaPage },
   { path: 'eventos', component: EventosPage },
   {

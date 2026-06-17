@@ -1,3 +1,17 @@
+.menus-dia {
+  text-align: center;
+  padding: 3rem 1rem 1rem;
+  margin-bottom: 3rem;
+
+  h1 {
+    font-size: 2rem;
+    color: var(--color-text);
+    margin-bottom: 2rem;
+    text-shadow: 0 1px 3px var(--color-shadow);
+    font-family: var(--font-heading);
+  }
+}
+
 .menus-navidad {
   text-align: center;
   padding: 3rem 1rem;
@@ -41,6 +55,19 @@
     height: auto;
     border-radius: 10px;
     display: block;
+  }
+
+  .menu-titulo {
+    margin-top: 0.8rem;
+    font-size: 1.1rem;
+    color: var(--color-accent);
+    font-family: var(--font-heading);
+  }
+
+  .menu-precio {
+    margin-top: 0.3rem;
+    font-size: 1rem;
+    color: var(--color-text);
   }
 }
 

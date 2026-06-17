@@ -2,12 +2,13 @@
   <app-header-mini></app-header-mini>
 </header>
 
-<section class="menus-navidad">
-  <h1>Menús de Navidad 2025</h1>
-
+<section class="menus-dia">
+  <h1>Nuestros Menús</h1>
   <div class="menus-grid">
-    <div class="menu-item" *ngFor="let img of menus">
-      <img [src]="img" alt="Menú Navidad" (click)="abrirModal(img)" />
+    <div class="menu-item" *ngFor="let menu of menusDia" (click)="abrirModal(menu.imagen)">
+      <img [src]="menu.imagen" [alt]="menu.titulo" />
+      <h3 class="menu-titulo">{{ menu.titulo }}</h3>
+      <p class="menu-precio">{{ menu.precio }}</p>
     </div>
   </div>
 </section>

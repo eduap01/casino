@@ -19,6 +19,14 @@ export class MenusPage implements OnInit {
     'https://casinorockbar.com/media/menus/menu29.webp'
   ];
 
+  menusDia = [
+    { imagen: 'https://casinorockbar.com/media/menus/menu_otis.jpg',  titulo: 'Menú Otis',  precio: '16€',  descripcion: '' },
+    { imagen: 'https://casinorockbar.com/media/menus/menu_elvis.jpg', titulo: 'Menú Elvis', precio: '22€',  descripcion: '' },
+    { imagen: 'https://casinorockbar.com/media/menus/menu_janis.jpg', titulo: 'Menú Janis', precio: '27€',  descripcion: '' },
+    { imagen: 'https://casinorockbar.com/media/menus/menu_freddie.jpg', titulo: 'Menú Freddie', precio: '33€',  descripcion: '' },
+    { imagen: 'https://casinorockbar.com/media/menus/menu_tina.jpg',  titulo: 'Menú Tina',  precio: '36€',  descripcion: '' },
+  ];
+
   constructor(private seo: SeoService) {}
 
   ngOnInit(): void {
