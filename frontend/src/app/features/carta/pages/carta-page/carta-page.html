@@ -7,11 +7,11 @@
 
 <!-- Submenú con botones -->
 <div class="subnav text-center mb-4">
+  <button class="btn btn-thematic m-1" (click)="scrollTo('especiales')">
+    <lucide-icon name="star" class="icon"></lucide-icon> Especiales
+  </button>
   <button class="btn btn-thematic m-1" (click)="scrollTo('compartir')">
     <lucide-icon name="handshake" class="icon"></lucide-icon> Compartir
-  </button>
-  <button class="btn btn-thematic m-1" (click)="scrollTo('ensaladas')">
-    <lucide-icon name="salad" class="icon"></lucide-icon> Ensaladas
   </button>
   <button class="btn btn-thematic m-1" (click)="scrollTo('zipotes')">
     <lucide-icon name="sandwich" class="icon"></lucide-icon> Zipotes
@@ -31,6 +31,9 @@
   <button class="btn btn-thematic m-1" (click)="scrollTo('perritos')">
     <lucide-icon name="sandwich" class="icon"></lucide-icon> Perritos
   </button>
+  <button class="btn btn-thematic m-1" (click)="scrollTo('ensaladas')">
+    <lucide-icon name="salad" class="icon"></lucide-icon> Ensaladas
+  </button>
   <button class="btn btn-thematic m-1" (click)="scrollTo('postres')">
     <lucide-icon name="cake-slice" class="icon"></lucide-icon> Postres
   </button>
@@ -49,12 +52,12 @@
 </div>
 
 
-<section id="compartir">
-  <app-compartir></app-compartir>
+<section id="especiales">
+  <app-especiales></app-especiales>
 </section>
 
-<section id="ensaladas">
-  <app-ensaladas></app-ensaladas>
+<section id="compartir">
+  <app-compartir></app-compartir>
 </section>
 
 <section id="zipotes">
@@ -81,6 +84,10 @@
   <app-perritos></app-perritos>
 </section>
 
+<section id="ensaladas">
+  <app-ensaladas></app-ensaladas>
+</section>
+
 <section id="postres">
   <app-postres></app-postres>
 </section>
@@ -102,6 +109,7 @@
 <section id="cafes" class="mb-5">
   <app-cafes></app-cafes>
 </section>
+
 
 <!-- SECCIONES INACTIVAS (conservadas para uso futuro) -->
 <!--

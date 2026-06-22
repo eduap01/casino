@@ -20,6 +20,7 @@
   width: 100%;
   height: 100%;
   position: relative;
+  z-index: 0; /* stacking context explícito: encierra z-indices de imágenes dentro */
 }
 
 .hero-content {
@@ -32,7 +33,7 @@
 
 .side-img {
   position: absolute;
-  z-index: 2;
+  z-index: 1; /* dentro del stacking context de .hero (z-index: 0) */
   filter: blur(0.5px) brightness(0.90);
   opacity: 0.90;
   border-radius: 12px;
@@ -176,7 +177,7 @@
 }
 
 .marquee {
-  position: absolute;
+  position: absolute; /* necesita position != static para que z-index tenga efecto */
   bottom: 0;
   width: 100%;
   overflow: hidden;
@@ -184,7 +185,7 @@
   height: 40px;
   display: flex;
   align-items: center;
-  z-index: 60;
+  z-index: 10; /* por encima de .hero (z-index: 0) en el contexto raíz */
   padding-bottom: env(safe-area-inset-bottom);
 }
 
