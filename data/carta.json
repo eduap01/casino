@@ -1,0 +1,93 @@
+[
+  {
+    "id": "c0000000-0000-0000-0000-000000000001",
+    "nombre": "Especiales",
+    "orden": 1,
+    "activa": true,
+    "platos": []
+  },
+  {
+    "id": "c0000000-0000-0000-0000-000000000002",
+    "nombre": "Compartir es Vivir",
+    "orden": 2,
+    "activa": true,
+    "platos": []
+  },
+  {
+    "id": "c0000000-0000-0000-0000-000000000003",
+    "nombre": "Zipotes",
+    "orden": 3,
+    "activa": true,
+    "platos": []
+  },
+  {
+    "id": "c0000000-0000-0000-0000-000000000004",
+    "nombre": "Molletes",
+    "orden": 4,
+    "activa": true,
+    "platos": []
+  },
+  {
+    "id": "c0000000-0000-0000-0000-000000000005",
+    "nombre": "Tostas",
+    "orden": 5,
+    "activa": true,
+    "platos": []
+  },
+  {
+    "id": "c0000000-0000-0000-0000-000000000006",
+    "nombre": "Hamburguesas",
+    "orden": 6,
+    "activa": true,
+    "platos": []
+  },
+  {
+    "id": "c0000000-0000-0000-0000-000000000007",
+    "nombre": "S\u00e1ndwiches",
+    "orden": 7,
+    "activa": true,
+    "platos": []
+  },
+  {
+    "id": "c0000000-0000-0000-0000-000000000008",
+    "nombre": "Perritos",
+    "orden": 8,
+    "activa": true,
+    "platos": []
+  },
+  {
+    "id": "c0000000-0000-0000-0000-000000000009",
+    "nombre": "Ensaladas",
+    "orden": 9,
+    "activa": true,
+    "platos": []
+  },
+  {
+    "id": "c0000000-0000-0000-0000-000000000010",
+    "nombre": "Postres",
+    "orden": 10,
+    "activa": true,
+    "platos": []
+  },
+  {
+    "id": "c0000000-0000-0000-0000-000000000011",
+    "nombre": "Batidos",
+    "orden": 11,
+    "activa": true,
+    "platos": []
+  },
+  {
+    "id": "c0000000-0000-0000-0000-000000000012",
+    "nombre": "C\u00f3cteles",
+    "orden": 12,
+    "activa": true,
+    "platos": []
+  },
+  {
+    "id": "c0000000-0000-0000-0000-000000000013",
+    "nombre": "Caf\u00e9s especiales",
+    "orden": 13,
+    "activa": true,
+    "platos": []
+  }
+]

@@ -4,127 +4,33 @@
 
 <h3 class="text-center mb-4">¡Bienvenidos a la carta de Casino!</h3>
 
-
-<!-- Submenú con botones -->
+<!-- Submenú dinámico -->
 <div class="subnav text-center mb-4">
-  <button class="btn btn-thematic m-1" (click)="scrollTo('especiales')">
-    <lucide-icon name="star" class="icon"></lucide-icon> Especiales
-  </button>
-  <button class="btn btn-thematic m-1" (click)="scrollTo('compartir')">
-    <lucide-icon name="handshake" class="icon"></lucide-icon> Compartir
-  </button>
-  <button class="btn btn-thematic m-1" (click)="scrollTo('zipotes')">
-    <lucide-icon name="sandwich" class="icon"></lucide-icon> Zipotes
-  </button>
-  <button class="btn btn-thematic m-1" (click)="scrollTo('molletes')">
-    <lucide-icon name="hamburger" class="icon"></lucide-icon> Molletes
-  </button>
-  <button class="btn btn-thematic m-1" (click)="scrollTo('tostas')">
-    <lucide-icon name="sandwich" class="icon"></lucide-icon> Tostas
-  </button>
-  <button class="btn btn-thematic m-1" (click)="scrollTo('hamburguesas')">
-    <lucide-icon name="hamburger" class="icon"></lucide-icon> Hamburguesas
-  </button>
-  <button class="btn btn-thematic m-1" (click)="scrollTo('sandwiches')">
-    <lucide-icon name="sandwich" class="icon"></lucide-icon> Sándwiches
-  </button>
-  <button class="btn btn-thematic m-1" (click)="scrollTo('perritos')">
-    <lucide-icon name="sandwich" class="icon"></lucide-icon> Perritos
-  </button>
-  <button class="btn btn-thematic m-1" (click)="scrollTo('ensaladas')">
-    <lucide-icon name="salad" class="icon"></lucide-icon> Ensaladas
-  </button>
-  <button class="btn btn-thematic m-1" (click)="scrollTo('postres')">
-    <lucide-icon name="cake-slice" class="icon"></lucide-icon> Postres
-  </button>
-  <button class="btn btn-thematic m-1" (click)="scrollTo('helados')">
-    <lucide-icon name="ice-cream-bowl" class="icon"></lucide-icon> Helados
-  </button>
-  <button class="btn btn-thematic m-1" (click)="scrollTo('batidos')">
-    <lucide-icon name="cup-soda" class="icon"></lucide-icon> Batidos
-  </button>
-  <button class="btn btn-thematic m-1" (click)="scrollTo('cocteles')">
-    <lucide-icon name="wine" class="icon"></lucide-icon> Cócteles
-  </button>
-  <button class="btn btn-thematic m-1" (click)="scrollTo('cafes')">
-    <lucide-icon name="coffee" class="icon"></lucide-icon> Cafés
+  <button
+    class="btn btn-thematic m-1"
+    *ngFor="let seccion of secciones"
+    (click)="scrollTo(seccion.id)">
+    {{ seccion.nombre }}
   </button>
 </div>
 
-
-<section id="especiales">
-  <app-especiales></app-especiales>
+<!-- Secciones dinámicas -->
+<section
+  *ngFor="let seccion of secciones"
+  [id]="seccion.id"
+  class="mb-5">
+  <h4 class="text-center mb-3">{{ seccion.nombre }}</h4>
+  <div *ngFor="let plato of seccion.platos">
+    <app-plato-item
+      [nombre]="plato.nombre"
+      [precio]="plato.precio"
+      [descripcion]="plato.descripcion"
+      [iconos]="plato.iconos">
+    </app-plato-item>
+  </div>
+  <p *ngIf="seccion.platos.length === 0" class="text-center text-muted fst-italic">
+    Próximamente...
+  </p>
 </section>
-
-<section id="compartir">
-  <app-compartir></app-compartir>
-</section>
-
-<section id="zipotes">
-  <app-zipotes></app-zipotes>
-</section>
-
-<section id="molletes">
-  <app-molletes></app-molletes>
-</section>
-
-<section id="tostas">
-  <app-tostas></app-tostas>
-</section>
-
-<section id="hamburguesas">
-  <app-hamburguesas></app-hamburguesas>
-</section>
-
-<section id="sandwiches">
-  <app-sandwiches></app-sandwiches>
-</section>
-
-<section id="perritos">
-  <app-perritos></app-perritos>
-</section>
-
-<section id="ensaladas">
-  <app-ensaladas></app-ensaladas>
-</section>
-
-<section id="postres">
-  <app-postres></app-postres>
-</section>
-
-<!--
-<section id="helados">
-  <app-helados></app-helados>
-</section>
--->
-
-<section id="batidos">
-  <app-batidos></app-batidos>
-</section>
-
-<section id="cocteles">
-  <app-cocteles></app-cocteles>
-</section>
-
-<section id="cafes" class="mb-5">
-  <app-cafes></app-cafes>
-</section>
-
-
-<!-- SECCIONES INACTIVAS (conservadas para uso futuro) -->
-<!--
-<section id="pizzas">
-  <app-pizzas></app-pizzas>
-</section>
-
-<section id="cervezas">
-  <app-cervezas></app-cervezas>
-</section>
-
-<section id="arroces">
-  <app-arroces></app-arroces>
-</section>
--->
-
 
 <app-back-to-top></app-back-to-top>
