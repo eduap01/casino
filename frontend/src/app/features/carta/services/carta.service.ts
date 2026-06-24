@@ -11,7 +11,9 @@ export class CartaService {
   constructor(private http: HttpClient) {}
 
   getCarta(): Observable<Seccion[]> {
-    return this.http.get<Seccion[]>(this.apiUrl).pipe(
+    return this.http.get<Seccion[]>(this.apiUrl, {
+      headers: { 'Cache-Control': 'no-cache' }
+    }).pipe(
       catchError(() => of([]))
     );
   }
