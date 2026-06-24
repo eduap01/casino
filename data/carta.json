@@ -4,90 +4,803 @@
     "nombre": "Especiales",
     "orden": 1,
     "activa": true,
-    "platos": []
+    "platos": [
+      {
+        "id": "d0000000-0000-0000-0000-000000000001",
+        "seccion_id": "c0000000-0000-0000-0000-000000000001",
+        "nombre": "Carcamusas de la juana",
+        "precio": "10,90\u20ac",
+        "descripcion": "Con mucho love",
+        "iconos": ["https://casinorockbar.com/media/sinGluten.webp"],
+        "orden": 1,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-000000000002",
+        "seccion_id": "c0000000-0000-0000-0000-000000000001",
+        "nombre": "Costijack's",
+        "precio": "12,90\u20ac",
+        "descripcion": "Costillas glaseadas con Jack Daniel's y miel",
+        "iconos": ["https://casinorockbar.com/media/sinGluten.webp"],
+        "orden": 2,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-000000000003",
+        "seccion_id": "c0000000-0000-0000-0000-000000000001",
+        "nombre": "Brochetas de pollo teriyaki",
+        "precio": "10,90\u20ac",
+        "descripcion": "Tacos de pollo marinado con adobo japon\u00e9s y s\u00e9samo",
+        "iconos": [],
+        "orden": 3,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-000000000004",
+        "seccion_id": "c0000000-0000-0000-0000-000000000001",
+        "nombre": "Brochetas de solomillo ib\u00e9rico con verduritas y salsa oriental",
+        "precio": "13,90\u20ac",
+        "descripcion": null,
+        "iconos": [],
+        "orden": 4,
+        "activo": true
+      }
+    ]
   },
   {
     "id": "c0000000-0000-0000-0000-000000000002",
     "nombre": "Compartir es Vivir",
     "orden": 2,
     "activa": true,
-    "platos": []
+    "platos": [
+      {
+        "id": "d0000000-0000-0000-0000-000000000005",
+        "seccion_id": "c0000000-0000-0000-0000-000000000002",
+        "nombre": "Nachos",
+        "precio": "10,90\u20ac",
+        "descripcion": "Quesos fundidos, guacamole, beicon crispy y salsa ranchera",
+        "iconos": ["https://casinorockbar.com/media/sinGluten.webp"],
+        "orden": 1,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-000000000006",
+        "seccion_id": "c0000000-0000-0000-0000-000000000002",
+        "nombre": "Patatas rancheras",
+        "precio": "10,90\u20ac",
+        "descripcion": "Patatas con tr\u00edo de quesos fundidos, beicon crispy y salsa ranchera",
+        "iconos": ["https://casinorockbar.com/media/sinGluten.webp"],
+        "orden": 2,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-000000000007",
+        "seccion_id": "c0000000-0000-0000-0000-000000000002",
+        "nombre": "Patatas braviolis",
+        "precio": "9,90\u20ac",
+        "descripcion": "Patatas con salsa brava y alioli",
+        "iconos": ["https://casinorockbar.com/media/sinGluten.webp"],
+        "orden": 3,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-000000000008",
+        "seccion_id": "c0000000-0000-0000-0000-000000000002",
+        "nombre": "Pollo popeye",
+        "precio": "9,90\u20ac",
+        "descripcion": "Tiras de pollo crujiente con patatas y, si quieres, alguna salsa",
+        "iconos": [],
+        "orden": 4,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-000000000009",
+        "seccion_id": "c0000000-0000-0000-0000-000000000002",
+        "nombre": "Nuggets con patatas",
+        "precio": "9,90\u20ac",
+        "descripcion": null,
+        "iconos": ["https://casinorockbar.com/media/sinGluten.webp"],
+        "orden": 5,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-00000000000a",
+        "seccion_id": "c0000000-0000-0000-0000-000000000002",
+        "nombre": "Alitas caj\u00fan",
+        "precio": "9,90\u20ac",
+        "descripcion": "Alitas de pollo fritas con especias caj\u00fan",
+        "iconos": [],
+        "orden": 6,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-00000000000b",
+        "seccion_id": "c0000000-0000-0000-0000-000000000002",
+        "nombre": "Queso frito",
+        "precio": "9,90\u20ac",
+        "descripcion": "Con mayobeicon",
+        "iconos": [],
+        "orden": 7,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-00000000000c",
+        "seccion_id": "c0000000-0000-0000-0000-000000000002",
+        "nombre": "Toque\u00f1os de mozarella con barbajagger",
+        "precio": "11,90\u20ac",
+        "descripcion": null,
+        "iconos": [],
+        "orden": 8,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-00000000000d",
+        "seccion_id": "c0000000-0000-0000-0000-000000000002",
+        "nombre": "Croquetas caseras de jam\u00f3n ib\u00e9rico",
+        "precio": "11,90\u20ac",
+        "descripcion": null,
+        "iconos": ["https://casinorockbar.com/media/sinGluten.webp"],
+        "orden": 9,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-00000000000e",
+        "seccion_id": "c0000000-0000-0000-0000-000000000002",
+        "nombre": "Croquetas caseras de rabo de toro",
+        "precio": "11,90\u20ac",
+        "descripcion": null,
+        "iconos": [],
+        "orden": 10,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-00000000000f",
+        "seccion_id": "c0000000-0000-0000-0000-000000000002",
+        "nombre": "Huevos estrellados con jam\u00f3n ib\u00e9rico",
+        "precio": "12,90\u20ac",
+        "descripcion": null,
+        "iconos": ["https://casinorockbar.com/media/sinGluten.webp"],
+        "orden": 11,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-000000000010",
+        "seccion_id": "c0000000-0000-0000-0000-000000000002",
+        "nombre": "Huevos estrellados con torreznos",
+        "precio": "11,90\u20ac",
+        "descripcion": null,
+        "iconos": ["https://casinorockbar.com/media/sinGluten.webp"],
+        "orden": 12,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-000000000011",
+        "seccion_id": "c0000000-0000-0000-0000-000000000002",
+        "nombre": "Minutejos a la plancha",
+        "precio": "9,90\u20ac",
+        "descripcion": null,
+        "iconos": [],
+        "orden": 13,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-000000000012",
+        "seccion_id": "c0000000-0000-0000-0000-000000000002",
+        "nombre": "Calamares a la andaluza",
+        "precio": "12,90\u20ac",
+        "descripcion": null,
+        "iconos": [],
+        "orden": 14,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-000000000013",
+        "seccion_id": "c0000000-0000-0000-0000-000000000002",
+        "nombre": "Verduritas en tempura",
+        "precio": "10,90\u20ac",
+        "descripcion": "Con salsa de soja/miel",
+        "iconos": [],
+        "orden": 15,
+        "activo": true
+      }
+    ]
   },
   {
     "id": "c0000000-0000-0000-0000-000000000003",
     "nombre": "Zipotes",
     "orden": 3,
     "activa": true,
-    "platos": []
+    "platos": [
+      {
+        "id": "d0000000-0000-0000-0000-000000000014",
+        "seccion_id": "c0000000-0000-0000-0000-000000000003",
+        "nombre": "Pollo crunchy",
+        "precio": "9,90\u20ac",
+        "descripcion": "Pollo crujiente, beicon, lechuga y salsa C\u00e9sar",
+        "iconos": [],
+        "orden": 1,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-000000000015",
+        "seccion_id": "c0000000-0000-0000-0000-000000000003",
+        "nombre": "Jam\u00f3n y queso",
+        "precio": "6,90\u20ac",
+        "descripcion": "Jam\u00f3n cocido, cheddar y queso tierno",
+        "iconos": [],
+        "orden": 2,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-000000000016",
+        "seccion_id": "c0000000-0000-0000-0000-000000000003",
+        "nombre": "Zipoburger",
+        "precio": "12,90\u20ac",
+        "descripcion": "Doble de carne smash, doble de queso, doble de beicon, lechuga, tomate, cebolla crispy y salsa especial",
+        "iconos": [],
+        "orden": 3,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-000000000017",
+        "seccion_id": "c0000000-0000-0000-0000-000000000003",
+        "nombre": "Zipote Zipolla",
+        "precio": "9,90\u20ac",
+        "descripcion": "Pollo asado deshilachado con tr\u00edo de quesos, cebolla encurtida y salsa yakichera",
+        "iconos": [],
+        "orden": 4,
+        "activo": true
+      }
+    ]
   },
   {
     "id": "c0000000-0000-0000-0000-000000000004",
     "nombre": "Molletes",
     "orden": 4,
     "activa": true,
-    "platos": []
+    "platos": [
+      {
+        "id": "d0000000-0000-0000-0000-000000000018",
+        "seccion_id": "c0000000-0000-0000-0000-000000000004",
+        "nombre": "Beicon",
+        "precio": "7,50\u20ac",
+        "descripcion": "Con queso cheddar y tomate",
+        "iconos": ["https://casinorockbar.com/media/sinGluten.webp"],
+        "orden": 1,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-000000000019",
+        "seccion_id": "c0000000-0000-0000-0000-000000000004",
+        "nombre": "Pollo a la plancha",
+        "precio": "7,50\u20ac",
+        "descripcion": "Con lechuga y guacamole",
+        "iconos": ["https://casinorockbar.com/media/sinGluten.webp"],
+        "orden": 2,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-00000000001a",
+        "seccion_id": "c0000000-0000-0000-0000-000000000004",
+        "nombre": "Secreto ib\u00e9rico",
+        "precio": "8,90\u20ac",
+        "descripcion": "Con queso cabrales y pimientos del piquillo",
+        "iconos": ["https://casinorockbar.com/media/sinGluten.webp"],
+        "orden": 3,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-00000000001b",
+        "seccion_id": "c0000000-0000-0000-0000-000000000004",
+        "nombre": "Philly steak",
+        "precio": "8,90\u20ac",
+        "descripcion": "Ternera glaseada, queso fundido y cebolla caramelizada",
+        "iconos": ["https://casinorockbar.com/media/sinGluten.webp"],
+        "orden": 4,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-00000000001c",
+        "seccion_id": "c0000000-0000-0000-0000-000000000004",
+        "nombre": "Jam\u00f3n ib\u00e9rico",
+        "precio": "7,90\u20ac",
+        "descripcion": "Con salmorejo",
+        "iconos": ["https://casinorockbar.com/media/sinGluten.webp"],
+        "orden": 5,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-00000000001d",
+        "seccion_id": "c0000000-0000-0000-0000-000000000004",
+        "nombre": "Pulled pork",
+        "precio": "8,90\u20ac",
+        "descripcion": "Carne de cerdo deshilachada con cebolla roja encurtida y salsa barbacoa 'By Dudu'",
+        "iconos": ["https://casinorockbar.com/media/sinGluten.webp"],
+        "orden": 6,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-00000000001e",
+        "seccion_id": "c0000000-0000-0000-0000-000000000004",
+        "nombre": "Calamares",
+        "precio": "7,90\u20ac",
+        "descripcion": "Con alioli",
+        "iconos": [],
+        "orden": 7,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-00000000001f",
+        "seccion_id": "c0000000-0000-0000-0000-000000000004",
+        "nombre": "Niki Lauda",
+        "precio": "7,90\u20ac",
+        "descripcion": "Oreja con costra y salsa brava casera",
+        "iconos": ["https://casinorockbar.com/media/sinGluten.webp"],
+        "orden": 8,
+        "activo": true
+      }
+    ]
   },
   {
     "id": "c0000000-0000-0000-0000-000000000005",
     "nombre": "Tostas",
     "orden": 5,
     "activa": true,
-    "platos": []
+    "platos": [
+      {
+        "id": "d0000000-0000-0000-0000-000000000020",
+        "seccion_id": "c0000000-0000-0000-0000-000000000005",
+        "nombre": "Cecina ahumada",
+        "precio": "8,90\u20ac",
+        "descripcion": "Cecina ahumada, queso ricotta, mermelada casera y aceite de Esquivias",
+        "iconos": [],
+        "orden": 1,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-000000000021",
+        "seccion_id": "c0000000-0000-0000-0000-000000000005",
+        "nombre": "Solomillo de cerdo",
+        "precio": "8,90\u20ac",
+        "descripcion": "Escalivada de pimientos y setas con salsa barbacoa japonesa y parmesano",
+        "iconos": [],
+        "orden": 2,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-000000000022",
+        "seccion_id": "c0000000-0000-0000-0000-000000000005",
+        "nombre": "Salm\u00f3n ahumado",
+        "precio": "8,90\u20ac",
+        "descripcion": "Crema de queso y guacamole, rodajas de tomate y lechuga",
+        "iconos": [],
+        "orden": 3,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-000000000023",
+        "seccion_id": "c0000000-0000-0000-0000-000000000005",
+        "nombre": "Pollo",
+        "precio": "8,90\u20ac",
+        "descripcion": "Sobrasada con pollo marinado, queso de cabra, cebolla crujiente y mayobeicon",
+        "iconos": [],
+        "orden": 4,
+        "activo": true
+      }
+    ]
   },
   {
     "id": "c0000000-0000-0000-0000-000000000006",
     "nombre": "Hamburguesas",
     "orden": 6,
     "activa": true,
-    "platos": []
+    "platos": [
+      {
+        "id": "d0000000-0000-0000-0000-000000000024",
+        "seccion_id": "c0000000-0000-0000-0000-000000000006",
+        "nombre": "Tradicional",
+        "precio": "11,90\u20ac",
+        "descripcion": "Carne, queso, beicon, lechuga y tomate",
+        "iconos": ["https://casinorockbar.com/media/sinGluten.webp"],
+        "orden": 1,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-000000000025",
+        "seccion_id": "c0000000-0000-0000-0000-000000000006",
+        "nombre": "Casino",
+        "precio": "12,90\u20ac",
+        "descripcion": "Carne, queso de cabra, beicon, cebolla caramelizada, lechuga y tomate",
+        "iconos": ["https://casinorockbar.com/media/sinGluten.webp"],
+        "orden": 2,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-000000000026",
+        "seccion_id": "c0000000-0000-0000-0000-000000000006",
+        "nombre": "Pollo a la plancha",
+        "precio": "10,90\u20ac",
+        "descripcion": "Pechuga de pollo, beicon, queso, lechuga y tomate",
+        "iconos": ["https://casinorockbar.com/media/sinGluten.webp"],
+        "orden": 3,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-000000000027",
+        "seccion_id": "c0000000-0000-0000-0000-000000000006",
+        "nombre": "Crispy Chicken XL",
+        "precio": "10,90\u20ac",
+        "descripcion": "Pollo crujiente con cereales, lechuga, tomate, beicon y queso",
+        "iconos": [],
+        "orden": 4,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-000000000028",
+        "seccion_id": "c0000000-0000-0000-0000-000000000006",
+        "nombre": "Crispy Chicken Kid",
+        "precio": "9,90\u20ac",
+        "descripcion": "Pollo crujiente con cereales, lechuga, tomate, beicon y queso",
+        "iconos": [],
+        "orden": 5,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-000000000029",
+        "seccion_id": "c0000000-0000-0000-0000-000000000006",
+        "nombre": "Vegana",
+        "precio": "12,90\u20ac",
+        "descripcion": "A base de guisantes, esp\u00e1rragos blancos, lechuga, tomate y cebolla",
+        "iconos": ["https://casinorockbar.com/media/sinGluten.webp"],
+        "orden": 6,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-00000000002a",
+        "seccion_id": "c0000000-0000-0000-0000-000000000006",
+        "nombre": "Smash Burger Ali-Up",
+        "precio": "12,90\u20ac",
+        "descripcion": "200g de carne en dos medallones crujientes y jugosos, doble de beicon, doble de cheddar y salsa especial \"All-up\"",
+        "iconos": ["https://casinorockbar.com/media/sinGluten.webp"],
+        "orden": 7,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-00000000002b",
+        "seccion_id": "c0000000-0000-0000-0000-000000000006",
+        "nombre": "Ander's",
+        "precio": "12,90\u20ac",
+        "descripcion": "Lechuga, tomate, doble de carne smash, queso, beicon y salsa especial ranchera",
+        "iconos": ["https://casinorockbar.com/media/sinGluten.webp"],
+        "orden": 8,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-00000000002c",
+        "seccion_id": "c0000000-0000-0000-0000-000000000006",
+        "nombre": "Trufante",
+        "precio": "12,90\u20ac",
+        "descripcion": "Carne, queso salteado de setas y mahonesa de trufa",
+        "iconos": ["https://casinorockbar.com/media/sinGluten.webp"],
+        "orden": 9,
+        "activo": true
+      }
+    ]
   },
   {
     "id": "c0000000-0000-0000-0000-000000000007",
     "nombre": "S\u00e1ndwiches",
     "orden": 7,
     "activa": true,
-    "platos": []
+    "platos": [
+      {
+        "id": "d0000000-0000-0000-0000-00000000002d",
+        "seccion_id": "c0000000-0000-0000-0000-000000000007",
+        "nombre": "Club",
+        "precio": "10,90\u20ac",
+        "descripcion": "Pollo a la plancha, beicon, huevo frito, lechuga, tomate, jam\u00f3n cocido, queso",
+        "iconos": ["https://casinorockbar.com/media/sinGluten.webp"],
+        "orden": 1,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-00000000002e",
+        "seccion_id": "c0000000-0000-0000-0000-000000000007",
+        "nombre": "Salm\u00f3n",
+        "precio": "10,90\u20ac",
+        "descripcion": "Salm\u00f3n ahumado, lechuga, tomate, cebolla roja y mayo de pepinillos",
+        "iconos": ["https://casinorockbar.com/media/sinGluten.webp"],
+        "orden": 2,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-00000000002f",
+        "seccion_id": "c0000000-0000-0000-0000-000000000007",
+        "nombre": "Mixto",
+        "precio": "6,50\u20ac",
+        "descripcion": "Jam\u00f3n cocido y queso tierno en tres pisos",
+        "iconos": ["https://casinorockbar.com/media/sinGluten.webp"],
+        "orden": 3,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-000000000030",
+        "seccion_id": "c0000000-0000-0000-0000-000000000007",
+        "nombre": "Vegetal",
+        "precio": "6,50\u20ac",
+        "descripcion": "Lechuga, tomate, esp\u00e1rragos, pepinillos y aguacate",
+        "iconos": ["https://casinorockbar.com/media/sinGluten.webp"],
+        "orden": 4,
+        "activo": true
+      }
+    ]
   },
   {
     "id": "c0000000-0000-0000-0000-000000000008",
     "nombre": "Perritos",
     "orden": 8,
     "activa": true,
-    "platos": []
+    "platos": [
+      {
+        "id": "d0000000-0000-0000-0000-000000000031",
+        "seccion_id": "c0000000-0000-0000-0000-000000000008",
+        "nombre": "Tradicional",
+        "precio": "6,90\u20ac",
+        "descripcion": "Salchicha XL con queso, beicon crispy y cebolla crujiente",
+        "iconos": [],
+        "orden": 1,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-000000000032",
+        "seccion_id": "c0000000-0000-0000-0000-000000000008",
+        "nombre": "Casino",
+        "precio": "7,50\u20ac",
+        "descripcion": "Salchicha XL con carne deshilachada, cebolla roja encurtida y barbacoa",
+        "iconos": [],
+        "orden": 2,
+        "activo": true
+      }
+    ]
   },
   {
     "id": "c0000000-0000-0000-0000-000000000009",
     "nombre": "Ensaladas",
     "orden": 9,
     "activa": true,
-    "platos": []
+    "platos": [
+      {
+        "id": "d0000000-0000-0000-0000-000000000033",
+        "seccion_id": "c0000000-0000-0000-0000-000000000009",
+        "nombre": "Ensalada Augusto",
+        "precio": "11,90\u20ac",
+        "descripcion": "Lechugas, pollo crujiente, parmesano, nueces, picatostes, beicon crispy y salsa estilo C\u00e9sar",
+        "iconos": ["https://casinorockbar.com/media/sinGluten.webp"],
+        "orden": 1,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-000000000034",
+        "seccion_id": "c0000000-0000-0000-0000-000000000009",
+        "nombre": "Ensalada Cabruna",
+        "precio": "11,90\u20ac",
+        "descripcion": "Lechugas, queso de cabra a la plancha, tomate y mermelada de beicon",
+        "iconos": [],
+        "orden": 2,
+        "activo": true
+      }
+    ]
   },
   {
     "id": "c0000000-0000-0000-0000-000000000010",
     "nombre": "Postres",
     "orden": 10,
     "activa": true,
-    "platos": []
+    "platos": [
+      {
+        "id": "d0000000-0000-0000-0000-000000000035",
+        "seccion_id": "c0000000-0000-0000-0000-000000000010",
+        "nombre": "Gofre",
+        "precio": "4,50\u20ac",
+        "descripcion": "Con nata y sirope",
+        "iconos": [],
+        "orden": 1,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-000000000036",
+        "seccion_id": "c0000000-0000-0000-0000-000000000010",
+        "nombre": "Tortitas",
+        "precio": "4,50\u20ac",
+        "descripcion": "Con nata y sirope",
+        "iconos": [],
+        "orden": 2,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-000000000037",
+        "seccion_id": "c0000000-0000-0000-0000-000000000010",
+        "nombre": "Brownie",
+        "precio": "6,00\u20ac",
+        "descripcion": null,
+        "iconos": [],
+        "orden": 3,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-000000000038",
+        "seccion_id": "c0000000-0000-0000-0000-000000000010",
+        "nombre": "Coulant",
+        "precio": "6,00\u20ac",
+        "descripcion": null,
+        "iconos": [],
+        "orden": 4,
+        "activo": true
+      }
+    ]
   },
   {
     "id": "c0000000-0000-0000-0000-000000000011",
     "nombre": "Batidos",
     "orden": 11,
     "activa": true,
-    "platos": []
+    "platos": [
+      {
+        "id": "d0000000-0000-0000-0000-000000000039",
+        "seccion_id": "c0000000-0000-0000-0000-000000000011",
+        "nombre": "Fresa",
+        "precio": "5,80\u20ac",
+        "descripcion": "Con nata montada y siropes",
+        "iconos": [],
+        "orden": 1,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-00000000003a",
+        "seccion_id": "c0000000-0000-0000-0000-000000000011",
+        "nombre": "Vainilla",
+        "precio": "5,80\u20ac",
+        "descripcion": "Con nata montada y siropes",
+        "iconos": [],
+        "orden": 2,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-00000000003b",
+        "seccion_id": "c0000000-0000-0000-0000-000000000011",
+        "nombre": "Chocolate",
+        "precio": "5,80\u20ac",
+        "descripcion": "Con nata montada y siropes",
+        "iconos": [],
+        "orden": 3,
+        "activo": true
+      }
+    ]
   },
   {
     "id": "c0000000-0000-0000-0000-000000000012",
     "nombre": "C\u00f3cteles",
     "orden": 12,
     "activa": true,
-    "platos": []
+    "platos": [
+      {
+        "id": "d0000000-0000-0000-0000-00000000003c",
+        "seccion_id": "c0000000-0000-0000-0000-000000000012",
+        "nombre": "Mojito tradicional",
+        "precio": "7,50\u20ac",
+        "descripcion": null,
+        "iconos": [],
+        "orden": 1,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-00000000003d",
+        "seccion_id": "c0000000-0000-0000-0000-000000000012",
+        "nombre": "Mojito de fresas",
+        "precio": "7,50\u20ac",
+        "descripcion": null,
+        "iconos": [],
+        "orden": 2,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-00000000003e",
+        "seccion_id": "c0000000-0000-0000-0000-000000000012",
+        "nombre": "Pi\u00f1a colada",
+        "precio": "7,50\u20ac",
+        "descripcion": null,
+        "iconos": [],
+        "orden": 3,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-00000000003f",
+        "seccion_id": "c0000000-0000-0000-0000-000000000012",
+        "nombre": "Caipiri\u00f1a",
+        "precio": "7,50\u20ac",
+        "descripcion": null,
+        "iconos": [],
+        "orden": 4,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-000000000040",
+        "seccion_id": "c0000000-0000-0000-0000-000000000012",
+        "nombre": "Agua de Valencia",
+        "precio": "7,50\u20ac",
+        "descripcion": null,
+        "iconos": [],
+        "orden": 5,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-000000000041",
+        "seccion_id": "c0000000-0000-0000-0000-000000000012",
+        "nombre": "Sobertool",
+        "precio": "4,90\u20ac",
+        "descripcion": "Sin alcohol. Zumo de lima, menta y mel\u00f3n",
+        "iconos": [],
+        "orden": 6,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-000000000042",
+        "seccion_id": "c0000000-0000-0000-0000-000000000012",
+        "nombre": "Kasin0%",
+        "precio": "4,90\u20ac",
+        "descripcion": "Sin alcohol. Zumo multifrutas, granadina y kiwi",
+        "iconos": [],
+        "orden": 7,
+        "activo": true
+      }
+    ]
   },
   {
     "id": "c0000000-0000-0000-0000-000000000013",
     "nombre": "Caf\u00e9s especiales",
     "orden": 13,
     "activa": true,
-    "platos": []
+    "platos": [
+      {
+        "id": "d0000000-0000-0000-0000-000000000043",
+        "seccion_id": "c0000000-0000-0000-0000-000000000013",
+        "nombre": "Frapp\u00e9",
+        "precio": "3,90\u20ac",
+        "descripcion": null,
+        "iconos": [],
+        "orden": 1,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-000000000044",
+        "seccion_id": "c0000000-0000-0000-0000-000000000013",
+        "nombre": "Blanco y negro",
+        "precio": "4,90\u20ac",
+        "descripcion": null,
+        "iconos": [],
+        "orden": 2,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-000000000045",
+        "seccion_id": "c0000000-0000-0000-0000-000000000013",
+        "nombre": "Irland\u00e9s",
+        "precio": "6,90\u20ac",
+        "descripcion": null,
+        "iconos": [],
+        "orden": 3,
+        "activo": true
+      },
+      {
+        "id": "d0000000-0000-0000-0000-000000000046",
+        "seccion_id": "c0000000-0000-0000-0000-000000000013",
+        "nombre": "Ice coffee",
+        "precio": "4,50\u20ac",
+        "descripcion": null,
+        "iconos": [],
+        "orden": 4,
+        "activo": true
+      }
+    ]
   }
 ]
