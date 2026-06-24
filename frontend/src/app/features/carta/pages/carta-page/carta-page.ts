@@ -9,6 +9,7 @@ import { PlatoItem } from '../../components/plato-item/plato-item';
 import { SeoService } from '../../../../shared/seo.service';
 import { CartaService } from '../../services/carta.service';
 import { Seccion } from '../../models/carta.model';
+import { LucideAngularModule } from 'lucide-angular';
 
 @Component({
   selector: 'app-carta-page',
@@ -19,12 +20,33 @@ import { Seccion } from '../../models/carta.model';
     HeaderMini,
     BackToTop,
     PlatoItem,
+    LucideAngularModule,
   ],
   templateUrl: './carta-page.html',
   styleUrl: './carta-page.scss'
 })
 export class CartaPage implements OnInit {
   secciones: Seccion[] = [];
+
+  private iconos: Record<string, string> = {
+    'Especiales': 'star',
+    'Compartir es Vivir': 'handshake',
+    'Zipotes': 'sandwich',
+    'Molletes': 'hamburger',
+    'Tostas': 'sandwich',
+    'Hamburguesas': 'hamburger',
+    'Sándwiches': 'sandwich',
+    'Perritos': 'sandwich',
+    'Ensaladas': 'salad',
+    'Postres': 'cake-slice',
+    'Batidos': 'cup-soda',
+    'Cócteles': 'wine',
+    'Cafés especiales': 'coffee',
+  };
+
+  getIcono(nombre: string): string {
+    return this.iconos[nombre] ?? 'utensils';
+  }
 
   constructor(private seo: SeoService, private cartaService: CartaService) {}
 

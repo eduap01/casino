@@ -10,7 +10,7 @@
     class="btn btn-thematic m-1"
     *ngFor="let seccion of secciones"
     (click)="scrollTo(seccion.id)">
-    {{ seccion.nombre }}
+    <lucide-icon [name]="getIcono(seccion.nombre)" class="icon"></lucide-icon> {{ seccion.nombre }}
   </button>
 </div>
 
