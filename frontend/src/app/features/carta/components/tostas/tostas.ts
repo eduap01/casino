@@ -6,8 +6,7 @@ import { LucideAngularModule } from 'lucide-angular';
   selector: 'app-tostas',
   standalone: true,
   imports: [PlatoItem, LucideAngularModule],
-  templateUrl: './tostas.html',
-  styleUrl: './tostas.scss'
+  template: ''
 })
 export class Tostas {
 
