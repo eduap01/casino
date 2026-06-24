@@ -19,7 +19,10 @@
   *ngFor="let seccion of secciones"
   [id]="seccion.id"
   class="mb-5">
-  <h4 class="text-center mb-3">{{ seccion.nombre }}</h4>
+  <h2>
+    <lucide-icon [name]="getIcono(seccion.nombre)" class="icon"></lucide-icon>
+    {{ seccion.nombre }}
+  </h2>
   <div *ngFor="let plato of seccion.platos">
     <app-plato-item
       [nombre]="plato.nombre"
