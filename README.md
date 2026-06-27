@@ -205,9 +205,3 @@ casino/
 └── docker-compose.yml
 ```
 
----
-
-## Autor
-
-Proyecto desarrollado como aplicación real para **Casino Rock Bar** (Esquivias, Toledo).
-Arquitectura, diseño e implementación completos: frontend Angular + backend FastAPI + infraestructura Docker.
