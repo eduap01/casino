@@ -1,6 +1,6 @@
 # Casino Rock Bar — Web oficial
 
-> Aplicación web completa para un restaurante y rock bar en Esquivias (Toledo).
+> Aplicación web completa para un restaurante en Toledo.
 > Carta digital dinámica, cartelera de eventos, reservas con doble confirmación por email, pantalla de TV y más.
 
 ---
