@@ -162,28 +162,6 @@ uvicorn backend.main:app --reload --port 8000
 
 ---
 
-## Variables de entorno
-
-Crea `backend/.env` con las siguientes variables:
-
-```env
-SMTP_SERVER=smtp.gmail.com
-SMTP_PORT=587
-SMTP_USERNAME=tu@gmail.com
-SMTP_PASSWORD=tu_app_password
-EMAIL_FROM=tu@gmail.com
-
-API_KEY=tu_clave_secreta_para_la_api
-EMAIL_SECRET_KEY=clave_para_tokens_itsdangerous
-
-BASE_URL=https://tudominio.com
-
-LASTFM_API_KEY=tu_api_key_lastfm
-LASTFM_USERNAME=tu_usuario_lastfm
-```
-
----
-
 ## Estructura del proyecto
 
 ```
