@@ -14,6 +14,7 @@ import { Meta } from '@angular/platform-browser';
 import { interval, Subscription, switchMap, startWith, catchError, of } from 'rxjs';
 
 import { EVENTOS, Evento } from '../../../eventos/data/eventos.data';
+import { EventosService } from '../../../eventos/services/eventos.service';
 import {
   NowPlayingService,
   NowPlaying,
@@ -59,21 +60,26 @@ export class Tv implements OnInit, OnDestroy, AfterViewInit {
 
   constructor(
     private meta: Meta,
-    private nowPlayingService: NowPlayingService
+    private nowPlayingService: NowPlayingService,
+    private eventosService: EventosService
   ) {
     // Bloquea indexación SOLO en esta ruta
     this.meta.updateTag({ name: 'robots', content: 'noindex, nofollow' });
   }
 
   ngOnInit(): void {
-    const tvEventos = (EVENTOS as Evento[]).filter(
-      (e) => e.activo !== false && e.visibleEn.includes('tv')
-    );
+    this.eventosService.getEventos().subscribe(apiEventos => {
+      const apiIds = new Set(apiEventos.map(e => String(e.id)));
+      const staticEventos = (EVENTOS as Evento[]).filter(e => !apiIds.has(String(e.id)));
+      const tvEventos = [...apiEventos, ...staticEventos].filter(
+        (e) => e.activo !== false && e.visibleEn.includes('tv')
+      );
 
-    const upcoming = this.getUpcomingEventos(tvEventos);
-    this.slides = upcoming.length ? upcoming : tvEventos;
+      const upcoming = this.getUpcomingEventos(tvEventos);
+      this.slides = upcoming.length ? upcoming : tvEventos;
 
-    this.preloadImages(this.slides);
+      this.preloadImages(this.slides);
+    });
 
     this.timer = window.setInterval(() => this.next(), this.intervalMs);
 
